@@ -80,11 +80,12 @@ You can contribute in two ways:
 1. Edit `data.md` in a pull request.
 2. Use the **Submit a story** GitHub Issue Form.
 
-The site links visitors to the issue form. Set the repository URL in `config.js` after creating your repository:
+The site links visitors to the issue form. The repository URL is set in `config.js`:
 
 ```js
 window.SITE_CONFIG = {
-  repositoryUrl: "https://github.com/YOUR-USERNAME/ai-hack-watch"
+  repositoryUrl: "https://github.com/agnivesh/ai-hack-watch",
+  siteUrl: "https://agnivesh.github.io/ai-hack-watch"
 };
 ```
 
@@ -151,7 +152,7 @@ Pull requests and pushes also run `.github/workflows/test.yml`, which executes t
 ## Embeddable badge
 
 ```md
-![Days since last AI hack](https://YOUR-USERNAME.github.io/ai-hack-watch/days-since-badge.svg)
+![Days since last AI hack](https://agnivesh.github.io/ai-hack-watch/days-since-badge.svg)
 ```
 
 The badge is regenerated daily (and on every data change). Opened directly in a browser, it also updates itself live from the latest tracked date.
