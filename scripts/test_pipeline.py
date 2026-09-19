@@ -15,6 +15,7 @@ from pathlib import Path
 import datamd
 import generate
 import prerender_timeline as prerender
+import story_bot
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -189,6 +190,141 @@ def stray_markers():
     )
     errors, _ = datamd.validate_entries(datamd.parse_blocks(bad))
     assert any('ends with stray "**"' in error for error in errors), errors
+
+
+@check("story_bot parses and validates a valid issue body")
+def bot_valid():
+    body = """### Article URL
+
+https://example.com/report
+
+### Publication date
+
+2026-08-01
+
+### Source
+
+Example Research
+
+### AI role
+
+Autonomous
+
+### Category
+
+Malware
+
+### Short factual description
+
+A test description of the incident.
+
+### Checks
+
+- [x] Not already in timeline
+
+### Existing Wayback snapshot (optional)
+
+"""
+    fields = story_bot.parse_body(body)
+    assert story_bot.validate(fields) == [], story_bot.validate(fields)
+    entry = story_bot.draft_entry(fields, "Test incident")
+    assert "**Category:** Malware" in entry
+    assert "**Archive:**" in entry
+
+
+@check("story_bot rejects bad dates, roles, and categories")
+def bot_invalid():
+    body = """### Article URL
+
+https://example.com/report
+
+### Publication date
+
+2026/08/01
+
+### Source
+
+Example Research
+
+### AI role
+
+Kwyjibo
+
+### Category
+
+CyberOps
+
+### Short factual description
+
+A test description.
+
+"""
+    fields = story_bot.parse_body(body)
+    errors = story_bot.validate(fields)
+    assert any("date must be YYYY-MM-DD" in e for e in errors), errors
+    assert any("not in the allowed set" in e or "one of" in e for e in errors)
+
+
+@check("story_bot --write appends a valid entry to data.md")
+def bot_write(tmp=None):
+    import tempfile
+    import subprocess
+    with tempfile.TemporaryDirectory() as tmpdir:
+        data_path = Path(tmpdir) / "data.md"
+        data_path.write_text(
+            (ROOT / "data.md").read_text(encoding="utf-8"), encoding="utf-8"
+        )
+        body_path = Path(tmpdir) / "body.md"
+        body_path.write_text(
+            """### Article URL
+
+https://example.com/report
+
+### Publication date
+
+2026-08-01
+
+### Source
+
+Example Research
+
+### AI role
+
+Autonomous
+
+### Category
+
+Malware
+
+### Short factual description
+
+A test description.
+
+""",
+            encoding="utf-8",
+        )
+        result = subprocess.run(
+            [
+                sys.executable,
+                str(ROOT / "scripts" / "story_bot.py"),
+                "--body",
+                str(body_path),
+                "--root",
+                tmpdir,
+                "--number",
+                "42",
+                "--title",
+                "Test incident",
+                "--write",
+            ],
+            capture_output=True,
+            text=True,
+            cwd=ROOT,
+        )
+        assert result.returncode == 0, result.stdout + result.stderr
+        entries = datamd.parse_blocks(data_path.read_text(encoding="utf-8"))
+        assert len(entries) == 22, len(entries)
+        assert (Path(tmpdir) / ".story-pr-body.md").is_file()
 
 
 @check("slugify matches the client-side behaviour (NFKD)")

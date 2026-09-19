@@ -4,11 +4,13 @@ on:
     paths: ["scripts/**", "data.md", "config.js", ".github/workflows/test.yml"]
   pull_request:
     paths: ["scripts/**", "data.md", "config.js"]
+permissions:
+  contents: read
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Run pipeline tests
         run: python3 scripts/test_pipeline.py
       - name: Run contribution validation
