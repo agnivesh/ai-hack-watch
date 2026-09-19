@@ -32,10 +32,11 @@ FEED_PATH = ROOT / "feed.xml"
 USER_AGENT = "ai-hack-watch/1.0"
 ARCHIVE_SAVE_TIMEOUT = 30
 ARCHIVE_CDX_TIMEOUT = 20
-ARCHIVE_URL_RE = re.compile(r"^\*\*URL:\*\*\s*(\S+)", re.M)
-ARCHIVE_FIELD_RE = re.compile(r"^\*\*Archive:\*\*\s*(.*)$", re.M)
-ARCHIVE_FILL_RE = re.compile(r"(^\*\*Archive:\*\*)\s*$", re.M)
+ARCHIVE_URL_RE = re.compile(r"^\*\*URL(?: \d+)?:\*\*[ \t]*(\S+)", re.M)
+ARCHIVE_FIELD_RE = re.compile(r"^\*\*Archive:\*\*[ \t]*(.*)$", re.M)
+ARCHIVE_FILL_RE = re.compile(r"(^\*\*Archive:\*\*)[ \t]*$", re.M)
 WAYBACK_URL_RE = re.compile(r"https?://web\.archive\.org/web/\d+/\S+")
+CONTENT_LOCATION_RE = re.compile(r"^content-location:\s*(.+)$", re.I | re.M)
 
 _BADGE_SCRIPT = """<script><![CDATA[
 var latest=document.documentElement.getAttribute("data-latest");
@@ -65,12 +66,26 @@ def _curl(args, timeout):
 
 
 def request_archive_snapshot(url):
-    """Best-effort Wayback Machine snapshot for url; "" when none is found."""
+    """Best-effort Wayback Machine snapshot for url; "" when none is found.
+
+    The save endpoint announces the new snapshot via the Content-Location
+    response header (not the body), so headers are captured with curl -D.
+    """
     snapshot = ""
     for _ in range(2):  # transient failures on save are common; retry once
-        result = _curl([f"https://web.archive.org/save/{url}"], ARCHIVE_SAVE_TIMEOUT)
+        result = _curl(
+            ["-D", "-", f"https://web.archive.org/save/{url}"], ARCHIVE_SAVE_TIMEOUT
+        )
         if not result:
             continue
+        header = CONTENT_LOCATION_RE.search(result.stdout)
+        if header:
+            location = header.group(1).strip().splitlines()[0].strip()
+            if location.startswith("http"):
+                snapshot = location
+            else:
+                snapshot = "https://web.archive.org" + location
+            break
         match = WAYBACK_URL_RE.search(result.stdout)
         if match:
             snapshot = match.group(0).rstrip('"')
@@ -96,30 +111,34 @@ def request_archive_snapshot(url):
 def archive_missing_links(text):
     """Add Wayback snapshots for incidents whose Archive field is empty.
 
-    Returns the (possibly rewritten) text plus a count of archive links
-    written back into data.md.
+    Tries each listed source URL (primary first) until one snapshot is
+    captured. Returns the (possibly rewritten) text plus a count of
+    archive links written back into data.md.
     """
     blocks = re.split(r"^---\s*$", text, flags=re.M)
     changed = 0
     for index, block in enumerate(blocks):
         if not block.strip().startswith("## "):
             continue
-        url_match = ARCHIVE_URL_RE.search(block)
+        urls = re.findall(r"^\*\*URL(?: \d+)?:\*\*\s*(\S+)", block, re.M)
         archive_match = ARCHIVE_FIELD_RE.search(block)
-        if not (url_match and archive_match and not archive_match.group(1).strip()):
+        if not (urls and archive_match and not archive_match.group(1).strip()):
             continue
-        url = url_match.group(1).strip()
-        try:
-            snapshot = request_archive_snapshot(url)
-        except Exception as error:  # never let archiving break the build
-            print(f"::warning::Wayback archiving failed for {url}: {error}")
-            continue
+        snapshot = ""
+        for url in urls:
+            try:
+                snapshot = request_archive_snapshot(url)
+            except Exception as error:  # never let archiving break the build
+                print(f"::warning::Wayback archiving failed for {url}: {error}")
+                continue
+            if snapshot:
+                break
         if snapshot:
-            blocks[index] = ARCHIVE_FILL_RE.sub(r"\1 " + snapshot, block, flags=re.M)
+            blocks[index] = ARCHIVE_FILL_RE.sub(r"\1 " + snapshot, block)
             changed += 1
             print(f"Archive added: {snapshot}")
         else:
-            print(f"::warning::No Wayback snapshot returned for {url}")
+            print(f"::warning::No Wayback snapshot returned for {'; '.join(urls)}")
     return "\n---\n".join(blocks), changed
 
 
@@ -131,6 +150,7 @@ def build_incidents(entries):
             "title": entry["title"],
             "description": entry["description"],
             "url": entry["url"],
+            "urls": list(entry.get("urls") or [entry["url"]]),
             "archive": entry.get("archive", ""),
             "role": entry["ai_role"],
             "category": entry["category"],

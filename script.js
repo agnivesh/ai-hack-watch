@@ -136,6 +136,10 @@ function renderArticle(article) {
   const category = article.category ? `<button type="button" class="tag tag-filter" data-filter="${escapeHtml(article.category)}" aria-pressed="false">${escapeHtml(article.category)}</button>` : "";
   const sourceLink = sourceUrl ? `<a href="${escapeHtml(sourceUrl)}" target="_blank" rel="noopener noreferrer">Read source ↗</a>` : "";
   const archiveLink = archiveUrl ? `<a href="${escapeHtml(archiveUrl)}" target="_blank" rel="noopener noreferrer">Archived copy ↗</a>` : "";
+  const extraLinks = (article.urls || []).slice(1).map(extraUrl => {
+    const extra = safeHttpUrl(extraUrl);
+    return extra ? `<a href="${escapeHtml(extra)}" target="_blank" rel="noopener noreferrer">Alternative source ↗</a>` : "";
+  }).join("");
 
   return `
       <article class="item" id="${escapeHtml(slug)}" data-role="${escapeHtml(article.role ?? "")}" data-category="${escapeHtml(article.category ?? "")}">
@@ -146,7 +150,7 @@ function renderArticle(article) {
           <h3>${title} <a class="permalink" href="#${escapeHtml(slug)}">#</a></h3>
           <div class="tags">${role}${category}</div>
           <p>${escapeHtml(article.description)}</p>
-          <div class="card-links">${sourceLink}${archiveLink}</div>
+          <div class="card-links">${sourceLink}${archiveLink}${extraLinks}</div>
         </div>
       </article>
     `;

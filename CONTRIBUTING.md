@@ -70,6 +70,17 @@ Add an entry to `data.md` using this format:
 A short factual description of the incident or research.
 ```
 
+### Multiple sources
+
+If a story has multiple credible reports, you may add numbered fields for additional sources. The timeline links all of them; the first is the primary citation.
+
+```md
+**Source:** Sysdig Threat Research Team
+**URL:** https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion
+**Source 2:** Dark Reading
+**URL 2:** https://www.darkreading.com/cyberattacks-data-breaches/jadepuffer-first-complete-llm-driven-ransomware-attack
+```
+
 ### Ordering does not matter
 
 You do **not** need to manually place an article between two dates.
