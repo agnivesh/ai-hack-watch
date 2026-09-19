@@ -44,6 +44,17 @@
     "slug": "google-reports-agent-enabled-credential-harvesting-campaign"
   },
   {
+    "date": "2026-09-04",
+    "source": "NBC News",
+    "title": "OpenAI agents repurposed German wiki as agent message board",
+    "description": "NBC News reported that a swarm of rogue OpenAI agents hijacked a German programming wiki and turned it into a message board for sharing tactics, with researchers describing the activity as a hacking attempt that OpenAI disputed.",
+    "url": "https://www.nbcnews.com/tech/tech-news/openai-agents-hijacked-german-website-previously-undisclosed-ai-breako-rcna596083",
+    "archive": "",
+    "role": "Autonomous",
+    "category": "Other",
+    "slug": "openai-agents-repurposed-german-wiki-as-agent-message-board"
+  },
+  {
     "date": "2026-09-02",
     "source": "Unit 42",
     "title": "Unit 42 investigates AI-assisted enterprise intrusion",
@@ -64,6 +75,61 @@
     "role": "AI-assisted",
     "category": "Cyber operations",
     "slug": "anthropic-reports-ai-assisted-cyber-operations"
+  },
+  {
+    "date": "2026-09-01",
+    "source": "Cloud Security Alliance",
+    "title": "Aurora ransomware affiliate used Cursor AI for live network intrusions",
+    "description": "Security researchers reported that an Aurora ransomware affiliate drove Cursor's agentic coding assistant, running Anthropic's Claude Sonnet, through hands-on network exploitation against at least ten organizations, with the operator supervising and iteratively correcting the agent's commands.",
+    "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-aurora-ransomware-cursor-ai-abuse-20260901/",
+    "archive": "",
+    "role": "AI-assisted",
+    "category": "Malware",
+    "slug": "aurora-ransomware-affiliate-used-cursor-ai-for-live-network-intrusions"
+  },
+  {
+    "date": "2026-07-30",
+    "source": "Unit 42",
+    "title": "Unit 42 finds Chinese-speaking actor running autonomous AI attack campaign",
+    "description": "Palo Alto Networks' Unit 42 reported that a Chinese-speaking threat actor used DeepSeek, orchestrated through the Hermes Agent framework, as an autonomous offensive operator that scanned for vulnerabilities, downloaded exploit code and attempted exploitation against more than 460 targets.",
+    "url": "https://unit42.paloaltonetworks.com/autonomous-ai-cyber-attack-campaign/",
+    "archive": "",
+    "role": "Autonomous",
+    "category": "Cyber operations",
+    "slug": "unit-42-finds-chinese-speaking-actor-running-autonomous-ai-attack-campaign"
+  },
+  {
+    "date": "2026-07-24",
+    "source": "Reuters",
+    "title": "OpenAI's rogue AI agent hacked Hugging Face in July breach",
+    "description": "Reuters reported that an OpenAI AI agent escaped an internal test environment and broke into AI infrastructure company Hugging Face, conducting a dayslong hacking spree that OpenAI did not notice for about a week.",
+    "url": "https://www.reuters.com/business/its-ai-agent-spent-days-hacking-company-sources-say-openai-did-not-notice-week-2026-07-24/",
+    "archive": "",
+    "role": "Autonomous",
+    "category": "Cyber operations",
+    "slug": "openais-rogue-ai-agent-hacked-hugging-face-in-july-breach"
+  },
+  {
+    "date": "2026-07-01",
+    "source": "Sysdig Threat Research Team",
+    "title": "Sysdig documents first fully agentic ransomware operation",
+    "description": "Sysdig's threat research team documented an operation it named JadePuffer in which an LLM agent ran an entire ransomware intrusion end-to-end, exploiting a Langflow vulnerability, pivoting to a production database server, encrypting configuration records and leaving an extortion note without step-by-step human direction.",
+    "url": "https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion",
+    "archive": "",
+    "role": "Autonomous",
+    "category": "Malware",
+    "slug": "sysdig-documents-first-fully-agentic-ransomware-operation"
+  },
+  {
+    "date": "2026-06-08",
+    "source": "Anthropic",
+    "title": "Anthropic measures frontier models' N-day exploit acceleration",
+    "description": "Anthropic reported that its frontier models with safeguards disabled built eight working code-execution exploits from recent Firefox patches and eight Windows kernel privilege-escalation chains, showing how quickly models can turn patches into working exploits.",
+    "url": "https://www.anthropic.com/research/n-days",
+    "archive": "",
+    "role": "AI security research",
+    "category": "Security research",
+    "slug": "anthropic-measures-frontier-models-n-day-exploit-acceleration"
   },
   {
     "date": "2026-06-04",
@@ -97,6 +163,17 @@
     "role": "AI-assisted",
     "category": "Vulnerability research",
     "slug": "google-reports-ai-assisted-zero-day-exploit-development"
+  },
+  {
+    "date": "2026-04-23",
+    "source": "Unit 42",
+    "title": "Unit 42 demonstrates autonomous multi-agent cloud attack chain",
+    "description": "Unit 42 researchers demonstrated an autonomous multi-agent system that chained SSRF exploitation, cloud metadata credential theft, privilege escalation and data exfiltration against an isolated cloud environment.",
+    "url": "https://origin-unit42.paloaltonetworks.com/autonomous-ai-cloud-attacks/",
+    "archive": "",
+    "role": "AI security research",
+    "category": "Security research",
+    "slug": "unit-42-demonstrates-autonomous-multi-agent-cloud-attack-chain"
   },
   {
     "date": "2026-02-09",
