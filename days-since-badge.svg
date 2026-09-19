@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="240" height="28" role="img" aria-label="AI Hack Watch: 0"><rect width="240" height="28" rx="4" fill="#111"/><rect x="170" width="70" height="28" rx="4" fill="#d9ff3f"/><text x="85.0" y="18" fill="#fff" font-family="Arial" font-size="11" text-anchor="middle">AI Hack Watch</text><text x="205.0" y="18" fill="#111" font-family="Arial" font-size="12" font-weight="700" text-anchor="middle">0 days</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="28" role="img" aria-label="AI Hack Watch: 0" data-latest="2026-09-19"><rect id="box" width="240" height="28" rx="4" fill="#111"/><rect id="value-box" x="170" width="70" height="28" rx="4" fill="#d9ff3f"/><text id="label" x="85.0" y="18" fill="#fff" font-family="Arial" font-size="11" text-anchor="middle">AI Hack Watch</text><text id="value" x="205.0" y="18" fill="#111" font-family="Arial" font-size="12" font-weight="700" text-anchor="middle">0 days</text><script><![CDATA[
+var latest=document.documentElement.getAttribute("data-latest");
+if(latest){
+var d=Math.max(0,Math.floor((Date.UTC(new Date().getUTCFullYear(),new Date().getUTCMonth(),new Date().getUTCDate())-Date.parse(latest+"T00:00:00Z"))/86400000));
+var value=(d+" "+(d===1?"day":"days")),lw=170,vw=Math.max(70,20+value.length*8),total=lw+vw;
+document.documentElement.setAttribute("width",total);
+document.documentElement.setAttribute("aria-label","AI Hack Watch: "+d);
+document.getElementById("box").setAttribute("width",total);
+var vb=document.getElementById("value-box");vb.setAttribute("x",lw);vb.setAttribute("width",vw);
+var t=document.getElementById("value");t.setAttribute("x",lw+vw/2);t.textContent=value;
+}
+]]></script></svg>

@@ -1,47 +1,11 @@
 name: Validate contribution
 on:
   pull_request:
-    paths: [data.md, .github/ISSUE_TEMPLATE/**, .github/PULL_REQUEST_TEMPLATE.md]
+    paths: [data.md, scripts/**, .github/ISSUE_TEMPLATE/**, .github/PULL_REQUEST_TEMPLATE.md]
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Validate data and detect duplicates
-        shell: python
-        run: |
-          import re,sys
-          from datetime import date
-          from pathlib import Path
-          from urllib.parse import urlparse
-          text=Path('data.md').read_text(); errors=[]; warnings=[]; entries=[]
-          for block in re.split(r'^---\s*$',text,flags=re.M):
-            block=block.strip()
-            if not block.startswith('## '): continue
-            title=re.sub(r'^##\s*','',block.splitlines()[0]).strip(); f={}
-            for line in block.splitlines()[1:]:
-              m=re.match(r'^\*\*(Date|Source|URL|Archive|AI role|Category):\*\*\s*(.+)$',line,re.I)
-              if m:f[m.group(1).lower().replace(' ','_')]=m.group(2).strip()
-            req=('date','source','url','ai_role','category'); missing=[x for x in req if not f.get(x)]
-            if missing: errors.append(f'{title}: missing {", ".join(missing)}'); continue
-            if not re.fullmatch(r'\d{4}-\d{2}-\d{2}',f['date']): errors.append(f'{title}: date must be YYYY-MM-DD')
-            else:
-              try:
-                if date.fromisoformat(f['date'])>date.today(): errors.append(f'{title}: date is in the future')
-              except ValueError: errors.append(f'{title}: invalid ISO date')
-            u=urlparse(f['url'])
-            if u.scheme not in ('http','https') or not u.netloc: errors.append(f'{title}: invalid URL')
-            entries.append(f|{'title':title})
-          byurl={}
-          for e in entries: byurl.setdefault(e['url'],[]).append(e)
-          for u,es in byurl.items():
-            if len(es)>1: warnings.append('Duplicate URL: '+u)
-          def words(s): return set(re.findall(r'[a-z0-9]+',s.lower()))
-          for i,a in enumerate(entries):
-            for b in entries[i+1:]:
-              if a['date']!=b['date']: continue
-              aa,bb=words(a['title']),words(b['title']); sim=len(aa&bb)/max(1,len(aa|bb))
-              if sim>=0.7: warnings.append(f'Likely duplicate on {a["date"]}: {a["title"]} / {b["title"]}')
-          for w in warnings: print('WARNING: '+w)
-          if errors: print('\n'.join('ERROR: '+e for e in errors)); sys.exit(1)
-          print(f'Validated {len(entries)} incident(s); {len(warnings)} warning(s).')
+        run: python3 scripts/validate_contribution.py

@@ -8,12 +8,13 @@ A static single-page site tracking notable AI hacking and AI-enabled cyber incid
 - Chronological public timeline.
 - Structured metadata for AI role and incident category.
 - Filters by AI role/category.
+- Click any role or category label (filter bar, story tags, or breakdown) to show only matching incidents.
 - Incident counts and longest observed streak.
-- Historical gaps-between-incidents chart.
 - RSS feed generated automatically.
 - GitHub Issue Form for non-technical story submissions.
 - Pull request template and contribution guide.
 - Automated PR validation.
+- Automated pipeline tests (`scripts/test_pipeline.py`).
 - GitHub Action that turns `data.md` into `incidents.json`, `feed.xml`, and a pre-rendered recent timeline.
 
 ## Data workflow
@@ -91,6 +92,20 @@ window.SITE_CONFIG = {
 
 Read [`METHODOLOGY.md`](METHODOLOGY.md) for what qualifies, AI-role definitions, source preferences, date rules, corrections, and calculation details.
 
+## Development
+
+Run the pipeline and its tests locally (skipping Wayback archiving, which would rewrite `data.md`):
+
+```bash
+python3 scripts/test_pipeline.py          # regression tests
+python3 scripts/validate_contribution.py  # same checks as PR CI
+python3 scripts/generate.py --no-archive  # regenerate incidents.json, badge, feed.xml
+python3 scripts/prerender_timeline.py     # regenerate the in-page timeline + OG tags
+python3 scripts/check_links.py            # HEAD-check source URLs
+```
+
+The pipeline lives in `scripts/` (`generate.py`, `validate_contribution.py`, `prerender_timeline.py`, `check_links.py`) and shares one parser/validator in `datamd.py`.
+
 ## GitHub Pages
 
 1. Create a GitHub repository.
@@ -127,15 +142,19 @@ Pull requests run `.github/workflows/validate-contribution.yml`, which checks:
 - ISO date format.
 - Future dates.
 - Valid HTTP(S) URLs.
+- Valid `AI role` values.
+- Archive URL format (when provided).
 - Duplicate URLs.
 
-The validation workflow is intentionally conservative; maintainers still review factual relevance and source quality.
+Pull requests and pushes also run `.github/workflows/test.yml`, which executes the regression suite in `scripts/test_pipeline.py`. The validation workflow is intentionally conservative; maintainers still review factual relevance and source quality.
 
 ## Embeddable badge
 
 ```md
 ![Days since last AI hack](https://YOUR-USERNAME.github.io/ai-hack-watch/days-since-badge.svg)
 ```
+
+The badge is regenerated daily (and on every data change). Opened directly in a browser, it also updates itself live from the latest tracked date.
 
 ## Machine-readable feeds
 

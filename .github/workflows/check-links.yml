@@ -11,21 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Check URLs
-        shell: python
-        run: |
-          import json,urllib.request
-          from pathlib import Path
-          failures=[]; incidents=json.loads(Path('incidents.json').read_text())
-          for a in incidents:
-            try:
-              req=urllib.request.Request(a['url'],headers={'User-Agent':'ai-hack-watch-link-checker/1.0'})
-              with urllib.request.urlopen(req,timeout=15) as r:
-                if r.status>=400: failures.append((r.status,a['title'],a['url']))
-            except Exception as e: failures.append(('unreachable',a['title'],a['url']))
-          Path('/tmp/failures.txt').write_text('\n'.join(f'{s} | {t} | {u}' for s,t,u in failures))
-          print(f'Checked {len(incidents)} links; {len(failures)} failed.')
+        run: python3 scripts/check_links.py
       - name: Create or update issue
-        env: {GH_TOKEN: ${{ github.token }}}
+        env: {GH_TOKEN: "${{ github.token }}"}
         shell: bash
         run: |
           if [ ! -s /tmp/failures.txt ]; then exit 0; fi
