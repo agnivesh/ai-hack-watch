@@ -35,11 +35,11 @@ def inject_site_urls(index, site_url):
     if not site_url:
         return index, 0
     substitutions = [
-        (r'<link rel="canonical" href="">', f'<link rel="canonical" href="{site_url}">'),
-        (r'<meta property="og:url" content="">', f'<meta property="og:url" content="{site_url}">'),
+        (r'(<link rel="canonical" href=")[^"]*(">)', rf'\g<1>{site_url}\g<2>'),
+        (r'(<meta property="og:url" content=")[^"]*(">)', rf'\g<1>{site_url}\g<2>'),
         (
-            r'<meta property="og:image" content="[^"]*days-since-badge\.svg">',
-            f'<meta property="og:image" content="{site_url}/days-since-badge.svg">',
+            r'(<meta property="og:image" content=")[^"]*days-since-badge\.svg(">)',
+            rf'\g<1>{site_url}/days-since-badge.svg\g<2>',
         ),
     ]
     applied = 0

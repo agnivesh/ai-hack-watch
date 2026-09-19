@@ -6,5 +6,5 @@ window.SITE_CONFIG = {
   // canonical / og:url / og:image tags in index.html at build time, so
   // social crawlers get absolute URLs even without JavaScript.
   // Example: "https://your-name.github.io/ai-hack-watch"
-  siteUrl: "https://agnivesh.github.io/ai-hack-watch"
+  siteUrl: "https://aihackwatch.com"
 };

@@ -248,6 +248,20 @@ def inject():
     assert again == updated  # idempotent
 
 
+@check("inject_site_urls replaces a previously injected domain")
+def inject_domain_change():
+    template = (
+        '<link rel="canonical" href="https://old.example/site">\n'
+        '<meta property="og:url" content="https://old.example/site">\n'
+        '<meta property="og:image" content="https://old.example/site/days-since-badge.svg">\n'
+    )
+    updated, applied = prerender.inject_site_urls(template, "https://new.example/site")
+    assert applied == 3, applied
+    assert "old.example" not in updated
+    assert 'href="https://new.example/site"' in updated
+    assert "new.example/site/days-since-badge.svg" in updated
+
+
 @check("site URL is configured in config.js")
 def site_url_configured():
     config = (ROOT / "config.js").read_text(encoding="utf-8")
