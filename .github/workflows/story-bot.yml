@@ -1,0 +1,82 @@
+name: Story submission bot
+on:
+  issues:
+    types: [opened, reopened]
+
+permissions:
+  contents: read
+  issues: read
+
+concurrency:
+  group: story-bot-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    outputs:
+      ok: ${{ steps.triage.outputs.ok }}
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Triage submission
+        id: triage
+        if: contains(github.event.issue.body, '### Article URL')
+        env:
+          NUMBER: ${{ github.event.issue.number }}
+        run: |
+          gh issue view "$NUMBER" --json body --jq .body > /tmp/issue-body.md
+          if python3 scripts/story_bot.py --body /tmp/issue-body.md --root . > /tmp/bot.json; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            python3 - <<'PY' > /tmp/comment.txt
+            import json
+            result = json.load(open("/tmp/bot.json"))
+            print("Thanks for the submission! The form needs a couple of fixes before I can draft it:")
+            print()
+            for error in result["errors"]:
+                print(f"- {error}")
+            PY
+            gh issue comment "$NUMBER" --body-file /tmp/comment.txt
+            gh issue edit "$NUMBER" --add-label "submission needs changes" --remove-label "draft PR"
+            exit 0
+          fi
+        shell: bash
+
+  draft:
+    needs: validate
+    if: ${{ needs.validate.outputs.ok == 'true' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Draft entry and open pull request
+        env:
+          NUMBER: ${{ github.event.issue.number }}
+          TITLE: ${{ github.event.issue.title }}
+        run: |
+          set -euo pipefail
+          gh issue view "$NUMBER" --json body --jq .body > /tmp/issue-body.md
+          python3 scripts/story_bot.py --body /tmp/issue-body.md --root . --number "$NUMBER" --title "$TITLE" --write
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          BRANCH="bot/story-${NUMBER}"
+          git checkout -b "$BRANCH"
+          git add data.md
+          git commit -m "feat: draft story from issue #${NUMBER}"
+          git push --set-upstream origin "$BRANCH" 2>&1 || echo "push skipped (branch already exists)"
+          EXISTING="$(gh pr list --head "$BRANCH" --json url --jq '.[0].url')"
+          if [ -n "$EXISTING" ]; then
+            PR_URL="$EXISTING"
+          else
+            PR_URL="$(gh pr create --draft --base main --head "$BRANCH" --title "Story: ${TITLE}" --body-file .story-pr-body.md)"
+          fi
+          gh issue comment "$NUMBER" --body "✅ Drafted from your submission: $PR_URL (ready for maintainer review)."
+          gh issue edit "$NUMBER" --add-label "draft PR" --remove-label "submission needs changes"
+        shell: bash
