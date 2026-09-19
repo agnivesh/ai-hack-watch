@@ -706,7 +706,7 @@ Google Threat Intelligence Group reported that state-backed groups including Ira
 **Date:** 2023-08-17
 **Source:** Mandiant
 **URL:** https://cloud.google.com/blog/topics/threat-intelligence/threat-actors-generative-ai-limited/
-**Archive:**
+**Archive:** https://web.archive.org/web/20260609072331/https://cloud.google.com/blog/topics/threat-intelligence/threat-actors-generative-ai-limited/
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
@@ -723,7 +723,7 @@ Mandiant reported that threat actors had begun experimenting with generative AI 
 **Date:** 2024-02-27
 **Source:** JFrog Security Research
 **URL:** https://jfrog.com/blog/data-scientists-targeted-by-malicious-hugging-face-ml-models-with-silent-backdoor/
-**Archive:**
+**Archive:** https://web.archive.org/web/20260919212546/https://jfrog.com/blog/data-scientists-targeted-by-malicious-hugging-face-ml-models-with-silent-backdoor/
 **AI role:** AI-targeted
 **Category:** AI model compromise
 
@@ -757,7 +757,7 @@ A threat actor used an AI-generated imitation of the LastPass CEO's voice across
 **Date:** 2025-04-23
 **Source:** Anthropic
 **URL:** https://www.anthropic.com/news/detecting-and-countering-malicious-uses-of-claude-march-2025
-**Archive:**
+**Archive:** https://web.archive.org/web/20260919212628/https://www.anthropic.com/news/detecting-and-countering-malicious-uses-of-claude-march-2025
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
@@ -842,7 +842,7 @@ Genians reported that a Kimsuky-linked campaign used ChatGPT to create convincin
 **Date:** 2026-03-06
 **Source:** Microsoft Threat Intelligence
 **URL:** https://www.microsoft.com/en-us/security/blog/2026/03/06/ai-as-tradecraft-how-threat-actors-operationalize-ai/
-**Archive:**
+**Archive:** https://web.archive.org/web/20260907232824/https://www.microsoft.com/en-us/security/blog/2026/03/06/ai-as-tradecraft-how-threat-actors-operationalize-ai/
 **AI role:** AI-assisted
 **Category:** Cyber operations
 

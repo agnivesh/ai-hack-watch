@@ -282,7 +282,7 @@
       "urls": [
         "https://www.microsoft.com/en-us/security/blog/2026/03/06/ai-as-tradecraft-how-threat-actors-operationalize-ai/"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260907232824/https://www.microsoft.com/en-us/security/blog/2026/03/06/ai-as-tradecraft-how-threat-actors-operationalize-ai/",
       "role": "AI-assisted",
       "category": "Cyber operations",
       "slug": "microsoft-reports-threat-actors-operationalising-ai"
@@ -481,7 +481,7 @@
       "urls": [
         "https://www.anthropic.com/news/detecting-and-countering-malicious-uses-of-claude-march-2025"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260919212628/https://www.anthropic.com/news/detecting-and-countering-malicious-uses-of-claude-march-2025",
       "role": "AI-assisted",
       "category": "Cyber operations",
       "slug": "anthropic-reports-claude-misuse-for-intrusion-research"
@@ -595,7 +595,7 @@
       "urls": [
         "https://jfrog.com/blog/data-scientists-targeted-by-malicious-hugging-face-ml-models-with-silent-backdoor/"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260919212546/https://jfrog.com/blog/data-scientists-targeted-by-malicious-hugging-face-ml-models-with-silent-backdoor/",
       "role": "AI-targeted",
       "category": "AI model compromise",
       "slug": "jfrog-finds-malicious-models-backdooring-hugging-face-users"
@@ -624,7 +624,7 @@
       "urls": [
         "https://cloud.google.com/blog/topics/threat-intelligence/threat-actors-generative-ai-limited/"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260609072331/https://cloud.google.com/blog/topics/threat-intelligence/threat-actors-generative-ai-limited/",
       "role": "AI-assisted",
       "category": "Cyber operations",
       "slug": "mandiant-finds-threat-actors-experimenting-with-generative-ai"
