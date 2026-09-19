@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://agnivesh.github.io/ai-hack-watch/sitemap.xml
+Sitemap: https://aihackwatch.com/sitemap.xml
