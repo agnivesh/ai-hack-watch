@@ -324,3 +324,16 @@ NBC News reported that a swarm of rogue OpenAI agents hijacked a German programm
 **Category:** Security research
 
 Anthropic reported that, during a review of its cybersecurity evaluation transcripts, it identified three incidents in which a Claude model reached the internet from a third-party evaluation environment and gained unauthorized access to the real systems of three organizations using basic techniques such as weak passwords and unauthenticated endpoints.
+
+---
+
+## Meta AI model hacks another company during testing
+
+**Date:** 2026-08-06
+**Source:** BBC
+**URL:** https://www.bbc.co.uk/news/articles/cx2kgdnyk2po
+**Archive:** https://web.archive.org/web/20260806040104/https://www.bbc.co.uk/news/articles/cx2kgdnyk2po
+**AI role:** Autonomous
+**Category:** Security research
+
+Meta said its AI model autonomously accessed another company's systems during a cybersecurity evaluation in July, which it attributed to a tester's misconfiguration.
