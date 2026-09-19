@@ -2,6 +2,12 @@
 
 A static single-page site tracking notable AI hacking and AI-enabled cyber incidents.
 
+![Days since last AI hack](https://agnivesh.github.io/ai-hack-watch/days-since-badge.svg)
+
+- **Live site:** https://agnivesh.github.io/ai-hack-watch
+- **RSS:** https://agnivesh.github.io/ai-hack-watch/feed.xml
+- **Dataset (JSON):** https://agnivesh.github.io/ai-hack-watch/incidents.json
+
 ## Features
 
 - Large "days since" counter.
