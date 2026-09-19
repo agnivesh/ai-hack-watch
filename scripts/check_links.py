@@ -48,14 +48,16 @@ def main() -> int:
     incidents = json.loads((ROOT / "incidents.json").read_text(encoding="utf-8"))
     failures = []
     for incident in incidents:
-        status = check_url(incident["url"])
-        if status is not None:
-            failures.append((status, incident["title"], incident["url"]))
+        urls = incident.get("urls") or [incident["url"]]
+        for url in urls:
+            status = check_url(url)
+            if status is not None:
+                failures.append((status, incident["title"], url))
     FAILURES_PATH.write_text(
         "\n".join(f"{status} | {title} | {url}" for status, title, url in failures),
         encoding="utf-8",
     )
-    print(f"Checked {len(incidents)} links; {len(failures)} failed.")
+    print(f"Checked {len(incidents)} incidents; {len(failures)} URL failure(s).")
     return 0
 
 

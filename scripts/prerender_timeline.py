@@ -86,11 +86,17 @@ def render_article(article):
     )
     source_link = render_link(safe_url(article.get("url")), "Read source ↗")
     archive_link = render_link(safe_url(article.get("archive")), "Archived copy ↗")
+    extra_links = "".join(
+        render_link(safe_url(extra_url), "Alternative source ↗")
+        for extra_url in (article.get("urls") or [])[1:]
+    )
     tags = "".join(
         f'<button type="button" class="tag tag-filter" data-filter="{html.escape(tag, quote=True)}" aria-pressed="false">{tag}</button>'
         for tag in (role, category) if tag
     )
-    links = "".join(link for link in (source_link, archive_link) if link)
+    links = "".join(
+        link for link in (source_link, archive_link, extra_links) if link
+    )
 
     return f'''      <article class="item" id="{slug}">
         <div class="date">{format_date(article.get("date"))}</div>

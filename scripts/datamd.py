@@ -14,7 +14,7 @@ from urllib.parse import urlparse
 BLOCK_SPLIT_RE = re.compile(r"^---\s*$", re.M)
 HEADING_RE = re.compile(r"^##\s+(.+)$")
 FIELD_RE = re.compile(
-    r"^\*\*(Date|Source|URL|Archive|AI role|Category):\*\*\s*(.*)$", re.I
+    r"^\*\*(Date|Source|URL|Archive|AI role|Category)( \d+)?:\*\*\s*(.*)$", re.I
 )
 DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 
@@ -39,6 +39,10 @@ def parse_blocks(text):
     Only blocks whose first line is a level-2 heading ("## ") are treated
     as incidents. Intro prose and separators are ignored. Blocks that
     cannot be split into a heading and a title are skipped.
+
+    Multiple sources are supported with numbered fields (`**URL 2:**`,
+    `**Source 3:**`, ...); the first value is primary and all values are
+    kept ordered in `urls`/`sources`.
     """
     entries = []
     for block in split_blocks(text):
@@ -47,24 +51,36 @@ def parse_blocks(text):
         heading = HEADING_RE.match(block.splitlines()[0])
         if not heading:
             continue
-        fields = {}
+        values = {}
         for line in block.splitlines()[1:]:
             field_match = FIELD_RE.match(line)
             if field_match:
-                fields[field_match.group(1).lower().replace(" ", "_")] = (
-                    field_match.group(2).strip()
-                )
+                key = field_match.group(1).lower().replace(" ", "_")
+                number = int(field_match.group(2)) if field_match.group(2) else 1
+                values.setdefault(key, {})[number] = field_match.group(3).strip()
+
+        def first(key):
+            numbered = values.get(key, {})
+            return numbered.get(1, "")
+
+        def ordered(key):
+            return [value for _, value in sorted(values.get(key, {}).items())]
+
+        sources = ordered("source")
+        urls = ordered("url")
         parts = re.split(r"\n\s*\n", block, maxsplit=2)
         description = parts[-1].strip() if len(parts) >= 3 else ""
         entries.append(
             {
                 "title": heading.group(1).strip(),
-                "date": fields.get("date", ""),
-                "source": fields.get("source", ""),
-                "url": fields.get("url", ""),
-                "archive": fields.get("archive", ""),
-                "ai_role": fields.get("ai_role", ""),
-                "category": fields.get("category", ""),
+                "date": first("date"),
+                "source": sources[0] if sources else "",
+                "sources": sources,
+                "url": urls[0] if urls else "",
+                "urls": urls,
+                "archive": first("archive"),
+                "ai_role": first("ai_role"),
+                "category": first("category"),
                 "description": description,
             }
         )
@@ -99,6 +115,10 @@ def validate_entries(entries):
         parsed_url = urlparse(entry["url"])
         if parsed_url.scheme not in ("http", "https") or not parsed_url.netloc:
             errors.append(f"{title}: invalid URL")
+        for extra_url in entry.get("urls", [])[1:]:
+            parsed_extra = urlparse(extra_url)
+            if parsed_extra.scheme not in ("http", "https") or not parsed_extra.netloc:
+                errors.append(f"{title}: invalid URL 2+: {extra_url}")
         if entry["ai_role"] not in ALLOWED_ROLES:
             errors.append(
                 f'{title}: AI role "{entry["ai_role"]}" is not in the allowed set '
@@ -112,9 +132,10 @@ def validate_entries(entries):
 
     by_url = {}
     for entry in complete:
-        by_url.setdefault(entry["url"], []).append(entry)
-    for url, matches in by_url.items():
-        if len(matches) > 1:
+        for url in entry.get("urls") or [entry["url"]]:
+            by_url.setdefault(url, []).append(entry["title"])
+    for url, titles in by_url.items():
+        if len(titles) > 1:
             warnings.append("Duplicate URL: " + url)
 
     def words(value):

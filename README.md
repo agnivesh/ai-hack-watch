@@ -59,6 +59,19 @@ Short factual description of the story.
 - `AI role`
 - `Category`
 
+### Multiple sources
+
+If a story has more than one authoritative source, add optional numbered fields so readers still have a working link if one publisher goes down:
+
+```md
+**Source:** Sysdig Threat Research Team
+**URL:** https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion
+**Source 2:** Dark Reading
+**URL 2:** https://www.darkreading.com/cyberattacks-data-breaches/jadepuffer-first-complete-llm-driven-ransomware-attack
+```
+
+All source URLs appear on the timeline; the first is the primary citation.
+
 ### AI roles
 
 - `Autonomous`
@@ -173,6 +186,6 @@ Each incident has a slug-based `#anchor` so individual stories can be shared dir
 
 ## Automatic link archiving
 
-When an incident has no `Archive` value, the GitHub Action attempts to submit its source URL to the Wayback Machine. Existing archive URLs are preserved. The timeline displays an **Archived copy ↗** link when a snapshot is available.
+When an incident has no `Archive` value, the GitHub Action attempts to submit its source URLs to the Wayback Machine, stopping at the first successful snapshot. Existing archive URLs are preserved. The timeline displays an **Archived copy ↗** link when a snapshot is available.
 
 Archiving is best-effort and never blocks a valid contribution.

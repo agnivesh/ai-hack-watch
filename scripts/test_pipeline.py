@@ -133,6 +133,47 @@ def duplicate_url():
     assert any("Duplicate URL" in warning for warning in warnings)
 
 
+@check("parse_blocks supports multiple source URLs")
+def multi_url():
+    multi = SAMPLE.replace(
+        "**URL:** https://example.com/report",
+        "**URL:** https://example.com/report\n"
+        "**Source 2:** Mirror Research\n**URL 2:** https://example.org/mirror",
+    )
+    [entry] = datamd.parse_blocks(multi)
+    assert entry["url"] == "https://example.com/report"
+    assert entry["urls"] == ["https://example.com/report", "https://example.org/mirror"]
+    assert entry["source"] == "Example Research"
+    assert entry["sources"] == ["Example Research", "Mirror Research"]
+
+
+@check("invalid extra URL is an error")
+def bad_extra_url():
+    broken = SAMPLE.replace(
+        "**URL:** https://example.com/report",
+        "**URL:** https://example.com/report\n**URL 2:** ftp://bad.example",
+    )
+    errors, _ = datamd.validate_entries(datamd.parse_blocks(broken))
+    assert any("invalid URL 2+" in error for error in errors), errors
+
+
+@check("duplicate URLs across fields are flagged")
+def dup_extra_url():
+    duplicated = SAMPLE.replace(
+        "**URL:** https://example.com/report",
+        "**URL:** https://example.com/report\n**URL 2:** https://example.com/report",
+    )
+    _, warnings = datamd.validate_entries(datamd.parse_blocks(duplicated))
+    assert any("Duplicate URL" in warning for warning in warnings), warnings
+
+
+@check("build_incidents carries the urls array")
+def urls_in_json():
+    incidents = generate.build_incidents(datamd.parse_blocks(SAMPLE))
+    assert incidents[0]["url"] == "https://example.com/report"
+    assert incidents[0]["urls"] == ["https://example.com/report"]
+
+
 @check("slugify matches the client-side behaviour (NFKD)")
 def slug_parity():
     assert datamd.slugify("Café hack") == "cafe-hack"
