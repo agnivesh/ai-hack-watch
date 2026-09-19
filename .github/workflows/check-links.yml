@@ -9,7 +9,7 @@ jobs:
   links:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Check URLs
         run: python3 scripts/check_links.py
       - name: Create or update issue
@@ -17,6 +17,6 @@ jobs:
         shell: bash
         run: |
           if [ ! -s /tmp/failures.txt ]; then exit 0; fi
-          BODY="The weekly source-link check found URLs that may be unavailable. Some sites block automated requests; verify manually before changing the dataset.\n\n$(cat /tmp/failures.txt)"
+          { echo "The weekly source-link check found URLs that may be unavailable. Some sites block automated requests; verify manually before changing the dataset."; echo; cat /tmp/failures.txt; } > /tmp/issue-body.txt
           EXISTING=$(gh issue list --state open --search "Broken source links in:title" --json number --jq '.[0].number')
-          if [ -n "$EXISTING" ]; then gh issue comment "$EXISTING" --body "$BODY"; else gh issue create --title "Broken source links" --body "$BODY"; fi
+          if [ -n "$EXISTING" ]; then gh issue comment "$EXISTING" --body-file /tmp/issue-body.txt; else gh issue create --title "Broken source links" --body-file /tmp/issue-body.txt; fi
