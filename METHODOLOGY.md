@@ -83,6 +83,6 @@ The project should preserve a clear factual distinction between what a source re
 
 The main counter is the number of whole calendar days since the newest tracked article date.
 
-The historical chart calculates the number of calendar days between consecutive tracked dates.
+All day counts use **UTC calendar dates**, so the displayed number is the same for every visitor regardless of local time zone.
 
 The longest streak is simply the largest observed gap in the dataset. It is not a prediction about future activity.

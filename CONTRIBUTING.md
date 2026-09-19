@@ -127,6 +127,13 @@ A typical contribution is:
 8. A maintainer reviews the contribution.
 9. Once merged, GitHub Actions regenerates `incidents.json`.
 
+Before opening the pull request, you can run the same checks locally:
+
+```bash
+python3 scripts/test_pipeline.py
+python3 scripts/validate_contribution.py
+```
+
 ## Do not edit `incidents.json`
 
 `incidents.json` is generated automatically.
@@ -149,12 +156,13 @@ If multiple sources report the same underlying incident, generally keep one time
 
 The workflow in `.github/workflows/update-site.yml`:
 
-1. Runs when `data.md` changes.
-2. Parses the Markdown.
-3. Validates the required fields.
+1. Runs when `data.md` changes (and once a day to keep the days-since badge fresh).
+2. Validates and parses the Markdown (`scripts/generate.py`, shared parser `scripts/datamd.py`).
+3. Archives source URLs with the Wayback Machine (best-effort).
 4. Sorts articles by date.
-5. Generates `incidents.json`.
-6. Commits the generated file back to the repository.
+5. Generates `incidents.json`, `feed.xml`, and `days-since-badge.svg`.
+6. Pre-renders the recent timeline and Open Graph tags into `index.html` (`scripts/prerender_timeline.py`).
+7. Commits the generated files back to the repository.
 
 The site reads `incidents.json`, not `data.md`, when it is displayed.
 
