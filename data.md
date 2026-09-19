@@ -82,12 +82,14 @@ Palo Alto Networks' Unit 42 reported that an attacker used frontier AI agents du
 
 **Date:** 2026-09-01
 **Source:** Anthropic
+**Source 2:** CyberScoop
 **URL:** https://www.anthropic.com/threat-intelligence-report-september-2026
+**URL 2:** https://cyberscoop.com/anthropic-report-ai-enabled-cyber-attacks/
 **Archive:** https://web.archive.org/web/20260919042348/https://www.anthropic.com/threat-intelligence-report-september-2026
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
-Anthropic's September threat report described cyber operations in which Claude was used for reconnaissance, exploitation, tool development and data processing.
+Anthropic's September threat report documented AI-augmented operations including a Russian-aligned espionage campaign targeting more than 20 government, defence and diplomatic organisations in Ukraine and Europe, ShinyHunters-affiliated credential theft and extortion, and stolen API keys reused against European political parties.
 
 
 
@@ -517,3 +519,101 @@ Check Point Research disclosed a hidden outbound path from ChatGPT's code-execut
 **Category:** Cyber operations
 
 A 15-year-old exploited a logic flaw in Bandai Channel's account-cancellation process and used ChatGPT to refine an automation script that mass-cancelled 46,812 accounts and exposed up to 1.36 million records.
+
+
+
+
+---
+
+## OpenAI and Microsoft disrupt five state-linked groups using AI
+
+**Date:** 2024-02-14
+**Source:** OpenAI
+**URL:** https://openai.com/index/disrupting-malicious-uses-of-ai-by-state-affiliated-threat-actors/
+**Archive:**
+**AI role:** AI-assisted
+**Category:** Cyber operations
+
+OpenAI, with Microsoft Threat Intelligence, reported disrupting five state-affiliated actors — including Russia's Forest Blizzard, North Korea's Emerald Sleet, Iran's Crimson Sandstorm and China's Charcoal and Salmon Typhoon — that used OpenAI models for target reconnaissance, translation, vulnerability research and scripting support in live operations.
+
+
+
+
+---
+
+## Google reports state-backed attempts to misuse Gemini
+
+**Date:** 2025-01-29
+**Source:** Google Threat Intelligence Group
+**URL:** https://cloud.google.com/blog/topics/threat-intelligence/adversarial-misuse-generative-ai
+**Archive:**
+**AI role:** AI-assisted
+**Category:** Cyber operations
+
+Google Threat Intelligence Group reported that state-backed actors from Iran, China, North Korea and Russia attempted to misuse Gemini in live campaigns for open-source intelligence gathering, target profiling, phishing-technique research and infostealer coding assistance, with most attempts blocked by safety filters.
+
+
+
+
+---
+
+## OpenAI disrupts employment fraud and influence operations
+
+**Date:** 2025-06-05
+**Source:** OpenAI
+**URL:** https://cdn.openai.com/threat-intelligence-reports/5f73af09-a3a3-4a55-992e-069237681620/disrupting-malicious-uses-of-ai-june-2025.pdf
+**Archive:**
+**AI role:** AI-assisted
+**Category:** Other
+
+OpenAI's June 2025 report described ten disrupted operations, including North Korean-linked deceptive employment schemes using AI-generated personas and résumés, and Chinese-origin covert influence operations generating social media content at scale.
+
+
+
+
+---
+
+## APT28 deploys LLM-powered LAMEHUG malware against Ukraine
+
+**Date:** 2025-07-17
+**Source:** The Hacker News
+**URL:** https://thehackernews.com/2025/07/cert-ua-discovers-lamehug-malware.html
+**Archive:**
+**AI role:** AI-assisted
+**Category:** Malware
+
+Ukraine's CERT-UA attributed a phishing campaign against Ukrainian government bodies to APT28, delivering malware tracked as LAMEHUG that queried a large language model at runtime to generate reconnaissance and exfiltration commands on infected machines.
+
+
+
+
+---
+
+## Anthropic disrupts "vibe hacking" campaign against 17 organisations
+
+**Date:** 2025-08-27
+**Source:** Anthropic
+**URL:** https://www.anthropic.com/news/detecting-countering-misuse-aug-2025
+**Archive:**
+**AI role:** Autonomous
+**Category:** Cyber operations
+
+Anthropic reported disrupting GTG-2002, a cybercriminal operation that used Claude Code to conduct reconnaissance, credential theft and network penetration against at least 17 organisations in healthcare, emergency services and government, then generated extortion demands.
+
+
+
+
+---
+
+## Google reports state-backed groups building AI-assisted malware
+
+**Date:** 2026-02-12
+**Source:** Google Threat Intelligence Group
+**Source 2:** BleepingComputer
+**URL:** https://cloud.google.com/blog/topics/threat-intelligence/distillation-experimentation-integration-ai-adversarial-use
+**URL 2:** https://www.bleepingcomputer.com/news/security/google-says-hackers-are-abusing-gemini-ai-for-all-attacks-stages/
+**Archive:**
+**AI role:** AI-assisted
+**Category:** Malware
+
+Google Threat Intelligence Group reported that state-backed groups including Iran's APT42 and North Korea's UNC2970 used Gemini across the attack lifecycle for reconnaissance and phishing-lure creation, and built two working malware tools, Honestcue and COINBAIT, deployed against real targets.

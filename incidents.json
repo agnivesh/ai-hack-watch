@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "chunk_size": 20,
-  "total": 30,
+  "total": 36,
   "incidents": [
     {
       "date": "2026-09-18",
@@ -77,10 +77,11 @@
       "date": "2026-09-01",
       "source": "Anthropic",
       "title": "Anthropic reports AI-assisted cyber operations",
-      "description": "Anthropic's September threat report described cyber operations in which Claude was used for reconnaissance, exploitation, tool development and data processing.",
+      "description": "Anthropic's September threat report documented AI-augmented operations including a Russian-aligned espionage campaign targeting more than 20 government, defence and diplomatic organisations in Ukraine and Europe, ShinyHunters-affiliated credential theft and extortion, and stolen API keys reused against European political parties.",
       "url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
       "urls": [
-        "https://www.anthropic.com/threat-intelligence-report-september-2026"
+        "https://www.anthropic.com/threat-intelligence-report-september-2026",
+        "https://cyberscoop.com/anthropic-report-ai-enabled-cyber-attacks/"
       ],
       "archive": "https://web.archive.org/web/20260919042348/https://www.anthropic.com/threat-intelligence-report-september-2026",
       "role": "AI-assisted",
@@ -273,6 +274,21 @@
       "slug": "check-point-finds-covert-dns-exfiltration-channel-in-chatgpt-runtime"
     },
     {
+      "date": "2026-02-12",
+      "source": "Google Threat Intelligence Group",
+      "title": "Google reports state-backed groups building AI-assisted malware",
+      "description": "Google Threat Intelligence Group reported that state-backed groups including Iran's APT42 and North Korea's UNC2970 used Gemini across the attack lifecycle for reconnaissance and phishing-lure creation, and built two working malware tools, Honestcue and COINBAIT, deployed against real targets.",
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/distillation-experimentation-integration-ai-adversarial-use",
+      "urls": [
+        "https://cloud.google.com/blog/topics/threat-intelligence/distillation-experimentation-integration-ai-adversarial-use",
+        "https://www.bleepingcomputer.com/news/security/google-says-hackers-are-abusing-gemini-ai-for-all-attacks-stages/"
+      ],
+      "archive": "",
+      "role": "AI-assisted",
+      "category": "Malware",
+      "slug": "google-reports-state-backed-groups-building-ai-assisted-malware"
+    },
+    {
       "date": "2026-02-09",
       "source": "Adnan Khan",
       "title": "Cline issue-triage prompt injection research disclosed",
@@ -344,6 +360,48 @@
       "slug": "openai-disrupts-accounts-developing-malware-with-chatgpt"
     },
     {
+      "date": "2025-08-27",
+      "source": "Anthropic",
+      "title": "Anthropic disrupts \"vibe hacking\" campaign against 17 organisations",
+      "description": "Anthropic reported disrupting GTG-2002, a cybercriminal operation that used Claude Code to conduct reconnaissance, credential theft and network penetration against at least 17 organisations in healthcare, emergency services and government, then generated extortion demands.",
+      "url": "https://www.anthropic.com/news/detecting-countering-misuse-aug-2025",
+      "urls": [
+        "https://www.anthropic.com/news/detecting-countering-misuse-aug-2025"
+      ],
+      "archive": "",
+      "role": "Autonomous",
+      "category": "Cyber operations",
+      "slug": "anthropic-disrupts-vibe-hacking-campaign-against-17-organisations"
+    },
+    {
+      "date": "2025-07-17",
+      "source": "The Hacker News",
+      "title": "APT28 deploys LLM-powered LAMEHUG malware against Ukraine",
+      "description": "Ukraine's CERT-UA attributed a phishing campaign against Ukrainian government bodies to APT28, delivering malware tracked as LAMEHUG that queried a large language model at runtime to generate reconnaissance and exfiltration commands on infected machines.",
+      "url": "https://thehackernews.com/2025/07/cert-ua-discovers-lamehug-malware.html",
+      "urls": [
+        "https://thehackernews.com/2025/07/cert-ua-discovers-lamehug-malware.html"
+      ],
+      "archive": "",
+      "role": "AI-assisted",
+      "category": "Malware",
+      "slug": "apt28-deploys-llm-powered-lamehug-malware-against-ukraine"
+    },
+    {
+      "date": "2025-06-05",
+      "source": "OpenAI",
+      "title": "OpenAI disrupts employment fraud and influence operations",
+      "description": "OpenAI's June 2025 report described ten disrupted operations, including North Korean-linked deceptive employment schemes using AI-generated personas and résumés, and Chinese-origin covert influence operations generating social media content at scale.",
+      "url": "https://cdn.openai.com/threat-intelligence-reports/5f73af09-a3a3-4a55-992e-069237681620/disrupting-malicious-uses-of-ai-june-2025.pdf",
+      "urls": [
+        "https://cdn.openai.com/threat-intelligence-reports/5f73af09-a3a3-4a55-992e-069237681620/disrupting-malicious-uses-of-ai-june-2025.pdf"
+      ],
+      "archive": "",
+      "role": "AI-assisted",
+      "category": "Other",
+      "slug": "openai-disrupts-employment-fraud-and-influence-operations"
+    },
+    {
       "date": "2025-01-31",
       "source": "OpenAI",
       "title": "OpenAI bans accounts used for cyber operations",
@@ -356,6 +414,20 @@
       "role": "AI-assisted",
       "category": "Cyber operations",
       "slug": "openai-bans-accounts-used-for-cyber-operations"
+    },
+    {
+      "date": "2025-01-29",
+      "source": "Google Threat Intelligence Group",
+      "title": "Google reports state-backed attempts to misuse Gemini",
+      "description": "Google Threat Intelligence Group reported that state-backed actors from Iran, China, North Korea and Russia attempted to misuse Gemini in live campaigns for open-source intelligence gathering, target profiling, phishing-technique research and infostealer coding assistance, with most attempts blocked by safety filters.",
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/adversarial-misuse-generative-ai",
+      "urls": [
+        "https://cloud.google.com/blog/topics/threat-intelligence/adversarial-misuse-generative-ai"
+      ],
+      "archive": "",
+      "role": "AI-assisted",
+      "category": "Cyber operations",
+      "slug": "google-reports-state-backed-attempts-to-misuse-gemini"
     },
     {
       "date": "2024-10-09",
@@ -412,6 +484,20 @@
       "role": "AI-assisted",
       "category": "Malware",
       "slug": "proofpoint-links-ai-written-powershell-loader-to-ta547-campaign"
+    },
+    {
+      "date": "2024-02-14",
+      "source": "OpenAI",
+      "title": "OpenAI and Microsoft disrupt five state-linked groups using AI",
+      "description": "OpenAI, with Microsoft Threat Intelligence, reported disrupting five state-affiliated actors — including Russia's Forest Blizzard, North Korea's Emerald Sleet, Iran's Crimson Sandstorm and China's Charcoal and Salmon Typhoon — that used OpenAI models for target reconnaissance, translation, vulnerability research and scripting support in live operations.",
+      "url": "https://openai.com/index/disrupting-malicious-uses-of-ai-by-state-affiliated-threat-actors/",
+      "urls": [
+        "https://openai.com/index/disrupting-malicious-uses-of-ai-by-state-affiliated-threat-actors/"
+      ],
+      "archive": "",
+      "role": "AI-assisted",
+      "category": "Cyber operations",
+      "slug": "openai-and-microsoft-disrupt-five-state-linked-groups-using-ai"
     },
     {
       "date": "2023-01-05",
