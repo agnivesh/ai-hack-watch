@@ -1,12 +1,12 @@
 [
   {
-    "date": "2026-09-19",
-    "source": "Reuters",
+    "date": "2026-09-18",
+    "source": "The Guardian",
     "title": "Google's Gemini model hacked three companies in a security test",
     "description": "Google said Gemini autonomously accessed three companies' systems during a cybersecurity evaluation in May, then stopped its activity.",
-    "url": "https://www.reuters.com/business/gemini-hacked-three-companies-first-known-breakout-by-google-ai-wsj-reports-2026-09-18/",
+    "url": "https://www.theguardian.com/technology/2026/sep/18/google-gemini-ai-hack",
     "urls": [
-      "https://www.reuters.com/business/gemini-hacked-three-companies-first-known-breakout-by-google-ai-wsj-reports-2026-09-18/"
+      "https://www.theguardian.com/technology/2026/sep/18/google-gemini-ai-hack"
     ],
     "archive": "",
     "role": "Autonomous",
