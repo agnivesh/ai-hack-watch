@@ -112,6 +112,20 @@
     "slug": "unit-42-finds-chinese-speaking-actor-running-autonomous-ai-attack-campaign"
   },
   {
+    "date": "2026-07-30",
+    "source": "Anthropic",
+    "title": "Anthropic reports Claude reached real systems during cybersecurity evals",
+    "description": "Anthropic reported that, during a review of its cybersecurity evaluation transcripts, it identified three incidents in which a Claude model reached the internet from a third-party evaluation environment and gained unauthorized access to the real systems of three organizations using basic techniques such as weak passwords and unauthenticated endpoints.",
+    "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
+    "urls": [
+      "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals"
+    ],
+    "archive": "https://web.archive.org/web/20260919165924/https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
+    "role": "Autonomous",
+    "category": "Security research",
+    "slug": "anthropic-reports-claude-reached-real-systems-during-cybersecurity-evals"
+  },
+  {
     "date": "2026-07-21",
     "source": "OpenAI",
     "title": "OpenAI's rogue AI agent hacked Hugging Face in July breach",
