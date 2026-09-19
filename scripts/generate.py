@@ -142,6 +142,10 @@ def archive_missing_links(text):
     return "\n---\n".join(blocks), changed
 
 
+SCHEMA_VERSION = 1
+CHUNK_SIZE = 20  # hint for future pagination
+
+
 def build_incidents(entries):
     incidents = [
         {
@@ -159,7 +163,12 @@ def build_incidents(entries):
         for entry in entries
     ]
     incidents.sort(key=lambda item: item["date"], reverse=True)
-    return incidents
+    return {
+        "schema_version": SCHEMA_VERSION,
+        "chunk_size": CHUNK_SIZE,
+        "total": len(incidents),
+        "incidents": incidents,
+    }
 
 
 def render_badge(days, latest_date):
@@ -235,19 +244,19 @@ def main(argv=None):
         return 1
 
     incidents = build_incidents(entries)
-    if not incidents:
+    if not incidents["incidents"]:
         print(f"ERROR: no incidents found in {DATA_PATH.name}; refusing to write an empty dataset.")
         return 1
 
     INCIDENTS_PATH.write_text(
         json.dumps(incidents, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
-    latest = incidents[0]
+    latest = incidents["incidents"][0]
     days = max(0, (datetime.now(timezone.utc).date() - date.fromisoformat(latest["date"])).days)
     BADGE_PATH.write_text(render_badge(days, latest["date"]), encoding="utf-8")
-    FEED_PATH.write_text(render_feed(incidents), encoding="utf-8")
+    FEED_PATH.write_text(render_feed(incidents["incidents"]), encoding="utf-8")
 
-    print(f"Generated {len(incidents)} incident(s); {len(warnings)} warning(s).")
+    print(f"Generated {incidents['total']} incident(s); {len(warnings)} warning(s).")
     return 0
 
 

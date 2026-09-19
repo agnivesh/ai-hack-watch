@@ -178,8 +178,8 @@ def dup_extra_url():
 @check("build_incidents carries the urls array")
 def urls_in_json():
     incidents = generate.build_incidents(datamd.parse_blocks(SAMPLE))
-    assert incidents[0]["url"] == "https://example.com/report"
-    assert incidents[0]["urls"] == ["https://example.com/report"]
+    assert incidents["incidents"][0]["url"] == "https://example.com/report"
+    assert incidents["incidents"][0]["urls"] == ["https://example.com/report"]
 
 
 @check("stray markdown markers on values are rejected")
@@ -352,14 +352,14 @@ def sorting():
 Earlier story.
 """)
     incidents = generate.build_incidents(entries)
-    assert incidents[0]["title"] == "Test incident"
-    assert incidents[1]["title"] == "Older incident"
+    assert incidents["incidents"][0]["title"] == "Test incident"
+    assert incidents["incidents"][1]["title"] == "Older incident"
 
 
 @check("render_feed escapes and wraps incidents well-formed")
 def feed():
     incidents = generate.build_incidents(datamd.parse_blocks(SAMPLE))
-    feed = generate.render_feed(incidents)
+    feed = generate.render_feed(incidents["incidents"])
     assert feed.startswith('<?xml version="1.0"')
     assert '<rss version="2.0">' in feed
     assert "&#x27;" in feed  # apostrophe escaped

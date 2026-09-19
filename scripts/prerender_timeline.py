@@ -122,7 +122,8 @@ def main(argv=None):
     args = parser.parse_args(argv)
     data_path = ROOT / "incidents.json"
     index_path = ROOT / "index.html"
-    incidents = json.loads(data_path.read_text())
+    data = json.loads(data_path.read_text())
+    incidents = data.get("incidents", data)  # backward compat with old flat array
     incidents.sort(key=lambda article: article["date"], reverse=True)
     articles = "\n".join(render_article(article) for article in incidents[:args.limit])
     rendered_timeline = f"{START_MARKER}\n{articles}\n      {END_MARKER}"
