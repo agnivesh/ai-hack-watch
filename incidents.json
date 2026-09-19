@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "chunk_size": 20,
-  "total": 21,
+  "total": 30,
   "incidents": [
     {
       "date": "2026-09-18",
@@ -159,6 +159,21 @@
       "slug": "openais-rogue-ai-agent-hacked-hugging-face-in-july-breach"
     },
     {
+      "date": "2026-07-06",
+      "source": "Asahi Shimbun",
+      "title": "Teen used ChatGPT to build script that cancelled 46,000 Bandai accounts",
+      "description": "A 15-year-old exploited a logic flaw in Bandai Channel's account-cancellation process and used ChatGPT to refine an automation script that mass-cancelled 46,812 accounts and exposed up to 1.36 million records.",
+      "url": "https://www.asahi.com/ajw/articles/16703618",
+      "urls": [
+        "https://www.asahi.com/ajw/articles/16703618",
+        "https://shattered.io/bandai-namco-chatgpt-hack-2026/"
+      ],
+      "archive": "",
+      "role": "AI-assisted",
+      "category": "Cyber operations",
+      "slug": "teen-used-chatgpt-to-build-script-that-cancelled-46000-bandai-accounts"
+    },
+    {
       "date": "2026-07-01",
       "source": "Sysdig Threat Research Team",
       "title": "Sysdig documents first fully agentic ransomware operation",
@@ -244,6 +259,20 @@
       "slug": "unit-42-demonstrates-autonomous-multi-agent-cloud-attack-chain"
     },
     {
+      "date": "2026-03-30",
+      "source": "Check Point Research",
+      "title": "Check Point finds covert DNS exfiltration channel in ChatGPT runtime",
+      "description": "Check Point Research disclosed a hidden outbound path from ChatGPT's code-execution runtime that let a single malicious prompt exfiltrate conversation data to an attacker-controlled server through encoded DNS queries; the flaw was fixed in February 2026.",
+      "url": "https://research.checkpoint.com/2026/chatgpt-data-leakage-via-a-hidden-outbound-channel-in-the-code-execution-runtime/",
+      "urls": [
+        "https://research.checkpoint.com/2026/chatgpt-data-leakage-via-a-hidden-outbound-channel-in-the-code-execution-runtime/"
+      ],
+      "archive": "",
+      "role": "AI-targeted",
+      "category": "Security research",
+      "slug": "check-point-finds-covert-dns-exfiltration-channel-in-chatgpt-runtime"
+    },
+    {
       "date": "2026-02-09",
       "source": "Adnan Khan",
       "title": "Cline issue-triage prompt injection research disclosed",
@@ -256,6 +285,21 @@
       "role": "AI-targeted",
       "category": "Security research",
       "slug": "cline-issue-triage-prompt-injection-research-disclosed"
+    },
+    {
+      "date": "2026-01-07",
+      "source": "Radware",
+      "title": "Radware discloses zero-click prompt-injection data theft in ChatGPT",
+      "description": "Radware's ZombieAgent research showed how prompt injection against ChatGPT's agentic features could make the assistant read Gmail and Drive content and exfiltrate it through attacker-controlled URLs without any user click.",
+      "url": "https://www.radware.com/blog/threat-intelligence/zombieagent/",
+      "urls": [
+        "https://www.radware.com/blog/threat-intelligence/zombieagent/",
+        "https://www.infosecurity-magazine.com/news/new-zeroclick-attack-chatgpt/"
+      ],
+      "archive": "",
+      "role": "AI-targeted",
+      "category": "Security research",
+      "slug": "radware-discloses-zero-click-prompt-injection-data-theft-in-chatgpt"
     },
     {
       "date": "2025-11-13",
@@ -298,6 +342,91 @@
       "role": "AI-assisted",
       "category": "Malware",
       "slug": "openai-disrupts-accounts-developing-malware-with-chatgpt"
+    },
+    {
+      "date": "2025-01-31",
+      "source": "OpenAI",
+      "title": "OpenAI bans accounts used for cyber operations",
+      "description": "OpenAI's February 2025 update described multiple banned accounts that used its models to assist scams, cyber operations and technical exploitation, including code generation and operational planning.",
+      "url": "https://cdn.openai.com/threat-intelligence-reports/disrupting-malicious-uses-of-our-models-february-2025-update.pdf",
+      "urls": [
+        "https://cdn.openai.com/threat-intelligence-reports/disrupting-malicious-uses-of-our-models-february-2025-update.pdf"
+      ],
+      "archive": "",
+      "role": "AI-assisted",
+      "category": "Cyber operations",
+      "slug": "openai-bans-accounts-used-for-cyber-operations"
+    },
+    {
+      "date": "2024-10-09",
+      "source": "OpenAI",
+      "title": "OpenAI disrupts state-linked cyber and influence operations",
+      "description": "OpenAI detailed more than 20 malicious operations in which groups including Storm-0817, SweetSpecter and CyberAv3ngers used ChatGPT for malware debugging, scripting, vulnerability research and spear-phishing content before their accounts were banned.",
+      "url": "https://cdn.openai.com/threat-intelligence-reports/influence-and-cyber-operations-an-update_October-2024.pdf",
+      "urls": [
+        "https://cdn.openai.com/threat-intelligence-reports/influence-and-cyber-operations-an-update_October-2024.pdf"
+      ],
+      "archive": "",
+      "role": "AI-assisted",
+      "category": "Cyber operations",
+      "slug": "openai-disrupts-state-linked-cyber-and-influence-operations"
+    },
+    {
+      "date": "2024-09-24",
+      "source": "HP Wolf Security",
+      "title": "HP Wolf Security finds GenAI-written malware in the wild",
+      "description": "HP identified a French-language campaign whose VBScript and JavaScript payloads carried verbose natural-language comments consistent with generative-AI output, used to deploy ChromeLoader and AsyncRAT.",
+      "url": "https://www.hp.com/us-en/newsroom/press-releases/2024/ai-generate-malware.html",
+      "urls": [
+        "https://www.hp.com/us-en/newsroom/press-releases/2024/ai-generate-malware.html"
+      ],
+      "archive": "",
+      "role": "AI-assisted",
+      "category": "Malware",
+      "slug": "hp-wolf-security-finds-genai-written-malware-in-the-wild"
+    },
+    {
+      "date": "2024-05-27",
+      "source": "The Straits Times",
+      "title": "Japan arrests man for creating ransomware with generative AI",
+      "description": "Tokyo police arrested 25-year-old Ryuki Hayashi for using online generative-AI services to build ransomware that encrypts data and demands cryptocurrency, in Japan's first case involving AI-assisted malware creation.",
+      "url": "https://www.straitstimes.com/asia/east-asia/man-in-japan-arrested-for-creating-virus-using-generative-ai-systems",
+      "urls": [
+        "https://www.straitstimes.com/asia/east-asia/man-in-japan-arrested-for-creating-virus-using-generative-ai-systems"
+      ],
+      "archive": "",
+      "role": "AI-assisted",
+      "category": "Malware",
+      "slug": "japan-arrests-man-for-creating-ransomware-with-generative-ai"
+    },
+    {
+      "date": "2024-04-09",
+      "source": "Proofpoint",
+      "title": "Proofpoint links AI-written PowerShell loader to TA547 campaign",
+      "description": "Proofpoint observed the TA547 group delivering the Rhadamanthys infostealer to German organisations with a PowerShell loader whose comments and structure indicated it was generated by a large language model.",
+      "url": "https://www.proofpoint.com/us/blog/threat-insight/security-brief-ta547-targets-german-organizations-rhadamanthys-stealer",
+      "urls": [
+        "https://www.proofpoint.com/us/blog/threat-insight/security-brief-ta547-targets-german-organizations-rhadamanthys-stealer"
+      ],
+      "archive": "",
+      "role": "AI-assisted",
+      "category": "Malware",
+      "slug": "proofpoint-links-ai-written-powershell-loader-to-ta547-campaign"
+    },
+    {
+      "date": "2023-01-05",
+      "source": "Check Point Research",
+      "title": "Check Point observes cybercriminals using ChatGPT to build malware",
+      "description": "Check Point Research documented underground forum users recreating known malware strains, building multi-layer Python encryption tools and writing dark-web marketplace scripts with ChatGPT.",
+      "url": "https://research.checkpoint.com/2023/opwnai-cybercriminals-starting-to-use-chatgpt/",
+      "urls": [
+        "https://research.checkpoint.com/2023/opwnai-cybercriminals-starting-to-use-chatgpt/",
+        "https://www.infosecurity-magazine.com/news/chatgpt-develop-malicious-tools/"
+      ],
+      "archive": "",
+      "role": "AI-assisted",
+      "category": "Malware",
+      "slug": "check-point-observes-cybercriminals-using-chatgpt-to-build-malware"
     }
   ]
 }

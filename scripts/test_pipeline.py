@@ -274,6 +274,7 @@ def bot_write(tmp=None):
         data_path.write_text(
             (ROOT / "data.md").read_text(encoding="utf-8"), encoding="utf-8"
         )
+        before = len(datamd.parse_blocks(data_path.read_text(encoding="utf-8")))
         body_path = Path(tmpdir) / "body.md"
         body_path.write_text(
             """### Article URL
@@ -323,7 +324,7 @@ A test description.
         )
         assert result.returncode == 0, result.stdout + result.stderr
         entries = datamd.parse_blocks(data_path.read_text(encoding="utf-8"))
-        assert len(entries) == 22, len(entries)
+        assert len(entries) == before + 1, len(entries)
         assert (Path(tmpdir) / ".story-pr-body.md").is_file()
 
 
