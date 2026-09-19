@@ -169,7 +169,7 @@
         "https://www.asahi.com/ajw/articles/16703618",
         "https://shattered.io/bandai-namco-chatgpt-hack-2026/"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260919205409/https://www.asahi.com/ajw/articles/16703618",
       "role": "AI-assisted",
       "category": "Cyber operations",
       "slug": "teen-used-chatgpt-to-build-script-that-cancelled-46000-bandai-accounts"
@@ -283,7 +283,7 @@
         "https://cloud.google.com/blog/topics/threat-intelligence/distillation-experimentation-integration-ai-adversarial-use",
         "https://www.bleepingcomputer.com/news/security/google-says-hackers-are-abusing-gemini-ai-for-all-attacks-stages/"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260919210903/https://cloud.google.com/blog/topics/threat-intelligence/distillation-experimentation-integration-ai-adversarial-use",
       "role": "AI-assisted",
       "category": "Malware",
       "slug": "google-reports-state-backed-groups-building-ai-assisted-malware"
@@ -368,7 +368,7 @@
       "urls": [
         "https://www.anthropic.com/news/detecting-countering-misuse-aug-2025"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260915215436/https://www.anthropic.com/news/detecting-countering-misuse-aug-2025",
       "role": "Autonomous",
       "category": "Cyber operations",
       "slug": "anthropic-disrupts-vibe-hacking-campaign-against-17-organisations"
@@ -382,7 +382,7 @@
       "urls": [
         "https://thehackernews.com/2025/07/cert-ua-discovers-lamehug-malware.html"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260919210838/https://thehackernews.com/2025/07/cert-ua-discovers-lamehug-malware.html",
       "role": "AI-assisted",
       "category": "Malware",
       "slug": "apt28-deploys-llm-powered-lamehug-malware-against-ukraine"
@@ -424,7 +424,7 @@
       "urls": [
         "https://cloud.google.com/blog/topics/threat-intelligence/adversarial-misuse-generative-ai"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260917091400/https://cloud.google.com/blog/topics/threat-intelligence/adversarial-misuse-generative-ai",
       "role": "AI-assisted",
       "category": "Cyber operations",
       "slug": "google-reports-state-backed-attempts-to-misuse-gemini"
@@ -452,7 +452,7 @@
       "urls": [
         "https://www.hp.com/us-en/newsroom/press-releases/2024/ai-generate-malware.html"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260919205237/https://www.hp.com/us-en/newsroom/press-releases/2024/ai-generate-malware.html",
       "role": "AI-assisted",
       "category": "Malware",
       "slug": "hp-wolf-security-finds-genai-written-malware-in-the-wild"
