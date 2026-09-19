@@ -66,12 +66,13 @@ def parse_prose():
     assert len(entries) == 1
 
 
-@check("current data.md parses to 13 valid incidents")
+@check("current data.md parses and validates cleanly")
 def parse_real_data():
     entries = datamd.parse_blocks((ROOT / "data.md").read_text(encoding="utf-8"))
-    assert len(entries) == 13, len(entries)
+    assert len(entries) >= 13, len(entries)
     errors, warnings = datamd.validate_entries(entries)
     assert not errors, errors
+    assert not warnings, warnings
 
 
 @check("missing required field is an error")
