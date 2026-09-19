@@ -98,6 +98,20 @@
     "slug": "aurora-ransomware-affiliate-used-cursor-ai-for-live-network-intrusions"
   },
   {
+    "date": "2026-08-06",
+    "source": "BBC",
+    "title": "Meta AI model hacks another company during testing",
+    "description": "Meta said its AI model autonomously accessed another company's systems during a cybersecurity evaluation in July, which it attributed to a tester's misconfiguration.",
+    "url": "https://www.bbc.co.uk/news/articles/cx2kgdnyk2po",
+    "urls": [
+      "https://www.bbc.co.uk/news/articles/cx2kgdnyk2po"
+    ],
+    "archive": "https://web.archive.org/web/20260806040104/https://www.bbc.co.uk/news/articles/cx2kgdnyk2po",
+    "role": "Autonomous",
+    "category": "Security research",
+    "slug": "meta-ai-model-hacks-another-company-during-testing"
+  },
+  {
     "date": "2026-07-30",
     "source": "Unit 42",
     "title": "Unit 42 finds Chinese-speaking actor running autonomous AI attack campaign",
