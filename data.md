@@ -85,7 +85,7 @@ Palo Alto Networks' Unit 42 reported that an attacker used frontier AI agents du
 
 ## Anthropic reports AI-assisted cyber operations
 
-**Date:** 2026-09-01
+**Date:** 2026-09-10
 **Source:** Anthropic
 **Source 2:** CyberScoop
 **URL:** https://www.anthropic.com/threat-intelligence-report-september-2026
@@ -391,7 +391,7 @@ Meta said its AI model autonomously accessed another company's systems during a 
 
 ## Check Point observes cybercriminals using ChatGPT to build malware
 
-**Date:** 2023-01-05
+**Date:** 2023-01-06
 **Source:** Check Point Research
 **Source 2:** Infosecurity Magazine
 **URL:** https://research.checkpoint.com/2023/opwnai-cybercriminals-starting-to-use-chatgpt/
@@ -411,7 +411,7 @@ Check Point Research documented underground forum users recreating known malware
 
 ## Proofpoint links AI-written PowerShell loader to TA547 campaign
 
-**Date:** 2024-04-09
+**Date:** 2024-04-10
 **Source:** Proofpoint
 **URL:** https://www.proofpoint.com/us/blog/threat-insight/security-brief-ta547-targets-german-organizations-rhadamanthys-stealer
 **Archive:** https://web.archive.org/web/20260818010636/https://www.proofpoint.com/us/blog/threat-insight/security-brief-ta547-targets-german-organizations-rhadamanthys-stealer
@@ -468,11 +468,12 @@ HP identified a French-language campaign whose VBScript and JavaScript payloads 
 **Date:** 2024-10-09
 **Source:** OpenAI
 **URL:** https://cdn.openai.com/threat-intelligence-reports/influence-and-cyber-operations-an-update_October-2024.pdf
+**URL 2:** https://openai.com/index/disrupting-malicious-uses-of-ai-sweetspecter/
 **Archive:**
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
-OpenAI detailed more than 20 malicious operations in which groups including Storm-0817, SweetSpecter and CyberAv3ngers used ChatGPT for malware debugging, scripting, vulnerability research and spear-phishing content before their accounts were banned.
+OpenAI detailed more than 20 malicious operations in which groups including Storm-0817, SweetSpecter and CyberAv3ngers used ChatGPT for malware debugging, scripting, vulnerability research and spear-phishing content before their accounts were banned. The China-linked SweetSpecter actor also sent malicious attachments to OpenAI employees in an attempt to compromise their devices.
 
 
 
@@ -486,11 +487,12 @@ OpenAI detailed more than 20 malicious operations in which groups including Stor
 **Date:** 2025-01-31
 **Source:** OpenAI
 **URL:** https://cdn.openai.com/threat-intelligence-reports/disrupting-malicious-uses-of-our-models-february-2025-update.pdf
+**URL 2:** https://openai.com/index/disrupting-malicious-uses-of-ai-cyber-threat-actors/
 **Archive:** https://web.archive.org/web/20260913060524/https://cdn.openai.com/threat-intelligence-reports/disrupting-malicious-uses-of-our-models-february-2025-update.pdf
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
-OpenAI's February 2025 update described multiple banned accounts that used its models to assist scams, cyber operations and technical exploitation, including code generation and operational planning.
+OpenAI's February 2025 update described multiple banned accounts that used its models to assist scams, cyber operations and technical exploitation, including code generation and operational planning. Accounts potentially linked to North Korean actors used AI to research intrusion tooling, malware, phishing and RDP brute-force techniques.
 
 
 
@@ -560,7 +562,9 @@ A 15-year-old exploited a logic flaw in Bandai Channel's account-cancellation pr
 
 **Date:** 2024-02-14
 **Source:** OpenAI
+**Source 2:** Microsoft Threat Intelligence
 **URL:** https://openai.com/index/disrupting-malicious-uses-of-ai-by-state-affiliated-threat-actors/
+**URL 2:** https://www.microsoft.com/en-us/security/blog/2024/02/14/staying-ahead-of-threat-actors-in-the-age-of-ai/
 **Archive:**
 **AI role:** AI-assisted
 **Category:** Cyber operations
@@ -595,11 +599,12 @@ Google Threat Intelligence Group reported that state-backed actors from Iran, Ch
 **Date:** 2025-06-05
 **Source:** OpenAI
 **URL:** https://cdn.openai.com/threat-intelligence-reports/5f73af09-a3a3-4a55-992e-069237681620/disrupting-malicious-uses-of-ai-june-2025.pdf
+**URL 2:** https://openai.com/index/disrupting-malicious-uses-of-ai-vixen-keyhole-panda/
 **Archive:**
 **AI role:** AI-assisted
 **Category:** Other
 
-OpenAI's June 2025 report described ten disrupted operations, including North Korean-linked deceptive employment schemes using AI-generated personas and résumés, and Chinese-origin covert influence operations generating social media content at scale.
+OpenAI's June 2025 report described ten disrupted operations, including North Korean-linked deceptive employment schemes using AI-generated personas and résumés, and Chinese-origin covert influence operations generating social media content at scale. The China-attributed actors Vixen and Keyhole Panda used AI for vulnerability research, scripting, port scanning and operational troubleshooting.
 
 
 
@@ -653,3 +658,147 @@ Anthropic reported disrupting GTG-2002, a cybercriminal operation that used Clau
 **Category:** Malware
 
 Google Threat Intelligence Group reported that state-backed groups including Iran's APT42 and North Korea's UNC2970 used Gemini across the attack lifecycle for reconnaissance and phishing-lure creation, and built two working malware tools, Honestcue and COINBAIT, deployed against real targets.
+
+
+
+
+---
+
+## Mandiant finds threat actors experimenting with generative AI
+
+**Date:** 2023-08-17
+**Source:** Mandiant
+**URL:** https://cloud.google.com/blog/topics/threat-intelligence/threat-actors-generative-ai-limited/
+**Archive:**
+**AI role:** AI-assisted
+**Category:** Cyber operations
+
+Mandiant reported that threat actors had begun experimenting with generative AI for reconnaissance, malware-related activity and social engineering, while assessing that actual use in intrusions remained limited and focused largely on human-targeting tasks.
+
+
+
+
+---
+
+## JFrog finds malicious models backdooring Hugging Face users
+
+**Date:** 2024-02-27
+**Source:** JFrog Security Research
+**URL:** https://jfrog.com/blog/data-scientists-targeted-by-malicious-hugging-face-ml-models-with-silent-backdoor/
+**Archive:**
+**AI role:** AI-targeted
+**Category:** AI model compromise
+
+JFrog Security Research found malicious machine-learning models on Hugging Face that executed code when loaded, giving attackers a route to establish a reverse shell and backdoor on developers' systems; the investigation identified roughly 100 suspicious models.
+
+
+
+
+---
+
+## LastPass employee foils AI voice-deepfake social engineering
+
+**Date:** 2024-04-10
+**Source:** LastPass
+**URL:** https://blog.lastpass.com/posts/attempted-audio-deepfake-call-targets-lastpass-employee
+**Archive:**
+**AI role:** AI-assisted
+**Category:** Other
+
+A threat actor used an AI-generated imitation of the LastPass CEO's voice across WhatsApp calls, texts and voicemail to socially engineer an employee, who ignored the messages and reported the attempt.
+
+
+
+
+---
+
+## Anthropic reports Claude misuse for intrusion research
+
+**Date:** 2025-04-23
+**Source:** Anthropic
+**URL:** https://www.anthropic.com/news/detecting-and-countering-malicious-uses-of-claude-march-2025
+**Archive:**
+**AI role:** AI-assisted
+**Category:** Cyber operations
+
+Anthropic's threat intelligence report described multiple misuse cases involving Claude, including actors using it to research intrusion paths and compromised infrastructure while experimenting with ways around model safeguards.
+
+
+
+
+---
+
+## JFrog finds malicious AI models hidden in PyPI packages
+
+**Date:** 2025-05-22
+**Source:** JFrog Security Research
+**URL:** https://research.jfrog.com/post/malicious-ai-models-hit-pypi/
+**Archive:**
+**AI role:** AI-targeted
+**Category:** AI model compromise
+
+JFrog observed an attack on the PyPI repository in which two malicious packages loaded an infected Torch AI model to deploy obfuscated malware that collected system information and exfiltrated it.
+
+
+
+
+---
+
+## Proofpoint finds criminals abusing an AI website builder for phishing
+
+**Date:** 2025-08-20
+**Source:** Proofpoint
+**URL:** https://www.proofpoint.com/us/blog/threat-insight/cybercriminals-abuse-ai-website-creation-app-phishing
+**Archive:**
+**AI role:** AI-assisted
+**Category:** Credential theft
+
+Proofpoint observed cybercriminals using the AI website builder Lovable to create credential-phishing, malware-delivery and fraud sites, including brand impersonation, CAPTCHA filtering and Telegram-based credential collection.
+
+
+
+
+---
+
+## Trend Micro tracks the EvilAI campaign using AI-generated code
+
+**Date:** 2025-09-11
+**Source:** Trend Micro
+**URL:** https://www.trendmicro.com/en_us/research/25/i/evilai.html
+**Archive:**
+**AI role:** AI-assisted
+**Category:** Malware
+
+Trend Micro described the EvilAI campaign, in which attackers combined AI-generated code with fake digitally signed applications to establish persistence and steal browser credentials while appearing legitimate to victims.
+
+
+
+
+---
+
+## Genians links Kimsuky to ChatGPT-made fake military IDs
+
+**Date:** 2025-09-16
+**Source:** Genians Security Center
+**URL:** https://www.genians.co.kr/en/blog/threat_intelligence/deepfake
+**Archive:**
+**AI role:** AI-assisted
+**Category:** Cyber operations
+
+Genians reported that a Kimsuky-linked campaign used ChatGPT to create convincing fake South Korean military identification documents, which were then used in phishing and deepfake-based espionage attempts against South Korean targets.
+
+
+
+
+---
+
+## Microsoft reports threat actors operationalising AI
+
+**Date:** 2026-03-06
+**Source:** Microsoft Threat Intelligence
+**URL:** https://www.microsoft.com/en-us/security/blog/2026/03/06/ai-as-tradecraft-how-threat-actors-operationalize-ai/
+**Archive:**
+**AI role:** AI-assisted
+**Category:** Cyber operations
+
+Microsoft described threat actors using AI for phishing, translation, exploit research, malware coding and debugging, data discovery and post-compromise activity, including early experimentation with more agentic AI workflows by North Korean groups such as Jasper Sleet and Coral Sleet.
