@@ -7,10 +7,14 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Days since AI hack">
   <meta property="og:description" content="A public timeline of notable AI hacking and AI-enabled cyber incidents.">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="days-since-badge.svg">
+  <link rel="canonical" href="https://agnivesh.github.io/ai-hack-watch">
+  <meta property="og:url" content="https://agnivesh.github.io/ai-hack-watch">
+  <meta property="og:image" content="https://agnivesh.github.io/ai-hack-watch/days-since-badge.svg">
   <title>Days since AI hack</title>
   <link rel="alternate" type="application/rss+xml" title="AI Hack Watch" href="feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -52,15 +56,6 @@
         <h2>Incident breakdown</h2>
       </div>
       <div id="breakdown" class="breakdown"></div>
-    </section>
-
-    <section class="chart-section">
-      <div class="section-head">
-        <h2>Gaps between incidents</h2>
-        <span>days</span>
-      </div>
-      <div id="gap-chart" class="gap-chart"></div>
-      <p class="chart-note">Historical intervals only. This is a record of observed gaps, not a prediction.</p>
     </section>
 
     <section class="timeline-section" aria-labelledby="timeline-title">
@@ -234,11 +229,12 @@
     </section>
 
     <footer>
-      <p><a href="feed.xml">RSS feed</a> · <a href="METHODOLOGY.md">Methodology</a> · <a href="CONTRIBUTING.md">Contributing</a></p>
-      <p>Static site · Data is generated from <code>data.md</code> by GitHub Actions.</p>
+      <p><a href="feed.xml">RSS feed</a> · <a href="incidents.json">Dataset</a> · <a href="METHODOLOGY.md">Methodology</a> · <a href="CONTRIBUTING.md">Contributing</a></p>
+      <p>Open-source project by <a href="https://github.com/agnivesh" target="_blank" rel="noopener noreferrer">agnivesh</a>.</p>
+      <p>Last tracked: <span id="footer-last-tracked">—</span></p>
     </footer>
   </main>
-  <script src="config.js"></script>
-  <script src="script.js"></script>
+  <script src="config.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

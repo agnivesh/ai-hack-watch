@@ -2,14 +2,19 @@ let allArticles = [];
 let activeFilter = "All";
 
 async function loadArticles() {
-  const response = await fetch("incidents.json", { cache: "no-store" });
+  const response = await fetch("incidents.json", { cache: "no-cache" });
   if (!response.ok) throw new Error("Could not load incidents.json");
   return await response.json();
 }
 
 function daysBetween(startDate, endDate = new Date()) {
-  const start = new Date(startDate + "T00:00:00");
-  const today = new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate());
+  // UTC calendar dates so all visitors see the same count
+  const start = new Date(startDate + "T00:00:00Z");
+  const today = Date.UTC(
+    endDate.getUTCFullYear(),
+    endDate.getUTCMonth(),
+    endDate.getUTCDate()
+  );
   return Math.max(0, Math.floor((today - start) / 86400000));
 }
 
@@ -89,6 +94,8 @@ function renderStats() {
   document.getElementById("story-count").textContent = allArticles.length;
   document.getElementById("record-streak").textContent = `${longestGap(allArticles)}d`;
   document.getElementById("last-gap").textContent = gaps.length ? `${gaps[0]}d` : "—";
+  const footerUpdated = document.getElementById("footer-last-tracked");
+  if (footerUpdated) footerUpdated.textContent = formatDate(latest.date);
 }
 
 function renderBreakdown() {
@@ -97,22 +104,15 @@ function renderBreakdown() {
   const values = roles.map(role => [role, allArticles.filter(a => a.role === role).length]);
   const cards = [...values, ...cats.slice(0, 3).map(cat => [cat, allArticles.filter(a => a.category === cat).length])];
   document.getElementById("breakdown").innerHTML = cards.slice(0, 8).map(([label,count]) =>
-    `<div class="breakdown-card"><strong>${count}</strong><span>${escapeHtml(label)}</span></div>`
+    `<button type="button" class="breakdown-card" data-filter="${escapeHtml(label)}" aria-pressed="false"><strong>${count}</strong><span>${escapeHtml(label)}</span></button>`
   ).join("");
+  bindFilterButtons(".breakdown-card");
 }
 
-function renderChart() {
-  const gaps = intervals(allArticles).slice(0, 12).reverse();
-  const max = Math.max(1, ...gaps);
-  document.getElementById("gap-chart").innerHTML = gaps.map((gap, i) =>
-    `<div class="bar" style="height:${Math.max(6, Math.round(gap/max*100))}%"><span class="bar-label">${gap}</span></div>`
-  ).join("");
-}
-
-function renderFilters() {
+function buildFilters() {
   const filters = ["All", ...uniqueTags(allArticles)];
   document.getElementById("filters").innerHTML = filters.map(filter =>
-    `<button class="filter ${filter === activeFilter ? "active" : ""}" data-filter="${escapeHtml(filter)}" aria-pressed="${filter === activeFilter}">${escapeHtml(filter)}</button>`
+    `<button class="filter" data-filter="${escapeHtml(filter)}" aria-pressed="false">${escapeHtml(filter)}</button>`
   ).join("");
   bindFilterButtons(".filter");
 }
@@ -121,31 +121,24 @@ function bindFilterButtons(selector) {
   document.querySelectorAll(selector).forEach(button => {
     button.addEventListener("click", () => {
       activeFilter = button.dataset.filter;
-      renderFilters();
-      renderTimeline();
+      applyFilter();
     });
   });
 }
 
-function renderTimeline() {
-  const visible = activeFilter === "All"
-    ? allArticles
-    : allArticles.filter(a => a.role === activeFilter || a.category === activeFilter);
+function renderArticle(article) {
+  const slug = slugify(article.slug || article.title);
+  const sourceUrl = safeHttpUrl(article.url);
+  const archiveUrl = safeHttpUrl(article.archive);
+  const title = escapeHtml(article.title || "Untitled incident");
+  const source = escapeHtml(article.source || "Unknown source");
+  const role = article.role ? `<button type="button" class="tag tag-filter" data-filter="${escapeHtml(article.role)}" aria-pressed="false">${escapeHtml(article.role)}</button>` : "";
+  const category = article.category ? `<button type="button" class="tag tag-filter" data-filter="${escapeHtml(article.category)}" aria-pressed="false">${escapeHtml(article.category)}</button>` : "";
+  const sourceLink = sourceUrl ? `<a href="${escapeHtml(sourceUrl)}" target="_blank" rel="noopener noreferrer">Read source ↗</a>` : "";
+  const archiveLink = archiveUrl ? `<a href="${escapeHtml(archiveUrl)}" target="_blank" rel="noopener noreferrer">Archived copy ↗</a>` : "";
 
-  document.getElementById("filter-count").textContent = `${visible.length} of ${allArticles.length} stories`;
-  document.getElementById("timeline").innerHTML = visible.map(article => {
-    const slug = slugify(article.slug || article.title);
-    const sourceUrl = safeHttpUrl(article.url);
-    const archiveUrl = safeHttpUrl(article.archive);
-    const title = escapeHtml(article.title || "Untitled incident");
-    const source = escapeHtml(article.source || "Unknown source");
-    const role = article.role ? `<button type="button" class="tag tag-filter ${activeFilter === article.role ? "active" : ""}" data-filter="${escapeHtml(article.role)}" aria-pressed="${activeFilter === article.role}">${escapeHtml(article.role)}</button>` : "";
-    const category = article.category ? `<button type="button" class="tag tag-filter ${activeFilter === article.category ? "active" : ""}" data-filter="${escapeHtml(article.category)}" aria-pressed="${activeFilter === article.category}">${escapeHtml(article.category)}</button>` : "";
-    const sourceLink = sourceUrl ? `<a href="${escapeHtml(sourceUrl)}" target="_blank" rel="noopener noreferrer">Read source ↗</a>` : "";
-    const archiveLink = archiveUrl ? `<a href="${escapeHtml(archiveUrl)}" target="_blank" rel="noopener noreferrer">Archived copy ↗</a>` : "";
-
-    return `
-      <article class="item" id="${escapeHtml(slug)}">
+  return `
+      <article class="item" id="${escapeHtml(slug)}" data-role="${escapeHtml(article.role ?? "")}" data-category="${escapeHtml(article.category ?? "")}">
         <div class="date">${formatDate(article.date)}</div>
         <div class="dot-wrap"><div class="dot"></div></div>
         <div class="card">
@@ -157,8 +150,38 @@ function renderTimeline() {
         </div>
       </article>
     `;
-  }).join("");
-  bindFilterButtons(".tag-filter");
+}
+
+function renderTimeline() {
+  const timeline = document.getElementById("timeline");
+  if (!timeline.dataset.built) {
+    timeline.innerHTML = allArticles.map(renderArticle).join("");
+    timeline.dataset.built = "true";
+    bindFilterButtons(".tag-filter");
+  }
+  applyFilter();
+}
+
+function articleMatches(article) {
+  return activeFilter === "All"
+    || article.dataset.role === activeFilter
+    || article.dataset.category === activeFilter;
+}
+
+function applyFilter() {
+  const timeline = document.getElementById("timeline");
+  let visibleCount = 0;
+  timeline.querySelectorAll("article.item").forEach(article => {
+    const matches = articleMatches(article);
+    article.classList.toggle("hidden", !matches);
+    if (matches) visibleCount += 1;
+  });
+  document.querySelectorAll(".filter, .tag-filter, .breakdown-card").forEach(button => {
+    const isActive = button.dataset.filter === activeFilter;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+  document.getElementById("filter-count").textContent = `${visibleCount} of ${allArticles.length} stories`;
 }
 
 async function render() {
@@ -168,8 +191,7 @@ async function render() {
   updateMeta(allArticles[0]);
   renderStats();
   renderBreakdown();
-  renderChart();
-  renderFilters();
+  buildFilters();
   renderTimeline();
 }
 
