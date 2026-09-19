@@ -1,17 +1,52 @@
+import argparse
 import html
 import json
+import os
 import re
 from datetime import date
 from pathlib import Path
 from urllib.parse import urlparse
 
+import datamd
+
 
 INCIDENT_LIMIT = 20
+ROOT = Path(__file__).resolve().parents[1]
 START_MARKER = "<!-- PRE_RENDERED_TIMELINE_START -->"
 END_MARKER = "<!-- PRE_RENDERED_TIMELINE_END -->"
 MARKER_PATTERN = re.compile(
     f"{re.escape(START_MARKER)}.*?{re.escape(END_MARKER)}", re.DOTALL
 )
+
+
+def load_site_url():
+    """Read the public site URL from config.js, if configured."""
+    config_path = ROOT / "config.js"
+    match = re.search(r'siteUrl\s*:\s*"([^"]+)"', config_path.read_text(encoding="utf-8"))
+    return match.group(1).rstrip("/") if match else ""
+
+
+def inject_site_urls(index, site_url):
+    """Fill canonical/og:url/og:image tags with the public site URL.
+
+    Idempotent: safe to run against an already-injected index.html.
+    Returns (updated_index, number_of_injections_applied).
+    """
+    if not site_url:
+        return index, 0
+    substitutions = [
+        (r'<link rel="canonical" href="">', f'<link rel="canonical" href="{site_url}">'),
+        (r'<meta property="og:url" content="">', f'<meta property="og:url" content="{site_url}">'),
+        (
+            r'<meta property="og:image" content="[^"]*days-since-badge\.svg">',
+            f'<meta property="og:image" content="{site_url}/days-since-badge.svg">',
+        ),
+    ]
+    applied = 0
+    for pattern, replacement in substitutions:
+        index, count = re.subn(pattern, replacement, index, count=1)
+        applied += count
+    return index, applied
 
 
 def text(value, fallback=""):
@@ -24,11 +59,6 @@ def safe_url(value):
     if parsed_url.scheme in {"http", "https"} and parsed_url.netloc:
         return url
     return ""
-
-
-def slugify(value):
-    normalized = re.sub(r"[^\w\s-]", "", text(value).lower()).strip()
-    return re.sub(r"[-\s]+", "-", normalized) or "incident"
 
 
 def format_date(value):
@@ -51,7 +81,9 @@ def render_article(article):
     description = html.escape(text(article.get("description")))
     role = html.escape(text(article.get("role")))
     category = html.escape(text(article.get("category")))
-    slug = html.escape(slugify(article.get("slug") or article.get("title")), quote=True)
+    slug = html.escape(
+        datamd.slugify(article.get("slug") or article.get("title")), quote=True
+    )
     source_link = render_link(safe_url(article.get("url")), "Read source ↗")
     archive_link = render_link(safe_url(article.get("archive")), "Archived copy ↗")
     tags = "".join(
@@ -73,18 +105,29 @@ def render_article(article):
       </article>'''
 
 
-def main():
-    root_path = Path(__file__).resolve().parents[1]
-    data_path = root_path / "incidents.json"
-    index_path = root_path / "index.html"
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--limit",
+        type=int,
+        default=int(os.environ.get("AI_HACK_WATCH_INCIDENT_LIMIT", INCIDENT_LIMIT)),
+        help=f"how many most-recent incidents to pre-render (default: {INCIDENT_LIMIT})",
+    )
+    args = parser.parse_args(argv)
+    data_path = ROOT / "incidents.json"
+    index_path = ROOT / "index.html"
     incidents = json.loads(data_path.read_text())
     incidents.sort(key=lambda article: article["date"], reverse=True)
-    articles = "\n".join(render_article(article) for article in incidents[:INCIDENT_LIMIT])
+    articles = "\n".join(render_article(article) for article in incidents[:args.limit])
     rendered_timeline = f"{START_MARKER}\n{articles}\n      {END_MARKER}"
     index = index_path.read_text()
     updated_index, replacements = MARKER_PATTERN.subn(rendered_timeline, index)
     if replacements != 1:
         raise ValueError("Expected exactly one pre-rendered timeline marker block")
+    site_url = load_site_url()
+    updated_index, injected = inject_site_urls(updated_index, site_url)
+    if site_url and injected == 0:
+        print("::warning::Could not inject site URL into index.html (template may have changed)")
     index_path.write_text(updated_index)
 
 
