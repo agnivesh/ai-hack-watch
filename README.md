@@ -2,11 +2,11 @@
 
 A static single-page site tracking notable AI hacking and AI-enabled cyber incidents.
 
-![Days since last AI hack](https://agnivesh.github.io/ai-hack-watch/days-since-badge.svg)
+![Days since last AI hack](https://aihackwatch.com/days-since-badge.svg)
 
-- **Live site:** https://agnivesh.github.io/ai-hack-watch
-- **RSS:** https://agnivesh.github.io/ai-hack-watch/feed.xml
-- **Dataset (JSON):** https://agnivesh.github.io/ai-hack-watch/incidents.json
+- **Live site:** https://aihackwatch.com
+- **RSS:** https://aihackwatch.com/feed.xml
+- **Dataset (JSON):** https://aihackwatch.com/incidents.json
 
 ## Features
 
@@ -104,7 +104,7 @@ The site links visitors to the issue form. The repository URL is set in `config.
 ```js
 window.SITE_CONFIG = {
   repositoryUrl: "https://github.com/agnivesh/ai-hack-watch",
-  siteUrl: "https://agnivesh.github.io/ai-hack-watch"
+  siteUrl: "https://aihackwatch.com"
 };
 ```
 
@@ -127,6 +127,10 @@ python3 scripts/check_links.py            # HEAD-check source URLs
 The pipeline lives in `scripts/` (`generate.py`, `validate_contribution.py`, `prerender_timeline.py`, `check_links.py`) and shares one parser/validator in `datamd.py`.
 
 ## GitHub Pages
+
+The site is deployed to **https://aihackwatch.com** (replacing the default `https://agnivesh.github.io/ai-hack-watch/` URL). The `CNAME` file at the repo root declares the custom domain; DNS points the domain at GitHub Pages and HTTPS is provisioned automatically.
+
+To deploy your own copy of the project:
 
 1. Create a GitHub repository.
 2. Upload the contents of this project.
@@ -171,7 +175,7 @@ Pull requests and pushes also run `.github/workflows/test.yml`, which executes t
 ## Embeddable badge
 
 ```md
-![Days since last AI hack](https://agnivesh.github.io/ai-hack-watch/days-since-badge.svg)
+![Days since last AI hack](https://aihackwatch.com/days-since-badge.svg)
 ```
 
 The badge is regenerated daily (and on every data change). Opened directly in a browser, it also updates itself live from the latest tracked date.
