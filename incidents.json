@@ -382,7 +382,7 @@
       "urls": [
         "https://www.genians.co.kr/en/blog/threat_intelligence/deepfake"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260905164102/https://www.genians.co.kr/en/blog/threat_intelligence/deepfake",
       "role": "AI-assisted",
       "category": "Cyber operations",
       "slug": "genians-links-kimsuky-to-chatgpt-made-fake-military-ids"
@@ -396,7 +396,7 @@
       "urls": [
         "https://www.trendmicro.com/en_us/research/25/i/evilai.html"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260606051537/https://www.trendmicro.com/en_us/research/25/i/evilai.html",
       "role": "AI-assisted",
       "category": "Malware",
       "slug": "trend-micro-tracks-the-evilai-campaign-using-ai-generated-code"
@@ -424,7 +424,7 @@
       "urls": [
         "https://www.proofpoint.com/us/blog/threat-insight/cybercriminals-abuse-ai-website-creation-app-phishing"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260906084959/https://www.proofpoint.com/us/blog/threat-insight/cybercriminals-abuse-ai-website-creation-app-phishing",
       "role": "AI-assisted",
       "category": "Credential theft",
       "slug": "proofpoint-finds-criminals-abusing-an-ai-website-builder-for-phishing"
@@ -453,7 +453,7 @@
         "https://cdn.openai.com/threat-intelligence-reports/5f73af09-a3a3-4a55-992e-069237681620/disrupting-malicious-uses-of-ai-june-2025.pdf",
         "https://openai.com/index/disrupting-malicious-uses-of-ai-vixen-keyhole-panda/"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260823185230/https://cdn.openai.com/threat-intelligence-reports/5f73af09-a3a3-4a55-992e-069237681620/disrupting-malicious-uses-of-ai-june-2025.pdf",
       "role": "AI-assisted",
       "category": "Other",
       "slug": "openai-disrupts-employment-fraud-and-influence-operations"
@@ -467,7 +467,7 @@
       "urls": [
         "https://research.jfrog.com/post/malicious-ai-models-hit-pypi/"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260614005033/https://research.jfrog.com/post/malicious-ai-models-hit-pypi/",
       "role": "AI-targeted",
       "category": "AI model compromise",
       "slug": "jfrog-finds-malicious-ai-models-hidden-in-pypi-packages"
@@ -525,7 +525,7 @@
         "https://cdn.openai.com/threat-intelligence-reports/influence-and-cyber-operations-an-update_October-2024.pdf",
         "https://openai.com/index/disrupting-malicious-uses-of-ai-sweetspecter/"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260910155537/https://cdn.openai.com/threat-intelligence-reports/influence-and-cyber-operations-an-update_October-2024.pdf",
       "role": "AI-assisted",
       "category": "Cyber operations",
       "slug": "openai-disrupts-state-linked-cyber-and-influence-operations"
@@ -553,7 +553,7 @@
       "urls": [
         "https://www.straitstimes.com/asia/east-asia/man-in-japan-arrested-for-creating-virus-using-generative-ai-systems"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260919205203/https://www.straitstimes.com/asia/east-asia/man-in-japan-arrested-for-creating-virus-using-generative-ai-systems",
       "role": "AI-assisted",
       "category": "Malware",
       "slug": "japan-arrests-man-for-creating-ransomware-with-generative-ai"
@@ -581,7 +581,7 @@
       "urls": [
         "https://blog.lastpass.com/posts/attempted-audio-deepfake-call-targets-lastpass-employee"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260907111511/https://blog.lastpass.com/posts/attempted-audio-deepfake-call-targets-lastpass-employee",
       "role": "AI-assisted",
       "category": "Other",
       "slug": "lastpass-employee-foils-ai-voice-deepfake-social-engineering"
@@ -610,7 +610,7 @@
         "https://openai.com/index/disrupting-malicious-uses-of-ai-by-state-affiliated-threat-actors/",
         "https://www.microsoft.com/en-us/security/blog/2024/02/14/staying-ahead-of-threat-actors-in-the-age-of-ai/"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260915215204/https://openai.com/index/disrupting-malicious-uses-of-ai-by-state-affiliated-threat-actors/",
       "role": "AI-assisted",
       "category": "Cyber operations",
       "slug": "openai-and-microsoft-disrupt-five-state-linked-groups-using-ai"
