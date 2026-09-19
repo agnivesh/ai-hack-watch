@@ -92,7 +92,7 @@
     "urls": [
       "https://labs.cloudsecurityalliance.org/research/csa-research-note-aurora-ransomware-cursor-ai-abuse-20260901/"
     ],
-    "archive": "",
+    "archive": "https://web.archive.org/web/20260919160627/https://labs.cloudsecurityalliance.org/research/csa-research-note-aurora-ransomware-cursor-ai-abuse-20260901/",
     "role": "AI-assisted",
     "category": "Malware",
     "slug": "aurora-ransomware-affiliate-used-cursor-ai-for-live-network-intrusions"
