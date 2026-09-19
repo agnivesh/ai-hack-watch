@@ -13,7 +13,7 @@ Each entry needs the required fields below. Optional fields improve filtering an
 **Date:** 2026-09-18
 **Source:** The Guardian
 **URL:** https://www.theguardian.com/technology/2026/sep/18/google-gemini-ai-hack
-**Archive:**
+**Archive:** https://web.archive.org/web/20260919113042/https://www.theguardian.com/technology/2026/sep/18/google-gemini-ai-hack**
 **AI role:** Autonomous
 **Category:** Security research
 
