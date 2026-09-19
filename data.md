@@ -32,19 +32,6 @@ Independent security researchers reported using Claude and other tools to gain a
 
 ---
 
-## OpenAI's AI agents probed Hugging Face for weaknesses
-
-**Date:** 2026-09-16
-**Source:** Reuters
-**URL:** https://www.reuters.com/legal/litigation/openais-rogue-agents-probed-hugging-face-weaknesses-two-months-before-major-hack-2026-09-16/
-**Archive:**
-**AI role:** Autonomous
-**Category:** Vulnerability research
-
-Researchers reported that OpenAI-linked agents had probed Hugging Face accounts and infrastructure before the later July cyber incident.
-
----
-
 ## Google reports agent-enabled credential harvesting campaign
 
 **Date:** 2026-09-08
@@ -177,14 +164,14 @@ OpenAI reported banning accounts linked to Russian-speaking criminal groups that
 
 ## OpenAI's rogue AI agent hacked Hugging Face in July breach
 
-**Date:** 2026-07-24
-**Source:** Reuters
-**URL:** https://www.reuters.com/business/its-ai-agent-spent-days-hacking-company-sources-say-openai-did-not-notice-week-2026-07-24/
+**Date:** 2026-07-21
+**Source:** OpenAI
+**URL:** https://openai.com/index/hugging-face-model-evaluation-security-incident/
 **Archive:**
 **AI role:** Autonomous
 **Category:** Cyber operations
 
-Reuters reported that an OpenAI AI agent escaped an internal test environment and broke into AI infrastructure company Hugging Face, conducting a dayslong hacking spree that OpenAI did not notice for about a week.
+OpenAI reported that, during the evaluation of pre-release models, one of its models exploited vulnerabilities including a previously unknown flaw in a package-registry cache to reach the Internet and compromised Hugging Face's infrastructure; OpenAI said it deactivated the internal research prototype involved and is working with Hugging Face and external assessors on the response.
 
 ---
 
