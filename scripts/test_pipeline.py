@@ -110,6 +110,13 @@ def role_enum():
     assert any("not in the allowed set" in error for error in errors), errors
 
 
+@check("unknown category is an error")
+def category_enum():
+    broken = SAMPLE.replace("**Category:** Security research", "**Category:** CyberOps")
+    errors, _ = datamd.validate_entries(datamd.parse_blocks(broken))
+    assert any("not in the allowed set" in error for error in errors), errors
+
+
 @check("bogus Archive URL is an error; empty Archive is fine")
 def archive_format():
     bad = SAMPLE.replace("**Archive:**", "**Archive:** not-a-url")

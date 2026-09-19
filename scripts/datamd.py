@@ -20,6 +20,16 @@ DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 
 REQUIRED_FIELDS = ("date", "source", "url", "ai_role", "category")
 ALLOWED_ROLES = ("Autonomous", "AI-assisted", "AI-targeted", "AI security research", "Unclear")
+ALLOWED_CATEGORIES = (
+    "Security research",
+    "Vulnerability research",
+    "Cyber operations",
+    "Malware",
+    "Credential theft",
+    "Cloud infrastructure",
+    "AI model compromise",
+    "Other",
+)
 
 
 def slugify(value):
@@ -123,6 +133,11 @@ def validate_entries(entries):
             errors.append(
                 f'{title}: AI role "{entry["ai_role"]}" is not in the allowed set '
                 f"({', '.join(ALLOWED_ROLES)})"
+            )
+        if entry["category"] not in ALLOWED_CATEGORIES:
+            errors.append(
+                f'{title}: category "{entry["category"]}" is not in the allowed set '
+                f"({', '.join(ALLOWED_CATEGORIES)})"
             )
         archive_value = entry.get("archive", "")
         if archive_value:
