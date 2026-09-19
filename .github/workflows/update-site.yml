@@ -1,0 +1,75 @@
+name: Generate site data
+on:
+  push:
+    paths: ["data.md", "scripts/prerender_timeline.py", ".github/workflows/update-site.yml"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Archive sources and generate feeds
+        shell: python
+        run: |
+          import json, re, subprocess, html
+          from pathlib import Path
+          from datetime import date
+          from urllib.parse import quote
+          p=Path("data.md"); text=p.read_text()
+          blocks=re.split(r"^---\s*$", text, flags=re.M); out=[]; changed=False
+          for b in blocks:
+            if b.strip().startswith("## "):
+              um=re.search(r"^\*\*URL:\*\*\s*(\S+)", b, re.M)
+              am=re.search(r"^\*\*Archive:\*\*\s*(.*)$", b, re.M)
+              if um and am and not am.group(1).strip():
+                url=um.group(1).strip(); archive=""
+                try:
+                  r=subprocess.run(["curl","-L","-sS","--max-time","30","-A","ai-hack-watch/1.0",f"https://web.archive.org/save/{url}"],capture_output=True,text=True,timeout=35)
+                  m=re.search(r"https?://web\.archive\.org/web/\d+/\S+",r.stdout)
+                  if m: archive=m.group(0).rstrip('"')
+                  if not archive:
+                    q=subprocess.run(["curl","-L","-sS","--max-time","20","-A","ai-hack-watch/1.0",f"https://web.archive.org/cdx/search/cdx?url={quote(url,safe='')}&output=json&filter=statuscode:200&fl=timestamp,original&limit=1&sort=reverse"],capture_output=True,text=True,timeout=25)
+                    if q.returncode==0:
+                      try:
+                        rows=json.loads(q.stdout)
+                        if len(rows)>1: archive=f"https://web.archive.org/web/{rows[1][0]}/{rows[1][1]}"
+                      except Exception: pass
+                except Exception as e:
+                  print(f"::warning::Wayback archiving failed for {url}: {e}")
+                if archive:
+                  b=re.sub(r"(^\*\*Archive:\*\*)\s*$",r"\1 "+archive,b,flags=re.M); changed=True
+                else: print(f"::warning::No Wayback snapshot returned for {url}")
+            out.append(b)
+          if changed: p.write_text("\n---\n".join(out))
+          text=p.read_text(); incidents=[]
+          def slug(x): return re.sub(r"[-\s]+","-",re.sub(r"[^\w\s-]","",x.lower()).strip())
+          for b in re.split(r"^---\s*$",text,flags=re.M):
+            b=b.strip()
+            if not b.startswith("## "): continue
+            title=re.sub(r"^##\s*","",b.splitlines()[0]).strip(); f={}
+            for line in b.splitlines()[1:]:
+              m=re.match(r"^\*\*(Date|Source|URL|Archive|AI role|Category):\*\*\s*(.*)$",line,re.I)
+              if m: f[m.group(1).lower().replace(" ","_")]=m.group(2).strip()
+            parts=re.split(r"\n\s*\n",b,maxsplit=2); desc=parts[-1].strip() if len(parts)>=3 else ""
+            if all(f.get(k) for k in ("date","source","url","ai_role","category")):
+              incidents.append({"date":f["date"],"source":f["source"],"title":title,"description":desc,"url":f["url"],"archive":f.get("archive",""),"role":f["ai_role"],"category":f["category"],"slug":slug(title)})
+          incidents.sort(key=lambda x:x["date"],reverse=True)
+          Path("incidents.json").write_text(json.dumps(incidents,indent=2,ensure_ascii=False)+"\n")
+          latest=incidents[0]; days=max(0,(date.today()-date.fromisoformat(latest["date"])).days)
+          value=f"{days} days"; lw=170; vw=max(70,20+len(value)*8)
+          Path("days-since-badge.svg").write_text(f'<svg xmlns="http://www.w3.org/2000/svg" width="{lw+vw}" height="28" role="img" aria-label="AI Hack Watch: {days}"><rect width="{lw+vw}" height="28" rx="4" fill="#111"/><rect x="{lw}" width="{vw}" height="28" rx="4" fill="#d9ff3f"/><text x="{lw/2}" y="18" fill="#fff" font-family="Arial" font-size="11" text-anchor="middle">AI Hack Watch</text><text x="{lw+vw/2}" y="18" fill="#111" font-family="Arial" font-size="12" font-weight="700" text-anchor="middle">{html.escape(value)}</text></svg>')
+          items=[]
+          for a in incidents:
+            items.append(f"<item><title>{html.escape(a['title'])}</title><link>{html.escape(a['url'])}</link><guid isPermaLink=\"true\">{html.escape(a['url'])}</guid><pubDate>{a['date']}T00:00:00Z</pubDate><description>{html.escape(a['description'])}</description></item>")
+          Path("feed.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>AI Hack Watch</title><description>Public timeline of notable AI hacking and AI-enabled cyber incidents.</description><link>./</link><lastBuildDate>'+latest["date"]+'T00:00:00Z</lastBuildDate>'+''.join(items)+"</channel></rss>\n")
+      - name: Pre-render the recent timeline
+        run: python scripts/prerender_timeline.py
+      - name: Commit generated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data.md incidents.json feed.xml days-since-badge.svg index.html
+          git diff --cached --quiet || git commit -m "Update generated data and archive links"
+          git push

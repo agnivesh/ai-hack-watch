@@ -1,0 +1,145 @@
+[
+  {
+    "date": "2026-09-19",
+    "source": "Reuters",
+    "title": "Google's Gemini model hacked three companies in a security test",
+    "description": "Google said Gemini autonomously accessed three companies' systems during a cybersecurity evaluation in May, then stopped its activity.",
+    "url": "https://www.reuters.com/business/gemini-hacked-three-companies-first-known-breakout-by-google-ai-wsj-reports-2026-09-18/",
+    "archive": "",
+    "role": "Autonomous",
+    "category": "Security research",
+    "slug": "googles-gemini-model-hacked-three-companies-in-a-security-test"
+  },
+  {
+    "date": "2026-09-18",
+    "source": "TechCrunch",
+    "title": "Researchers used Anthropic's Claude to hack into OpenAI",
+    "description": "Independent security researchers reported using Claude and other tools to gain access to parts of OpenAI's internal systems as part of an ethical security test.",
+    "url": "https://techcrunch.com/2026/09/18/researchers-used-anthropics-claude-to-hack-into-openai/",
+    "archive": "",
+    "role": "AI-assisted",
+    "category": "Security research",
+    "slug": "researchers-used-anthropics-claude-to-hack-into-openai"
+  },
+  {
+    "date": "2026-09-16",
+    "source": "Reuters",
+    "title": "OpenAI's AI agents probed Hugging Face for weaknesses",
+    "description": "Researchers reported that OpenAI-linked agents had probed Hugging Face accounts and infrastructure before the later July cyber incident.",
+    "url": "https://www.reuters.com/legal/litigation/openais-rogue-agents-probed-hugging-face-weaknesses-two-months-before-major-hack-2026-09-16/",
+    "archive": "",
+    "role": "Autonomous",
+    "category": "Vulnerability research",
+    "slug": "openais-ai-agents-probed-hugging-face-for-weaknesses"
+  },
+  {
+    "date": "2026-09-08",
+    "source": "Google Threat Intelligence Group",
+    "title": "Google reports agent-enabled credential harvesting campaign",
+    "description": "Google reported that a financially motivated actor used an AI coding chatbot and multi-agent framework to scan for vulnerabilities and harvest thousands of credentials from compromised cloud infrastructure in under six hours.",
+    "url": "https://cloud.google.com/blog/topics/threat-intelligence/from-prompting-to-autonomy-the-evolution-of-adversarial-ai",
+    "archive": "",
+    "role": "Autonomous",
+    "category": "Credential theft",
+    "slug": "google-reports-agent-enabled-credential-harvesting-campaign"
+  },
+  {
+    "date": "2026-09-02",
+    "source": "Unit 42",
+    "title": "Unit 42 investigates AI-assisted enterprise intrusion",
+    "description": "Palo Alto Networks' Unit 42 reported that an attacker used frontier AI agents during an enterprise intrusion to map systems, harvest secrets, seize root credentials, and abuse CI/CD workflows.",
+    "url": "https://unit42.paloaltonetworks.com/ai-assisted-cyber-attack-inside-a-unit-42-investigation/",
+    "archive": "",
+    "role": "Autonomous",
+    "category": "Cyber operations",
+    "slug": "unit-42-investigates-ai-assisted-enterprise-intrusion"
+  },
+  {
+    "date": "2026-09-01",
+    "source": "Anthropic",
+    "title": "Anthropic reports AI-assisted cyber operations",
+    "description": "Anthropic's September threat report described cyber operations in which Claude was used for reconnaissance, exploitation, tool development and data processing.",
+    "url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+    "archive": "",
+    "role": "AI-assisted",
+    "category": "Cyber operations",
+    "slug": "anthropic-reports-ai-assisted-cyber-operations"
+  },
+  {
+    "date": "2026-06-04",
+    "source": "Sysdig Threat Research Team",
+    "title": "AI agent performs container escape and Kubernetes secret theft",
+    "description": "Sysdig reported observing an LLM-driven attacker exploit a vulnerable notebook, escape a container through an exposed Docker socket, read host secrets, and replay a Kubernetes token to dump the cluster's Secret store.",
+    "url": "https://webflow.sysdig.com/blog/agentic-threat-actor-hits-the-orchestration-plane-ai-agent-driven-container-escape",
+    "archive": "",
+    "role": "Autonomous",
+    "category": "Cyber operations",
+    "slug": "ai-agent-performs-container-escape-and-kubernetes-secret-theft"
+  },
+  {
+    "date": "2026-05-26",
+    "source": "Sysdig Threat Research Team",
+    "title": "Sysdig observes LLM-driven database intrusion",
+    "description": "Sysdig reported an LLM agent that performed post-compromise actions after a vulnerable marimo notebook was breached, moving through cloud credentials to exfiltrate an internal PostgreSQL database in under an hour.",
+    "url": "https://webflow.sysdig.com/blog/ai-agent-at-the-wheel-how-an-attacker-used-llms-to-move-from-a-cve-to-an-internal-database-in-4-pivots",
+    "archive": "",
+    "role": "Autonomous",
+    "category": "Cyber operations",
+    "slug": "sysdig-observes-llm-driven-database-intrusion"
+  },
+  {
+    "date": "2026-05-11",
+    "source": "Google Threat Intelligence Group",
+    "title": "Google reports AI-assisted zero-day exploit development",
+    "description": "Google reported identifying a criminal threat actor that used AI to develop a zero-day exploit for planned mass exploitation; Google's proactive discovery may have prevented its use.",
+    "url": "https://cloud.google.com/blog/topics/threat-intelligence/ai-vulnerability-exploitation-initial-access",
+    "archive": "",
+    "role": "AI-assisted",
+    "category": "Vulnerability research",
+    "slug": "google-reports-ai-assisted-zero-day-exploit-development"
+  },
+  {
+    "date": "2026-02-09",
+    "source": "Adnan Khan",
+    "title": "Cline issue-triage prompt injection research disclosed",
+    "description": "Security researcher Adnan Khan disclosed a prompt-injection chain in Cline's GitHub issue-triage workflow that could make the AI agent run arbitrary commands and enable publication-credential theft through cache poisoning.",
+    "url": "https://adnanthekhan.com/posts/clinejection/",
+    "archive": "",
+    "role": "AI-targeted",
+    "category": "Security research",
+    "slug": "cline-issue-triage-prompt-injection-research-disclosed"
+  },
+  {
+    "date": "2025-11-13",
+    "source": "Anthropic",
+    "title": "Anthropic disrupts AI-orchestrated cyber espionage campaign",
+    "description": "Anthropic reported disrupting a suspected Chinese state-sponsored campaign that used Claude Code for reconnaissance, exploit development, credential harvesting, lateral movement, and data exfiltration, with a small number of successful intrusions.",
+    "url": "https://www.anthropic.com/news/disrupting-AI-espionage",
+    "archive": "",
+    "role": "Autonomous",
+    "category": "Cyber operations",
+    "slug": "anthropic-disrupts-ai-orchestrated-cyber-espionage-campaign"
+  },
+  {
+    "date": "2025-11-05",
+    "source": "Google Threat Intelligence Group",
+    "title": "Google identifies AI-enabled malware in active operations",
+    "description": "Google reported malware families that used large language models during execution to generate malicious functions and alter behavior, alongside state-backed actors using AI across their cyber operations.",
+    "url": "https://blog.google/innovation-and-ai/technology/safety-security/google-threat-intelligence-group-report-ai-november-2025/",
+    "archive": "",
+    "role": "AI-assisted",
+    "category": "Malware",
+    "slug": "google-identifies-ai-enabled-malware-in-active-operations"
+  },
+  {
+    "date": "2025-10-07",
+    "source": "OpenAI",
+    "title": "OpenAI disrupts accounts developing malware with ChatGPT",
+    "description": "OpenAI reported banning accounts linked to Russian-speaking criminal groups that used ChatGPT to develop and refine malware components for credential theft, obfuscation, and data exfiltration.",
+    "url": "https://openai.com/global-affairs/disrupting-malicious-uses-of-ai-october-2025/",
+    "archive": "",
+    "role": "AI-assisted",
+    "category": "Malware",
+    "slug": "openai-disrupts-accounts-developing-malware-with-chatgpt"
+  }
+]

@@ -1,0 +1,81 @@
+name: Submit a story
+description: Suggest a publicly reported AI hacking or cyber incident for the timeline.
+title: "[Story] "
+labels: ["story submission"]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: Article URL
+      description: Direct URL to the article, report, or original research.
+      placeholder: https://example.com/article
+    validations:
+      required: true
+
+  - type: input
+    id: date
+    attributes:
+      label: Publication date
+      description: Use ISO 8601 calendar format.
+      placeholder: 2026-09-19
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      placeholder: Example News / Security Researcher
+    validations:
+      required: true
+
+  - type: dropdown
+    id: role
+    attributes:
+      label: AI role
+      options:
+        - Autonomous
+        - AI-assisted
+        - AI-targeted
+        - AI security research
+        - Unclear
+    validations:
+      required: true
+
+  - type: input
+    id: category
+    attributes:
+      label: Category
+      placeholder: Security research
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Short factual description
+      description: 1–3 sentences explaining what happened. Avoid exaggeration.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I checked that this story is not already in the timeline.
+          required: true
+        - label: I have used an ISO date (YYYY-MM-DD).
+          required: true
+        - label: I have provided a direct source URL.
+          required: true
+
+
+  - type: input
+    id: archive
+    attributes:
+      label: Existing Wayback snapshot (optional)
+      description: Add a Wayback Machine snapshot URL if you already have one.
+      placeholder: https://web.archive.org/web/...
+    validations:
+      required: false

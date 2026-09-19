@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A public timeline of notable AI hacking and AI-enabled cyber incidents.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Days since AI hack">
+  <meta property="og:description" content="A public timeline of notable AI hacking and AI-enabled cyber incidents.">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="days-since-badge.svg">
+  <title>Days since AI hack</title>
+  <link rel="alternate" type="application/rss+xml" title="AI Hack Watch" href="feed.xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div class="topline">
+        <a id="submit-link" class="submit-link" href="#" target="_blank" rel="noopener">+ Submit a story ↗</a>
+      </div>
+
+      <h1>Days since<br><span>AI hack</span></h1>
+
+      <div class="counter-card">
+        <div id="days" class="days">—</div>
+        <div>
+          <div class="label">days since the latest tracked incident</div>
+          <div id="last-update" class="last-update"></div>
+        </div>
+      </div>
+
+      <div class="quick-stats">
+        <div><strong id="story-count">—</strong><span>stories</span></div>
+        <div><strong id="record-streak">—</strong><span>record streak</span></div>
+        <div><strong id="last-gap">—</strong><span>previous gap</span></div>
+      </div>
+
+      <p class="intro">A public, community-maintained record of notable stories where AI materially participated in hacking, cyber operations, exploitation, or security research.</p>
+    </header>
+
+    <section class="methodology">
+      <div>
+        <div class="eyebrow">METHODOLOGY</div>
+        <h2>What counts?</h2>
+      </div>
+      <p>We track publicly reported events where AI materially participated in hacking, exploitation, cyber operations, or meaningful security research. Hypothetical claims and stories that merely mention AI do not count. See <a href="METHODOLOGY.md">the full methodology</a> for definitions, source rules, corrections, and edge cases.</p>
+    </section>
+
+    <section class="stats-section">
+      <div class="section-head">
+        <h2>Incident breakdown</h2>
+      </div>
+      <div id="breakdown" class="breakdown"></div>
+    </section>
+
+    <section class="chart-section">
+      <div class="section-head">
+        <h2>Gaps between incidents</h2>
+        <span>days</span>
+      </div>
+      <div id="gap-chart" class="gap-chart"></div>
+      <p class="chart-note">Historical intervals only. This is a record of observed gaps, not a prediction.</p>
+    </section>
+
+    <section class="timeline-section" aria-labelledby="timeline-title">
+      <div class="section-head">
+        <h2 id="timeline-title">Timeline</h2>
+        <span id="filter-count"></span>
+      </div>
+
+      <div class="filters" id="filters"></div>
+      <div id="timeline" class="timeline">
+<!-- PRE_RENDERED_TIMELINE_START -->
+      <article class="item" id="googles-gemini-model-hacked-three-companies-in-a-security-test">
+        <div class="date">19 Sep 2026</div>
+        <div class="dot-wrap"><div class="dot"></div></div>
+        <div class="card">
+          <div class="source">Reuters</div>
+          <h3>Google&#x27;s Gemini model hacked three companies in a security test <a class="permalink" href="#googles-gemini-model-hacked-three-companies-in-a-security-test">#</a></h3>
+          <div class="tags"><button type="button" class="tag tag-filter" data-filter="Autonomous" aria-pressed="false">Autonomous</button><button type="button" class="tag tag-filter" data-filter="Security research" aria-pressed="false">Security research</button></div>
+          <p>Google said Gemini autonomously accessed three companies&#x27; systems during a cybersecurity evaluation in May, then stopped its activity.</p>
+          <div class="card-links"><a href="https://www.reuters.com/business/gemini-hacked-three-companies-first-known-breakout-by-google-ai-wsj-reports-2026-09-18/" target="_blank" rel="noopener noreferrer">Read source ↗</a></div>
+        </div>
+      </article>
+      <article class="item" id="researchers-used-anthropics-claude-to-hack-into-openai">
+        <div class="date">18 Sep 2026</div>
+        <div class="dot-wrap"><div class="dot"></div></div>
+        <div class="card">
+          <div class="source">TechCrunch</div>
+          <h3>Researchers used Anthropic&#x27;s Claude to hack into OpenAI <a class="permalink" href="#researchers-used-anthropics-claude-to-hack-into-openai">#</a></h3>
+          <div class="tags"><button type="button" class="tag tag-filter" data-filter="AI-assisted" aria-pressed="false">AI-assisted</button><button type="button" class="tag tag-filter" data-filter="Security research" aria-pressed="false">Security research</button></div>
+          <p>Independent security researchers reported using Claude and other tools to gain access to parts of OpenAI&#x27;s internal systems as part of an ethical security test.</p>
+          <div class="card-links"><a href="https://techcrunch.com/2026/09/18/researchers-used-anthropics-claude-to-hack-into-openai/" target="_blank" rel="noopener noreferrer">Read source ↗</a></div>
+        </div>
+      </article>
+      <article class="item" id="openais-ai-agents-probed-hugging-face-for-weaknesses">
+        <div class="date">16 Sep 2026</div>
+        <div class="dot-wrap"><div class="dot"></div></div>
+        <div class="card">
+          <div class="source">Reuters</div>
+          <h3>OpenAI&#x27;s AI agents probed Hugging Face for weaknesses <a class="permalink" href="#openais-ai-agents-probed-hugging-face-for-weaknesses">#</a></h3>
+          <div class="tags"><button type="button" class="tag tag-filter" data-filter="Autonomous" aria-pressed="false">Autonomous</button><button type="button" class="tag tag-filter" data-filter="Vulnerability research" aria-pressed="false">Vulnerability research</button></div>
+          <p>Researchers reported that OpenAI-linked agents had probed Hugging Face accounts and infrastructure before the later July cyber incident.</p>
+          <div class="card-links"><a href="https://www.reuters.com/legal/litigation/openais-rogue-agents-probed-hugging-face-weaknesses-two-months-before-major-hack-2026-09-16/" target="_blank" rel="noopener noreferrer">Read source ↗</a></div>
+        </div>
+      </article>
+      <article class="item" id="google-reports-agent-enabled-credential-harvesting-campaign">
+        <div class="date">08 Sep 2026</div>
+        <div class="dot-wrap"><div class="dot"></div></div>
+        <div class="card">
+          <div class="source">Google Threat Intelligence Group</div>
+          <h3>Google reports agent-enabled credential harvesting campaign <a class="permalink" href="#google-reports-agent-enabled-credential-harvesting-campaign">#</a></h3>
+          <div class="tags"><button type="button" class="tag tag-filter" data-filter="Autonomous" aria-pressed="false">Autonomous</button><button type="button" class="tag tag-filter" data-filter="Credential theft" aria-pressed="false">Credential theft</button></div>
+          <p>Google reported that a financially motivated actor used an AI coding chatbot and multi-agent framework to scan for vulnerabilities and harvest thousands of credentials from compromised cloud infrastructure in under six hours.</p>
+          <div class="card-links"><a href="https://cloud.google.com/blog/topics/threat-intelligence/from-prompting-to-autonomy-the-evolution-of-adversarial-ai" target="_blank" rel="noopener noreferrer">Read source ↗</a></div>
+        </div>
+      </article>
+      <article class="item" id="unit-42-investigates-ai-assisted-enterprise-intrusion">
+        <div class="date">02 Sep 2026</div>
+        <div class="dot-wrap"><div class="dot"></div></div>
+        <div class="card">
+          <div class="source">Unit 42</div>
+          <h3>Unit 42 investigates AI-assisted enterprise intrusion <a class="permalink" href="#unit-42-investigates-ai-assisted-enterprise-intrusion">#</a></h3>
+          <div class="tags"><button type="button" class="tag tag-filter" data-filter="Autonomous" aria-pressed="false">Autonomous</button><button type="button" class="tag tag-filter" data-filter="Cyber operations" aria-pressed="false">Cyber operations</button></div>
+          <p>Palo Alto Networks&#x27; Unit 42 reported that an attacker used frontier AI agents during an enterprise intrusion to map systems, harvest secrets, seize root credentials, and abuse CI/CD workflows.</p>
+          <div class="card-links"><a href="https://unit42.paloaltonetworks.com/ai-assisted-cyber-attack-inside-a-unit-42-investigation/" target="_blank" rel="noopener noreferrer">Read source ↗</a></div>
+        </div>
+      </article>
+      <article class="item" id="anthropic-reports-ai-assisted-cyber-operations">
+        <div class="date">01 Sep 2026</div>
+        <div class="dot-wrap"><div class="dot"></div></div>
+        <div class="card">
+          <div class="source">Anthropic</div>
+          <h3>Anthropic reports AI-assisted cyber operations <a class="permalink" href="#anthropic-reports-ai-assisted-cyber-operations">#</a></h3>
+          <div class="tags"><button type="button" class="tag tag-filter" data-filter="AI-assisted" aria-pressed="false">AI-assisted</button><button type="button" class="tag tag-filter" data-filter="Cyber operations" aria-pressed="false">Cyber operations</button></div>
+          <p>Anthropic&#x27;s September threat report described cyber operations in which Claude was used for reconnaissance, exploitation, tool development and data processing.</p>
+          <div class="card-links"><a href="https://www.anthropic.com/threat-intelligence-report-september-2026" target="_blank" rel="noopener noreferrer">Read source ↗</a></div>
+        </div>
+      </article>
+      <article class="item" id="ai-agent-performs-container-escape-and-kubernetes-secret-theft">
+        <div class="date">04 Jun 2026</div>
+        <div class="dot-wrap"><div class="dot"></div></div>
+        <div class="card">
+          <div class="source">Sysdig Threat Research Team</div>
+          <h3>AI agent performs container escape and Kubernetes secret theft <a class="permalink" href="#ai-agent-performs-container-escape-and-kubernetes-secret-theft">#</a></h3>
+          <div class="tags"><button type="button" class="tag tag-filter" data-filter="Autonomous" aria-pressed="false">Autonomous</button><button type="button" class="tag tag-filter" data-filter="Cyber operations" aria-pressed="false">Cyber operations</button></div>
+          <p>Sysdig reported observing an LLM-driven attacker exploit a vulnerable notebook, escape a container through an exposed Docker socket, read host secrets, and replay a Kubernetes token to dump the cluster&#x27;s Secret store.</p>
+          <div class="card-links"><a href="https://webflow.sysdig.com/blog/agentic-threat-actor-hits-the-orchestration-plane-ai-agent-driven-container-escape" target="_blank" rel="noopener noreferrer">Read source ↗</a></div>
+        </div>
+      </article>
+      <article class="item" id="sysdig-observes-llm-driven-database-intrusion">
+        <div class="date">26 May 2026</div>
+        <div class="dot-wrap"><div class="dot"></div></div>
+        <div class="card">
+          <div class="source">Sysdig Threat Research Team</div>
+          <h3>Sysdig observes LLM-driven database intrusion <a class="permalink" href="#sysdig-observes-llm-driven-database-intrusion">#</a></h3>
+          <div class="tags"><button type="button" class="tag tag-filter" data-filter="Autonomous" aria-pressed="false">Autonomous</button><button type="button" class="tag tag-filter" data-filter="Cyber operations" aria-pressed="false">Cyber operations</button></div>
+          <p>Sysdig reported an LLM agent that performed post-compromise actions after a vulnerable marimo notebook was breached, moving through cloud credentials to exfiltrate an internal PostgreSQL database in under an hour.</p>
+          <div class="card-links"><a href="https://webflow.sysdig.com/blog/ai-agent-at-the-wheel-how-an-attacker-used-llms-to-move-from-a-cve-to-an-internal-database-in-4-pivots" target="_blank" rel="noopener noreferrer">Read source ↗</a></div>
+        </div>
+      </article>
+      <article class="item" id="google-reports-ai-assisted-zero-day-exploit-development">
+        <div class="date">11 May 2026</div>
+        <div class="dot-wrap"><div class="dot"></div></div>
+        <div class="card">
+          <div class="source">Google Threat Intelligence Group</div>
+          <h3>Google reports AI-assisted zero-day exploit development <a class="permalink" href="#google-reports-ai-assisted-zero-day-exploit-development">#</a></h3>
+          <div class="tags"><button type="button" class="tag tag-filter" data-filter="AI-assisted" aria-pressed="false">AI-assisted</button><button type="button" class="tag tag-filter" data-filter="Vulnerability research" aria-pressed="false">Vulnerability research</button></div>
+          <p>Google reported identifying a criminal threat actor that used AI to develop a zero-day exploit for planned mass exploitation; Google&#x27;s proactive discovery may have prevented its use.</p>
+          <div class="card-links"><a href="https://cloud.google.com/blog/topics/threat-intelligence/ai-vulnerability-exploitation-initial-access" target="_blank" rel="noopener noreferrer">Read source ↗</a></div>
+        </div>
+      </article>
+      <article class="item" id="cline-issue-triage-prompt-injection-research-disclosed">
+        <div class="date">09 Feb 2026</div>
+        <div class="dot-wrap"><div class="dot"></div></div>
+        <div class="card">
+          <div class="source">Adnan Khan</div>
+          <h3>Cline issue-triage prompt injection research disclosed <a class="permalink" href="#cline-issue-triage-prompt-injection-research-disclosed">#</a></h3>
+          <div class="tags"><button type="button" class="tag tag-filter" data-filter="AI-targeted" aria-pressed="false">AI-targeted</button><button type="button" class="tag tag-filter" data-filter="Security research" aria-pressed="false">Security research</button></div>
+          <p>Security researcher Adnan Khan disclosed a prompt-injection chain in Cline&#x27;s GitHub issue-triage workflow that could make the AI agent run arbitrary commands and enable publication-credential theft through cache poisoning.</p>
+          <div class="card-links"><a href="https://adnanthekhan.com/posts/clinejection/" target="_blank" rel="noopener noreferrer">Read source ↗</a></div>
+        </div>
+      </article>
+      <article class="item" id="anthropic-disrupts-ai-orchestrated-cyber-espionage-campaign">
+        <div class="date">13 Nov 2025</div>
+        <div class="dot-wrap"><div class="dot"></div></div>
+        <div class="card">
+          <div class="source">Anthropic</div>
+          <h3>Anthropic disrupts AI-orchestrated cyber espionage campaign <a class="permalink" href="#anthropic-disrupts-ai-orchestrated-cyber-espionage-campaign">#</a></h3>
+          <div class="tags"><button type="button" class="tag tag-filter" data-filter="Autonomous" aria-pressed="false">Autonomous</button><button type="button" class="tag tag-filter" data-filter="Cyber operations" aria-pressed="false">Cyber operations</button></div>
+          <p>Anthropic reported disrupting a suspected Chinese state-sponsored campaign that used Claude Code for reconnaissance, exploit development, credential harvesting, lateral movement, and data exfiltration, with a small number of successful intrusions.</p>
+          <div class="card-links"><a href="https://www.anthropic.com/news/disrupting-AI-espionage" target="_blank" rel="noopener noreferrer">Read source ↗</a></div>
+        </div>
+      </article>
+      <article class="item" id="google-identifies-ai-enabled-malware-in-active-operations">
+        <div class="date">05 Nov 2025</div>
+        <div class="dot-wrap"><div class="dot"></div></div>
+        <div class="card">
+          <div class="source">Google Threat Intelligence Group</div>
+          <h3>Google identifies AI-enabled malware in active operations <a class="permalink" href="#google-identifies-ai-enabled-malware-in-active-operations">#</a></h3>
+          <div class="tags"><button type="button" class="tag tag-filter" data-filter="AI-assisted" aria-pressed="false">AI-assisted</button><button type="button" class="tag tag-filter" data-filter="Malware" aria-pressed="false">Malware</button></div>
+          <p>Google reported malware families that used large language models during execution to generate malicious functions and alter behavior, alongside state-backed actors using AI across their cyber operations.</p>
+          <div class="card-links"><a href="https://blog.google/innovation-and-ai/technology/safety-security/google-threat-intelligence-group-report-ai-november-2025/" target="_blank" rel="noopener noreferrer">Read source ↗</a></div>
+        </div>
+      </article>
+      <article class="item" id="openai-disrupts-accounts-developing-malware-with-chatgpt">
+        <div class="date">07 Oct 2025</div>
+        <div class="dot-wrap"><div class="dot"></div></div>
+        <div class="card">
+          <div class="source">OpenAI</div>
+          <h3>OpenAI disrupts accounts developing malware with ChatGPT <a class="permalink" href="#openai-disrupts-accounts-developing-malware-with-chatgpt">#</a></h3>
+          <div class="tags"><button type="button" class="tag tag-filter" data-filter="AI-assisted" aria-pressed="false">AI-assisted</button><button type="button" class="tag tag-filter" data-filter="Malware" aria-pressed="false">Malware</button></div>
+          <p>OpenAI reported banning accounts linked to Russian-speaking criminal groups that used ChatGPT to develop and refine malware components for credential theft, obfuscation, and data exfiltration.</p>
+          <div class="card-links"><a href="https://openai.com/global-affairs/disrupting-malicious-uses-of-ai-october-2025/" target="_blank" rel="noopener noreferrer">Read source ↗</a></div>
+        </div>
+      </article>
+      <!-- PRE_RENDERED_TIMELINE_END -->
+      </div>
+    </section>
+
+    <section class="about-section">
+      <div>
+        <div class="eyebrow">CONTRIBUTE</div>
+        <h2>See something missing?</h2>
+      </div>
+      <div class="about-content">
+        <p>Add it through GitHub. Contributions are reviewed before they become part of the public dataset.</p>
+        <div class="about-actions">
+          <a id="submit-link-bottom" class="button" href="#" target="_blank" rel="noopener">Submit a story ↗</a>
+          <a class="text-link" href="CONTRIBUTING.md">Read the contribution guide</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p><a href="feed.xml">RSS feed</a> · <a href="METHODOLOGY.md">Methodology</a> · <a href="CONTRIBUTING.md">Contributing</a></p>
+      <p>Static site · Data is generated from <code>data.md</code> by GitHub Actions.</p>
+    </footer>
+  </main>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
