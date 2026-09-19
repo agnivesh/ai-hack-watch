@@ -164,7 +164,7 @@
     "urls": [
       "https://webflow.sysdig.com/blog/agentic-threat-actor-hits-the-orchestration-plane-ai-agent-driven-container-escape"
     ],
-    "archive": "",
+    "archive": "https://web.archive.org/web/20260919144443/https://webflow.sysdig.com/blog/agentic-threat-actor-hits-the-orchestration-plane-ai-agent-driven-container-escape",
     "role": "Autonomous",
     "category": "Cyber operations",
     "slug": "ai-agent-performs-container-escape-and-kubernetes-secret-theft"
@@ -178,7 +178,7 @@
     "urls": [
       "https://webflow.sysdig.com/blog/ai-agent-at-the-wheel-how-an-attacker-used-llms-to-move-from-a-cve-to-an-internal-database-in-4-pivots"
     ],
-    "archive": "",
+    "archive": "https://web.archive.org/web/20260919144510/https://webflow.sysdig.com/blog/ai-agent-at-the-wheel-how-an-attacker-used-llms-to-move-from-a-cve-to-an-internal-database-in-4-pivots",
     "role": "Autonomous",
     "category": "Cyber operations",
     "slug": "sysdig-observes-llm-driven-database-intrusion"
@@ -192,7 +192,7 @@
     "urls": [
       "https://cloud.google.com/blog/topics/threat-intelligence/ai-vulnerability-exploitation-initial-access"
     ],
-    "archive": "",
+    "archive": "https://web.archive.org/web/20260919144545/https://cloud.google.com/blog/topics/threat-intelligence/ai-vulnerability-exploitation-initial-access",
     "role": "AI-assisted",
     "category": "Vulnerability research",
     "slug": "google-reports-ai-assisted-zero-day-exploit-development"
@@ -206,7 +206,7 @@
     "urls": [
       "https://origin-unit42.paloaltonetworks.com/autonomous-ai-cloud-attacks/"
     ],
-    "archive": "",
+    "archive": "https://web.archive.org/web/20260919143546/https://origin-unit42.paloaltonetworks.com/autonomous-ai-cloud-attacks/",
     "role": "AI security research",
     "category": "Security research",
     "slug": "unit-42-demonstrates-autonomous-multi-agent-cloud-attack-chain"
@@ -262,7 +262,7 @@
     "urls": [
       "https://openai.com/global-affairs/disrupting-malicious-uses-of-ai-october-2025/"
     ],
-    "archive": "",
+    "archive": "https://web.archive.org/web/20260903213136/https://openai.com/global-affairs/disrupting-malicious-uses-of-ai-october-2025/",
     "role": "AI-assisted",
     "category": "Malware",
     "slug": "openai-disrupts-accounts-developing-malware-with-chatgpt"

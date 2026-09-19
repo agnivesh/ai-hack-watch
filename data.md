@@ -5,6 +5,7 @@ Edit this file to add or correct stories. Do not edit `incidents.json` manually.
 Each entry needs the required fields below. Optional fields improve filtering and analysis.
 
 
+
 ---
 
 ## Google's Gemini model hacked three companies in a security test
@@ -17,6 +18,7 @@ Each entry needs the required fields below. Optional fields improve filtering an
 **Category:** Security research
 
 Google said Gemini autonomously accessed three companies' systems during a cybersecurity evaluation in May, then stopped its activity.
+
 
 
 ---
@@ -33,6 +35,7 @@ Google said Gemini autonomously accessed three companies' systems during a cyber
 Independent security researchers reported using Claude and other tools to gain access to parts of OpenAI's internal systems as part of an ethical security test.
 
 
+
 ---
 
 ## Google reports agent-enabled credential harvesting campaign
@@ -45,6 +48,7 @@ Independent security researchers reported using Claude and other tools to gain a
 **Category:** Credential theft
 
 Google reported that a financially motivated actor used an AI coding chatbot and multi-agent framework to scan for vulnerabilities and harvest thousands of credentials from compromised cloud infrastructure in under six hours.
+
 
 
 ---
@@ -61,6 +65,7 @@ Google reported that a financially motivated actor used an AI coding chatbot and
 Palo Alto Networks' Unit 42 reported that an attacker used frontier AI agents during an enterprise intrusion to map systems, harvest secrets, seize root credentials, and abuse CI/CD workflows.
 
 
+
 ---
 
 ## Anthropic reports AI-assisted cyber operations
@@ -75,6 +80,7 @@ Palo Alto Networks' Unit 42 reported that an attacker used frontier AI agents du
 Anthropic's September threat report described cyber operations in which Claude was used for reconnaissance, exploitation, tool development and data processing.
 
 
+
 ---
 
 ## AI agent performs container escape and Kubernetes secret theft
@@ -82,11 +88,12 @@ Anthropic's September threat report described cyber operations in which Claude w
 **Date:** 2026-06-04
 **Source:** Sysdig Threat Research Team
 **URL:** https://webflow.sysdig.com/blog/agentic-threat-actor-hits-the-orchestration-plane-ai-agent-driven-container-escape
-**Archive:**
+**Archive:** https://web.archive.org/web/20260919144443/https://webflow.sysdig.com/blog/agentic-threat-actor-hits-the-orchestration-plane-ai-agent-driven-container-escape
 **AI role:** Autonomous
 **Category:** Cyber operations
 
 Sysdig reported observing an LLM-driven attacker exploit a vulnerable notebook, escape a container through an exposed Docker socket, read host secrets, and replay a Kubernetes token to dump the cluster's Secret store.
+
 
 
 ---
@@ -96,11 +103,12 @@ Sysdig reported observing an LLM-driven attacker exploit a vulnerable notebook, 
 **Date:** 2026-05-26
 **Source:** Sysdig Threat Research Team
 **URL:** https://webflow.sysdig.com/blog/ai-agent-at-the-wheel-how-an-attacker-used-llms-to-move-from-a-cve-to-an-internal-database-in-4-pivots
-**Archive:**
+**Archive:** https://web.archive.org/web/20260919144510/https://webflow.sysdig.com/blog/ai-agent-at-the-wheel-how-an-attacker-used-llms-to-move-from-a-cve-to-an-internal-database-in-4-pivots
 **AI role:** Autonomous
 **Category:** Cyber operations
 
 Sysdig reported an LLM agent that performed post-compromise actions after a vulnerable marimo notebook was breached, moving through cloud credentials to exfiltrate an internal PostgreSQL database in under an hour.
+
 
 
 ---
@@ -110,11 +118,12 @@ Sysdig reported an LLM agent that performed post-compromise actions after a vuln
 **Date:** 2026-05-11
 **Source:** Google Threat Intelligence Group
 **URL:** https://cloud.google.com/blog/topics/threat-intelligence/ai-vulnerability-exploitation-initial-access
-**Archive:**
+**Archive:** https://web.archive.org/web/20260919144545/https://cloud.google.com/blog/topics/threat-intelligence/ai-vulnerability-exploitation-initial-access
 **AI role:** AI-assisted
 **Category:** Vulnerability research
 
 Google reported identifying a criminal threat actor that used AI to develop a zero-day exploit for planned mass exploitation; Google's proactive discovery may have prevented its use.
+
 
 
 ---
@@ -131,6 +140,7 @@ Google reported identifying a criminal threat actor that used AI to develop a ze
 Security researcher Adnan Khan disclosed a prompt-injection chain in Cline's GitHub issue-triage workflow that could make the AI agent run arbitrary commands and enable publication-credential theft through cache poisoning.
 
 
+
 ---
 
 ## Anthropic disrupts AI-orchestrated cyber espionage campaign
@@ -143,6 +153,7 @@ Security researcher Adnan Khan disclosed a prompt-injection chain in Cline's Git
 **Category:** Cyber operations
 
 Anthropic reported disrupting a suspected Chinese state-sponsored campaign that used Claude Code for reconnaissance, exploit development, credential harvesting, lateral movement, and data exfiltration, with a small number of successful intrusions.
+
 
 
 ---
@@ -159,6 +170,7 @@ Anthropic reported disrupting a suspected Chinese state-sponsored campaign that 
 Google reported malware families that used large language models during execution to generate malicious functions and alter behavior, alongside state-backed actors using AI across their cyber operations.
 
 
+
 ---
 
 ## OpenAI disrupts accounts developing malware with ChatGPT
@@ -166,11 +178,12 @@ Google reported malware families that used large language models during executio
 **Date:** 2025-10-07
 **Source:** OpenAI
 **URL:** https://openai.com/global-affairs/disrupting-malicious-uses-of-ai-october-2025/
-**Archive:**
+**Archive:** https://web.archive.org/web/20260903213136/https://openai.com/global-affairs/disrupting-malicious-uses-of-ai-october-2025/
 **AI role:** AI-assisted
 **Category:** Malware
 
 OpenAI reported banning accounts linked to Russian-speaking criminal groups that used ChatGPT to develop and refine malware components for credential theft, obfuscation, and data exfiltration.
+
 
 
 ---
@@ -189,6 +202,7 @@ OpenAI reported banning accounts linked to Russian-speaking criminal groups that
 OpenAI reported that, during the evaluation of pre-release models, one of its models exploited vulnerabilities including a previously unknown flaw in a package-registry cache to reach the Internet and compromised Hugging Face's infrastructure; OpenAI said it deactivated the internal research prototype involved and is working with Hugging Face and external assessors on the response.
 
 
+
 ---
 
 ## Sysdig documents first fully agentic ransomware operation
@@ -205,6 +219,7 @@ OpenAI reported that, during the evaluation of pre-release models, one of its mo
 Sysdig's threat research team documented an operation it named JadePuffer in which an LLM agent ran an entire ransomware intrusion end-to-end, exploiting a Langflow vulnerability, pivoting to a production database server, encrypting configuration records and leaving an extortion note without step-by-step human direction.
 
 
+
 ---
 
 ## Unit 42 finds Chinese-speaking actor running autonomous AI attack campaign
@@ -217,6 +232,7 @@ Sysdig's threat research team documented an operation it named JadePuffer in whi
 **Category:** Cyber operations
 
 Palo Alto Networks' Unit 42 reported that a Chinese-speaking threat actor used DeepSeek, orchestrated through the Hermes Agent framework, as an autonomous offensive operator that scanned for vulnerabilities, downloaded exploit code and attempted exploitation against more than 460 targets.
+
 
 
 ---
@@ -233,6 +249,7 @@ Palo Alto Networks' Unit 42 reported that a Chinese-speaking threat actor used D
 Security researchers reported that an Aurora ransomware affiliate drove Cursor's agentic coding assistant, running Anthropic's Claude Sonnet, through hands-on network exploitation against at least ten organizations, with the operator supervising and iteratively correcting the agent's commands.
 
 
+
 ---
 
 ## Anthropic measures frontier models' N-day exploit acceleration
@@ -247,6 +264,7 @@ Security researchers reported that an Aurora ransomware affiliate drove Cursor's
 Anthropic reported that its frontier models with safeguards disabled built eight working code-execution exploits from recent Firefox patches and eight Windows kernel privilege-escalation chains, showing how quickly models can turn patches into working exploits.
 
 
+
 ---
 
 ## Unit 42 demonstrates autonomous multi-agent cloud attack chain
@@ -254,11 +272,12 @@ Anthropic reported that its frontier models with safeguards disabled built eight
 **Date:** 2026-04-23
 **Source:** Unit 42
 **URL:** https://origin-unit42.paloaltonetworks.com/autonomous-ai-cloud-attacks/
-**Archive:**
+**Archive:** https://web.archive.org/web/20260919143546/https://origin-unit42.paloaltonetworks.com/autonomous-ai-cloud-attacks/
 **AI role:** AI security research
 **Category:** Security research
 
 Unit 42 researchers demonstrated an autonomous multi-agent system that chained SSRF exploitation, cloud metadata credential theft, privilege escalation and data exfiltration against an isolated cloud environment.
+
 
 
 ---
