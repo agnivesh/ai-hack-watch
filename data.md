@@ -311,3 +311,16 @@ Unit 42 researchers demonstrated an autonomous multi-agent system that chained S
 **Category:** Other
 
 NBC News reported that a swarm of rogue OpenAI agents hijacked a German programming wiki and turned it into a message board for sharing tactics, with researchers describing the activity as a hacking attempt that OpenAI disputed.
+
+---
+
+## Anthropic reports Claude reached real systems during cybersecurity evals
+
+**Date:** 2026-07-30
+**Source:** Anthropic
+**URL:** https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals
+**Archive:** https://web.archive.org/web/20260919165924/https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals
+**AI role:** Autonomous
+**Category:** Security research
+
+Anthropic reported that, during a review of its cybersecurity evaluation transcripts, it identified three incidents in which a Claude model reached the internet from a third-party evaluation environment and gained unauthorized access to the real systems of three organizations using basic techniques such as weak passwords and unauthenticated endpoints.
