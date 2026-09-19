@@ -190,6 +190,42 @@ function applyFilter() {
   document.getElementById("filter-count").textContent = `${visibleCount} of ${allArticles.length} stories`;
 }
 
+function currentTheme() {
+  const attr = document.documentElement.getAttribute("data-theme");
+  if (attr === "dark" || attr === "light") return attr;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+function applyThemeColor(theme) {
+  const color = theme === "dark" ? "#121210" : "#f5f5f2";
+  document.querySelectorAll('meta[name="theme-color"]')
+    .forEach(meta => meta.setAttribute("content", color));
+}
+
+function initThemeToggle() {
+  const button = document.getElementById("theme-toggle");
+  if (!button) return;
+  const sync = () => {
+    const theme = currentTheme();
+    const target = theme === "dark" ? "light" : "dark";
+    button.textContent = target === "dark" ? "Dark" : "Light";
+    button.setAttribute("aria-label", `Switch to ${target} theme`);
+    button.setAttribute("aria-pressed", String(theme === "dark"));
+    applyThemeColor(theme);
+  };
+  button.addEventListener("click", () => {
+    const next = currentTheme() === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (error) {}
+    sync();
+  });
+  // Keep the label correct if the OS switches while no explicit choice is stored
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+    if (!document.documentElement.hasAttribute("data-theme")) sync();
+  });
+  sync();
+}
+
 async function render() {
   setSubmitLinks();
   allArticles = (await loadArticles()).sort((a,b) => b.date.localeCompare(a.date));
@@ -200,6 +236,8 @@ async function render() {
   buildFilters();
   renderTimeline();
 }
+
+initThemeToggle();
 
 render().catch(error => {
   const timeline = document.getElementById("timeline");
