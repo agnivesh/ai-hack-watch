@@ -182,8 +182,14 @@ The badge is regenerated daily (and on every data change). Opened directly in a 
 
 ## Machine-readable feeds
 
-- `incidents.json` — public JSON dataset.
+- `incidents.json` — public JSON dataset. Contains `schema_version`, `chunk_size`, `total`, and `incidents` array. See [Schema versioning](#schema-versioning).
 - `feed.xml` — RSS feed.
+
+### Schema versioning
+
+`incidents.json` includes a `schema_version` field (currently `1`) to allow future format evolution without breaking consumers. The `chunk_size` field (currently `20`) hints at a future pagination strategy if the dataset grows large.
+
+**Dataset size guideline:** `incidents.json` should remain under **250 KB** (~1,500 incidents) to keep initial load fast on mobile. At the current rate (~20 incidents/year), this provides decades of headroom. If the dataset approaches this limit, maintainers should implement chunked pagination using the `chunk_size` hint.
 
 ## Broken links
 

@@ -4,7 +4,9 @@ let activeFilter = "All";
 async function loadArticles() {
   const response = await fetch("incidents.json", { cache: "no-cache" });
   if (!response.ok) throw new Error("Could not load incidents.json");
-  return await response.json();
+  const data = await response.json();
+  // Support both new schema (object with incidents array) and legacy flat array
+  return data.incidents ?? data;
 }
 
 function daysBetween(startDate, endDate = new Date()) {

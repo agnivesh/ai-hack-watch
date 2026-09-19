@@ -45,7 +45,8 @@ def check_url(url):
 
 
 def main() -> int:
-    incidents = json.loads((ROOT / "incidents.json").read_text(encoding="utf-8"))
+    data = json.loads((ROOT / "incidents.json").read_text(encoding="utf-8"))
+    incidents = data.get("incidents", data)  # backward compat with old flat array
     failures = []
     for incident in incidents:
         urls = incident.get("urls") or [incident["url"]]
