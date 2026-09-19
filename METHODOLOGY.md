@@ -40,7 +40,7 @@ These labels describe the reported role; they are not severity ratings.
 
 ## Categories
 
-Categories are descriptive and may include:
+Categories are descriptive; the current set (enforced by the issue form and the data pipeline) is:
 
 - Security research
 - Vulnerability research

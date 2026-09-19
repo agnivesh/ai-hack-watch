@@ -25,6 +25,11 @@ body:
     id: source
     attributes:
       label: Source
+      description: >-
+        The publication, company, or research team that reported this — e.g.
+        "Sysdig Threat Research Team", "The Guardian". Prefer the organisation
+        that broke the story; free-to-read sources beat paywalled ones. This
+        name is how the source appears on the timeline.
       placeholder: Example News / Security Researcher
     validations:
       required: true
@@ -42,11 +47,20 @@ body:
     validations:
       required: true
 
-  - type: input
+  - type: dropdown
     id: category
     attributes:
       label: Category
-      placeholder: Security research
+      description: How would you classify this incident? Definitions live in the methodology.
+      options:
+        - Security research
+        - Vulnerability research
+        - Cyber operations
+        - Malware
+        - Credential theft
+        - Cloud infrastructure
+        - AI model compromise
+        - Other
     validations:
       required: true
 
