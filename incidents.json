@@ -267,7 +267,7 @@
       "urls": [
         "https://research.checkpoint.com/2026/chatgpt-data-leakage-via-a-hidden-outbound-channel-in-the-code-execution-runtime/"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260917055902/https://research.checkpoint.com/2026/chatgpt-data-leakage-via-a-hidden-outbound-channel-in-the-code-execution-runtime/",
       "role": "AI-targeted",
       "category": "Security research",
       "slug": "check-point-finds-covert-dns-exfiltration-channel-in-chatgpt-runtime"
@@ -296,7 +296,7 @@
         "https://www.radware.com/blog/threat-intelligence/zombieagent/",
         "https://www.infosecurity-magazine.com/news/new-zeroclick-attack-chatgpt/"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260904185439/https://www.radware.com/blog/threat-intelligence/zombieagent/",
       "role": "AI-targeted",
       "category": "Security research",
       "slug": "radware-discloses-zero-click-prompt-injection-data-theft-in-chatgpt"
@@ -352,7 +352,7 @@
       "urls": [
         "https://cdn.openai.com/threat-intelligence-reports/disrupting-malicious-uses-of-our-models-february-2025-update.pdf"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260913060524/https://cdn.openai.com/threat-intelligence-reports/disrupting-malicious-uses-of-our-models-february-2025-update.pdf",
       "role": "AI-assisted",
       "category": "Cyber operations",
       "slug": "openai-bans-accounts-used-for-cyber-operations"
@@ -408,7 +408,7 @@
       "urls": [
         "https://www.proofpoint.com/us/blog/threat-insight/security-brief-ta547-targets-german-organizations-rhadamanthys-stealer"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260818010636/https://www.proofpoint.com/us/blog/threat-insight/security-brief-ta547-targets-german-organizations-rhadamanthys-stealer",
       "role": "AI-assisted",
       "category": "Malware",
       "slug": "proofpoint-links-ai-written-powershell-loader-to-ta547-campaign"
@@ -423,7 +423,7 @@
         "https://research.checkpoint.com/2023/opwnai-cybercriminals-starting-to-use-chatgpt/",
         "https://www.infosecurity-magazine.com/news/chatgpt-develop-malicious-tools/"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20260919205121/https://research.checkpoint.com/2023/opwnai-cybercriminals-starting-to-use-chatgpt/",
       "role": "AI-assisted",
       "category": "Malware",
       "slug": "check-point-observes-cybercriminals-using-chatgpt-to-build-malware"

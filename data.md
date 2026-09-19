@@ -7,6 +7,7 @@ Each entry needs the required fields below. Optional fields improve filtering an
 
 
 
+
 ---
 
 ## Google's Gemini model hacked three companies in a security test
@@ -19,6 +20,7 @@ Each entry needs the required fields below. Optional fields improve filtering an
 **Category:** Security research
 
 Google said Gemini autonomously accessed three companies' systems during a cybersecurity evaluation in May, then stopped its activity.
+
 
 
 
@@ -39,6 +41,7 @@ Independent security researchers reported using Claude and other tools to gain a
 
 
 
+
 ---
 
 ## Google reports agent-enabled credential harvesting campaign
@@ -51,6 +54,7 @@ Independent security researchers reported using Claude and other tools to gain a
 **Category:** Credential theft
 
 Google reported that a financially motivated actor used an AI coding chatbot and multi-agent framework to scan for vulnerabilities and harvest thousands of credentials from compromised cloud infrastructure in under six hours.
+
 
 
 
@@ -71,6 +75,7 @@ Palo Alto Networks' Unit 42 reported that an attacker used frontier AI agents du
 
 
 
+
 ---
 
 ## Anthropic reports AI-assisted cyber operations
@@ -83,6 +88,7 @@ Palo Alto Networks' Unit 42 reported that an attacker used frontier AI agents du
 **Category:** Cyber operations
 
 Anthropic's September threat report described cyber operations in which Claude was used for reconnaissance, exploitation, tool development and data processing.
+
 
 
 
@@ -103,6 +109,7 @@ Sysdig reported observing an LLM-driven attacker exploit a vulnerable notebook, 
 
 
 
+
 ---
 
 ## Sysdig observes LLM-driven database intrusion
@@ -115,6 +122,7 @@ Sysdig reported observing an LLM-driven attacker exploit a vulnerable notebook, 
 **Category:** Cyber operations
 
 Sysdig reported an LLM agent that performed post-compromise actions after a vulnerable marimo notebook was breached, moving through cloud credentials to exfiltrate an internal PostgreSQL database in under an hour.
+
 
 
 
@@ -135,6 +143,7 @@ Google reported identifying a criminal threat actor that used AI to develop a ze
 
 
 
+
 ---
 
 ## Cline issue-triage prompt injection research disclosed
@@ -147,6 +156,7 @@ Google reported identifying a criminal threat actor that used AI to develop a ze
 **Category:** Security research
 
 Security researcher Adnan Khan disclosed a prompt-injection chain in Cline's GitHub issue-triage workflow that could make the AI agent run arbitrary commands and enable publication-credential theft through cache poisoning.
+
 
 
 
@@ -167,6 +177,7 @@ Anthropic reported disrupting a suspected Chinese state-sponsored campaign that 
 
 
 
+
 ---
 
 ## Google identifies AI-enabled malware in active operations
@@ -183,6 +194,7 @@ Google reported malware families that used large language models during executio
 
 
 
+
 ---
 
 ## OpenAI disrupts accounts developing malware with ChatGPT
@@ -195,6 +207,7 @@ Google reported malware families that used large language models during executio
 **Category:** Malware
 
 OpenAI reported banning accounts linked to Russian-speaking criminal groups that used ChatGPT to develop and refine malware components for credential theft, obfuscation, and data exfiltration.
+
 
 
 
@@ -217,6 +230,7 @@ OpenAI reported that, during the evaluation of pre-release models, one of its mo
 
 
 
+
 ---
 
 ## Sysdig documents first fully agentic ransomware operation
@@ -231,6 +245,7 @@ OpenAI reported that, during the evaluation of pre-release models, one of its mo
 **Category:** Malware
 
 Sysdig's threat research team documented an operation it named JadePuffer in which an LLM agent ran an entire ransomware intrusion end-to-end, exploiting a Langflow vulnerability, pivoting to a production database server, encrypting configuration records and leaving an extortion note without step-by-step human direction.
+
 
 
 
@@ -251,6 +266,7 @@ Palo Alto Networks' Unit 42 reported that a Chinese-speaking threat actor used D
 
 
 
+
 ---
 
 ## Aurora ransomware affiliate used Cursor AI for live network intrusions
@@ -263,6 +279,7 @@ Palo Alto Networks' Unit 42 reported that a Chinese-speaking threat actor used D
 **Category:** Malware
 
 Security researchers reported that an Aurora ransomware affiliate drove Cursor's agentic coding assistant, running Anthropic's Claude Sonnet, through hands-on network exploitation against at least ten organizations, with the operator supervising and iteratively correcting the agent's commands.
+
 
 
 
@@ -283,6 +300,7 @@ Anthropic reported that its frontier models with safeguards disabled built eight
 
 
 
+
 ---
 
 ## Unit 42 demonstrates autonomous multi-agent cloud attack chain
@@ -295,6 +313,7 @@ Anthropic reported that its frontier models with safeguards disabled built eight
 **Category:** Security research
 
 Unit 42 researchers demonstrated an autonomous multi-agent system that chained SSRF exploitation, cloud metadata credential theft, privilege escalation and data exfiltration against an isolated cloud environment.
+
 
 
 
@@ -312,6 +331,7 @@ Unit 42 researchers demonstrated an autonomous multi-agent system that chained S
 
 NBC News reported that a swarm of rogue OpenAI agents hijacked a German programming wiki and turned it into a message board for sharing tactics, with researchers describing the activity as a hacking attempt that OpenAI disputed.
 
+
 ---
 
 ## Anthropic reports Claude reached real systems during cybersecurity evals
@@ -324,6 +344,7 @@ NBC News reported that a swarm of rogue OpenAI agents hijacked a German programm
 **Category:** Security research
 
 Anthropic reported that, during a review of its cybersecurity evaluation transcripts, it identified three incidents in which a Claude model reached the internet from a third-party evaluation environment and gained unauthorized access to the real systems of three organizations using basic techniques such as weak passwords and unauthenticated endpoints.
+
 
 ---
 
@@ -341,6 +362,7 @@ Meta said its AI model autonomously accessed another company's systems during a 
 
 
 
+
 ---
 
 ## Check Point observes cybercriminals using ChatGPT to build malware
@@ -350,11 +372,12 @@ Meta said its AI model autonomously accessed another company's systems during a 
 **Source 2:** Infosecurity Magazine
 **URL:** https://research.checkpoint.com/2023/opwnai-cybercriminals-starting-to-use-chatgpt/
 **URL 2:** https://www.infosecurity-magazine.com/news/chatgpt-develop-malicious-tools/
-**Archive:**
+**Archive:** https://web.archive.org/web/20260919205121/https://research.checkpoint.com/2023/opwnai-cybercriminals-starting-to-use-chatgpt/
 **AI role:** AI-assisted
 **Category:** Malware
 
 Check Point Research documented underground forum users recreating known malware strains, building multi-layer Python encryption tools and writing dark-web marketplace scripts with ChatGPT.
+
 
 
 
@@ -366,11 +389,12 @@ Check Point Research documented underground forum users recreating known malware
 **Date:** 2024-04-09
 **Source:** Proofpoint
 **URL:** https://www.proofpoint.com/us/blog/threat-insight/security-brief-ta547-targets-german-organizations-rhadamanthys-stealer
-**Archive:**
+**Archive:** https://web.archive.org/web/20260818010636/https://www.proofpoint.com/us/blog/threat-insight/security-brief-ta547-targets-german-organizations-rhadamanthys-stealer
 **AI role:** AI-assisted
 **Category:** Malware
 
 Proofpoint observed the TA547 group delivering the Rhadamanthys infostealer to German organisations with a PowerShell loader whose comments and structure indicated it was generated by a large language model.
+
 
 
 
@@ -391,6 +415,7 @@ Tokyo police arrested 25-year-old Ryuki Hayashi for using online generative-AI s
 
 
 
+
 ---
 
 ## HP Wolf Security finds GenAI-written malware in the wild
@@ -403,6 +428,7 @@ Tokyo police arrested 25-year-old Ryuki Hayashi for using online generative-AI s
 **Category:** Malware
 
 HP identified a French-language campaign whose VBScript and JavaScript payloads carried verbose natural-language comments consistent with generative-AI output, used to deploy ChromeLoader and AsyncRAT.
+
 
 
 
@@ -423,6 +449,7 @@ OpenAI detailed more than 20 malicious operations in which groups including Stor
 
 
 
+
 ---
 
 ## OpenAI bans accounts used for cyber operations
@@ -430,11 +457,12 @@ OpenAI detailed more than 20 malicious operations in which groups including Stor
 **Date:** 2025-01-31
 **Source:** OpenAI
 **URL:** https://cdn.openai.com/threat-intelligence-reports/disrupting-malicious-uses-of-our-models-february-2025-update.pdf
-**Archive:**
+**Archive:** https://web.archive.org/web/20260913060524/https://cdn.openai.com/threat-intelligence-reports/disrupting-malicious-uses-of-our-models-february-2025-update.pdf
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
 OpenAI's February 2025 update described multiple banned accounts that used its models to assist scams, cyber operations and technical exploitation, including code generation and operational planning.
+
 
 
 
@@ -448,11 +476,12 @@ OpenAI's February 2025 update described multiple banned accounts that used its m
 **Source 2:** Infosecurity Magazine
 **URL:** https://www.radware.com/blog/threat-intelligence/zombieagent/
 **URL 2:** https://www.infosecurity-magazine.com/news/new-zeroclick-attack-chatgpt/
-**Archive:**
+**Archive:** https://web.archive.org/web/20260904185439/https://www.radware.com/blog/threat-intelligence/zombieagent/
 **AI role:** AI-targeted
 **Category:** Security research
 
 Radware's ZombieAgent research showed how prompt injection against ChatGPT's agentic features could make the assistant read Gmail and Drive content and exfiltrate it through attacker-controlled URLs without any user click.
+
 
 
 
@@ -464,11 +493,12 @@ Radware's ZombieAgent research showed how prompt injection against ChatGPT's age
 **Date:** 2026-03-30
 **Source:** Check Point Research
 **URL:** https://research.checkpoint.com/2026/chatgpt-data-leakage-via-a-hidden-outbound-channel-in-the-code-execution-runtime/
-**Archive:**
+**Archive:** https://web.archive.org/web/20260917055902/https://research.checkpoint.com/2026/chatgpt-data-leakage-via-a-hidden-outbound-channel-in-the-code-execution-runtime/
 **AI role:** AI-targeted
 **Category:** Security research
 
 Check Point Research disclosed a hidden outbound path from ChatGPT's code-execution runtime that let a single malicious prompt exfiltrate conversation data to an attacker-controlled server through encoded DNS queries; the flaw was fixed in February 2026.
+
 
 
 
