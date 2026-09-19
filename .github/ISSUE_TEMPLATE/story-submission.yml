@@ -17,7 +17,7 @@ body:
     attributes:
       label: Publication date
       description: Use ISO 8601 calendar format.
-      placeholder: 2026-09-19
+      placeholder: "2026-09-19"
     validations:
       required: true
 
