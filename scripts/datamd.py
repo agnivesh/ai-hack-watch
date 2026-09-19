@@ -129,6 +129,9 @@ def validate_entries(entries):
             parsed_archive = urlparse(archive_value)
             if parsed_archive.scheme not in ("http", "https") or not parsed_archive.netloc:
                 errors.append(f"{title}: invalid Archive URL")
+        for label, value in (("source", entry["source"]), ("url", entry["url"]), ("archive", archive_value)):
+            if value.endswith("**"):
+                errors.append(f'{title}: {label} ends with stray "**"')
 
     by_url = {}
     for entry in complete:
