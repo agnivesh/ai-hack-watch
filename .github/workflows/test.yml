@@ -1,0 +1,15 @@
+name: Test pipeline
+on:
+  push:
+    paths: ["scripts/**", "data.md", "config.js", ".github/workflows/test.yml"]
+  pull_request:
+    paths: ["scripts/**", "data.md", "config.js"]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run pipeline tests
+        run: python3 scripts/test_pipeline.py
+      - name: Run contribution validation
+        run: python3 scripts/validate_contribution.py
