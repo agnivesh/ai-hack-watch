@@ -174,6 +174,16 @@ def urls_in_json():
     assert incidents[0]["urls"] == ["https://example.com/report"]
 
 
+@check("stray markdown markers on values are rejected")
+def stray_markers():
+    bad = SAMPLE.replace(
+        "**Archive:**",
+        "**Archive:** https://web.archive.org/web/20260919113042/x**",
+    )
+    errors, _ = datamd.validate_entries(datamd.parse_blocks(bad))
+    assert any('ends with stray "**"' in error for error in errors), errors
+
+
 @check("slugify matches the client-side behaviour (NFKD)")
 def slug_parity():
     assert datamd.slugify("Café hack") == "cafe-hack"
