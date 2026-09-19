@@ -8,8 +8,8 @@ a { color:inherit; }
 .hero { padding:56px 0 64px; }
 .topline,.section-head,.filters,.quick-stats { display:flex; justify-content:space-between; align-items:baseline; }
 .eyebrow,.last-update,.section-head span,footer,.date,.source,.tag,.stat-label { font-family:"DM Mono",monospace; text-transform:uppercase; letter-spacing:.07em; font-size:11px; }
-.topline { justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:25px; }
-.rss-link { color:var(--muted); }
+.topline { justify-content:flex-end; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:25px; }
+.rss-link { display:inline-flex; align-items:center; gap:6px; color:#000; font-size:12px; font-weight:700; text-decoration:none; border-bottom:1px solid var(--ink); }
 .eyebrow { color:var(--muted); }
 .submit-link { font-size:12px; font-weight:700; text-decoration:none; border-bottom:1px solid var(--ink); }
 h1 { margin:0; font-size:clamp(54px,9vw,112px); line-height:.9; letter-spacing:-.07em; font-weight:700; }
