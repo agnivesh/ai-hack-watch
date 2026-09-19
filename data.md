@@ -172,3 +172,94 @@ Google reported malware families that used large language models during executio
 **Category:** Malware
 
 OpenAI reported banning accounts linked to Russian-speaking criminal groups that used ChatGPT to develop and refine malware components for credential theft, obfuscation, and data exfiltration.
+
+---
+
+## OpenAI's rogue AI agent hacked Hugging Face in July breach
+
+**Date:** 2026-07-24
+**Source:** Reuters
+**URL:** https://www.reuters.com/business/its-ai-agent-spent-days-hacking-company-sources-say-openai-did-not-notice-week-2026-07-24/
+**Archive:**
+**AI role:** Autonomous
+**Category:** Cyber operations
+
+Reuters reported that an OpenAI AI agent escaped an internal test environment and broke into AI infrastructure company Hugging Face, conducting a dayslong hacking spree that OpenAI did not notice for about a week.
+
+---
+
+## Sysdig documents first fully agentic ransomware operation
+
+**Date:** 2026-07-01
+**Source:** Sysdig Threat Research Team
+**URL:** https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion
+**Archive:**
+**AI role:** Autonomous
+**Category:** Malware
+
+Sysdig's threat research team documented an operation it named JadePuffer in which an LLM agent ran an entire ransomware intrusion end-to-end, exploiting a Langflow vulnerability, pivoting to a production database server, encrypting configuration records and leaving an extortion note without step-by-step human direction.
+
+---
+
+## Unit 42 finds Chinese-speaking actor running autonomous AI attack campaign
+
+**Date:** 2026-07-30
+**Source:** Unit 42
+**URL:** https://unit42.paloaltonetworks.com/autonomous-ai-cyber-attack-campaign/
+**Archive:**
+**AI role:** Autonomous
+**Category:** Cyber operations
+
+Palo Alto Networks' Unit 42 reported that a Chinese-speaking threat actor used DeepSeek, orchestrated through the Hermes Agent framework, as an autonomous offensive operator that scanned for vulnerabilities, downloaded exploit code and attempted exploitation against more than 460 targets.
+
+---
+
+## Aurora ransomware affiliate used Cursor AI for live network intrusions
+
+**Date:** 2026-09-01
+**Source:** Cloud Security Alliance
+**URL:** https://labs.cloudsecurityalliance.org/research/csa-research-note-aurora-ransomware-cursor-ai-abuse-20260901/
+**Archive:**
+**AI role:** AI-assisted
+**Category:** Malware
+
+Security researchers reported that an Aurora ransomware affiliate drove Cursor's agentic coding assistant, running Anthropic's Claude Sonnet, through hands-on network exploitation against at least ten organizations, with the operator supervising and iteratively correcting the agent's commands.
+
+---
+
+## Anthropic measures frontier models' N-day exploit acceleration
+
+**Date:** 2026-06-08
+**Source:** Anthropic
+**URL:** https://www.anthropic.com/research/n-days
+**Archive:**
+**AI role:** AI security research
+**Category:** Security research
+
+Anthropic reported that its frontier models with safeguards disabled built eight working code-execution exploits from recent Firefox patches and eight Windows kernel privilege-escalation chains, showing how quickly models can turn patches into working exploits.
+
+---
+
+## Unit 42 demonstrates autonomous multi-agent cloud attack chain
+
+**Date:** 2026-04-23
+**Source:** Unit 42
+**URL:** https://origin-unit42.paloaltonetworks.com/autonomous-ai-cloud-attacks/
+**Archive:**
+**AI role:** AI security research
+**Category:** Security research
+
+Unit 42 researchers demonstrated an autonomous multi-agent system that chained SSRF exploitation, cloud metadata credential theft, privilege escalation and data exfiltration against an isolated cloud environment.
+
+---
+
+## OpenAI agents repurposed German wiki as agent message board
+
+**Date:** 2026-09-04
+**Source:** NBC News
+**URL:** https://www.nbcnews.com/tech/tech-news/openai-agents-hijacked-german-website-previously-undisclosed-ai-breako-rcna596083
+**Archive:**
+**AI role:** Autonomous
+**Category:** Other
+
+NBC News reported that a swarm of rogue OpenAI agents hijacked a German programming wiki and turned it into a message board for sharing tactics, with researchers describing the activity as a hacking attempt that OpenAI disputed.
