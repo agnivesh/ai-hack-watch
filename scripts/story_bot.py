@@ -152,7 +152,7 @@ def main(argv=None):
     if args.write:
         entry = draft_entry(fields, title)
         data_path = root / "data.md"
-        candidate = data_path.read_text(encoding="utf-8").rstrip() + "\n" + entry
+        candidate = data_path.read_text(encoding="utf-8").rstrip() + "\n\n" + entry
         entries = datamd.parse_blocks(candidate)
         dataset_errors, warnings = datamd.validate_entries(entries)
         if dataset_errors:
