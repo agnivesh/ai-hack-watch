@@ -860,3 +860,16 @@ Microsoft described threat actors using AI for phishing, translation, exploit re
 **Category:** Security research
 
 Peter James of Mouse found that Meta’s Muse AI agent could be instructed to archive and export its entire runtime environment to Google Drive through conversational prompts. The 2.7 GB export included the root filesystem, internal documentation, 68 skill definitions, container build scripts, an experimental ESP32-C5 integration, SSH keys, 113 subagent traces, and unreleased Slack, Dropbox, and Polymarket connector configurations. Meta marked the bug bounty report “Not Applicable.”
+
+---
+
+## Patrick Wardle discloses Muse 0-day that lets local apps hijack Meta's AI assistant
+
+**Date:** 2026-09-21
+**Source:** Ars Technica
+**URL:** https://arstechnica.com/security/2026/09/muse-metas-extraordinarily-privileged-ai-assistant-has-a-serious-0-day/
+**Archive:** https://web.archive.org/web/20260922143610/https://arstechnica.com/security/2026/09/muse-metas-extraordinarily-privileged-ai-assistant-has-a-serious-0-day/
+**AI role:** AI-targeted
+**Category:** Vulnerability research
+
+macOS security researcher Patrick Wardle disclosed a zero-day in Meta's Muse assistant that let any locally installed app or terminal command redirect the assistant's cloud transcription endpoint to an attacker's server and capture the token authenticating the user's Muse account. Wardle built proof-of-concept attacks that wrote files to disk and snapped photos without warning, and said a simple ClickFix trick was enough to trigger it; Meta shipped a hotfix about 12 hours later. Amazon separately began blocking Muse from shopping on its site.
