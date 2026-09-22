@@ -33,14 +33,7 @@ jobs:
             echo "ok=true" >> "$GITHUB_OUTPUT"
           else
             echo "ok=false" >> "$GITHUB_OUTPUT"
-            python3 - <<'PY' > /tmp/comment.txt
-            import json
-            result = json.load(open("/tmp/bot.json"))
-            print("Thanks for the submission! The form needs a couple of fixes before I can draft it:")
-            print()
-            for error in result["errors"]:
-                print(f"- {error}")
-            PY
+            { echo "Thanks for the submission! The form needs a couple of fixes before I can draft it:"; echo; jq -r '.errors[] | "- " + .' /tmp/bot.json; } > /tmp/comment.txt
             gh issue comment "$NUMBER" --body-file /tmp/comment.txt
             gh issue edit "$NUMBER" --add-label "submission needs changes" --remove-label "draft PR"
             exit 0
