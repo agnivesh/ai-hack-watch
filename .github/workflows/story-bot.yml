@@ -25,6 +25,7 @@ jobs:
         id: triage
         if: contains(github.event.issue.body, '### Article URL')
         env:
+          GH_TOKEN: ${{ github.token }}
           NUMBER: ${{ github.event.issue.number }}
         run: |
           gh issue view "$NUMBER" --json body --jq .body > /tmp/issue-body.md
@@ -58,6 +59,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Draft entry and open pull request
         env:
+          GH_TOKEN: ${{ github.token }}
           NUMBER: ${{ github.event.issue.number }}
           TITLE: ${{ github.event.issue.title }}
         run: |
