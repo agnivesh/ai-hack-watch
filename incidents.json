@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "chunk_size": 20,
-  "total": 46,
+  "total": 47,
   "incidents": [
     {
       "date": "2026-09-22",
@@ -16,6 +16,20 @@
       "role": "AI-targeted",
       "category": "Security research",
       "slug": "muse-ai-flaw-allowed-full-runtime-export-to-google-drive"
+    },
+    {
+      "date": "2026-09-21",
+      "source": "Ars Technica",
+      "title": "Patrick Wardle discloses Muse 0-day that lets local apps hijack Meta's AI assistant",
+      "description": "macOS security researcher Patrick Wardle disclosed a zero-day in Meta's Muse assistant that let any locally installed app or terminal command redirect the assistant's cloud transcription endpoint to an attacker's server and capture the token authenticating the user's Muse account. Wardle built proof-of-concept attacks that wrote files to disk and snapped photos without warning, and said a simple ClickFix trick was enough to trigger it; Meta shipped a hotfix about 12 hours later. Amazon separately began blocking Muse from shopping on its site.",
+      "url": "https://arstechnica.com/security/2026/09/muse-metas-extraordinarily-privileged-ai-assistant-has-a-serious-0-day/",
+      "urls": [
+        "https://arstechnica.com/security/2026/09/muse-metas-extraordinarily-privileged-ai-assistant-has-a-serious-0-day/"
+      ],
+      "archive": "https://web.archive.org/web/20260922143610/https://arstechnica.com/security/2026/09/muse-metas-extraordinarily-privileged-ai-assistant-has-a-serious-0-day/",
+      "role": "AI-targeted",
+      "category": "Vulnerability research",
+      "slug": "patrick-wardle-discloses-muse-0-day-that-lets-local-apps-hijack-metas-ai-assistant"
     },
     {
       "date": "2026-09-18",
