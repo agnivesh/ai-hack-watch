@@ -1,8 +1,22 @@
 {
   "schema_version": 1,
   "chunk_size": 20,
-  "total": 45,
+  "total": 46,
   "incidents": [
+    {
+      "date": "2026-09-22",
+      "source": "mouse.dev",
+      "title": "Muse AI flaw allowed full runtime export to Google Drive",
+      "description": "Peter James of Mouse found that Meta’s Muse AI agent could be instructed to archive and export its entire runtime environment to Google Drive through conversational prompts. The 2.7 GB export included the root filesystem, internal documentation, 68 skill definitions, container build scripts, an experimental ESP32-C5 integration, SSH keys, 113 subagent traces, and unreleased Slack, Dropbox, and Polymarket connector configurations. Meta marked the bug bounty report “Not Applicable.”",
+      "url": "https://mouse.dev/blog/muse-runtime-export/",
+      "urls": [
+        "https://mouse.dev/blog/muse-runtime-export/"
+      ],
+      "archive": "https://web.archive.org/web/20260922164349/https://mouse.dev/blog/muse-runtime-export/",
+      "role": "AI-targeted",
+      "category": "Security research",
+      "slug": "muse-ai-flaw-allowed-full-runtime-export-to-google-drive"
+    },
     {
       "date": "2026-09-18",
       "source": "The Guardian",
