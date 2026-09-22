@@ -847,3 +847,16 @@ Genians reported that a Kimsuky-linked campaign used ChatGPT to create convincin
 **Category:** Cyber operations
 
 Microsoft described threat actors using AI for phishing, translation, exploit research, malware coding and debugging, data discovery and post-compromise activity, including early experimentation with more agentic AI workflows by North Korean groups such as Jasper Sleet and Coral Sleet.
+
+---
+
+## Muse AI flaw allowed full runtime export to Google Drive
+
+**Date:** 2026-09-22
+**Source:** mouse.dev
+**URL:** https://mouse.dev/blog/muse-runtime-export/
+**Archive:** https://web.archive.org/web/20260922164349/https://mouse.dev/blog/muse-runtime-export/
+**AI role:** AI-targeted
+**Category:** Security research
+
+Peter James of Mouse found that Meta’s Muse AI agent could be instructed to archive and export its entire runtime environment to Google Drive through conversational prompts. The 2.7 GB export included the root filesystem, internal documentation, 68 skill definitions, container build scripts, an experimental ESP32-C5 integration, SSH keys, 113 subagent traces, and unreleased Slack, Dropbox, and Polymarket connector configurations. Meta marked the bug bounty report “Not Applicable.”
