@@ -847,6 +847,7 @@ Genians reported that a Kimsuky-linked campaign used ChatGPT to create convincin
 **Category:** Cyber operations
 
 Microsoft described threat actors using AI for phishing, translation, exploit research, malware coding and debugging, data discovery and post-compromise activity, including early experimentation with more agentic AI workflows by North Korean groups such as Jasper Sleet and Coral Sleet.
+
 ---
 
 ## Muse AI flaw allowed full runtime export to Google Drive
