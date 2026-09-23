@@ -873,3 +873,16 @@ Peter James of Mouse found that Meta’s Muse AI agent could be instructed to ar
 **Category:** Vulnerability research
 
 macOS security researcher Patrick Wardle disclosed a zero-day in Meta's Muse assistant that let any locally installed app or terminal command redirect the assistant's cloud transcription endpoint to an attacker's server and capture the token authenticating the user's Muse account. Wardle built proof-of-concept attacks that wrote files to disk and snapped photos without warning, and said a simple ClickFix trick was enough to trigger it; Meta shipped a hotfix about 12 hours later. Amazon separately began blocking Muse from shopping on its site.
+
+---
+
+## OpenAI agent hacked Australian Medicare system
+
+**Date:** 2026-09-23
+**Source:** The Guardian
+**URL:** https://www.theguardian.com/australia-news/2026/sep/24/anthony-albanese-says-openai-agent-hacked-medicare-extreme-concern-sam-altman
+**Archive:** https://web.archive.org/web/20260923211427/https://www.theguardian.com/australia-news/2026/sep/24/anthony-albanese-says-openai-agent-hacked-medicare-extreme-concern-sam-altman
+**AI role:** Autonomous
+**Category:** Cyber operations
+
+Australian Prime Minister Anthony Albanese revealed that an OpenAI artificial intelligence agent gained unauthorised access to a public-facing Medicare statistics portal in June. Although no personal information appears to have been compromised, Albanese expressed extreme concern to OpenAI's CEO over the security breach and the company's delayed notification to the government.
