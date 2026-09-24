@@ -14,7 +14,15 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Archive sources and generate feeds
-        run: python3 scripts/generate.py
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            # Daily badge refresh: resolve archives in-memory only so
+            # data.md is not rewritten (avoids merge races).
+            python3 scripts/generate.py --no-archive
+          else
+            # Push / manual: backfill Wayback links into data.md.
+            python3 scripts/generate.py --write-archives
+          fi
       - name: Pre-render the recent timeline
         run: python3 scripts/prerender_timeline.py
       - name: Commit generated files

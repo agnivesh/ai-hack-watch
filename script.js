@@ -1,10 +1,16 @@
 let allArticles = [];
-let activeFilter = "All";
+let siteTaxonomy = null;
+let activeFilter = { type: "all", value: "All" };
+
+const FALLBACK_ROLES = ["Autonomous","AI-assisted","AI-targeted","AI security research","Unclear"];
 
 async function loadArticles() {
   const response = await fetch("incidents.json", { cache: "no-cache" });
   if (!response.ok) throw new Error("Could not load incidents.json");
   const data = await response.json();
+  // Single source of truth for taxonomy lives in incidents.json
+  // (generated from scripts/datamd.py); fall back for old datasets.
+  siteTaxonomy = data.taxonomy ?? null;
   // Support both new schema (object with incidents array) and legacy flat array
   return data.incidents ?? data;
 }
@@ -21,8 +27,8 @@ function daysBetween(startDate, endDate = new Date()) {
 }
 
 function formatDate(dateString) {
-  return new Intl.DateTimeFormat("en-GB", { day:"2-digit", month:"short", year:"numeric" })
-    .format(new Date(dateString + "T00:00:00"));
+  return new Intl.DateTimeFormat("en-GB", { day:"2-digit", month:"short", year:"numeric", timeZone:"UTC" })
+    .format(new Date(dateString + "T00:00:00Z"));
 }
 
 function slugify(value) { return String(value).toLowerCase().normalize("NFKD").replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "-").replace(/-+/g, "-"); }
@@ -62,7 +68,7 @@ function uniqueTags(articles) {
 }
 
 function intervals(articles) {
-  const dates = articles.map(a => new Date(a.date + "T00:00:00"));
+  const dates = articles.map(a => new Date(a.date + "T00:00:00Z"));
   return dates.slice(1).map((d, i) => Math.round((dates[i] - d) / 86400000));
 }
 
@@ -101,28 +107,46 @@ function renderStats() {
 }
 
 function renderBreakdown() {
-  const roles = ["Autonomous","AI-assisted","AI-targeted","AI security research","Unclear"];
-  const cats = [...new Set(allArticles.map(a => a.category).filter(Boolean))];
-  const values = roles.map(role => [role, allArticles.filter(a => a.role === role).length]);
-  const cards = [...values, ...cats.slice(0, 3).map(cat => [cat, allArticles.filter(a => a.category === cat).length])];
-  document.getElementById("breakdown").innerHTML = cards.slice(0, 8).map(([label,count]) =>
-    `<button type="button" class="breakdown-card" data-filter="${escapeHtml(label)}" aria-pressed="false"><strong>${count}</strong><span>${escapeHtml(label)}</span></button>`
+  const roles = siteTaxonomy?.roles ?? FALLBACK_ROLES;
+  const taxonomyCats = siteTaxonomy?.categories ?? null;
+  // Show every category present in data (plus every taxonomy category
+  // even at 0, so the breakdown never silently hides a category).
+  const dataCats = [...new Set(allArticles.map(a => a.category).filter(Boolean))];
+  const cats = taxonomyCats
+    ? [...taxonomyCats, ...dataCats.filter(c => !taxonomyCats.includes(c))]
+    : [...dataCats].sort();
+  const values = roles.map(role => ({ type: "role", label: role, count: allArticles.filter(a => a.role === role).length }));
+  const catValues = cats.map(cat => ({ type: "category", label: cat, count: allArticles.filter(a => a.category === cat).length }));
+  const cards = [...values, ...catValues];
+  document.getElementById("breakdown").innerHTML = cards.map(({ type, label, count }) =>
+    `<button type="button" class="breakdown-card" data-filter-type="${escapeHtml(type)}" data-filter="${escapeHtml(label)}" aria-pressed="false"><strong>${count}</strong><span>${escapeHtml(label)}</span></button>`
   ).join("");
   bindFilterButtons(".breakdown-card");
 }
 
 function buildFilters() {
-  const filters = ["All", ...uniqueTags(allArticles)];
-  document.getElementById("filters").innerHTML = filters.map(filter =>
-    `<button class="filter" data-filter="${escapeHtml(filter)}" aria-pressed="false">${escapeHtml(filter)}</button>`
-  ).join("");
+  const roles = [...new Set(allArticles.map(a => a.role).filter(Boolean))];
+  const cats = [...new Set(allArticles.map(a => a.category).filter(Boolean))];
+  const buttons = [`<button class="filter" data-filter-type="all" data-filter="All" aria-pressed="false">All</button>`];
+  for (const role of roles) {
+    buttons.push(`<button class="filter" data-filter-type="role" data-filter="${escapeHtml(role)}" aria-pressed="false">${escapeHtml(role)}</button>`);
+  }
+  for (const cat of cats) {
+    // Even if a label also exists as a role, the type keeps them distinct.
+    buttons.push(`<button class="filter" data-filter-type="category" data-filter="${escapeHtml(cat)}" aria-pressed="false">${escapeHtml(cat)}</button>`);
+  }
+  document.getElementById("filters").innerHTML = buttons.join("");
   bindFilterButtons(".filter");
 }
 
 function bindFilterButtons(selector) {
   document.querySelectorAll(selector).forEach(button => {
+    // Avoid double-binding when hydration re-runs.
+    if (button.dataset.bound === "true") return;
+    button.dataset.bound = "true";
     button.addEventListener("click", () => {
-      activeFilter = button.dataset.filter;
+      activeFilter = { type: button.dataset.filterType || "all", value: button.dataset.filter };
+      if (activeFilter.value === "All") activeFilter.type = "all";
       applyFilter();
     });
   });
@@ -134,8 +158,8 @@ function renderArticle(article) {
   const archiveUrl = safeHttpUrl(article.archive);
   const title = escapeHtml(article.title || "Untitled incident");
   const source = escapeHtml(article.source || "Unknown source");
-  const role = article.role ? `<button type="button" class="tag tag-filter" data-filter="${escapeHtml(article.role)}" aria-pressed="false">${escapeHtml(article.role)}</button>` : "";
-  const category = article.category ? `<button type="button" class="tag tag-filter" data-filter="${escapeHtml(article.category)}" aria-pressed="false">${escapeHtml(article.category)}</button>` : "";
+  const role = article.role ? `<button type="button" class="tag tag-filter" data-filter-type="role" data-filter="${escapeHtml(article.role)}" aria-pressed="false">${escapeHtml(article.role)}</button>` : "";
+  const category = article.category ? `<button type="button" class="tag tag-filter" data-filter-type="category" data-filter="${escapeHtml(article.category)}" aria-pressed="false">${escapeHtml(article.category)}</button>` : "";
   const sourceLink = sourceUrl ? `<a href="${escapeHtml(sourceUrl)}" target="_blank" rel="noopener noreferrer">Read source ↗</a>` : "";
   const archiveLink = archiveUrl ? `<a href="${escapeHtml(archiveUrl)}" target="_blank" rel="noopener noreferrer">Archived copy ↗</a>` : "";
   const extraLinks = (article.urls || []).slice(1).map(extraUrl => {
@@ -160,18 +184,47 @@ function renderArticle(article) {
 
 function renderTimeline() {
   const timeline = document.getElementById("timeline");
-  if (!timeline.dataset.built) {
+  const wanted = allArticles.map(a => slugify(a.slug || a.title));
+  const existing = [...timeline.querySelectorAll("article.item")].map(el => el.id);
+  const matches = existing.length > 0
+    && wanted.slice(0, existing.length).every((slug, i) => slug === existing[i]);
+  if (!timeline.dataset.built && !matches) {
+    // Full rebuild only when prerendered HTML doesn't match fresh data.
+    // Otherwise hydrate in place so first paint is preserved.
     timeline.innerHTML = allArticles.map(renderArticle).join("");
     timeline.dataset.built = "true";
-    bindFilterButtons(".tag-filter");
+  } else {
+    // Hydrate prerendered nodes: ensure filter dimensions exist for
+    // progressive enhancement before/without a rebuild.
+    const bySlug = new Map(allArticles.map(a => [slugify(a.slug || a.title), a]));
+    timeline.querySelectorAll("article.item").forEach(el => {
+      const article = bySlug.get(el.id);
+      if (article) {
+        el.dataset.role = article.role ?? "";
+        el.dataset.category = article.category ?? "";
+      }
+    });
+    // Ensure tag buttons carry namespaced filter types (old prerender
+    // only had data-filter).
+    timeline.querySelectorAll(".tag-filter").forEach(btn => {
+      if (!btn.dataset.filterType) {
+        const parent = btn.closest("article.item");
+        if (parent && parent.dataset.role === btn.dataset.filter) btn.dataset.filterType = "role";
+        else btn.dataset.filterType = "category";
+      }
+    });
+    timeline.dataset.built = timeline.dataset.built || "true";
   }
+  bindFilterButtons(".tag-filter");
   applyFilter();
 }
 
 function articleMatches(article) {
-  return activeFilter === "All"
-    || article.dataset.role === activeFilter
-    || article.dataset.category === activeFilter;
+  if (activeFilter.type === "all" || activeFilter.value === "All") return true;
+  if (activeFilter.type === "role") return article.dataset.role === activeFilter.value;
+  if (activeFilter.type === "category") return article.dataset.category === activeFilter.value;
+  return article.dataset.role === activeFilter.value
+    || article.dataset.category === activeFilter.value;
 }
 
 function applyFilter() {
@@ -183,7 +236,14 @@ function applyFilter() {
     if (matches) visibleCount += 1;
   });
   document.querySelectorAll(".filter, .tag-filter, .breakdown-card").forEach(button => {
-    const isActive = button.dataset.filter === activeFilter;
+    let isActive;
+    if (button.dataset.filterType) {
+      isActive = button.dataset.filter === activeFilter.value
+        && button.dataset.filterType === activeFilter.type;
+    } else {
+      // Legacy button without a type: match by value only.
+      isActive = button.dataset.filter === activeFilter.value;
+    }
     button.classList.toggle("active", isActive);
     button.setAttribute("aria-pressed", String(isActive));
   });

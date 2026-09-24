@@ -7,8 +7,9 @@ Fails loudly (exit code 1) when data.md is invalid, so the site can
 never silently serve stale, empty, or partially-parsed data.
 
 Usage:
-    python3 scripts/generate.py                # full run incl. Wayback archiving
-    python3 scripts/generate.py --no-archive   # skip Wayback (local dev)
+    python3 scripts/generate.py --write-archives  # push path: archive + rewrite data.md
+    python3 scripts/generate.py --no-archive       # skip Wayback (local dev, daily badge)
+    python3 scripts/generate.py                    # in-memory archives, no data.md rewrite
 """
 
 import argparse
@@ -18,6 +19,7 @@ import re
 import subprocess
 import sys
 from datetime import date, datetime, timezone
+from email.utils import format_datetime
 from pathlib import Path
 from urllib.parse import quote
 
@@ -146,7 +148,62 @@ SCHEMA_VERSION = 1
 CHUNK_SIZE = 20  # hint for future pagination
 
 
+def format_rfc822_date(date_value):
+    """Format a YYYY-MM-DD calendar date as an RFC-822 pubDate (midnight UTC)."""
+    parsed = date.fromisoformat(date_value)
+    dt = datetime(parsed.year, parsed.month, parsed.day, tzinfo=timezone.utc)
+    return format_datetime(dt, usegmt=True)
+
+
+def format_rfc822_now(now=None):
+    now = now or datetime.now(timezone.utc)
+    return format_datetime(now.astimezone(timezone.utc), usegmt=True)
+
+
+def assign_unique_slugs(titles):
+    """Dedupe title slugs deterministically: base, base-2, base-3, ..."""
+    counts = {}
+    slugs = []
+    for title in titles:
+        base = datamd.slugify(title)
+        counts[base] = counts.get(base, 0) + 1
+        if counts[base] == 1:
+            slugs.append(base)
+        else:
+            slugs.append(f"{base}-{counts[base]}")
+    return slugs
+
+
+def apply_archives_in_memory(entries):
+    """Fill missing Archive values in-memory (no data.md rewrite).
+
+    Used for daily badge refreshes and local builds so data.md is only
+    rewritten when --write-archives is passed explicitly.
+    """
+    for entry in entries:
+        if entry.get("archive"):
+            continue
+        for url in entry.get("urls") or ([entry["url"]] if entry.get("url") else []):
+            try:
+                snapshot = request_archive_snapshot(url)
+            except Exception as error:  # never let archiving break the build
+                print(f"::warning::Wayback archiving failed for {url}: {error}")
+                continue
+            if snapshot:
+                entry["archive"] = snapshot
+                print(f"Archive resolved (in-memory): {snapshot}")
+                break
+        else:
+            urls = entry.get("urls") or [entry.get("url", "")]
+            print(f"::warning::No Wayback snapshot returned for {'; '.join(urls)}")
+    return entries
+
+
 def build_incidents(entries):
+    # Sort newest-first first so slug dedupe is deterministic:
+    # the newest duplicate keeps the base slug.
+    sorted_entries = sorted(entries, key=lambda e: e["date"], reverse=True)
+    slugs = assign_unique_slugs([e["title"] for e in sorted_entries])
     incidents = [
         {
             "date": entry["date"],
@@ -158,15 +215,18 @@ def build_incidents(entries):
             "archive": entry.get("archive", ""),
             "role": entry["ai_role"],
             "category": entry["category"],
-            "slug": datamd.slugify(entry["title"]),
+            "slug": slug,
         }
-        for entry in entries
+        for entry, slug in zip(sorted_entries, slugs)
     ]
-    incidents.sort(key=lambda item: item["date"], reverse=True)
     return {
         "schema_version": SCHEMA_VERSION,
         "chunk_size": CHUNK_SIZE,
         "total": len(incidents),
+        "taxonomy": {
+            "roles": list(datamd.ALLOWED_ROLES),
+            "categories": list(datamd.ALLOWED_CATEGORIES),
+        },
         "incidents": incidents,
     }
 
@@ -195,14 +255,21 @@ def render_badge(days, latest_date):
 def render_feed(incidents):
     items = []
     for article in incidents:
+        # Stable guid from slug (URLs can change); pubDate/lastBuildDate
+        # must be RFC-822 for RSS readers.
+        guid = f"ai-hack-watch:{article.get('slug') or datamd.slugify(article['title'])}"
+        try:
+            pub_date = format_rfc822_date(article["date"])
+        except ValueError:
+            pub_date = format_rfc822_now()
         items.append(
             f"<item><title>{html.escape(article['title'])}</title>"
             f"<link>{html.escape(article['url'])}</link>"
-            f'<guid isPermaLink="true">{html.escape(article["url"])}</guid>'
-            f"<pubDate>{article['date']}T00:00:00Z</pubDate>"
+            f'<guid isPermaLink="false">{html.escape(guid)}</guid>'
+            f"<pubDate>{pub_date}</pubDate>"
             f"<description>{html.escape(article['description'])}</description></item>"
         )
-    build_time = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    build_time = format_rfc822_now()
     return (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<rss version="2.0"><channel><title>AI Hack Watch</title>'
@@ -221,11 +288,20 @@ def main(argv=None):
     parser.add_argument(
         "--no-archive", action="store_true", help="skip Wayback Machine archiving"
     )
+    parser.add_argument(
+        "--write-archives",
+        action="store_true",
+        help="rewrite data.md with newly archived URLs (push path only)",
+    )
     args = parser.parse_args(argv)
 
     text = DATA_PATH.read_text(encoding="utf-8")
 
-    if not args.no_archive:
+    if args.write_archives and args.no_archive:
+        print("ERROR: --write-archives and --no-archive are mutually exclusive")
+        return 1
+
+    if args.write_archives:
         text, changed = archive_missing_links(text)
         if changed:
             DATA_PATH.write_text(text, encoding="utf-8")
@@ -242,6 +318,11 @@ def main(argv=None):
             f"{DATA_PATH.name}. Fix them and re-run."
         )
         return 1
+
+    if not args.no_archive and not args.write_archives:
+        # Resolve archives in-memory so daily/local builds get archive
+        # links in JSON/feed without mutating data.md (avoids merge races).
+        entries = apply_archives_in_memory(entries)
 
     incidents = build_incidents(entries)
     if not incidents["incidents"]:
