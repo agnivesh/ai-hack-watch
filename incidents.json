@@ -2,6 +2,25 @@
   "schema_version": 1,
   "chunk_size": 20,
   "total": 48,
+  "taxonomy": {
+    "roles": [
+      "Autonomous",
+      "AI-assisted",
+      "AI-targeted",
+      "AI security research",
+      "Unclear"
+    ],
+    "categories": [
+      "Security research",
+      "Vulnerability research",
+      "Cyber operations",
+      "Malware",
+      "Credential theft",
+      "Cloud infrastructure",
+      "AI model compromise",
+      "Other"
+    ]
+  },
   "incidents": [
     {
       "date": "2026-09-23",

@@ -156,6 +156,16 @@ def validate_entries(entries):
         if len(titles) > 1:
             warnings.append("Duplicate URL: " + url)
 
+    by_slug = {}
+    for entry in complete:
+        by_slug.setdefault(slugify(entry["title"]), []).append(entry["title"])
+    for slug, titles in by_slug.items():
+        if len(titles) > 1:
+            warnings.append(
+                f'Duplicate slug "{slug}": {" / ".join(titles)} '
+                "(generator will dedupe with -2, -3 suffixes)"
+            )
+
     def words(value):
         return set(re.findall(r"[a-z0-9]+", value.lower()))
 

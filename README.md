@@ -114,7 +114,7 @@ Read [`METHODOLOGY.md`](METHODOLOGY.md) for what qualifies, AI-role definitions,
 
 ## Development
 
-Run the pipeline and its tests locally (skipping Wayback archiving, which would rewrite `data.md`):
+Run the pipeline and its tests locally (skipping Wayback archiving, which would hit the network):
 
 ```bash
 python3 scripts/test_pipeline.py          # regression tests
@@ -123,6 +123,8 @@ python3 scripts/generate.py --no-archive  # regenerate incidents.json, badge, fe
 python3 scripts/prerender_timeline.py     # regenerate the in-page timeline + OG tags
 python3 scripts/check_links.py            # HEAD-check source URLs
 ```
+
+`generate.py` resolves missing Wayback links in-memory by default without rewriting `data.md`. Pass `--write-archives` only on the push path (CI does this automatically; daily badge refreshes use `--no-archive`) to backfill `Archive:` fields.
 
 The pipeline lives in `scripts/` (`generate.py`, `validate_contribution.py`, `prerender_timeline.py`, `check_links.py`) and shares one parser/validator in `datamd.py`.
 

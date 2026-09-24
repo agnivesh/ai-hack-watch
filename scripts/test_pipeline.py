@@ -20,10 +20,20 @@ import story_bot
 ROOT = Path(__file__).resolve().parents[1]
 
 FAILURES = []
+TESTS = []
 
 
 def check(label):
+    """Collect a test; tests run in main() (no side effects on import)."""
     def decorator(fn):
+        TESTS.append((label, fn))
+        return fn
+
+    return decorator
+
+
+def run_tests():
+    for label, fn in TESTS:
         try:
             fn()
             print(f"PASS  {label}")
@@ -33,8 +43,6 @@ def check(label):
         except Exception as error:
             FAILURES.append(label)
             print(f"ERROR {label}: {type(error).__name__}: {error}")
-
-    return decorator
 
 
 SAMPLE = """---
@@ -413,9 +421,136 @@ def site_url_configured():
     assert "https://" in config
 
 
+@check("feed dates are RFC-822 and guids are stable slugs")
+def feed_rfc822_guid():
+    import email.utils
+    incidents = generate.build_incidents(datamd.parse_blocks(SAMPLE))
+    feed = generate.render_feed(incidents["incidents"])
+    assert 'isPermaLink="false"' in feed, feed[:500]
+    assert "ai-hack-watch:test-incident" in feed
+    assert "T00:00:00Z</pubDate>" not in feed
+    # Thu 01 Jan 2026 00:00:00 GMT
+    assert "Jan 2026" in feed and "GMT" in feed
+    root = ET.fromstring(feed)
+    pub_dates = [el.text for el in root.iter("pubDate")]
+    assert pub_dates, "no pubDates"
+    for value in pub_dates:
+        assert email.utils.parsedate_to_datetime(value) is not None, value
+    guids = [el.text for el in root.iter("guid")]
+    assert guids == ["ai-hack-watch:test-incident"], guids
+
+
+@check("format_rfc822_date matches known weekday")
+def rfc822_weekday():
+    # 2026-09-22 is a Tuesday
+    assert generate.format_rfc822_date("2026-09-22") == "Tue, 22 Sep 2026 00:00:00 GMT"
+
+
+@check("duplicate titles get unique slugs")
+def unique_slugs():
+    dup = SAMPLE + """
+---
+
+## Test incident
+
+**Date:** 2025-01-01
+**Source:** Example Research
+**URL:** https://example.com/old
+**Archive:**
+**AI role:** Unclear
+**Category:** Other
+
+Earlier story with the same headline.
+"""
+    incidents = generate.build_incidents(datamd.parse_blocks(dup))
+    slugs = [i["slug"] for i in incidents["incidents"]]
+    assert slugs[0] == "test-incident", slugs
+    assert slugs[1] == "test-incident-2", slugs
+    assert len(set(slugs)) == 2
+
+
+@check("duplicate slugs warn")
+def duplicate_slug_warning():
+    dup = SAMPLE + """
+---
+
+## Test incident
+
+**Date:** 2025-01-01
+**Source:** Example Research
+**URL:** https://example.com/old
+**Archive:**
+**AI role:** Unclear
+**Category:** Other
+
+Earlier story.
+"""
+    _, warnings = datamd.validate_entries(datamd.parse_blocks(dup))
+    assert any("Duplicate slug" in w for w in warnings), warnings
+
+
+@check("build_incidents emits taxonomy matching datamd")
+def taxonomy_emitted():
+    incidents = generate.build_incidents(datamd.parse_blocks(SAMPLE))
+    assert incidents["taxonomy"]["roles"] == list(datamd.ALLOWED_ROLES)
+    assert incidents["taxonomy"]["categories"] == list(datamd.ALLOWED_CATEGORIES)
+
+
+@check("issue template options match datamd taxonomy")
+def issue_template_parity():
+    text = (ROOT / ".github" / "ISSUE_TEMPLATE" / "story-submission.yml").read_text(encoding="utf-8")
+    for role in datamd.ALLOWED_ROLES:
+        assert role in text, f"role missing from issue template: {role}"
+    for cat in datamd.ALLOWED_CATEGORIES:
+        assert cat in text, f"category missing from issue template: {cat}"
+
+
+@check("script.js uses UTC dates, namespaced filters, full breakdown")
+def script_js_conventions():
+    js = (ROOT / "script.js").read_text(encoding="utf-8")
+    assert 'timeZone:"UTC"' in js or 'timeZone: "UTC"' in js
+    assert "T00:00:00Z" in js
+    assert "data-filter-type" in js
+    assert "slice(0, 3)" not in js and "slice(0,3)" not in js
+    assert "slice(0, 8)" not in js and "slice(0,8)" not in js
+    assert "siteTaxonomy" in js
+
+
+@check("prerender includes filter dimensions for progressive enhancement")
+def prerender_attrs():
+    incidents = generate.build_incidents(datamd.parse_blocks(SAMPLE))
+    html_out = prerender.render_article(incidents["incidents"][0])
+    assert 'data-role="Autonomous"' in html_out, html_out
+    assert 'data-category="Security research"' in html_out
+    assert 'data-filter-type="role"' in html_out
+    assert 'data-filter-type="category"' in html_out
+
+
+@check("apply_archives_in_memory skips network when archive present")
+def archives_in_memory_noop():
+    [entry] = datamd.parse_blocks(SAMPLE.replace("**Archive:**", "**Archive:** https://web.archive.org/web/20260101/https://example.com/report"))
+    calls = []
+    orig = generate.request_archive_snapshot
+    generate.request_archive_snapshot = lambda url: calls.append(url) or "SHOULD-NOT-HAPPEN"
+    try:
+        out = generate.apply_archives_in_memory([dict(entry)])
+        assert out[0]["archive"].startswith("https://web.archive.org")
+        assert calls == [], calls
+    finally:
+        generate.request_archive_snapshot = orig
+
+
+@check("test collection is deferred (import has no side effects)")
+def deferred_collection():
+    assert len(TESTS) >= 10, len(TESTS)
+    # FAILURES is only populated by run_tests(), not by import.
+    assert isinstance(FAILURES, list)
+
+
 def main():
     print("AI Hack Watch pipeline tests")
     print("-" * 30)
+    run_tests()
     if FAILURES:
         print(f"\n{len(FAILURES)} failure(s): {FAILURES}")
         return 1

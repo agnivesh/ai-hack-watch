@@ -81,6 +81,8 @@ def render_article(article):
     description = html.escape(text(article.get("description")))
     role = html.escape(text(article.get("role")))
     category = html.escape(text(article.get("category")))
+    raw_role = text(article.get("role"))
+    raw_category = text(article.get("category"))
     slug = html.escape(
         datamd.slugify(article.get("slug") or article.get("title")), quote=True
     )
@@ -90,15 +92,16 @@ def render_article(article):
         render_link(safe_url(extra_url), "Alternative source ↗")
         for extra_url in (article.get("urls") or [])[1:]
     )
-    tags = "".join(
-        f'<button type="button" class="tag tag-filter" data-filter="{html.escape(tag, quote=True)}" aria-pressed="false">{tag}</button>'
-        for tag in (role, category) if tag
-    )
+    tags = ""
+    if raw_role:
+        tags += f'<button type="button" class="tag tag-filter" data-filter-type="role" data-filter="{html.escape(raw_role, quote=True)}" aria-pressed="false">{role}</button>'
+    if raw_category:
+        tags += f'<button type="button" class="tag tag-filter" data-filter-type="category" data-filter="{html.escape(raw_category, quote=True)}" aria-pressed="false">{category}</button>'
     links = "".join(
         link for link in (source_link, archive_link, extra_links) if link
     )
 
-    return f'''      <article class="item" id="{slug}">
+    return f'''      <article class="item" id="{slug}" data-role="{html.escape(raw_role, quote=True)}" data-category="{html.escape(raw_category, quote=True)}">
         <div class="date">{format_date(article.get("date"))}</div>
         <div class="dot-wrap"><div class="dot"></div></div>
         <div class="card">
