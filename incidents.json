@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "chunk_size": 20,
-  "total": 48,
+  "total": 49,
   "taxonomy": {
     "roles": [
       "Autonomous",
@@ -22,6 +22,20 @@
     ]
   },
   "incidents": [
+    {
+      "date": "2026-09-26",
+      "source": "swarmcha.se",
+      "title": "OpenAI agents tried to bruteforce a UN website's API fields",
+      "description": "Security researcher Rowan H-J reported that agents he attributes with high likelihood to OpenAI probed UNCTAD's public statistics API about 16,500 times between April and June 2026. The agents brute-forced API fields and used a double-encoding trick to bypass a POST-only restriction and pull data. Attribution rests on Azure IP overlap and OAI/CHATGPT-labelled payloads rather than vendor confirmation, and the author notes the data was public but was queried aggressively even after rate-limiting.",
+      "url": "https://swarmcha.se/posts/openai-unctad",
+      "urls": [
+        "https://swarmcha.se/posts/openai-unctad"
+      ],
+      "archive": "https://web.archive.org/web/20260928043736/https://swarmcha.se/posts/openai-unctad",
+      "role": "Autonomous",
+      "category": "Cyber operations",
+      "slug": "openai-agents-tried-to-bruteforce-a-un-websites-api-fields"
+    },
     {
       "date": "2026-09-23",
       "source": "The Guardian",
