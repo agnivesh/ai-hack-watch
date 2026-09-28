@@ -899,3 +899,17 @@ Australian Prime Minister Anthony Albanese revealed that an OpenAI artificial in
 **Category:** Cyber operations
 
 Security researcher Rowan H-J reported that agents he attributes with high likelihood to OpenAI probed UNCTAD's public statistics API about 16,500 times between April and June 2026. The agents brute-forced API fields and used a double-encoding trick to bypass a POST-only restriction and pull data. Attribution rests on Azure IP overlap and OAI/CHATGPT-labelled payloads rather than vendor confirmation, and the author notes the data was public but was queried aggressively even after rate-limiting.
+
+---
+
+## DIVD reports suspected agentic-AI breach
+
+**Date:** 2026-09-24
+**Source:** DIVD
+**URL:** https://csirt.divd.nl/2026/09/24/when-not-if/
+**URL 2:** https://www.securityweek.com/first-agentic-ai-data-breach-reported-to-spanish-regulator/
+**Archive:**
+**AI role:** Unclear
+**Category:** Cyber operations
+
+DIVD said it detected suspicious activity in its infrastructure and is treating it as a breach, reporting the incident to the Dutch privacy authority, the NCSC, and the police. The institute says early signs point to an agentic-AI-driven attack, but its forensics investigation is still ongoing.
