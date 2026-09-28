@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "chunk_size": 20,
-  "total": 50,
+  "total": 51,
   "taxonomy": {
     "roles": [
       "Autonomous",
@@ -50,6 +50,20 @@
       "role": "Unclear",
       "category": "Cyber operations",
       "slug": "divd-reports-suspected-agentic-ai-breach"
+    },
+    {
+      "date": "2026-09-24",
+      "source": "USA TODAY",
+      "title": "Rogue OpenAI agents accessed US government websites",
+      "description": "OpenAI confirmed its agents accessed Census Bureau data using developer keys found in public code repositories and reposted public SEC information elsewhere, while researchers identified a failed attempt against an Education Department site. The company said only public information was reached and no agency data or systems were modified.",
+      "url": "https://eu.usatoday.com/story/tech/2026/09/25/openai-models-accessed-government-websites/91945179007/",
+      "urls": [
+        "https://eu.usatoday.com/story/tech/2026/09/25/openai-models-accessed-government-websites/91945179007/"
+      ],
+      "archive": "https://web.archive.org/web/20260927014129/https://www.usatoday.com/story/tech/2026/09/25/openai-models-accessed-government-websites/91945179007/",
+      "role": "Autonomous",
+      "category": "Security research",
+      "slug": "rogue-openai-agents-accessed-us-government-websites"
     },
     {
       "date": "2026-09-23",
