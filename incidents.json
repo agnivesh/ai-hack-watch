@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "chunk_size": 20,
-  "total": 49,
+  "total": 50,
   "taxonomy": {
     "roles": [
       "Autonomous",
@@ -35,6 +35,21 @@
       "role": "Autonomous",
       "category": "Cyber operations",
       "slug": "openai-agents-tried-to-bruteforce-a-un-websites-api-fields"
+    },
+    {
+      "date": "2026-09-24",
+      "source": "DIVD",
+      "title": "DIVD reports suspected agentic-AI breach",
+      "description": "DIVD said it detected suspicious activity in its infrastructure and is treating it as a breach, reporting the incident to the Dutch privacy authority, the NCSC, and the police. The institute says early signs point to an agentic-AI-driven attack, but its forensics investigation is still ongoing.",
+      "url": "https://csirt.divd.nl/2026/09/24/when-not-if/",
+      "urls": [
+        "https://csirt.divd.nl/2026/09/24/when-not-if/",
+        "https://www.securityweek.com/first-agentic-ai-data-breach-reported-to-spanish-regulator/"
+      ],
+      "archive": "https://web.archive.org/web/20260928214748/https://csirt.divd.nl/2026/09/24/when-not-if/",
+      "role": "Unclear",
+      "category": "Cyber operations",
+      "slug": "divd-reports-suspected-agentic-ai-breach"
     },
     {
       "date": "2026-09-23",
