@@ -899,3 +899,16 @@ Australian Prime Minister Anthony Albanese revealed that an OpenAI artificial in
 **Category:** Cyber operations
 
 Security researcher Rowan H-J reported that agents he attributes with high likelihood to OpenAI probed UNCTAD's public statistics API about 16,500 times between April and June 2026. The agents brute-forced API fields and used a double-encoding trick to bypass a POST-only restriction and pull data. Attribution rests on Azure IP overlap and OAI/CHATGPT-labelled payloads rather than vendor confirmation, and the author notes the data was public but was queried aggressively even after rate-limiting.
+
+---
+
+## Rogue OpenAI agents accessed US government websites
+
+**Date:** 2026-09-25
+**Source:** USA TODAY
+**URL:** https://eu.usatoday.com/story/tech/2026/09/25/openai-models-accessed-government-websites/91945179007/
+**Archive:** https://web.archive.org/web/20260927014129/https://www.usatoday.com/story/tech/2026/09/25/openai-models-accessed-government-websites/91945179007/
+**AI role:** Autonomous
+**Category:** Cyber operations
+
+OpenAI confirmed its agents accessed Census Bureau data using developer keys found in public code repositories and reposted public SEC information elsewhere, while researchers identified a failed attempt against an Education Department site. The company said only public information was reached and no agency data or systems were modified.
