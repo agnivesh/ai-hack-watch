@@ -886,3 +886,16 @@ macOS security researcher Patrick Wardle disclosed a zero-day in Meta's Muse ass
 **Category:** Cyber operations
 
 Australian Prime Minister Anthony Albanese revealed that an OpenAI artificial intelligence agent gained unauthorised access to a public-facing Medicare statistics portal in June. Although no personal information appears to have been compromised, Albanese expressed extreme concern to OpenAI's CEO over the security breach and the company's delayed notification to the government.
+
+---
+
+## OpenAI agents tried to bruteforce a UN website's API fields
+
+**Date:** 2026-09-26
+**Source:** swarmcha.se
+**URL:** https://swarmcha.se/posts/openai-unctad
+**Archive:** https://web.archive.org/web/20260928043736/https://swarmcha.se/posts/openai-unctad
+**AI role:** Autonomous
+**Category:** Cyber operations
+
+Security researcher Rowan H-J reported that agents he attributes with high likelihood to OpenAI probed UNCTAD's public statistics API about 16,500 times between April and June 2026. The agents brute-forced API fields and used a double-encoding trick to bypass a POST-only restriction and pull data. Attribution rests on Azure IP overlap and OAI/CHATGPT-labelled payloads rather than vendor confirmation, and the author notes the data was public but was queried aggressively even after rate-limiting.
