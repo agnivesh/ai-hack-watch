@@ -63,10 +63,6 @@ function updateMeta(incident) {
   document.querySelector('meta[property="og:url"]').setAttribute("content", window.location.href);
 }
 
-function uniqueTags(articles) {
-  return [...new Set(articles.flatMap(a => [a.role, a.category].filter(Boolean)))];
-}
-
 function intervals(articles) {
   const dates = articles.map(a => new Date(a.date + "T00:00:00Z"));
   return dates.slice(1).map((d, i) => Math.round((dates[i] - d) / 86400000));
@@ -109,19 +105,18 @@ function renderStats() {
 function renderBreakdown() {
   const roles = siteTaxonomy?.roles ?? FALLBACK_ROLES;
   const taxonomyCats = siteTaxonomy?.categories ?? null;
-  // Show every category present in data (plus every taxonomy category
-  // even at 0, so the breakdown never silently hides a category).
+  // Distilled: breakdown is proof only, not a second filter surface.
+  // The filter bar below the Timeline heading is the single control.
   const dataCats = [...new Set(allArticles.map(a => a.category).filter(Boolean))];
   const cats = taxonomyCats
     ? [...taxonomyCats, ...dataCats.filter(c => !taxonomyCats.includes(c))]
     : [...dataCats].sort();
-  const values = roles.map(role => ({ type: "role", label: role, count: allArticles.filter(a => a.role === role).length }));
-  const catValues = cats.map(cat => ({ type: "category", label: cat, count: allArticles.filter(a => a.category === cat).length }));
+  const values = roles.map(role => ({ label: role, count: allArticles.filter(a => a.role === role).length }));
+  const catValues = cats.map(cat => ({ label: cat, count: allArticles.filter(a => a.category === cat).length }));
   const cards = [...values, ...catValues];
-  document.getElementById("breakdown").innerHTML = cards.map(({ type, label, count }) =>
-    `<button type="button" class="breakdown-card" data-filter-type="${escapeHtml(type)}" data-filter="${escapeHtml(label)}" aria-pressed="false"><strong>${count}</strong><span>${escapeHtml(label)}</span></button>`
+  document.getElementById("breakdown").innerHTML = cards.map(({ label, count }) =>
+    `<div class="breakdown-card"><strong>${count}</strong><span>${escapeHtml(label)}</span></div>`
   ).join("");
-  bindFilterButtons(".breakdown-card");
 }
 
 function buildFilters() {
@@ -169,8 +164,8 @@ function renderArticle(article) {
 
   return `
       <article class="item" id="${escapeHtml(slug)}" data-role="${escapeHtml(article.role ?? "")}" data-category="${escapeHtml(article.category ?? "")}">
-        <div class="date">${formatDate(article.date)}</div>
-        <div class="dot-wrap"><div class="dot"></div></div>
+        <time class="date" datetime="${escapeHtml(article.date)}">${formatDate(article.date)}</time>
+        <div class="dot-wrap" aria-hidden="true"><div class="dot"></div></div>
         <div class="card">
           <div class="source">${source}</div>
           <h3>${title} <a class="permalink" href="#${escapeHtml(slug)}">#</a></h3>
@@ -235,7 +230,9 @@ function applyFilter() {
     article.classList.toggle("hidden", !matches);
     if (matches) visibleCount += 1;
   });
-  document.querySelectorAll(".filter, .tag-filter, .breakdown-card").forEach(button => {
+  const emptyState = document.getElementById("empty-state");
+  if (emptyState) emptyState.classList.toggle("hidden", visibleCount !== 0);
+  document.querySelectorAll(".filter, .tag-filter").forEach(button => {
     let isActive;
     if (button.dataset.filterType) {
       isActive = button.dataset.filter === activeFilter.value
@@ -286,6 +283,16 @@ function initThemeToggle() {
   sync();
 }
 
+function initEmptyState() {
+  const clear = document.getElementById("clear-filters");
+  if (!clear || clear.dataset.bound === "true") return;
+  clear.dataset.bound = "true";
+  clear.addEventListener("click", () => {
+    activeFilter = { type: "all", value: "All" };
+    applyFilter();
+  });
+}
+
 async function render() {
   setSubmitLinks();
   allArticles = (await loadArticles()).sort((a,b) => b.date.localeCompare(a.date));
@@ -295,6 +302,7 @@ async function render() {
   renderBreakdown();
   buildFilters();
   renderTimeline();
+  initEmptyState();
 }
 
 initThemeToggle();

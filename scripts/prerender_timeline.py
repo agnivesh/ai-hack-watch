@@ -102,8 +102,8 @@ def render_article(article):
     )
 
     return f'''      <article class="item" id="{slug}" data-role="{html.escape(raw_role, quote=True)}" data-category="{html.escape(raw_category, quote=True)}">
-        <div class="date">{format_date(article.get("date"))}</div>
-        <div class="dot-wrap"><div class="dot"></div></div>
+        <time class="date" datetime="{html.escape(text(article.get("date")), quote=True)}">{format_date(article.get("date"))}</time>
+        <div class="dot-wrap" aria-hidden="true"><div class="dot"></div></div>
         <div class="card">
           <div class="source">{source}</div>
           <h3>{title} <a class="permalink" href="#{slug}">#</a></h3>
