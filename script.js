@@ -181,9 +181,12 @@ function renderTimeline() {
   const timeline = document.getElementById("timeline");
   const wanted = allArticles.map(a => slugify(a.slug || a.title));
   const existing = [...timeline.querySelectorAll("article.item")].map(el => el.id);
-  const matches = existing.length > 0
-    && wanted.slice(0, existing.length).every((slug, i) => slug === existing[i]);
-  if (!timeline.dataset.built && !matches) {
+  // Prerender holds only the 20 most recent for SEO; the full dataset
+  // must be rendered. Hydrate in place only when the DOM already holds
+  // every article in order — otherwise rebuild so "All" shows all.
+  const fullMatch = existing.length === wanted.length
+    && wanted.every((slug, i) => slug === existing[i]);
+  if (!timeline.dataset.built && !fullMatch) {
     // Full rebuild only when prerendered HTML doesn't match fresh data.
     // Otherwise hydrate in place so first paint is preserved.
     timeline.innerHTML = allArticles.map(renderArticle).join("");

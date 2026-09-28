@@ -514,6 +514,10 @@ def script_js_conventions():
     assert "slice(0, 3)" not in js and "slice(0,3)" not in js
     assert "slice(0, 8)" not in js and "slice(0,8)" not in js
     assert "siteTaxonomy" in js
+    # Regression: prerender holds 20, dataset holds all — timeline must
+    # rebuild on count mismatch, never hydrate a prefix as complete.
+    assert "existing.length === wanted.length" in js
+    assert "wanted.slice(0, existing.length)" not in js
 
 
 @check("prerender includes filter dimensions for progressive enhancement")
