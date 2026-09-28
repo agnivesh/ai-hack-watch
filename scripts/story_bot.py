@@ -26,6 +26,23 @@ ROOT = Path(__file__).resolve().parents[1]
 BLOCK_RE = re.compile(r"^### (.+)$")
 DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 
+# GitHub Forms renders unanswered optional inputs as "_No response_".
+# Treat that (and similar placeholders) as empty so optional fields
+# stay truly optional.
+EMPTY_PLACEHOLDERS = frozenset({"", "_no response_", "no response", "none", "n/a", "na", "-", "--"})
+
+
+def clean_optional(value):
+    """Normalize an optional form field; placeholders become ""."""
+    text = (value or "").strip()
+    if text.lower() in EMPTY_PLACEHOLDERS:
+        return ""
+    if text.startswith("_") and text.endswith("_"):
+        text = text.strip("_").strip()
+    if text.lower() in EMPTY_PLACEHOLDERS:
+        return ""
+    return text
+
 REQUIRED_FIELDS = (
     "Article URL",
     "Publication date",
@@ -79,17 +96,29 @@ def validate(fields):
     category = fields.get("Category", "")
     if category and category not in datamd.ALLOWED_CATEGORIES:
         errors.append(f"Category must be one of: {', '.join(datamd.ALLOWED_CATEGORIES)}")
-    archive = fields.get("Existing Wayback snapshot (optional)", "")
+    archive = clean_optional(fields.get("Existing Wayback snapshot (optional)", ""))
     if archive:
         parsed = urlparse(archive)
         if parsed.scheme not in ("http", "https") or not parsed.netloc:
             errors.append("Archive must be an http(s) URL")
+    url2 = clean_optional(fields.get("Second source URL (optional)", ""))
+    if url2:
+        parsed = urlparse(url2)
+        if parsed.scheme not in ("http", "https") or not parsed.netloc:
+            errors.append("Second source URL must be an http(s) URL")
     return errors
 
 
 def draft_entry(fields, title):
-    archive = fields.get("Existing Wayback snapshot (optional)", "").strip()
+    archive = clean_optional(fields.get("Existing Wayback snapshot (optional)", ""))
     archive_line = f"**Archive:** {archive}" if archive else "**Archive:**"
+    url2 = clean_optional(fields.get("Second source URL (optional)", ""))
+    source2 = clean_optional(fields.get("Second source name (optional)", ""))
+    extra_lines = ""
+    if source2:
+        extra_lines += f"**Source 2:** {source2.strip()}\n"
+    if url2:
+        extra_lines += f"**URL 2:** {url2.strip()}\n"
     return f"""---
 
 ## {title}
@@ -97,7 +126,7 @@ def draft_entry(fields, title):
 **Date:** {fields['Publication date'].strip()}
 **Source:** {fields['Source'].strip()}
 **URL:** {fields['Article URL'].strip()}
-{archive_line}
+{extra_lines}{archive_line}
 **AI role:** {fields['AI role'].strip()}
 **Category:** {fields['Category'].strip()}
 
@@ -112,6 +141,9 @@ def pr_body(fields, title, number):
         ("AI role", fields["AI role"]),
         ("Category", fields["Category"]),
     ]
+    url2 = clean_optional(fields.get("Second source URL (optional)", ""))
+    if url2:
+        rows.append(("Second URL", url2))
     table = "\n".join(f"| {label} | {value} |" for label, value in rows)
     return f"""Automated draft from story submission #{number}.
 

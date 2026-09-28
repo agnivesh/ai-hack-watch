@@ -13,6 +13,24 @@ body:
       required: true
 
   - type: input
+    id: url2
+    attributes:
+      label: Second source URL (optional)
+      description: A second credible report of the same incident, if one exists. The timeline links all sources; the first is the primary citation.
+      placeholder: https://example.com/second-report
+    validations:
+      required: false
+
+  - type: input
+    id: source2
+    attributes:
+      label: Second source name (optional)
+      description: Who published the second report above — e.g. "Dark Reading". Only needed when a second URL is provided.
+      placeholder: Example Second Source
+    validations:
+      required: false
+
+  - type: input
     id: date
     attributes:
       label: Publication date

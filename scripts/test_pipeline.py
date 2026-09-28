@@ -240,6 +240,112 @@ A test description of the incident.
     assert "**Archive:**" in entry
 
 
+@check("story_bot treats _No response_ placeholders as empty (issue #35)")
+def bot_no_response_placeholder():
+    body = """### Article URL
+
+https://example.com/report
+
+### Publication date
+
+2026-08-01
+
+### Source
+
+Example Research
+
+### AI role
+
+Autonomous
+
+### Category
+
+Malware
+
+### Short factual description
+
+A test description of the incident.
+
+### Checks
+
+- [x] Not already in timeline
+
+### Existing Wayback snapshot (optional)
+
+_No response_
+
+### Second source URL (optional)
+
+_No response_
+
+### Second source name (optional)
+
+_No response_
+"""
+    fields = story_bot.parse_body(body)
+    assert story_bot.validate(fields) == [], story_bot.validate(fields)
+    entry = story_bot.draft_entry(fields, "Test incident")
+    assert "**URL 2:**" not in entry
+    assert "**Source 2:**" not in entry
+
+
+@check("story_bot drafts second source URLs")
+def bot_second_url():
+    body = """### Article URL
+
+https://example.com/report
+
+### Second source URL (optional)
+
+https://example.org/mirror
+
+### Second source name (optional)
+
+Mirror Research
+
+### Publication date
+
+2026-08-01
+
+### Source
+
+Example Research
+
+### AI role
+
+Autonomous
+
+### Category
+
+Malware
+
+### Short factual description
+
+A test description of the incident.
+
+### Checks
+
+- [x] Not already in timeline
+
+### Existing Wayback snapshot (optional)
+
+_No response_
+"""
+    fields = story_bot.parse_body(body)
+    assert story_bot.validate(fields) == [], story_bot.validate(fields)
+    entry = story_bot.draft_entry(fields, "Test incident")
+    assert "**URL 2:** https://example.org/mirror" in entry
+    assert "**Source 2:** Mirror Research" in entry
+    entries = datamd.parse_blocks(entry)
+    errors, _ = datamd.validate_entries(entries)
+    assert not errors, errors
+    built = generate.build_incidents(entries)
+    assert built["incidents"][0]["urls"] == [
+        "https://example.com/report",
+        "https://example.org/mirror",
+    ]
+
+
 @check("story_bot rejects bad dates, roles, and categories")
 def bot_invalid():
     body = """### Article URL
