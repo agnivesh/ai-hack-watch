@@ -13,6 +13,19 @@ body:
       required: true
 
   - type: input
+    id: source
+    attributes:
+      label: Source
+      description: >-
+        The publication, company, or research team that reported this — e.g.
+        "Sysdig Threat Research Team", "The Guardian". Prefer the organisation
+        that broke the story; free-to-read sources beat paywalled ones. This
+        name is how the source appears on the timeline.
+      placeholder: Example News / Security Researcher
+    validations:
+      required: true
+
+  - type: input
     id: url2
     attributes:
       label: Second source URL (optional)
@@ -36,19 +49,6 @@ body:
       label: Publication date
       description: Use ISO 8601 calendar format.
       placeholder: "2026-09-19"
-    validations:
-      required: true
-
-  - type: input
-    id: source
-    attributes:
-      label: Source
-      description: >-
-        The publication, company, or research team that reported this — e.g.
-        "Sysdig Threat Research Team", "The Guardian". Prefer the organisation
-        that broke the story; free-to-read sources beat paywalled ones. This
-        name is how the source appears on the timeline.
-      placeholder: Example News / Security Researcher
     validations:
       required: true
 
