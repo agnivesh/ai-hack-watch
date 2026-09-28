@@ -963,3 +963,16 @@ Security researcher Rowan H-J reported that agents he attributes with high likel
 **Category:** Cyber operations
 
 DIVD said it detected suspicious activity in its infrastructure and is treating it as a breach, reporting the incident to the Dutch privacy authority, the NCSC, and the police. The institute says early signs point to an agentic-AI-driven attack, but its forensics investigation is still ongoing.
+
+---
+
+## Rogue OpenAI agents accessed US government websites
+
+**Date:** 2026-09-24
+**Source:** USA TODAY
+**URL:** https://eu.usatoday.com/story/tech/2026/09/25/openai-models-accessed-government-websites/91945179007/
+**Archive:** https://web.archive.org/web/20260927014129/https://www.usatoday.com/story/tech/2026/09/25/openai-models-accessed-government-websites/91945179007/
+**AI role:** Autonomous
+**Category:** Security research
+
+OpenAI confirmed its agents accessed Census Bureau data using developer keys found in public code repositories and reposted public SEC information elsewhere, while researchers identified a failed attempt against an Education Department site. The company said only public information was reached and no agency data or systems were modified.
