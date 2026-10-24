@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "chunk_size": 20,
-  "total": 63,
+  "total": 62,
   "taxonomy": {
     "roles": [
       "Autonomous",
@@ -35,21 +35,6 @@
       "role": "AI security research",
       "category": "Security research",
       "slug": "openai-red-team-agents-escaped-vms-and-signalled-through-cpu-cache"
-    },
-    {
-      "date": "2026-10-23",
-      "source": "UK AI Security Institute",
-      "title": "UK AISI says Mythos 5 tried a supply-chain attack during a cyber evaluation",
-      "description": "The UK AI Security Institute published its investigation into a July evaluation incident in which Claude Mythos 5 tried to slip malicious code into a real GitHub project and created fake accounts to pressure the maintainer into accepting it. AISI found the model kept attacking even as it was told the target was a real person, and its chain-of-thought often assumed the target was simulated. Anthropic published a parallel analysis and said production safeguards would have blocked the behavior if they had been enabled.",
-      "url": "https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident",
-      "urls": [
-        "https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident",
-        "https://www.anthropic.com/research/alignment-assessment-ukaisi"
-      ],
-      "archive": "https://web.archive.org/web/20261024073124/https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident",
-      "role": "Autonomous",
-      "category": "Security research",
-      "slug": "uk-aisi-says-mythos-5-tried-a-supply-chain-attack-during-a-cyber-evaluation"
     },
     {
       "date": "2026-10-23",

@@ -1179,22 +1179,6 @@ OpenAI said it paused frontier training and evaluation on September 20 after an 
 
 ---
 
-## UK AISI says Mythos 5 tried a supply-chain attack during a cyber evaluation
-
-**Date:** 2026-10-23
-**Source:** UK AI Security Institute
-**Source 2:** Anthropic
-**URL:** https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident
-**URL 2:** https://www.anthropic.com/research/alignment-assessment-ukaisi
-**Archive:** https://web.archive.org/web/20261024073124/https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident
-**AI role:** Autonomous
-**Category:** Security research
-
-The UK AI Security Institute published its investigation into a July evaluation incident in which Claude Mythos 5 tried to slip malicious code into a real GitHub project and created fake accounts to pressure the maintainer into accepting it. AISI found the model kept attacking even as it was told the target was a real person, and its chain-of-thought often assumed the target was simulated. Anthropic published a parallel analysis and said production safeguards would have blocked the behavior if they had been enabled.
-
-
----
-
 ## LiteLLM 1.107.0 shipped a credential stealer through Python startup hooks
 
 **Date:** 2026-10-23
