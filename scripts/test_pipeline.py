@@ -267,12 +267,129 @@ def archive_backfill_per_source():
     assert not errors, errors
 
 
+@check("archive_missing_links preserves formatting when nothing is missing")
+def archive_roundtrip_is_stable():
+    text = SAMPLE.replace("**Archive:**", "**Archive:** https://web.archive.org/web/1/x")
+    original = generate.request_archive_snapshot
+    generate.request_archive_snapshot = lambda url: (_ for _ in ()).throw(AssertionError(url))
+    try:
+        updated, changed = generate.archive_missing_links(text)
+    finally:
+        generate.request_archive_snapshot = original
+    assert changed == 0, changed
+    assert updated == text, updated
+
+
 @check("prerender links the archive of every source")
 def prerender_source_archives():
     record = generate.build_incidents(datamd.parse_blocks(two_source_sample()))["incidents"][0]
     html_out = prerender.render_article(record)
     assert "Mirror Research ↗" in html_out, html_out
     assert "Archived Mirror Research ↗" in html_out, html_out
+
+
+class FakeCurl:
+    def __init__(self, stdout, returncode=0):
+        self.stdout = stdout
+        self.returncode = returncode
+
+
+@check("existing_snapshot asks the availability API first")
+def availability_first():
+    calls = []
+    payload = (
+        '{"archived_snapshots": {"closest": {"available": true,'
+        ' "url": "http://web.archive.org/web/20260101/https://example.com/x"}}}'
+    )
+    original = generate._curl
+    generate._curl = lambda args, timeout: calls.append(args[0]) or FakeCurl(payload)
+    try:
+        snapshot = generate.existing_snapshot("https://example.com/x")
+    finally:
+        generate._curl = original
+    assert snapshot == "https://web.archive.org/web/20260101/https://example.com/x", snapshot
+    assert calls and calls[0].startswith("https://archive.org/wayback/available"), calls
+
+
+@check("request_archive_snapshot skips saving when a snapshot exists")
+def no_save_when_existing():
+    calls = []
+    original_existing, original_save = generate.existing_snapshot, generate.save_snapshot
+    generate.existing_snapshot = lambda url: calls.append("existing") or "https://web.archive.org/x"
+    generate.save_snapshot = lambda url: calls.append("save") or ("", False)
+    try:
+        snapshot = generate.request_archive_snapshot("https://example.com/x")
+    finally:
+        generate.existing_snapshot, generate.save_snapshot = original_existing, original_save
+    assert snapshot == "https://web.archive.org/x"
+    assert calls == ["existing"], calls
+
+
+@check("save_snapshot reports a 429 as a transient failure")
+def save_429_is_transient():
+    original = generate._curl
+    generate._curl = lambda args, timeout: FakeCurl("Wayback Machine\n429")
+    try:
+        snapshot, transient = generate.save_snapshot("https://example.com/x")
+    finally:
+        generate._curl = original
+    assert snapshot == "", snapshot
+    assert transient is True, transient
+
+
+@check("the Wayback circuit breaker stops after two transient failures")
+def archive_breaker_trips():
+    calls = []
+    original_existing, original_save = generate.existing_snapshot, generate.save_snapshot
+    generate.existing_snapshot = lambda url: ""
+    generate.save_snapshot = lambda url: calls.append(url) or ("", True)
+    generate.reset_archive_state()
+    try:
+        results = [generate.request_archive_snapshot(f"https://example.com/{i}") for i in range(4)]
+    finally:
+        generate.existing_snapshot, generate.save_snapshot = original_existing, original_save
+        generate.reset_archive_state()
+    assert results == ["", "", "", ""], results
+    assert calls == ["https://example.com/0", "https://example.com/1"], calls
+
+
+@check("reset_archive_state re-enables archiving for the next run")
+def archive_breaker_reset():
+    calls = []
+    original_existing, original_save = generate.existing_snapshot, generate.save_snapshot
+    generate.existing_snapshot = lambda url: ""
+    generate.save_snapshot = lambda url: calls.append(url) or ("", True)
+    generate.reset_archive_state()
+    try:
+        for i in range(3):
+            generate.request_archive_snapshot(f"https://example.com/{i}")
+        generate.reset_archive_state()
+        generate.request_archive_snapshot("https://example.com/after-reset")
+    finally:
+        generate.existing_snapshot, generate.save_snapshot = original_existing, original_save
+        generate.reset_archive_state()
+    assert calls == [
+        "https://example.com/0",
+        "https://example.com/1",
+        "https://example.com/after-reset",
+    ], calls
+
+
+@check("a successful snapshot resets the transient-failure count")
+def archive_breaker_success_resets():
+    calls = []
+    original_existing, original_save = generate.existing_snapshot, generate.save_snapshot
+    generate.existing_snapshot = lambda url: ""
+    results = [("", True), ("https://web.archive.org/web/1/x", False), ("", True), ("", True)]
+    generate.save_snapshot = lambda url: calls.append(url) or results.pop(0)
+    generate.reset_archive_state()
+    try:
+        snapshots = [generate.request_archive_snapshot(f"https://example.com/{i}") for i in range(4)]
+    finally:
+        generate.existing_snapshot, generate.save_snapshot = original_existing, original_save
+        generate.reset_archive_state()
+    assert snapshots == ["", "https://web.archive.org/web/1/x", "", ""], snapshots
+    assert len(calls) == 4, calls
 
 
 @check("parse_blocks reads the optional Updated date")

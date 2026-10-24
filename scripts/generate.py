@@ -18,6 +18,7 @@ import json
 import re
 import subprocess
 import sys
+import time
 from datetime import date, datetime, timezone
 from email.utils import format_datetime
 from pathlib import Path
@@ -66,47 +67,121 @@ def _curl(args, timeout):
         return None
 
 
-def request_archive_snapshot(url):
-    """Best-effort Wayback Machine snapshot for url; "" when none is found.
+def _http_status(result):
+    """HTTP status from a curl run that appended -w '\\n%{http_code}'."""
+    if not result:
+        return 0
+    tail = result.stdout.rstrip().rsplit("\n", 1)[-1].strip()
+    return int(tail) if tail.isdigit() else 0
 
-    The save endpoint announces the new snapshot via the Content-Location
-    response header (not the body), so headers are captured with curl -D.
+
+def existing_snapshot(url):
+    """Return an existing Wayback snapshot for url, or "".
+
+    Checks the availability API first because it is much cheaper than
+    requesting a fresh save, then falls back to CDX if the API does not
+    answer. Returning early avoids most of the rate limiting that used to
+    make archiving fail for every URL in a run.
     """
-    snapshot = ""
-    for _ in range(2):  # transient failures on save are common; retry once
-        result = _curl(
-            ["-D", "-", f"https://web.archive.org/save/{url}"], ARCHIVE_SAVE_TIMEOUT
-        )
-        if not result:
-            continue
-        header = CONTENT_LOCATION_RE.search(result.stdout)
-        if header:
-            location = header.group(1).strip().splitlines()[0].strip()
-            if location.startswith("http"):
-                snapshot = location
-            else:
-                snapshot = "https://web.archive.org" + location
-            break
-        match = WAYBACK_URL_RE.search(result.stdout)
-        if match:
-            snapshot = match.group(0).rstrip('"')
-            break
-    if not snapshot:
-        query = (
-            "https://web.archive.org/cdx/search/cdx?url="
-            + quote(url, safe="")
-            + "&output=json&filter=statuscode:200&fl=timestamp,original"
-            "&limit=1&sort=reverse"
-        )
-        result = _curl([query], ARCHIVE_CDX_TIMEOUT)
-        if result and result.returncode == 0:
-            try:
-                rows = json.loads(result.stdout)
-                if len(rows) > 1:
-                    snapshot = f"https://web.archive.org/web/{rows[1][0]}/{rows[1][1]}"
-            except ValueError:
-                pass
-    return snapshot
+    query = "https://archive.org/wayback/available?url=" + quote(url, safe="")
+    result = _curl([query], ARCHIVE_CDX_TIMEOUT)
+    if result and result.returncode == 0:
+        try:
+            payload = json.loads(result.stdout)
+        except ValueError:
+            payload = None
+        if payload is not None:
+            closest = (payload.get("archived_snapshots") or {}).get("closest") or {}
+            snapshot = closest.get("url") or ""
+            if closest.get("available") and snapshot:
+                return snapshot.replace("http://web.archive.org", "https://web.archive.org", 1)
+            return ""  # the API answered: no snapshot exists yet
+
+    query = (
+        "https://web.archive.org/cdx/search/cdx?url="
+        + quote(url, safe="")
+        + "&output=json&filter=statuscode:200&fl=timestamp,original"
+        "&limit=1&sort=reverse"
+    )
+    result = _curl([query], ARCHIVE_CDX_TIMEOUT)
+    if result and result.returncode == 0:
+        try:
+            rows = json.loads(result.stdout)
+            if len(rows) > 1:
+                return f"https://web.archive.org/web/{rows[1][0]}/{rows[1][1]}"
+        except ValueError:
+            pass
+    return ""
+
+
+def save_snapshot(url):
+    """Ask Wayback to archive url now.
+
+    Returns (snapshot, transient). A transient failure means the service
+    is rate limiting or offline, which the caller uses to stop asking for
+    the rest of the run instead of flooding a struggling service.
+    """
+    result = _curl(
+        ["-D", "-", "-w", "\n%{http_code}", f"https://web.archive.org/save/{url}"],
+        ARCHIVE_SAVE_TIMEOUT,
+    )
+    status = _http_status(result)
+    output = result.stdout if result else ""
+    header = CONTENT_LOCATION_RE.search(output)
+    if header:
+        location = header.group(1).strip().splitlines()[0].strip()
+        if location.startswith("http"):
+            return location, False
+        return "https://web.archive.org" + location, False
+    match = WAYBACK_URL_RE.search(output)
+    if match:
+        return match.group(0).rstrip('"'), False
+    if status in (429, 500, 502, 503, 504) or "Temporarily Offline" in output:
+        return "", True
+    print(f"::warning::Wayback refused to archive {url} (HTTP {status or 'no response'})")
+    return "", False
+
+
+# A single degraded service must not turn one run into a retry storm.
+ARCHIVE_MAX_TRANSIENT_FAILURES = 2
+_archive_transient_failures = 0
+_archive_disabled = False
+
+
+def reset_archive_state():
+    """Reset the per-run Wayback circuit breaker."""
+    global _archive_transient_failures, _archive_disabled
+    _archive_transient_failures = 0
+    _archive_disabled = False
+
+
+def request_archive_snapshot(url):
+    """Best-effort Wayback snapshot for url; "" when none is available.
+
+    Existing snapshots are used first. New saves stop after a couple of
+    consecutive transient failures so an outage costs two requests, not
+    one per URL.
+    """
+    global _archive_transient_failures, _archive_disabled
+    if _archive_disabled:
+        return ""
+    snapshot = existing_snapshot(url)
+    if snapshot:
+        _archive_transient_failures = 0
+        return snapshot
+    snapshot, transient = save_snapshot(url)
+    if snapshot:
+        _archive_transient_failures = 0
+        return snapshot
+    if transient:
+        _archive_transient_failures += 1
+        if _archive_transient_failures >= ARCHIVE_MAX_TRANSIENT_FAILURES and not _archive_disabled:
+            _archive_disabled = True
+            print(
+                "::warning::Wayback appears unavailable; skipping further archive "
+                "requests this run and retrying on the next run."
+            )
+    return ""
 
 
 def archive_field_line(number, value):
@@ -159,6 +234,7 @@ def archive_missing_links(text):
     """
     blocks = re.split(r"^---\s*$", text, flags=re.M)
     changed = 0
+    reset_archive_state()
     for index, block in enumerate(blocks):
         if not block.strip().startswith("## "):
             continue
@@ -183,10 +259,14 @@ def archive_missing_links(text):
                 print(f"Archive added: {snapshot}")
             else:
                 print(f"::warning::No Wayback snapshot returned for {url}")
+            if not _archive_disabled:
+                time.sleep(0.5)  # stay well inside archive.org's rate limits
         if updates:
             blocks[index] = set_archive_fields(block, updates)
             changed += len(updates)
-    return "\n---\n".join(blocks), changed
+    # The split consumes the newline after each separator, so rejoin with it
+    # to keep the file byte-identical apart from the new Archive fields.
+    return "---\n".join(blocks), changed
 
 
 SCHEMA_VERSION = 3
@@ -225,6 +305,7 @@ def apply_archives_in_memory(entries):
     Used for daily badge refreshes and local builds so data.md is only
     rewritten when --write-archives is passed explicitly.
     """
+    reset_archive_state()
     for entry in entries:
         urls = entry.get("urls") or ([entry["url"]] if entry.get("url") else [])
         archives = list(entry.get("archives") or [])

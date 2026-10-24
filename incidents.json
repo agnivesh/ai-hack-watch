@@ -61,7 +61,7 @@
       "archive": "https://web.archive.org/web/20261024040046/https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/",
       "archives": [
         "https://web.archive.org/web/20261024040046/https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/",
-        ""
+        "https://web.archive.org/web/20261024114305/https://docs.litellm.ai/blog/security-incident-oct-21-2026"
       ],
       "role": "AI-targeted",
       "category": "Credential theft",

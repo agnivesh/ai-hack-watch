@@ -7,28 +7,49 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+# Never let two generation runs race each other. Queue them instead.
+concurrency:
+  group: generate-site-data
+  cancel-in-progress: false
 jobs:
   generate:
-    if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+    # The bot's own commit touches data.md; do not regenerate on it.
+    if: |
+      (github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main') &&
+      github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: Archive sources and generate feeds
+      - name: Generate site data onto the latest main
         run: |
-          if [ "${{ github.event_name }}" = "schedule" ]; then
-            # Daily badge refresh: resolve archives in-memory only so
-            # data.md is not rewritten (avoids merge races).
-            python3 scripts/generate.py --no-archive
-          else
-            # Push / manual: backfill Wayback links into data.md.
-            python3 scripts/generate.py --write-archives
-          fi
-      - name: Pre-render the recent timeline
-        run: python3 scripts/prerender_timeline.py
-      - name: Commit generated files
-        run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data.md incidents.json feed.xml days-since-badge.svg index.html
-          git diff --cached --quiet || git commit -m "Update generated data and archive links"
-          git push
+
+          # Generated files are derived from data.md, so never merge them:
+          # rebuild on top of the newest main and retry if another commit
+          # lands in the same window. This is what makes the push race-free.
+          for attempt in 1 2 3 4 5; do
+            git fetch --quiet origin main
+            git reset --hard --quiet origin/main
+
+            # Backfill any missing Wayback snapshots, then regenerate. Safe
+            # to run on the schedule too: races are handled by the retry.
+            python3 scripts/generate.py --write-archives
+            python3 scripts/prerender_timeline.py
+
+            git add data.md incidents.json feed.xml days-since-badge.svg index.html
+            if git diff --cached --quiet; then
+              echo "No generated changes; nothing to push."
+              exit 0
+            fi
+            git commit --quiet -m "Update generated data and archive links"
+            if git push --quiet origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push rejected on attempt ${attempt}; rebuilding from latest main."
+            sleep $((attempt * 5))
+          done
+
+          echo "::error::Could not publish generated data after 5 attempts."
+          exit 1

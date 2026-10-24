@@ -204,6 +204,8 @@ Each incident has a slug-based `#anchor` so individual stories can be shared dir
 
 ## Automatic link archiving
 
-When an incident has no `Archive` value, the GitHub Action attempts to submit its source URLs to the Wayback Machine. Additional sources use numbered archives (`Archive 2`, `Archive 3`, ...), each filled independently, so a missing snapshot for one source no longer masks the others. Existing archive URLs are preserved. The timeline shows an **Archived copy ↗** link for the primary source and an **Archived <source> ↗** link for each secondary source with a snapshot.
+When an incident has no `Archive` value, the GitHub Action looks for an existing Wayback snapshot before asking for a new one. Additional sources use numbered archives (`Archive 2`, `Archive 3`, ...), each filled independently, so a missing snapshot for one source no longer masks the others. Existing archive URLs are preserved. The timeline shows an **Archived copy ↗** link for the primary source and an **Archived <source> ↗** link for each secondary source with a snapshot.
+
+The check is availability-first because a save costs the service much more than a lookup. If the archive service reports two consecutive transient failures (rate limiting or an outage), the run stops asking and leaves the fields blank for the next run. That keeps a degraded Wayback Machine from receiving one request per unarchived URL every day.
 
 Archiving is best-effort and never blocks a valid contribution.
