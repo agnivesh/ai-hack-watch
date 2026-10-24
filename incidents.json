@@ -561,8 +561,8 @@
       "archive": "https://web.archive.org/web/20261024104258/https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing",
       "archives": [
         "https://web.archive.org/web/20261024104258/https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing",
-        "",
-        ""
+        "https://web.archive.org/web/20261024073124/https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident",
+        "https://web.archive.org/web/20261023220322/https://www.anthropic.com/research/alignment-assessment-ukaisi"
       ],
       "role": "Autonomous",
       "category": "Security research",
