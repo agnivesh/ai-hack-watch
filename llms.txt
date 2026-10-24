@@ -1,0 +1,26 @@
+# AI Hack Watch
+
+> A public, community-maintained timeline of incidents where AI materially participated in hacking, cyber operations, exploitation, or security research.
+
+The dataset covers 63 incidents from 2023-01-06 to 2026-10-23. Each record carries the date of first public disclosure, the latest revision date when one exists, one or more sources with original and archived URLs, an AI role, a category, and a short factual summary. Follow-up reporting is folded into the existing record, so `updated` holds the revision date while `date` stays the first disclosure.
+
+`data.md` is the canonical hand-edited source. `incidents.json`, `feed.xml`, and this file are generated from it, so do not edit them by hand. `METHODOLOGY.md` explains what qualifies and how the roles and categories are defined.
+
+## Data
+
+- [Incident dataset (JSON)](https://aihackwatch.com/incidents.json): 63 records, schema version 3. Fields include `date`, `updated`, `source`, `sources`, `title`, `description`, `url`, `urls`, `archive`, `archives`, `role`, `category`, and `slug`.
+- [Timeline source (Markdown)](https://aihackwatch.com/data.md): The canonical entries in editable Markdown.
+- [RSS feed](https://aihackwatch.com/feed.xml): The same records as RSS 2.0, newest first.
+- [Homepage](https://aihackwatch.com/): Human-facing timeline with filters and summary statistics.
+
+## Documentation
+
+- [Methodology](https://aihackwatch.com/METHODOLOGY.md): Inclusion criteria, AI-role and category definitions, date rules, corrections, and edge cases.
+- [Contributing](https://aihackwatch.com/CONTRIBUTING.md): Entry format, sourcing requirements, review process, and update rules.
+- [README](https://aihackwatch.com/README.md): Project overview, JSON schema notes, and local build instructions.
+
+## Optional
+
+- [Source repository](https://github.com/agnivesh/ai-hack-watch): Pipeline, tests, issue forms, and contribution history.
+- [Sitemap](https://aihackwatch.com/sitemap.xml): Indexable HTML pages.
+- [Days-since badge](https://aihackwatch.com/days-since-badge.svg): Embeddable SVG counter.

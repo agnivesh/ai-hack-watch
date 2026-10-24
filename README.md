@@ -21,7 +21,7 @@ A static single-page site tracking notable AI hacking and AI-enabled cyber incid
 - Pull request template and contribution guide.
 - Automated PR validation.
 - Automated pipeline tests (`scripts/test_pipeline.py`).
-- GitHub Action that turns `data.md` into `incidents.json`, `feed.xml`, and a pre-rendered recent timeline.
+- GitHub Action that turns `data.md` into `incidents.json`, `feed.xml`, `llms.txt`, and a pre-rendered recent timeline.
 
 ## Data workflow
 
@@ -119,7 +119,7 @@ Run the pipeline and its tests locally (skipping Wayback archiving, which would 
 ```bash
 python3 scripts/test_pipeline.py          # regression tests
 python3 scripts/validate_contribution.py  # same checks as PR CI
-python3 scripts/generate.py --no-archive  # regenerate incidents.json, badge, feed.xml
+python3 scripts/generate.py --no-archive  # regenerate incidents.json, badge, feed.xml, llms.txt
 python3 scripts/prerender_timeline.py     # regenerate the in-page timeline + OG tags
 python3 scripts/check_links.py            # HEAD-check source URLs
 ```
@@ -143,7 +143,7 @@ To deploy your own copy of the project:
 
 ## Actions permissions
 
-The generation workflow commits `incidents.json`, `feed.xml`, and the pre-rendered timeline in `index.html` back to the repository.
+The generation workflow commits `incidents.json`, `feed.xml`, `llms.txt`, and the pre-rendered timeline in `index.html` back to the repository.
 
 In **Settings → Actions → General**, make sure workflow permissions allow repository contents to be written. The workflow also declares:
 
@@ -186,6 +186,7 @@ The badge is regenerated daily (and on every data change). Opened directly in a 
 
 - `incidents.json` — public JSON dataset. Contains `schema_version`, `chunk_size`, `total`, and `incidents` array. See [Schema versioning](#schema-versioning).
 - `feed.xml` — RSS feed.
+- `llms.txt` — site overview for LLMs and agents, following [llmstxt.org](https://llmstxt.org/).
 
 ### Schema versioning
 

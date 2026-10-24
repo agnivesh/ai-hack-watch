@@ -204,7 +204,7 @@ The workflow in `.github/workflows/update-site.yml`:
 2. Validates and parses the Markdown (`scripts/generate.py`, shared parser `scripts/datamd.py`).
 3. Archives source URLs with the Wayback Machine (best-effort).
 4. Sorts articles by date.
-5. Generates `incidents.json`, `feed.xml`, and `days-since-badge.svg`.
+5. Generates `incidents.json`, `feed.xml`, `llms.txt`, and `days-since-badge.svg`.
 6. Pre-renders the recent timeline and Open Graph tags into `index.html` (`scripts/prerender_timeline.py`).
 7. Commits the generated files back to the repository.
 

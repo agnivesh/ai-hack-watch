@@ -1,6 +1,6 @@
 """Generate the static site data from data.md.
 
-Produces incidents.json, days-since-badge.svg and feed.xml, and
+Produces incidents.json, days-since-badge.svg, feed.xml and llms.txt, and
 optionally back-fills Wayback Machine archive links into data.md.
 
 Fails loudly (exit code 1) when data.md is invalid, so the site can
@@ -27,18 +27,20 @@ from urllib.parse import quote
 import datamd
 
 ROOT = Path(__file__).resolve().parents[1]
+CONFIG_PATH = ROOT / "config.js"
 DATA_PATH = ROOT / "data.md"
 INCIDENTS_PATH = ROOT / "incidents.json"
 BADGE_PATH = ROOT / "days-since-badge.svg"
 FEED_PATH = ROOT / "feed.xml"
+LLMS_PATH = ROOT / "llms.txt"
 
 USER_AGENT = "ai-hack-watch/1.0"
 ARCHIVE_SAVE_TIMEOUT = 30
 ARCHIVE_CDX_TIMEOUT = 20
-URL_FIELD_RE = re.compile(r"^\*\*URL(?: (\d+))?:\*\*[ \t]*(\S+)", re.M)
-ARCHIVE_ANY_RE = re.compile(r"^\*\*Archive(?: (\d+))?:\*\*[ \t]*(.*)$", re.M)
+URL_FIELD_RE = re.compile(r"^\*\*URL(?: (\d+))?:\*\*[ \t]*(\S+)", re.MULTILINE)
+ARCHIVE_ANY_RE = re.compile(r"^\*\*Archive(?: (\d+))?:\*\*[ \t]*(.*)$", re.MULTILINE)
 WAYBACK_URL_RE = re.compile(r"https?://web\.archive\.org/web/\d+/\S+")
-CONTENT_LOCATION_RE = re.compile(r"^content-location:\s*(.+)$", re.I | re.M)
+CONTENT_LOCATION_RE = re.compile(r"^content-location:\s*(.+)$", re.IGNORECASE | re.MULTILINE)
 
 _BADGE_SCRIPT = """<script><![CDATA[
 var latest=document.documentElement.getAttribute("data-latest");
@@ -62,6 +64,7 @@ def _curl(args, timeout):
             capture_output=True,
             text=True,
             timeout=timeout + 5,
+            check=False,
         )
     except (OSError, subprocess.SubprocessError):
         return None
@@ -236,7 +239,7 @@ def archive_missing_links(text):
     the unnumbered `**Archive:**`. Returns the (possibly rewritten) text
     plus a count of archive links written back into data.md.
     """
-    blocks = re.split(r"^---\s*$", text, flags=re.M)
+    blocks = re.split(r"^---\s*$", text, flags=re.MULTILINE)
     changed = 0
     reset_archive_state()
     for index, block in enumerate(blocks):
@@ -255,7 +258,7 @@ def archive_missing_links(text):
                 continue
             try:
                 snapshot = request_archive_snapshot(url)
-            except Exception as error:  # never let archiving break the build
+            except Exception as error:  # noqa: BLE001 - never let archiving break the build
                 print(f"::warning::Wayback archiving failed for {url}: {error}")
                 continue
             if snapshot:
@@ -319,7 +322,7 @@ def apply_archives_in_memory(entries):
                 continue
             try:
                 snapshot = request_archive_snapshot(url)
-            except Exception as error:  # never let archiving break the build
+            except Exception as error:  # noqa: BLE001 - never let archiving break the build
                 print(f"::warning::Wayback archiving failed for {url}: {error}")
                 continue
             if snapshot:
@@ -427,6 +430,78 @@ def render_feed(incidents):
     )
 
 
+def load_site_config():
+    """Return (site_url, repository_url) from config.js without trailing slashes."""
+    try:
+        config = CONFIG_PATH.read_text(encoding="utf-8")
+    except OSError:
+        return "", ""
+    site = re.search(r'siteUrl\s*:\s*"([^"]+)"', config)
+    repository = re.search(r'repositoryUrl\s*:\s*"([^"]+)"', config)
+    return (
+        site.group(1).rstrip("/") if site else "",
+        repository.group(1).rstrip("/") if repository else "",
+    )
+
+
+def render_llms_txt(incidents):
+    """Render /llms.txt, the LLM-oriented site overview described at llmstxt.org."""
+    site_url, repository_url = load_site_config()
+    records = incidents["incidents"]
+    total = incidents["total"]
+    first = records[-1]["date"] if records else ""
+    last = records[0]["date"] if records else ""
+    noun = "incident" if total == 1 else "incidents"
+    span = f"on {first}" if first == last else f"from {first} to {last}"
+    fields = (
+        "`date`, `updated`, `source`, `sources`, `title`, `description`, "
+        "`url`, `urls`, `archive`, `archives`, `role`, `category`, and `slug`"
+    )
+
+    def url(path):
+        return f"{site_url}/{path}" if site_url else path
+
+    optional = []
+    if repository_url:
+        optional.append(
+            f"- [Source repository]({repository_url}): Pipeline, tests, issue forms, "
+            "and contribution history."
+        )
+    optional.extend(
+        [
+            f"- [Sitemap]({url('sitemap.xml')}): Indexable HTML pages.",
+            f"- [Days-since badge]({url('days-since-badge.svg')}): Embeddable SVG counter.",
+        ]
+    )
+    optional_block = "\n".join(optional)
+
+    return f"""# AI Hack Watch
+
+> A public, community-maintained timeline of incidents where AI materially participated in hacking, cyber operations, exploitation, or security research.
+
+The dataset covers {total} {noun} {span}. Each record carries the date of first public disclosure, the latest revision date when one exists, one or more sources with original and archived URLs, an AI role, a category, and a short factual summary. Follow-up reporting is folded into the existing record, so `updated` holds the revision date while `date` stays the first disclosure.
+
+`data.md` is the canonical hand-edited source. `incidents.json`, `feed.xml`, and this file are generated from it, so do not edit them by hand. `METHODOLOGY.md` explains what qualifies and how the roles and categories are defined.
+
+## Data
+
+- [Incident dataset (JSON)]({url('incidents.json')}): {total} records, schema version {SCHEMA_VERSION}. Fields include {fields}.
+- [Timeline source (Markdown)]({url('data.md')}): The canonical entries in editable Markdown.
+- [RSS feed]({url('feed.xml')}): The same records as RSS 2.0, newest first.
+- [Homepage]({url('')}): Human-facing timeline with filters and summary statistics.
+
+## Documentation
+
+- [Methodology]({url('METHODOLOGY.md')}): Inclusion criteria, AI-role and category definitions, date rules, corrections, and edge cases.
+- [Contributing]({url('CONTRIBUTING.md')}): Entry format, sourcing requirements, review process, and update rules.
+- [README]({url('README.md')}): Project overview, JSON schema notes, and local build instructions.
+
+## Optional
+
+{optional_block}
+"""
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
@@ -482,6 +557,7 @@ def main(argv=None):
     days = max(0, (datetime.now(timezone.utc).date() - date.fromisoformat(latest["date"])).days)
     BADGE_PATH.write_text(render_badge(days, latest["date"]), encoding="utf-8")
     FEED_PATH.write_text(render_feed(incidents["incidents"]), encoding="utf-8")
+    LLMS_PATH.write_text(render_llms_txt(incidents), encoding="utf-8")
 
     print(f"Generated {incidents['total']} incident(s); {len(warnings)} warning(s).")
     return 0

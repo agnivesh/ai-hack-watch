@@ -40,7 +40,7 @@ def run_tests():
         except AssertionError as error:
             FAILURES.append(label)
             print(f"FAIL  {label}: {error}")
-        except Exception as error:
+        except Exception as error:  # noqa: BLE001 - report any test crash and keep running
             FAILURES.append(label)
             print(f"ERROR {label}: {type(error).__name__}: {error}")
 
@@ -651,8 +651,8 @@ A test description.
 
 @check("story_bot --write appends a valid entry to data.md")
 def bot_write(tmp=None):
-    import tempfile
     import subprocess
+    import tempfile
     with tempfile.TemporaryDirectory() as tmpdir:
         data_path = Path(tmpdir) / "data.md"
         data_path.write_text(
@@ -705,6 +705,7 @@ A test description.
             capture_output=True,
             text=True,
             cwd=ROOT,
+            check=False,
         )
         assert result.returncode == 0, result.stdout + result.stderr
         entries = datamd.parse_blocks(data_path.read_text(encoding="utf-8"))
@@ -750,6 +751,18 @@ def feed():
     assert "&#x27;" in feed  # apostrophe escaped
     assert feed.endswith("</rss>\n")
     ET.fromstring(feed)  # well-formed
+
+
+@check("render_llms_txt follows the llmstxt.org layout")
+def llms_txt():
+    incidents = generate.build_incidents(datamd.parse_blocks(SAMPLE))
+    text = generate.render_llms_txt(incidents)
+    lines = text.splitlines()
+    assert lines[0] == "# AI Hack Watch"
+    assert lines[2].startswith("> ")
+    assert "## Data" in lines and "## Optional" in lines
+    assert f"covers {incidents['total']} incident" in text
+    assert "(https://aihackwatch.com/incidents.json)" in text
 
 
 @check("render_badge is well-formed XML with data-latest")
