@@ -31,7 +31,7 @@
       "urls": [
         "https://openai.com/index/securing-our-frontier-model-training-environment/"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20261023195140/https://openai.com/index/securing-our-frontier-model-training-environment/",
       "role": "AI security research",
       "category": "Security research",
       "slug": "openai-red-team-agents-escaped-vms-and-signalled-through-cpu-cache"
@@ -46,7 +46,7 @@
         "https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident",
         "https://www.anthropic.com/research/alignment-assessment-ukaisi"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20261024073124/https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident",
       "role": "Autonomous",
       "category": "Security research",
       "slug": "uk-aisi-says-mythos-5-tried-a-supply-chain-attack-during-a-cyber-evaluation"
@@ -61,7 +61,7 @@
         "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/",
         "https://docs.litellm.ai/blog/security-incident-oct-21-2026"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20261024040046/https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/",
       "role": "AI-targeted",
       "category": "Credential theft",
       "slug": "litellm-11070-shipped-a-credential-stealer-through-python-startup-hooks"
@@ -75,7 +75,7 @@
       "urls": [
         "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20261024073225/https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
       "role": "Autonomous",
       "category": "Cyber operations",
       "slug": "microsoft-links-storm-0940-to-ai-driven-artex-attacks-and-connectwise-breach"
@@ -89,7 +89,7 @@
       "urls": [
         "https://www.zscaler.com/blogs/security-research/inside-global-ai-assisted-hacking-campaign"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20261024103010/https://www.zscaler.com/blogs/security-research/inside-global-ai-assisted-hacking-campaign",
       "role": "AI-assisted",
       "category": "Cyber operations",
       "slug": "zscaler-traces-a-global-ai-assisted-hacking-campaign-through-artex-prompts"
@@ -104,7 +104,7 @@
         "https://www.security.com/threat-intelligence/ai-llmjacking-skynet",
         "https://the-decoder.com/an-ai-agent-in-skynet-mode-hijacks-unprotected-language-models-to-launch-self-sustaining-cyberattacks/"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20261024103029/https://www.security.com/threat-intelligence/ai-llmjacking-skynet",
       "role": "Autonomous",
       "category": "Cyber operations",
       "slug": "symantec-captures-a-skynet-mode-agent-hijacking-exposed-llm-endpoints"
@@ -119,7 +119,7 @@
         "https://www.wiz.io/blog/php2shell-php-rce",
         "https://www.security.com/threat-intelligence/php2shell-critical-vulns-cve-2026-109618-109619"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20261023160032/https://www.wiz.io/blog/php2shell-php-rce",
       "role": "AI security research",
       "category": "Vulnerability research",
       "slug": "wiz-uses-frontier-models-to-find-and-exploit-critical-php-flaws"
@@ -134,7 +134,7 @@
         "https://norforge.com/blog/inside_cairn",
         "https://thehackernews.com/2026/10/hackers-use-autonomous-ai-agents-to.html"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20261024102926/https://norforge.com/blog/inside_cairn",
       "role": "Autonomous",
       "category": "Cyber operations",
       "slug": "norforge-finds-exposed-cairn-panels-running-ai-driven-attacks-on-1200-sites"
@@ -148,7 +148,7 @@
       "urls": [
         "https://www.wiz.io/blog/anatomy-of-ai-driven-cloud-attacks"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20261024102943/https://www.wiz.io/blog/anatomy-of-ai-driven-cloud-attacks",
       "role": "Autonomous",
       "category": "Cloud infrastructure",
       "slug": "wiz-documents-an-ai-agent-running-a-full-cloud-intrusion"
@@ -162,7 +162,7 @@
       "urls": [
         "https://www.security.com/threat-intelligence/aoki-infostealer-ai-targeting"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20261024102905/https://www.security.com/threat-intelligence/aoki-infostealer-ai-targeting",
       "role": "AI-targeted",
       "category": "Credential theft",
       "slug": "symantec-finds-aoki-infostealer-harvesting-ai-coding-assistant-credentials"
@@ -177,7 +177,7 @@
         "https://www.anthropic.com/research/investigating-unintended-model-actions",
         "https://apnews.com/article/artificial-intelligence-anthropic-claude-0acc6ac46d4d80db805e8d55468a6fe1"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20261024102847/https://www.anthropic.com/research/investigating-unintended-model-actions",
       "role": "Autonomous",
       "category": "Security research",
       "slug": "anthropic-reports-claude-submitted-a-false-police-tip-and-reached-real-systems"
@@ -191,7 +191,7 @@
       "urls": [
         "https://www.microsoft.com/en-us/security/blog/2026/10/07/3-lessons-from-frontier-ai-vulnerability-research/"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20261024102828/https://www.microsoft.com/en-us/security/blog/2026/10/07/3-lessons-from-frontier-ai-vulnerability-research/",
       "role": "AI security research",
       "category": "Vulnerability research",
       "slug": "microsofts-forge-lab-finds-140-windows-cves-with-agentic-scanning"
