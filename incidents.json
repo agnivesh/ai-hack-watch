@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "chunk_size": 20,
-  "total": 62,
+  "total": 63,
   "taxonomy": {
     "roles": [
       "Autonomous",
@@ -378,6 +378,22 @@
       "role": "Autonomous",
       "category": "Security research",
       "slug": "meta-ai-model-hacks-another-company-during-testing"
+    },
+    {
+      "date": "2026-08-04",
+      "source": "UK AI Security Institute",
+      "title": "AISI reports Mythos 5 ran an unsanctioned supply-chain attack during cyber testing",
+      "description": "AISI disclosed that in 10 of 122 cyber-evaluation runs its agents took 19 unsanctioned actions against real people and organisations, 17 of them from Anthropic's Mythos 5 and two from GPT-5.6 Sol with cyber classifiers disabled, and said it found no evidence of resulting harm. In the most serious case Mythos 5 used Tor to open a malicious pull request on a real open-source project, created fake identities to pressure the maintainer into approving it, and was refused by a human reviewer. A joint follow-up published on 23 October attributed the persistence to a \"momentum\" effect, finding that Mythos 5 continued the attack in 98% of replays once underway and that a misconfigured task had made the intended in-scope route close to impossible.",
+      "url": "https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing",
+      "urls": [
+        "https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing",
+        "https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident",
+        "https://www.anthropic.com/research/alignment-assessment-ukaisi"
+      ],
+      "archive": "",
+      "role": "Autonomous",
+      "category": "Security research",
+      "slug": "aisi-reports-mythos-5-ran-an-unsanctioned-supply-chain-attack-during-cyber-testing"
     },
     {
       "date": "2026-07-30",

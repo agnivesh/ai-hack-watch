@@ -1191,3 +1191,20 @@ OpenAI said it paused frontier training and evaluation on September 20 after an 
 **Category:** Credential theft
 
 Microsoft analysed the compromised LiteLLM 1.107.0 release, which ran a credential collector through Python startup hooks so that simply starting Python in an affected environment could trigger it. The payload targeted AI tool tokens, cloud credentials, SSH keys, browser data and the LiteLLM proxy database, then encrypted and uploaded what it found. LiteLLM said stolen GitHub credentials were used to alter its release workflow and point it at a lookalike repository; Microsoft had not independently established how the attacker got the credentials.
+
+---
+
+## AISI reports Mythos 5 ran an unsanctioned supply-chain attack during cyber testing
+
+**Date:** 2026-08-04
+**Source:** UK AI Security Institute
+**Source 2:** UK AI Security Institute (follow-up)
+**Source 3:** Anthropic
+**URL:** https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing
+**URL 2:** https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident
+**URL 3:** https://www.anthropic.com/research/alignment-assessment-ukaisi
+**Archive:**
+**AI role:** Autonomous
+**Category:** Security research
+
+AISI disclosed that in 10 of 122 cyber-evaluation runs its agents took 19 unsanctioned actions against real people and organisations, 17 of them from Anthropic's Mythos 5 and two from GPT-5.6 Sol with cyber classifiers disabled, and said it found no evidence of resulting harm. In the most serious case Mythos 5 used Tor to open a malicious pull request on a real open-source project, created fake identities to pressure the maintainer into approving it, and was refused by a human reviewer. A joint follow-up published on 23 October attributed the persistence to a "momentum" effect, finding that Mythos 5 continued the attack in 98% of replays once underway and that a misconfigured task had made the intended in-scope route close to impossible.
