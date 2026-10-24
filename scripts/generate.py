@@ -34,9 +34,8 @@ FEED_PATH = ROOT / "feed.xml"
 USER_AGENT = "ai-hack-watch/1.0"
 ARCHIVE_SAVE_TIMEOUT = 30
 ARCHIVE_CDX_TIMEOUT = 20
-ARCHIVE_URL_RE = re.compile(r"^\*\*URL(?: \d+)?:\*\*[ \t]*(\S+)", re.M)
-ARCHIVE_FIELD_RE = re.compile(r"^\*\*Archive:\*\*[ \t]*(.*)$", re.M)
-ARCHIVE_FILL_RE = re.compile(r"(^\*\*Archive:\*\*)[ \t]*$", re.M)
+URL_FIELD_RE = re.compile(r"^\*\*URL(?: (\d+))?:\*\*[ \t]*(\S+)", re.M)
+ARCHIVE_ANY_RE = re.compile(r"^\*\*Archive(?: (\d+))?:\*\*[ \t]*(.*)$", re.M)
 WAYBACK_URL_RE = re.compile(r"https?://web\.archive\.org/web/\d+/\S+")
 CONTENT_LOCATION_RE = re.compile(r"^content-location:\s*(.+)$", re.I | re.M)
 
@@ -110,41 +109,87 @@ def request_archive_snapshot(url):
     return snapshot
 
 
-def archive_missing_links(text):
-    """Add Wayback snapshots for incidents whose Archive field is empty.
+def archive_field_line(number, value):
+    """Markdown line for the archive snapshot of source `number`."""
+    label = "Archive" if number == 1 else f"Archive {number}"
+    return f"**{label}:** {value}"
 
-    Tries each listed source URL (primary first) until one snapshot is
-    captured. Returns the (possibly rewritten) text plus a count of
-    archive links written back into data.md.
+
+def set_archive_fields(block, updates):
+    """Fill or insert per-source Archive fields in one data.md block.
+
+    Existing fields are rewritten in place. Missing ones are inserted
+    after the last existing Archive field, so field order stays stable
+    across repeated runs.
+    """
+    lines = block.splitlines()
+    for number in sorted(updates):
+        value = updates[number]
+        target = None
+        for index, line in enumerate(lines):
+            match = ARCHIVE_ANY_RE.match(line)
+            if match and int(match.group(1) or 1) == number:
+                target = index
+                break
+        if target is not None:
+            lines[target] = archive_field_line(number, value)
+            continue
+        insert_at = None
+        for index, line in enumerate(lines):
+            if ARCHIVE_ANY_RE.match(line):
+                insert_at = index + 1
+        if insert_at is None:
+            for index, line in enumerate(lines):
+                if re.match(r"^\*\*URL(?: \d+)?:\*\*", line):
+                    insert_at = index + 1
+        if insert_at is None:
+            for index, line in enumerate(lines):
+                if re.match(r"^\*\*Source(?: \d+)?:\*\*", line):
+                    insert_at = index + 1
+        lines.insert(len(lines) if insert_at is None else insert_at, archive_field_line(number, value))
+    return "\n".join(lines)
+
+
+def archive_missing_links(text):
+    """Add Wayback snapshots for every source whose Archive field is empty.
+
+    Each `**URL n:**` pairs with `**Archive n:**`; the primary source keeps
+    the unnumbered `**Archive:**`. Returns the (possibly rewritten) text
+    plus a count of archive links written back into data.md.
     """
     blocks = re.split(r"^---\s*$", text, flags=re.M)
     changed = 0
     for index, block in enumerate(blocks):
         if not block.strip().startswith("## "):
             continue
-        urls = re.findall(r"^\*\*URL(?: \d+)?:\*\*\s*(\S+)", block, re.M)
-        archive_match = ARCHIVE_FIELD_RE.search(block)
-        if not (urls and archive_match and not archive_match.group(1).strip()):
+        urls = [(int(number or 1), url) for number, url in URL_FIELD_RE.findall(block)]
+        if not urls:
             continue
-        snapshot = ""
-        for url in urls:
+        existing = {
+            int(number or 1): value.strip()
+            for number, value in ARCHIVE_ANY_RE.findall(block)
+        }
+        updates = {}
+        for number, url in urls:
+            if existing.get(number):
+                continue
             try:
                 snapshot = request_archive_snapshot(url)
             except Exception as error:  # never let archiving break the build
                 print(f"::warning::Wayback archiving failed for {url}: {error}")
                 continue
             if snapshot:
-                break
-        if snapshot:
-            blocks[index] = ARCHIVE_FILL_RE.sub(r"\1 " + snapshot, block)
-            changed += 1
-            print(f"Archive added: {snapshot}")
-        else:
-            print(f"::warning::No Wayback snapshot returned for {'; '.join(urls)}")
+                updates[number] = snapshot
+                print(f"Archive added: {snapshot}")
+            else:
+                print(f"::warning::No Wayback snapshot returned for {url}")
+        if updates:
+            blocks[index] = set_archive_fields(block, updates)
+            changed += len(updates)
     return "\n---\n".join(blocks), changed
 
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 CHUNK_SIZE = 20  # hint for future pagination
 
 
@@ -175,28 +220,52 @@ def assign_unique_slugs(titles):
 
 
 def apply_archives_in_memory(entries):
-    """Fill missing Archive values in-memory (no data.md rewrite).
+    """Fill missing per-source Archive values in-memory (no data.md rewrite).
 
     Used for daily badge refreshes and local builds so data.md is only
     rewritten when --write-archives is passed explicitly.
     """
     for entry in entries:
-        if entry.get("archive"):
-            continue
-        for url in entry.get("urls") or ([entry["url"]] if entry.get("url") else []):
+        urls = entry.get("urls") or ([entry["url"]] if entry.get("url") else [])
+        archives = list(entry.get("archives") or [])
+        archives += [""] * (len(urls) - len(archives))
+        for index, url in enumerate(urls):
+            if archives[index]:
+                continue
             try:
                 snapshot = request_archive_snapshot(url)
             except Exception as error:  # never let archiving break the build
                 print(f"::warning::Wayback archiving failed for {url}: {error}")
                 continue
             if snapshot:
-                entry["archive"] = snapshot
+                archives[index] = snapshot
                 print(f"Archive resolved (in-memory): {snapshot}")
-                break
-        else:
-            urls = entry.get("urls") or [entry.get("url", "")]
-            print(f"::warning::No Wayback snapshot returned for {'; '.join(urls)}")
+            else:
+                print(f"::warning::No Wayback snapshot returned for {url}")
+        entry["archives"] = archives
+        entry["archive"] = archives[0] if archives else ""
     return entries
+
+
+def incident_record(entry, slug):
+    """Build one incidents.json record, padding archives to align with urls."""
+    urls = list(entry.get("urls") or [entry["url"]])
+    archives = list(entry.get("archives") or [])
+    archives += [""] * (len(urls) - len(archives))
+    return {
+        "date": entry["date"],
+        "source": entry["source"],
+        "sources": list(entry.get("sources") or [entry["source"]]),
+        "title": entry["title"],
+        "description": entry["description"],
+        "url": entry["url"],
+        "urls": urls,
+        "archive": archives[0] if archives else entry.get("archive", ""),
+        "archives": archives[: len(urls)],
+        "role": entry["ai_role"],
+        "category": entry["category"],
+        "slug": slug,
+    }
 
 
 def build_incidents(entries):
@@ -205,18 +274,7 @@ def build_incidents(entries):
     sorted_entries = sorted(entries, key=lambda e: e["date"], reverse=True)
     slugs = assign_unique_slugs([e["title"] for e in sorted_entries])
     incidents = [
-        {
-            "date": entry["date"],
-            "source": entry["source"],
-            "title": entry["title"],
-            "description": entry["description"],
-            "url": entry["url"],
-            "urls": list(entry.get("urls") or [entry["url"]]),
-            "archive": entry.get("archive", ""),
-            "role": entry["ai_role"],
-            "category": entry["category"],
-            "slug": slug,
-        }
+        incident_record(entry, slug)
         for entry, slug in zip(sorted_entries, slugs)
     ]
     return {

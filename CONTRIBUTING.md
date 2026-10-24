@@ -81,6 +81,16 @@ If a story has multiple credible reports, you may add numbered fields for additi
 **URL 2:** https://www.darkreading.com/cyberattacks-data-breaches/jadepuffer-first-complete-llm-driven-ransomware-attack
 ```
 
+Archives follow the same numbering. `Archive 2` is the snapshot of
+`URL 2`, and so on:
+
+```md
+**Archive 2:** https://web.archive.org/web/20260919/https://www.darkreading.com/...
+```
+
+You can leave `Archive 2` blank (or omit it); the build workflow fills in
+every missing snapshot independently.
+
 ### Ordering does not matter
 
 You do **not** need to manually place an article between two dates.
@@ -180,4 +190,4 @@ The site reads `incidents.json`, not `data.md`, when it is displayed.
 
 ### Archive
 
-`Archive` is optional. Add a known Wayback Machine snapshot if you have one; otherwise the build workflow will attempt to create one automatically.
+`Archive` is optional. Add a known Wayback Machine snapshot if you have one; otherwise the build workflow will attempt to create one automatically. Additional sources take numbered archives (`Archive 2`, `Archive 3`, ...) that pair with `URL 2`, `URL 3`, and so on.

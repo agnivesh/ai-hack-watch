@@ -149,18 +149,27 @@ function bindFilterButtons(selector) {
 
 function renderArticle(article) {
   const slug = slugify(article.slug || article.title);
-  const sourceUrl = safeHttpUrl(article.url);
-  const archiveUrl = safeHttpUrl(article.archive);
+  const urls = Array.isArray(article.urls) && article.urls.length ? article.urls : (article.url ? [article.url] : []);
+  const archives = Array.isArray(article.archives) && article.archives.length ? article.archives : [article.archive];
+  const sources = Array.isArray(article.sources) && article.sources.length ? article.sources : [article.source];
   const title = escapeHtml(article.title || "Untitled incident");
   const source = escapeHtml(article.source || "Unknown source");
   const role = article.role ? `<button type="button" class="tag tag-filter" data-filter-type="role" data-filter="${escapeHtml(article.role)}" aria-pressed="false">${escapeHtml(article.role)}</button>` : "";
   const category = article.category ? `<button type="button" class="tag tag-filter" data-filter-type="category" data-filter="${escapeHtml(article.category)}" aria-pressed="false">${escapeHtml(article.category)}</button>` : "";
-  const sourceLink = sourceUrl ? `<a href="${escapeHtml(sourceUrl)}" target="_blank" rel="noopener noreferrer">Read source ↗</a>` : "";
-  const archiveLink = archiveUrl ? `<a href="${escapeHtml(archiveUrl)}" target="_blank" rel="noopener noreferrer">Archived copy ↗</a>` : "";
-  const extraLinks = (article.urls || []).slice(1).map(extraUrl => {
-    const extra = safeHttpUrl(extraUrl);
-    return extra ? `<a href="${escapeHtml(extra)}" target="_blank" rel="noopener noreferrer">Alternative source ↗</a>` : "";
-  }).join("");
+  const linkFor = (href, label) => {
+    const safe = safeHttpUrl(href);
+    return safe ? `<a href="${escapeHtml(safe)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>` : "";
+  };
+  const sourceLinks = [
+    linkFor(urls[0], "Read source ↗"),
+    linkFor(archives[0], "Archived copy ↗"),
+  ];
+  for (let i = 1; i < urls.length; i += 1) {
+    const name = sources[i] || `Source ${i + 1}`;
+    sourceLinks.push(linkFor(urls[i], `${name} ↗`));
+    sourceLinks.push(linkFor(archives[i], `Archived ${name} ↗`));
+  }
+  const links = sourceLinks.join("");
 
   return `
       <article class="item" id="${escapeHtml(slug)}" data-role="${escapeHtml(article.role ?? "")}" data-category="${escapeHtml(article.category ?? "")}">
@@ -171,7 +180,7 @@ function renderArticle(article) {
           <h3>${title} <a class="permalink" href="#${escapeHtml(slug)}">#</a></h3>
           <div class="tags">${role}${category}</div>
           <p>${escapeHtml(article.description)}</p>
-          <div class="card-links">${sourceLink}${archiveLink}${extraLinks}</div>
+          <div class="card-links">${links}</div>
         </div>
       </article>
     `;

@@ -190,6 +190,91 @@ def urls_in_json():
     assert incidents["incidents"][0]["urls"] == ["https://example.com/report"]
 
 
+def two_source_sample():
+    """SAMPLE with a second source and an archive for each."""
+    return SAMPLE.replace(
+        "**URL:** https://example.com/report",
+        "**URL:** https://example.com/report\n"
+        "**Source 2:** Mirror Research\n**URL 2:** https://example.org/mirror",
+    ).replace(
+        "**Archive:**",
+        "**Archive:** https://web.archive.org/web/20260101000000/https://example.com/report\n"
+        "**Archive 2:** https://web.archive.org/web/20260102000000/https://example.org/mirror",
+    )
+
+
+@check("parse_blocks pairs numbered archives with numbered sources")
+def numbered_archives():
+    [entry] = datamd.parse_blocks(two_source_sample())
+    assert entry["archive"] == "https://web.archive.org/web/20260101000000/https://example.com/report"
+    assert entry["archives"] == [
+        "https://web.archive.org/web/20260101000000/https://example.com/report",
+        "https://web.archive.org/web/20260102000000/https://example.org/mirror",
+    ]
+
+
+@check("invalid extra archive URL is an error")
+def bad_extra_archive():
+    broken = two_source_sample().replace(
+        "**Archive 2:** https://web.archive.org/web/20260102000000/https://example.org/mirror",
+        "**Archive 2:** ftp://bad.example",
+    )
+    errors, _ = datamd.validate_entries(datamd.parse_blocks(broken))
+    assert any("invalid Archive 2" in error for error in errors), errors
+
+
+@check("archive without a matching source URL is an error")
+def orphan_archive():
+    broken = SAMPLE.replace(
+        "**Archive:**",
+        "**Archive 2:** https://web.archive.org/web/20260102000000/https://example.org/mirror",
+    )
+    errors, _ = datamd.validate_entries(datamd.parse_blocks(broken))
+    assert any("no matching URL 2" in error for error in errors), errors
+
+
+@check("build_incidents carries index-aligned archives")
+def archives_in_json():
+    record = generate.build_incidents(datamd.parse_blocks(two_source_sample()))["incidents"][0]
+    assert record["archive"].endswith("/https://example.com/report")
+    assert record["archives"] == [
+        "https://web.archive.org/web/20260101000000/https://example.com/report",
+        "https://web.archive.org/web/20260102000000/https://example.org/mirror",
+    ]
+
+
+@check("archive_missing_links fills every source archive")
+def archive_backfill_per_source():
+    text = SAMPLE.replace(
+        "**URL:** https://example.com/report",
+        "**URL:** https://example.com/report\n"
+        "**Source 2:** Mirror Research\n**URL 2:** https://example.org/mirror",
+    )
+    calls = []
+    original = generate.request_archive_snapshot
+    generate.request_archive_snapshot = (
+        lambda url: calls.append(url) or f"https://web.archive.org/web/1/{url}"
+    )
+    try:
+        updated, changed = generate.archive_missing_links(text)
+    finally:
+        generate.request_archive_snapshot = original
+    assert changed == 2, changed
+    assert "**Archive:** https://web.archive.org/web/1/https://example.com/report" in updated
+    assert "**Archive 2:** https://web.archive.org/web/1/https://example.org/mirror" in updated
+    assert calls == ["https://example.com/report", "https://example.org/mirror"], calls
+    errors, _ = datamd.validate_entries(datamd.parse_blocks(updated))
+    assert not errors, errors
+
+
+@check("prerender links the archive of every source")
+def prerender_source_archives():
+    record = generate.build_incidents(datamd.parse_blocks(two_source_sample()))["incidents"][0]
+    html_out = prerender.render_article(record)
+    assert "Mirror Research ↗" in html_out, html_out
+    assert "Archived Mirror Research ↗" in html_out, html_out
+
+
 @check("stray markdown markers on values are rejected")
 def stray_markers():
     bad = SAMPLE.replace(
@@ -624,6 +709,8 @@ def script_js_conventions():
     # rebuild on count mismatch, never hydrate a prefix as complete.
     assert "existing.length === wanted.length" in js
     assert "wanted.slice(0, existing.length)" not in js
+    # Regression: per-source archives must render in the client too.
+    assert "article.archives" in js
 
 
 @check("prerender includes filter dimensions for progressive enhancement")

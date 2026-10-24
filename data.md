@@ -1267,6 +1267,8 @@ Microsoft analysed the compromised LiteLLM 1.107.0 release, which ran a credenti
 **URL 2:** https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident
 **URL 3:** https://www.anthropic.com/research/alignment-assessment-ukaisi
 **Archive:** https://web.archive.org/web/20261024104258/https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing
+**Archive 2:**
+**Archive 3:**
 **AI role:** Autonomous
 **Category:** Security research
 

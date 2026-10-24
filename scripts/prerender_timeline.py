@@ -75,6 +75,24 @@ def render_link(url, label):
     )
 
 
+def source_links(article):
+    """Render one link per source plus one per available archive snapshot."""
+    urls = article.get("urls") or ([article["url"]] if article.get("url") else [])
+    archives = list(article.get("archives") or [])
+    archives += [""] * (len(urls) - len(archives))
+    sources = article.get("sources") or []
+    links = [
+        render_link(safe_url(urls[0] if urls else ""), "Read source ↗"),
+        render_link(safe_url(archives[0] if archives else ""), "Archived copy ↗"),
+    ]
+    for index in range(1, len(urls)):
+        name = sources[index] if index < len(sources) and sources[index] else f"Source {index + 1}"
+        escaped = html.escape(name)
+        links.append(render_link(safe_url(urls[index]), f"{escaped} ↗"))
+        links.append(render_link(safe_url(archives[index]), f"Archived {escaped} ↗"))
+    return "".join(link for link in links if link)
+
+
 def render_article(article):
     title = html.escape(text(article.get("title"), "Untitled incident"))
     source = html.escape(text(article.get("source"), "Unknown source"))
@@ -86,20 +104,12 @@ def render_article(article):
     slug = html.escape(
         datamd.slugify(article.get("slug") or article.get("title")), quote=True
     )
-    source_link = render_link(safe_url(article.get("url")), "Read source ↗")
-    archive_link = render_link(safe_url(article.get("archive")), "Archived copy ↗")
-    extra_links = "".join(
-        render_link(safe_url(extra_url), "Alternative source ↗")
-        for extra_url in (article.get("urls") or [])[1:]
-    )
     tags = ""
     if raw_role:
         tags += f'<button type="button" class="tag tag-filter" data-filter-type="role" data-filter="{html.escape(raw_role, quote=True)}" aria-pressed="false">{role}</button>'
     if raw_category:
         tags += f'<button type="button" class="tag tag-filter" data-filter-type="category" data-filter="{html.escape(raw_category, quote=True)}" aria-pressed="false">{category}</button>'
-    links = "".join(
-        link for link in (source_link, archive_link, extra_links) if link
-    )
+    links = source_links(article)
 
     return f'''      <article class="item" id="{slug}" data-role="{html.escape(raw_role, quote=True)}" data-category="{html.escape(raw_category, quote=True)}">
         <time class="date" datetime="{html.escape(text(article.get("date")), quote=True)}">{format_date(article.get("date"))}</time>

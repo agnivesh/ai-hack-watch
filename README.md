@@ -189,7 +189,7 @@ The badge is regenerated daily (and on every data change). Opened directly in a 
 
 ### Schema versioning
 
-`incidents.json` includes a `schema_version` field (currently `1`) to allow future format evolution without breaking consumers. The `chunk_size` field (currently `20`) hints at a future pagination strategy if the dataset grows large.
+`incidents.json` includes a `schema_version` field (currently `2`) to allow future format evolution without breaking consumers. Version 2 adds `sources` and `archives`, both index-aligned with `urls` so each source can carry its own Wayback snapshot; the top-level `archive` field remains the primary snapshot for older consumers. The `chunk_size` field (currently `20`) hints at a future pagination strategy if the dataset grows large.
 
 **Dataset size guideline:** `incidents.json` should remain under **250 KB** (~1,500 incidents) to keep initial load fast on mobile. At the current rate (~20 incidents/year), this provides decades of headroom. If the dataset approaches this limit, maintainers should implement chunked pagination using the `chunk_size` hint.
 
@@ -204,6 +204,6 @@ Each incident has a slug-based `#anchor` so individual stories can be shared dir
 
 ## Automatic link archiving
 
-When an incident has no `Archive` value, the GitHub Action attempts to submit its source URLs to the Wayback Machine, stopping at the first successful snapshot. Existing archive URLs are preserved. The timeline displays an **Archived copy ↗** link when a snapshot is available.
+When an incident has no `Archive` value, the GitHub Action attempts to submit its source URLs to the Wayback Machine. Additional sources use numbered archives (`Archive 2`, `Archive 3`, ...), each filled independently, so a missing snapshot for one source no longer masks the others. Existing archive URLs are preserved. The timeline shows an **Archived copy ↗** link for the primary source and an **Archived <source> ↗** link for each secondary source with a snapshot.
 
 Archiving is best-effort and never blocks a valid contribution.

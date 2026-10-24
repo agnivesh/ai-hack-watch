@@ -52,7 +52,10 @@ def parse_blocks(text):
 
     Multiple sources are supported with numbered fields (`**URL 2:**`,
     `**Source 3:**`, ...); the first value is primary and all values are
-    kept ordered in `urls`/`sources`.
+    kept ordered in `urls`/`sources`. Numbered archives (`**Archive 2:**`)
+    pair with the source of the same number and are returned in
+    `archives`, which is index-aligned with `urls`. `archive` stays the
+    primary snapshot for consumers that predate per-source archives.
     """
     entries = []
     for block in split_blocks(text):
@@ -78,6 +81,9 @@ def parse_blocks(text):
 
         sources = ordered("source")
         urls = ordered("url")
+        archives_by_number = values.get("archive", {})
+        archive_span = max([len(urls), *archives_by_number]) if urls or archives_by_number else 0
+        archives = [archives_by_number.get(number, "") for number in range(1, archive_span + 1)]
         parts = re.split(r"\n\s*\n", block, maxsplit=2)
         description = parts[-1].strip() if len(parts) >= 3 else ""
         entries.append(
@@ -88,7 +94,8 @@ def parse_blocks(text):
                 "sources": sources,
                 "url": urls[0] if urls else "",
                 "urls": urls,
-                "archive": first("archive"),
+                "archive": archives[0] if archives else "",
+                "archives": archives,
                 "ai_role": first("ai_role"),
                 "category": first("category"),
                 "description": description,
@@ -139,13 +146,22 @@ def validate_entries(entries):
                 f'{title}: category "{entry["category"]}" is not in the allowed set '
                 f"({', '.join(ALLOWED_CATEGORIES)})"
             )
-        archive_value = entry.get("archive", "")
-        if archive_value:
+        archive_values = entry.get("archives") or ([entry["archive"]] if entry.get("archive") else [])
+        for index, archive_value in enumerate(archive_values, start=1):
+            if not archive_value:
+                continue
             parsed_archive = urlparse(archive_value)
             if parsed_archive.scheme not in ("http", "https") or not parsed_archive.netloc:
-                errors.append(f"{title}: invalid Archive URL")
-        for label, value in (("source", entry["source"]), ("url", entry["url"]), ("archive", archive_value)):
+                label = "Archive" if index == 1 else f"Archive {index}"
+                errors.append(f"{title}: invalid {label} URL")
+            if index > len(entry.get("urls") or [entry["url"]]):
+                errors.append(f"{title}: Archive {index} has no matching URL {index}")
+        for label, value in (("source", entry["source"]), ("url", entry["url"])):
             if value.endswith("**"):
+                errors.append(f'{title}: {label} ends with stray "**"')
+        for index, archive_value in enumerate(archive_values, start=1):
+            if archive_value.endswith("**"):
+                label = "archive" if index == 1 else f"archive {index}"
                 errors.append(f'{title}: {label} ends with stray "**"')
 
     by_url = {}
