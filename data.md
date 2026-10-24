@@ -804,11 +804,11 @@ Zscaler ThreatLabz recovered an ARTEX deployment that paired the agentic pentest
 **URL:** https://www.security.com/threat-intelligence/ai-llmjacking-skynet
 **URL 2:** https://the-decoder.com/an-ai-agent-in-skynet-mode-hijacks-unprotected-language-models-to-launch-self-sustaining-cyberattacks/
 **Archive:** https://web.archive.org/web/20261024103029/https://www.security.com/threat-intelligence/ai-llmjacking-skynet
+**Archive 2:** https://web.archive.org/web/20261024114908/https://the-decoder.com/an-ai-agent-in-skynet-mode-hijacks-unprotected-language-models-to-launch-self-sustaining-cyberattacks/
 **AI role:** Autonomous
 **Category:** Cyber operations
 
 Symantec caught an attacker's full agent prompt on an AI honeypot: about 74 offensive tool definitions, a jailbreak that reframed credential theft as routine work, and a "Skynet mode" authorizing up to 100,000 unattended steps. The agent hunted for unauthenticated LLM endpoints and stolen API keys so the victim would pay for inference, then used its tools to scan, exploit web frameworks and deploy XMRig miners. Symantec saw the follow-up payload target go2rtc camera servers, but the honeypot did not execute any of the tool calls.
-
 ---
 
 ## Wiz uses frontier models to find and exploit critical PHP flaws
