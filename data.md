@@ -15,6 +15,7 @@ Each entry needs the required fields below. Optional fields improve filtering an
 
 
 
+
 ---
 
 ## Google's Gemini model hacked three companies in a security test
@@ -27,6 +28,7 @@ Each entry needs the required fields below. Optional fields improve filtering an
 **Category:** Security research
 
 Google said Gemini autonomously accessed three companies' systems during a cybersecurity evaluation in May, then stopped its activity.
+
 
 
 
@@ -63,6 +65,7 @@ Independent security researchers reported using Claude and other tools to gain a
 
 
 
+
 ---
 
 ## Google reports agent-enabled credential harvesting campaign
@@ -87,6 +90,7 @@ Google reported that a financially motivated actor used an AI coding chatbot and
 
 
 
+
 ---
 
 ## Unit 42 investigates AI-assisted enterprise intrusion
@@ -99,6 +103,7 @@ Google reported that a financially motivated actor used an AI coding chatbot and
 **Category:** Cyber operations
 
 Palo Alto Networks' Unit 42 reported that an attacker used frontier AI agents during an enterprise intrusion to map systems, harvest secrets, seize root credentials, and abuse CI/CD workflows.
+
 
 
 
@@ -137,6 +142,7 @@ Anthropic's September threat report documented AI-augmented operations including
 
 
 
+
 ---
 
 ## AI agent performs container escape and Kubernetes secret theft
@@ -149,6 +155,7 @@ Anthropic's September threat report documented AI-augmented operations including
 **Category:** Cyber operations
 
 Sysdig reported observing an LLM-driven attacker exploit a vulnerable notebook, escape a container through an exposed Docker socket, read host secrets, and replay a Kubernetes token to dump the cluster's Secret store.
+
 
 
 
@@ -185,6 +192,7 @@ Sysdig reported an LLM agent that performed post-compromise actions after a vuln
 
 
 
+
 ---
 
 ## Google reports AI-assisted zero-day exploit development
@@ -197,6 +205,7 @@ Sysdig reported an LLM agent that performed post-compromise actions after a vuln
 **Category:** Vulnerability research
 
 Google reported identifying a criminal threat actor that used AI to develop a zero-day exploit for planned mass exploitation; Google's proactive discovery may have prevented its use.
+
 
 
 
@@ -233,6 +242,7 @@ Security researcher Adnan Khan disclosed a prompt-injection chain in Cline's Git
 
 
 
+
 ---
 
 ## Anthropic disrupts AI-orchestrated cyber espionage campaign
@@ -245,6 +255,7 @@ Security researcher Adnan Khan disclosed a prompt-injection chain in Cline's Git
 **Category:** Cyber operations
 
 Anthropic reported disrupting a suspected Chinese state-sponsored campaign that used Claude Code for reconnaissance, exploit development, credential harvesting, lateral movement, and data exfiltration, with a small number of successful intrusions.
+
 
 
 
@@ -281,6 +292,7 @@ Google reported malware families that used large language models during executio
 
 
 
+
 ---
 
 ## OpenAI disrupts accounts developing malware with ChatGPT
@@ -293,6 +305,7 @@ Google reported malware families that used large language models during executio
 **Category:** Malware
 
 OpenAI reported banning accounts linked to Russian-speaking criminal groups that used ChatGPT to develop and refine malware components for credential theft, obfuscation, and data exfiltration.
+
 
 
 
@@ -331,6 +344,7 @@ OpenAI reported that, during the evaluation of pre-release models, one of its mo
 
 
 
+
 ---
 
 ## Sysdig documents first fully agentic ransomware operation
@@ -357,6 +371,7 @@ Sysdig's threat research team documented an operation it named JadePuffer in whi
 
 
 
+
 ---
 
 ## Unit 42 finds Chinese-speaking actor running autonomous AI attack campaign
@@ -369,6 +384,7 @@ Sysdig's threat research team documented an operation it named JadePuffer in whi
 **Category:** Cyber operations
 
 Palo Alto Networks' Unit 42 reported that a Chinese-speaking threat actor used DeepSeek, orchestrated through the Hermes Agent framework, as an autonomous offensive operator that scanned for vulnerabilities, downloaded exploit code and attempted exploitation against more than 460 targets.
+
 
 
 
@@ -405,6 +421,7 @@ Security researchers reported that an Aurora ransomware affiliate drove Cursor's
 
 
 
+
 ---
 
 ## Anthropic measures frontier models' N-day exploit acceleration
@@ -417,6 +434,7 @@ Security researchers reported that an Aurora ransomware affiliate drove Cursor's
 **Category:** Security research
 
 Anthropic reported that its frontier models with safeguards disabled built eight working code-execution exploits from recent Firefox patches and eight Windows kernel privilege-escalation chains, showing how quickly models can turn patches into working exploits.
+
 
 
 
@@ -453,6 +471,7 @@ Unit 42 researchers demonstrated an autonomous multi-agent system that chained S
 
 
 
+
 ---
 
 ## OpenAI agents repurposed German wiki as agent message board
@@ -465,6 +484,7 @@ Unit 42 researchers demonstrated an autonomous multi-agent system that chained S
 **Category:** Other
 
 NBC News reported that a swarm of rogue OpenAI agents hijacked a German programming wiki and turned it into a message board for sharing tactics, with researchers describing the activity as a hacking attempt that OpenAI disputed.
+
 
 
 
@@ -495,6 +515,7 @@ Anthropic reported that, during a review of its cybersecurity evaluation transcr
 
 
 
+
 ---
 
 ## Meta AI model hacks another company during testing
@@ -507,6 +528,7 @@ Anthropic reported that, during a review of its cybersecurity evaluation transcr
 **Category:** Security research
 
 Meta said its AI model autonomously accessed another company's systems during a cybersecurity evaluation in July, which it attributed to a tester's misconfiguration.
+
 
 
 
@@ -545,6 +567,7 @@ Check Point Research documented underground forum users recreating known malware
 
 
 
+
 ---
 
 ## Proofpoint links AI-written PowerShell loader to TA547 campaign
@@ -557,6 +580,7 @@ Check Point Research documented underground forum users recreating known malware
 **Category:** Malware
 
 Proofpoint observed the TA547 group delivering the Rhadamanthys infostealer to German organisations with a PowerShell loader whose comments and structure indicated it was generated by a large language model.
+
 
 
 
@@ -593,6 +617,7 @@ Tokyo police arrested 25-year-old Ryuki Hayashi for using online generative-AI s
 
 
 
+
 ---
 
 ## HP Wolf Security finds GenAI-written malware in the wild
@@ -605,6 +630,7 @@ Tokyo police arrested 25-year-old Ryuki Hayashi for using online generative-AI s
 **Category:** Malware
 
 HP identified a French-language campaign whose VBScript and JavaScript payloads carried verbose natural-language comments consistent with generative-AI output, used to deploy ChromeLoader and AsyncRAT.
+
 
 
 
@@ -642,6 +668,7 @@ OpenAI detailed more than 20 malicious operations in which groups including Stor
 
 
 
+
 ---
 
 ## OpenAI bans accounts used for cyber operations
@@ -655,6 +682,7 @@ OpenAI detailed more than 20 malicious operations in which groups including Stor
 **Category:** Cyber operations
 
 OpenAI's February 2025 update described multiple banned accounts that used its models to assist scams, cyber operations and technical exploitation, including code generation and operational planning. Accounts potentially linked to North Korean actors used AI to research intrusion tooling, malware, phishing and RDP brute-force techniques.
+
 
 
 
@@ -693,6 +721,7 @@ Radware's ZombieAgent research showed how prompt injection against ChatGPT's age
 
 
 
+
 ---
 
 ## Check Point finds covert DNS exfiltration channel in ChatGPT runtime
@@ -705,6 +734,7 @@ Radware's ZombieAgent research showed how prompt injection against ChatGPT's age
 **Category:** Security research
 
 Check Point Research disclosed a hidden outbound path from ChatGPT's code-execution runtime that let a single malicious prompt exfiltrate conversation data to an attacker-controlled server through encoded DNS queries; the flaw was fixed in February 2026.
+
 
 
 
@@ -742,6 +772,7 @@ A 15-year-old exploited a logic flaw in Bandai Channel's account-cancellation pr
 
 
 
+
 ---
 
 ## OpenAI and Microsoft disrupt five state-linked groups using AI
@@ -767,6 +798,7 @@ OpenAI, with Microsoft Threat Intelligence, reported disrupting five state-affil
 
 
 
+
 ---
 
 ## Google reports state-backed attempts to misuse Gemini
@@ -779,6 +811,7 @@ OpenAI, with Microsoft Threat Intelligence, reported disrupting five state-affil
 **Category:** Cyber operations
 
 Google Threat Intelligence Group reported that state-backed actors from Iran, China, North Korea and Russia attempted to misuse Gemini in live campaigns for open-source intelligence gathering, target profiling, phishing-technique research and infostealer coding assistance, with most attempts blocked by safety filters.
+
 
 
 
@@ -814,6 +847,7 @@ OpenAI's June 2025 report described ten disrupted operations, including North Ko
 
 
 
+
 ---
 
 ## APT28 deploys LLM-powered LAMEHUG malware against Ukraine
@@ -837,6 +871,7 @@ Ukraine's CERT-UA attributed a phishing campaign against Ukrainian government bo
 
 
 
+
 ---
 
 ## Anthropic disrupts "vibe hacking" campaign against 17 organisations
@@ -849,6 +884,7 @@ Ukraine's CERT-UA attributed a phishing campaign against Ukrainian government bo
 **Category:** Cyber operations
 
 Anthropic reported disrupting GTG-2002, a cybercriminal operation that used Claude Code to conduct reconnaissance, credential theft and network penetration against at least 17 organisations in healthcare, emergency services and government, then generated extortion demands.
+
 
 
 
@@ -884,6 +920,7 @@ Google Threat Intelligence Group reported that state-backed groups including Ira
 
 
 
+
 ---
 
 ## Mandiant finds threat actors experimenting with generative AI
@@ -896,6 +933,7 @@ Google Threat Intelligence Group reported that state-backed groups including Ira
 **Category:** Cyber operations
 
 Mandiant reported that threat actors had begun experimenting with generative AI for reconnaissance, malware-related activity and social engineering, while assessing that actual use in intrusions remained limited and focused largely on human-targeting tasks.
+
 
 
 
@@ -928,6 +966,7 @@ JFrog Security Research found malicious machine-learning models on Hugging Face 
 
 
 
+
 ---
 
 ## LastPass employee foils AI voice-deepfake social engineering
@@ -940,6 +979,7 @@ JFrog Security Research found malicious machine-learning models on Hugging Face 
 **Category:** Other
 
 A threat actor used an AI-generated imitation of the LastPass CEO's voice across WhatsApp calls, texts and voicemail to socially engineer an employee, who ignored the messages and reported the attempt.
+
 
 
 
@@ -972,6 +1012,7 @@ Anthropic's threat intelligence report described multiple misuse cases involving
 
 
 
+
 ---
 
 ## JFrog finds malicious AI models hidden in PyPI packages
@@ -984,6 +1025,7 @@ Anthropic's threat intelligence report described multiple misuse cases involving
 **Category:** AI model compromise
 
 JFrog observed an attack on the PyPI repository in which two malicious packages loaded an infected Torch AI model to deploy obfuscated malware that collected system information and exfiltrated it.
+
 
 
 
@@ -1016,6 +1058,7 @@ Proofpoint observed cybercriminals using the AI website builder Lovable to creat
 
 
 
+
 ---
 
 ## Trend Micro tracks the EvilAI campaign using AI-generated code
@@ -1028,6 +1071,7 @@ Proofpoint observed cybercriminals using the AI website builder Lovable to creat
 **Category:** Malware
 
 Trend Micro described the EvilAI campaign, in which attackers combined AI-generated code with fake digitally signed applications to establish persistence and steal browser credentials while appearing legitimate to victims.
+
 
 
 
@@ -1060,6 +1104,7 @@ Genians reported that a Kimsuky-linked campaign used ChatGPT to create convincin
 
 
 
+
 ---
 
 ## Microsoft reports threat actors operationalising AI
@@ -1072,6 +1117,7 @@ Genians reported that a Kimsuky-linked campaign used ChatGPT to create convincin
 **Category:** Cyber operations
 
 Microsoft described threat actors using AI for phishing, translation, exploit research, malware coding and debugging, data discovery and post-compromise activity, including early experimentation with more agentic AI workflows by North Korean groups such as Jasper Sleet and Coral Sleet.
+
 
 
 
@@ -1096,6 +1142,7 @@ Peter James of Mouse found that Meta’s Muse AI agent could be instructed to ar
 
 
 
+
 ---
 
 ## Patrick Wardle discloses Muse 0-day that lets local apps hijack Meta's AI assistant
@@ -1108,6 +1155,7 @@ Peter James of Mouse found that Meta’s Muse AI agent could be instructed to ar
 **Category:** Vulnerability research
 
 macOS security researcher Patrick Wardle disclosed a zero-day in Meta's Muse assistant that let any locally installed app or terminal command redirect the assistant's cloud transcription endpoint to an attacker's server and capture the token authenticating the user's Muse account. Wardle built proof-of-concept attacks that wrote files to disk and snapped photos without warning, and said a simple ClickFix trick was enough to trigger it; Meta shipped a hotfix about 12 hours later. Amazon separately began blocking Muse from shopping on its site.
+
 
 
 
@@ -1132,6 +1180,7 @@ Australian Prime Minister Anthony Albanese revealed that an OpenAI artificial in
 
 
 
+
 ---
 
 ## OpenAI agents tried to bruteforce a UN website's API fields
@@ -1144,6 +1193,7 @@ Australian Prime Minister Anthony Albanese revealed that an OpenAI artificial in
 **Category:** Cyber operations
 
 Security researcher Rowan H-J reported that agents he attributes with high likelihood to OpenAI probed UNCTAD's public statistics API about 16,500 times between April and June 2026. The agents brute-forced API fields and used a double-encoding trick to bypass a POST-only restriction and pull data. Attribution rests on Azure IP overlap and OAI/CHATGPT-labelled payloads rather than vendor confirmation, and the author notes the data was public but was queried aggressively even after rate-limiting.
+
 
 
 
@@ -1168,6 +1218,7 @@ DIVD said it detected suspicious activity in its infrastructure and is treating 
 
 
 
+
 ---
 
 ## Rogue OpenAI agents accessed US government websites
@@ -1180,6 +1231,7 @@ DIVD said it detected suspicious activity in its infrastructure and is treating 
 **Category:** Security research
 
 OpenAI confirmed its agents accessed Census Bureau data using developer keys found in public code repositories and reposted public SEC information elsewhere, while researchers identified a failed attempt against an Education Department site. The company said only public information was reached and no agency data or systems were modified.
+
 
 
 
@@ -1202,6 +1254,7 @@ Microsoft said its FORGE Lab used agentic scanning tools to help find 140 Window
 
 
 
+
 ---
 
 ## Anthropic reports Claude submitted a false police tip and reached real systems
@@ -1212,6 +1265,7 @@ Microsoft said its FORGE Lab used agentic scanning tools to help find 140 Window
 **URL:** https://www.anthropic.com/research/investigating-unintended-model-actions
 **URL 2:** https://apnews.com/article/artificial-intelligence-anthropic-claude-0acc6ac46d4d80db805e8d55468a6fe1
 **Archive:** https://web.archive.org/web/20261024102847/https://www.anthropic.com/research/investigating-unintended-model-actions
+**Archive 2:** https://web.archive.org/web/20261010161331/https://apnews.com/article/artificial-intelligence-anthropic-claude-0acc6ac46d4d80db805e8d55468a6fe1
 **AI role:** Autonomous
 **Category:** Security research
 
@@ -1238,6 +1292,7 @@ Symantec found that recent versions of the Aoki infostealer, also called Aokigah
 
 
 
+
 ---
 
 ## NorForge finds exposed Cairn panels running AI-driven attacks on 1,200 sites
@@ -1248,6 +1303,7 @@ Symantec found that recent versions of the Aoki infostealer, also called Aokigah
 **URL:** https://norforge.com/blog/inside_cairn
 **URL 2:** https://thehackernews.com/2026/10/hackers-use-autonomous-ai-agents-to.html
 **Archive:** https://web.archive.org/web/20261024102926/https://norforge.com/blog/inside_cairn
+**Archive 2:** https://web.archive.org/web/20261021195247/https://thehackernews.com/2026/10/hackers-use-autonomous-ai-agents-to.html
 **AI role:** Autonomous
 **Category:** Cyber operations
 
@@ -1274,6 +1330,7 @@ Wiz's incident response team described an intrusion in which an AI agent ran the
 
 
 
+
 ---
 
 ## Microsoft links Storm-0940 to AI-driven ARTEX attacks and ConnectWise breach
@@ -1291,6 +1348,7 @@ Microsoft attributed a wave of agentic attacks to Storm-0940, a China-aligned gr
 
 
 
+
 ---
 
 ## Zscaler traces a global AI-assisted hacking campaign through ARTEX prompts
@@ -1303,6 +1361,7 @@ Microsoft attributed a wave of agentic attacks to Storm-0940, a China-aligned gr
 **Category:** Cyber operations
 
 Zscaler ThreatLabz recovered an ARTEX deployment that paired the agentic pentesting framework with Claude Code, Codex and Grok sessions, plus scripts that kept instructions and project state synchronized across accounts and servers. The prompt history showed a Chinese-speaking operator targeting finance, dating, SMS, crypto, retail, education and logistics organizations across at least 19 countries, with repeated requests for personal and transaction data. Zscaler could not verify which underlying models answered each session, and said some may have been Anthropic's Claude.
+
 
 
 
@@ -1327,6 +1386,7 @@ Symantec caught an attacker's full agent prompt on an AI honeypot: about 74 offe
 
 
 
+
 ---
 
 ## Wiz uses frontier models to find and exploit critical PHP flaws
@@ -1337,6 +1397,7 @@ Symantec caught an attacker's full agent prompt on an AI honeypot: about 74 offe
 **URL:** https://www.wiz.io/blog/php2shell-php-rce
 **URL 2:** https://www.security.com/threat-intelligence/php2shell-critical-vulns-cve-2026-109618-109619
 **Archive:** https://web.archive.org/web/20261023160032/https://www.wiz.io/blog/php2shell-php-rce
+**Archive 2:** https://web.archive.org/web/20261022094330/https://www.security.com/threat-intelligence/php2shell-critical-vulns-cve-2026-109618-109619
 **AI role:** AI security research
 **Category:** Vulnerability research
 
@@ -1363,6 +1424,7 @@ OpenAI said it paused frontier training and evaluation on September 20 after an 
 
 
 
+
 ---
 
 ## LiteLLM 1.107.0 shipped a credential stealer through Python startup hooks
@@ -1377,6 +1439,7 @@ OpenAI said it paused frontier training and evaluation on September 20 after an 
 **Category:** Credential theft
 
 Microsoft analysed the compromised LiteLLM 1.107.0 release, which ran a credential collector through Python startup hooks so that simply starting Python in an affected environment could trigger it. The payload targeted AI tool tokens, cloud credentials, SSH keys, browser data and the LiteLLM proxy database, then encrypted and uploaded what it found. LiteLLM said stolen GitHub credentials were used to alter its release workflow and point it at a lookalike repository; Microsoft had not independently established how the attacker got the credentials.
+
 
 
 
