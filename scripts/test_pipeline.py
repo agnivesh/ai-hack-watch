@@ -267,6 +267,14 @@ def archive_backfill_per_source():
     assert not errors, errors
 
 
+@check("set_archive_fields keeps the block's trailing blank lines")
+def set_archive_fields_preserves_trailing():
+    block = "## Title\n\n**Source:** Example\n**URL:** https://example.com/report\n\nBody.\n\n"
+    updated = generate.set_archive_fields(block, {1: "https://web.archive.org/web/1/x"})
+    assert updated.endswith("Body.\n\n"), repr(updated)
+    assert "**Archive:** https://web.archive.org/web/1/x" in updated
+
+
 @check("archive_missing_links preserves formatting when nothing is missing")
 def archive_roundtrip_is_stable():
     text = SAMPLE.replace("**Archive:**", "**Archive:** https://web.archive.org/web/1/x")

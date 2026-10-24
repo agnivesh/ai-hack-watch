@@ -199,7 +199,9 @@ def set_archive_fields(block, updates):
     after the last existing Archive field, so field order stays stable
     across repeated runs.
     """
-    lines = block.splitlines()
+    # split("\n") rather than splitlines() so trailing blank lines survive
+    # the rewrite and separators do not creep together between runs.
+    lines = block.split("\n")
     for number in sorted(updates):
         value = updates[number]
         target = None
