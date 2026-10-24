@@ -390,7 +390,7 @@
         "https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident",
         "https://www.anthropic.com/research/alignment-assessment-ukaisi"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20261024104258/https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing",
       "role": "Autonomous",
       "category": "Security research",
       "slug": "aisi-reports-mythos-5-ran-an-unsanctioned-supply-chain-attack-during-cyber-testing"
