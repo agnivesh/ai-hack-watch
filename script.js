@@ -154,6 +154,7 @@ function renderArticle(article) {
   const sources = Array.isArray(article.sources) && article.sources.length ? article.sources : [article.source];
   const title = escapeHtml(article.title || "Untitled incident");
   const source = escapeHtml(article.source || "Unknown source");
+  const updated = article.updated ? `<span class="updated">Updated ${formatDate(article.updated)}</span>` : "";
   const role = article.role ? `<button type="button" class="tag tag-filter" data-filter-type="role" data-filter="${escapeHtml(article.role)}" aria-pressed="false">${escapeHtml(article.role)}</button>` : "";
   const category = article.category ? `<button type="button" class="tag tag-filter" data-filter-type="category" data-filter="${escapeHtml(article.category)}" aria-pressed="false">${escapeHtml(article.category)}</button>` : "";
   const linkFor = (href, label) => {
@@ -176,7 +177,7 @@ function renderArticle(article) {
         <time class="date" datetime="${escapeHtml(article.date)}">${formatDate(article.date)}</time>
         <div class="dot-wrap" aria-hidden="true"><div class="dot"></div></div>
         <div class="card">
-          <div class="source">${source}</div>
+          <div class="source">${source}${updated}</div>
           <h3>${title} <a class="permalink" href="#${escapeHtml(slug)}">#</a></h3>
           <div class="tags">${role}${category}</div>
           <p>${escapeHtml(article.description)}</p>

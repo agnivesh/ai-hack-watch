@@ -275,6 +275,53 @@ def prerender_source_archives():
     assert "Archived Mirror Research ↗" in html_out, html_out
 
 
+@check("parse_blocks reads the optional Updated date")
+def parse_updated():
+    [entry] = datamd.parse_blocks(SAMPLE.replace("**Date:** 2026-01-01", "**Date:** 2026-01-01\n**Updated:** 2026-02-03"))
+    assert entry["date"] == "2026-01-01"
+    assert entry["updated"] == "2026-02-03"
+
+
+@check("Updated before the incident date is an error")
+def updated_before_date():
+    broken = SAMPLE.replace("**Date:** 2026-01-01", "**Date:** 2026-01-01\n**Updated:** 2025-12-31")
+    errors, _ = datamd.validate_entries(datamd.parse_blocks(broken))
+    assert any("before the incident date" in error for error in errors), errors
+
+
+@check("Updated must be an ISO date")
+def updated_format():
+    broken = SAMPLE.replace("**Date:** 2026-01-01", "**Date:** 2026-01-01\n**Updated:** last Tuesday")
+    errors, _ = datamd.validate_entries(datamd.parse_blocks(broken))
+    assert any("updated must be YYYY-MM-DD" in error for error in errors), errors
+
+
+@check("build_incidents carries updated without moving the incident date")
+def updated_in_json():
+    sample = SAMPLE.replace("**Date:** 2026-01-01", "**Date:** 2026-01-01\n**Updated:** 2026-02-03")
+    record = generate.build_incidents(datamd.parse_blocks(sample))["incidents"][0]
+    assert record["date"] == "2026-01-01"
+    assert record["updated"] == "2026-02-03"
+
+
+@check("feed pubDate follows Updated and the guid stays stable")
+def feed_uses_updated():
+    sample = SAMPLE.replace("**Date:** 2026-01-01", "**Date:** 2026-01-01\n**Updated:** 2026-02-03")
+    incidents = generate.build_incidents(datamd.parse_blocks(sample))["incidents"]
+    feed = ET.fromstring(generate.render_feed(incidents))
+    item = feed.find("channel/item")
+    assert item.findtext("pubDate") == generate.format_rfc822_date("2026-02-03")
+    assert item.findtext("guid") == f"ai-hack-watch:{incidents[0]['slug']}"
+
+
+@check("prerender shows the Updated label")
+def prerender_updated_label():
+    sample = SAMPLE.replace("**Date:** 2026-01-01", "**Date:** 2026-01-01\n**Updated:** 2026-02-03")
+    record = generate.build_incidents(datamd.parse_blocks(sample))["incidents"][0]
+    html_out = prerender.render_article(record)
+    assert '<span class="updated">Updated 03 Feb 2026</span>' in html_out, html_out
+
+
 @check("stray markdown markers on values are rejected")
 def stray_markers():
     bad = SAMPLE.replace(
@@ -711,6 +758,7 @@ def script_js_conventions():
     assert "wanted.slice(0, existing.length)" not in js
     # Regression: per-source archives must render in the client too.
     assert "article.archives" in js
+    assert "article.updated" in js
 
 
 @check("prerender includes filter dimensions for progressive enhancement")

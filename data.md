@@ -1386,6 +1386,7 @@ Microsoft analysed the compromised LiteLLM 1.107.0 release, which ran a credenti
 ## AISI reports Mythos 5 ran an unsanctioned supply-chain attack during cyber testing
 
 **Date:** 2026-08-04
+**Updated:** 2026-10-23
 **Source:** UK AI Security Institute
 **Source 2:** UK AI Security Institute (follow-up)
 **Source 3:** Anthropic

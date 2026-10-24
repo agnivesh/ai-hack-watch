@@ -14,7 +14,7 @@ from urllib.parse import urlparse
 BLOCK_SPLIT_RE = re.compile(r"^---\s*$", re.M)
 HEADING_RE = re.compile(r"^##\s+(.+)$")
 FIELD_RE = re.compile(
-    r"^\*\*(Date|Source|URL|Archive|AI role|Category)( \d+)?:\*\*\s*(.*)$", re.I
+    r"^\*\*(Date|Updated|Source|URL|Archive|AI role|Category)( \d+)?:\*\*\s*(.*)$", re.I
 )
 DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 
@@ -56,6 +56,9 @@ def parse_blocks(text):
     pair with the source of the same number and are returned in
     `archives`, which is index-aligned with `urls`. `archive` stays the
     primary snapshot for consumers that predate per-source archives.
+
+    `**Updated:**` is the optional date of the latest material revision
+    of an entry; `date` remains the first public disclosure.
     """
     entries = []
     for block in split_blocks(text):
@@ -90,6 +93,7 @@ def parse_blocks(text):
             {
                 "title": heading.group(1).strip(),
                 "date": first("date"),
+                "updated": first("updated"),
                 "source": sources[0] if sources else "",
                 "sources": sources,
                 "url": urls[0] if urls else "",
@@ -129,6 +133,22 @@ def validate_entries(entries):
                     errors.append(f"{title}: date is in the future")
             except ValueError:
                 errors.append(f"{title}: invalid ISO date")
+        updated_value = entry.get("updated", "")
+        if updated_value:
+            if not DATE_RE.fullmatch(updated_value):
+                errors.append(f"{title}: updated must be YYYY-MM-DD")
+            else:
+                try:
+                    updated_date = date.fromisoformat(updated_value)
+                    if updated_date > datetime.now(timezone.utc).date():
+                        errors.append(f"{title}: updated date is in the future")
+                    try:
+                        if updated_date < date.fromisoformat(date_value):
+                            errors.append(f"{title}: updated date is before the incident date")
+                    except ValueError:
+                        pass  # the primary date error is reported above
+                except ValueError:
+                    errors.append(f"{title}: invalid ISO updated date")
         parsed_url = urlparse(entry["url"])
         if parsed_url.scheme not in ("http", "https") or not parsed_url.netloc:
             errors.append(f"{title}: invalid URL")

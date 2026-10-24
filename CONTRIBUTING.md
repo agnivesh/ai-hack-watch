@@ -91,6 +91,29 @@ Archives follow the same numbering. `Archive 2` is the snapshot of
 You can leave `Archive 2` blank (or omit it); the build workflow fills in
 every missing snapshot independently.
 
+### Updates and revisions
+
+An entry records one incident, not one publication. When an incident is
+already listed and a later report adds analysis, attribution, or new
+facts, edit the existing entry instead of adding a second one:
+
+- add the new report as `Source 2` / `URL 2` (and so on)
+- set `**Updated:** YYYY-MM-DD` to the revision date
+- fold the new material into the description, keeping dates in the prose
+  where the sequence matters
+
+`Date` stays the first public disclosure and is never moved forward. It
+drives timeline order and the "days since" badge, so re-dating a
+follow-up would present an old incident as a new one.
+
+| Situation | Action |
+|---|---|
+| Follow-up analysis of a known incident | Update the entry |
+| Correction to a date, actor, or fact | Update the entry |
+| Known operation escalates | Update the entry |
+| New actor or campaign using shared tooling | New entry, cross-reference the other |
+| Previously undisclosed incident in a new report | New entry, dated to that report |
+
 ### Ordering does not matter
 
 You do **not** need to manually place an article between two dates.

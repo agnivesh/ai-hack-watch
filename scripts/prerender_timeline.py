@@ -96,6 +96,12 @@ def source_links(article):
 def render_article(article):
     title = html.escape(text(article.get("title"), "Untitled incident"))
     source = html.escape(text(article.get("source"), "Unknown source"))
+    updated = text(article.get("updated"))
+    updated_html = (
+        f'<span class="updated">Updated {html.escape(format_date(updated))}</span>'
+        if updated
+        else ""
+    )
     description = html.escape(text(article.get("description")))
     role = html.escape(text(article.get("role")))
     category = html.escape(text(article.get("category")))
@@ -115,7 +121,7 @@ def render_article(article):
         <time class="date" datetime="{html.escape(text(article.get("date")), quote=True)}">{format_date(article.get("date"))}</time>
         <div class="dot-wrap" aria-hidden="true"><div class="dot"></div></div>
         <div class="card">
-          <div class="source">{source}</div>
+          <div class="source">{source}{updated_html}</div>
           <h3>{title} <a class="permalink" href="#{slug}">#</a></h3>
           <div class="tags">{tags}</div>
           <p>{description}</p>

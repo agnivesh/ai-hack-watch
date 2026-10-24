@@ -189,7 +189,7 @@ def archive_missing_links(text):
     return "\n---\n".join(blocks), changed
 
 
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 CHUNK_SIZE = 20  # hint for future pagination
 
 
@@ -254,6 +254,7 @@ def incident_record(entry, slug):
     archives += [""] * (len(urls) - len(archives))
     return {
         "date": entry["date"],
+        "updated": entry.get("updated", ""),
         "source": entry["source"],
         "sources": list(entry.get("sources") or [entry["source"]]),
         "title": entry["title"],
@@ -317,7 +318,9 @@ def render_feed(incidents):
         # must be RFC-822 for RSS readers.
         guid = f"ai-hack-watch:{article.get('slug') or datamd.slugify(article['title'])}"
         try:
-            pub_date = format_rfc822_date(article["date"])
+            # Revisions keep their guid but move pubDate, so readers show an
+            # update rather than a brand-new item.
+            pub_date = format_rfc822_date(article.get("updated") or article["date"])
         except ValueError:
             pub_date = format_rfc822_now()
         items.append(

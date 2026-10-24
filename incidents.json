@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "chunk_size": 20,
   "total": 63,
   "taxonomy": {
@@ -24,6 +24,7 @@
   "incidents": [
     {
       "date": "2026-10-23",
+      "updated": "",
       "source": "OpenAI",
       "sources": [
         "OpenAI"
@@ -44,6 +45,7 @@
     },
     {
       "date": "2026-10-23",
+      "updated": "",
       "source": "Microsoft Security Research",
       "sources": [
         "Microsoft Security Research",
@@ -67,6 +69,7 @@
     },
     {
       "date": "2026-10-21",
+      "updated": "",
       "source": "Microsoft Threat Intelligence",
       "sources": [
         "Microsoft Threat Intelligence"
@@ -87,6 +90,7 @@
     },
     {
       "date": "2026-10-21",
+      "updated": "",
       "source": "Zscaler ThreatLabz",
       "sources": [
         "Zscaler ThreatLabz"
@@ -107,6 +111,7 @@
     },
     {
       "date": "2026-10-21",
+      "updated": "",
       "source": "Symantec",
       "sources": [
         "Symantec",
@@ -130,6 +135,7 @@
     },
     {
       "date": "2026-10-21",
+      "updated": "",
       "source": "Wiz",
       "sources": [
         "Wiz",
@@ -153,6 +159,7 @@
     },
     {
       "date": "2026-10-19",
+      "updated": "",
       "source": "NorForge",
       "sources": [
         "NorForge",
@@ -176,6 +183,7 @@
     },
     {
       "date": "2026-10-19",
+      "updated": "",
       "source": "Wiz",
       "sources": [
         "Wiz"
@@ -196,6 +204,7 @@
     },
     {
       "date": "2026-10-15",
+      "updated": "",
       "source": "Symantec",
       "sources": [
         "Symantec"
@@ -216,6 +225,7 @@
     },
     {
       "date": "2026-10-09",
+      "updated": "",
       "source": "Anthropic",
       "sources": [
         "Anthropic",
@@ -239,6 +249,7 @@
     },
     {
       "date": "2026-10-07",
+      "updated": "",
       "source": "Microsoft Security",
       "sources": [
         "Microsoft Security"
@@ -259,6 +270,7 @@
     },
     {
       "date": "2026-09-26",
+      "updated": "",
       "source": "swarmcha.se",
       "sources": [
         "swarmcha.se"
@@ -279,6 +291,7 @@
     },
     {
       "date": "2026-09-24",
+      "updated": "",
       "source": "DIVD",
       "sources": [
         "DIVD"
@@ -301,6 +314,7 @@
     },
     {
       "date": "2026-09-24",
+      "updated": "",
       "source": "USA TODAY",
       "sources": [
         "USA TODAY"
@@ -321,6 +335,7 @@
     },
     {
       "date": "2026-09-23",
+      "updated": "",
       "source": "The Guardian",
       "sources": [
         "The Guardian"
@@ -341,6 +356,7 @@
     },
     {
       "date": "2026-09-22",
+      "updated": "",
       "source": "mouse.dev",
       "sources": [
         "mouse.dev"
@@ -361,6 +377,7 @@
     },
     {
       "date": "2026-09-21",
+      "updated": "",
       "source": "Ars Technica",
       "sources": [
         "Ars Technica"
@@ -381,6 +398,7 @@
     },
     {
       "date": "2026-09-18",
+      "updated": "",
       "source": "The Guardian",
       "sources": [
         "The Guardian"
@@ -401,6 +419,7 @@
     },
     {
       "date": "2026-09-18",
+      "updated": "",
       "source": "TechCrunch",
       "sources": [
         "TechCrunch"
@@ -421,6 +440,7 @@
     },
     {
       "date": "2026-09-10",
+      "updated": "",
       "source": "Anthropic",
       "sources": [
         "Anthropic",
@@ -444,6 +464,7 @@
     },
     {
       "date": "2026-09-08",
+      "updated": "",
       "source": "Google Threat Intelligence Group",
       "sources": [
         "Google Threat Intelligence Group"
@@ -464,6 +485,7 @@
     },
     {
       "date": "2026-09-04",
+      "updated": "",
       "source": "NBC News",
       "sources": [
         "NBC News"
@@ -484,6 +506,7 @@
     },
     {
       "date": "2026-09-02",
+      "updated": "",
       "source": "Unit 42",
       "sources": [
         "Unit 42"
@@ -504,6 +527,7 @@
     },
     {
       "date": "2026-09-01",
+      "updated": "",
       "source": "Cloud Security Alliance",
       "sources": [
         "Cloud Security Alliance"
@@ -524,6 +548,7 @@
     },
     {
       "date": "2026-08-06",
+      "updated": "",
       "source": "BBC",
       "sources": [
         "BBC"
@@ -544,6 +569,7 @@
     },
     {
       "date": "2026-08-04",
+      "updated": "2026-10-23",
       "source": "UK AI Security Institute",
       "sources": [
         "UK AI Security Institute",
@@ -570,6 +596,7 @@
     },
     {
       "date": "2026-07-30",
+      "updated": "",
       "source": "Unit 42",
       "sources": [
         "Unit 42"
@@ -590,6 +617,7 @@
     },
     {
       "date": "2026-07-30",
+      "updated": "",
       "source": "Anthropic",
       "sources": [
         "Anthropic"
@@ -610,6 +638,7 @@
     },
     {
       "date": "2026-07-21",
+      "updated": "",
       "source": "OpenAI",
       "sources": [
         "OpenAI",
@@ -633,6 +662,7 @@
     },
     {
       "date": "2026-07-06",
+      "updated": "",
       "source": "Asahi Shimbun",
       "sources": [
         "Asahi Shimbun",
@@ -656,6 +686,7 @@
     },
     {
       "date": "2026-07-01",
+      "updated": "",
       "source": "Sysdig Threat Research Team",
       "sources": [
         "Sysdig Threat Research Team",
@@ -679,6 +710,7 @@
     },
     {
       "date": "2026-06-08",
+      "updated": "",
       "source": "Anthropic",
       "sources": [
         "Anthropic"
@@ -699,6 +731,7 @@
     },
     {
       "date": "2026-06-04",
+      "updated": "",
       "source": "Sysdig Threat Research Team",
       "sources": [
         "Sysdig Threat Research Team"
@@ -719,6 +752,7 @@
     },
     {
       "date": "2026-05-26",
+      "updated": "",
       "source": "Sysdig Threat Research Team",
       "sources": [
         "Sysdig Threat Research Team"
@@ -739,6 +773,7 @@
     },
     {
       "date": "2026-05-11",
+      "updated": "",
       "source": "Google Threat Intelligence Group",
       "sources": [
         "Google Threat Intelligence Group"
@@ -759,6 +794,7 @@
     },
     {
       "date": "2026-04-23",
+      "updated": "",
       "source": "Unit 42",
       "sources": [
         "Unit 42"
@@ -779,6 +815,7 @@
     },
     {
       "date": "2026-03-30",
+      "updated": "",
       "source": "Check Point Research",
       "sources": [
         "Check Point Research"
@@ -799,6 +836,7 @@
     },
     {
       "date": "2026-03-06",
+      "updated": "",
       "source": "Microsoft Threat Intelligence",
       "sources": [
         "Microsoft Threat Intelligence"
@@ -819,6 +857,7 @@
     },
     {
       "date": "2026-02-12",
+      "updated": "",
       "source": "Google Threat Intelligence Group",
       "sources": [
         "Google Threat Intelligence Group",
@@ -842,6 +881,7 @@
     },
     {
       "date": "2026-02-09",
+      "updated": "",
       "source": "Adnan Khan",
       "sources": [
         "Adnan Khan"
@@ -862,6 +902,7 @@
     },
     {
       "date": "2026-01-07",
+      "updated": "",
       "source": "Radware",
       "sources": [
         "Radware",
@@ -885,6 +926,7 @@
     },
     {
       "date": "2025-11-13",
+      "updated": "",
       "source": "Anthropic",
       "sources": [
         "Anthropic"
@@ -905,6 +947,7 @@
     },
     {
       "date": "2025-11-05",
+      "updated": "",
       "source": "Google Threat Intelligence Group",
       "sources": [
         "Google Threat Intelligence Group"
@@ -925,6 +968,7 @@
     },
     {
       "date": "2025-10-07",
+      "updated": "",
       "source": "OpenAI",
       "sources": [
         "OpenAI"
@@ -945,6 +989,7 @@
     },
     {
       "date": "2025-09-16",
+      "updated": "",
       "source": "Genians Security Center",
       "sources": [
         "Genians Security Center"
@@ -965,6 +1010,7 @@
     },
     {
       "date": "2025-09-11",
+      "updated": "",
       "source": "Trend Micro",
       "sources": [
         "Trend Micro"
@@ -985,6 +1031,7 @@
     },
     {
       "date": "2025-08-27",
+      "updated": "",
       "source": "Anthropic",
       "sources": [
         "Anthropic"
@@ -1005,6 +1052,7 @@
     },
     {
       "date": "2025-08-20",
+      "updated": "",
       "source": "Proofpoint",
       "sources": [
         "Proofpoint"
@@ -1025,6 +1073,7 @@
     },
     {
       "date": "2025-07-17",
+      "updated": "",
       "source": "The Hacker News",
       "sources": [
         "The Hacker News"
@@ -1045,6 +1094,7 @@
     },
     {
       "date": "2025-06-05",
+      "updated": "",
       "source": "OpenAI",
       "sources": [
         "OpenAI"
@@ -1067,6 +1117,7 @@
     },
     {
       "date": "2025-05-22",
+      "updated": "",
       "source": "JFrog Security Research",
       "sources": [
         "JFrog Security Research"
@@ -1087,6 +1138,7 @@
     },
     {
       "date": "2025-04-23",
+      "updated": "",
       "source": "Anthropic",
       "sources": [
         "Anthropic"
@@ -1107,6 +1159,7 @@
     },
     {
       "date": "2025-01-31",
+      "updated": "",
       "source": "OpenAI",
       "sources": [
         "OpenAI"
@@ -1129,6 +1182,7 @@
     },
     {
       "date": "2025-01-29",
+      "updated": "",
       "source": "Google Threat Intelligence Group",
       "sources": [
         "Google Threat Intelligence Group"
@@ -1149,6 +1203,7 @@
     },
     {
       "date": "2024-10-09",
+      "updated": "",
       "source": "OpenAI",
       "sources": [
         "OpenAI"
@@ -1171,6 +1226,7 @@
     },
     {
       "date": "2024-09-24",
+      "updated": "",
       "source": "HP Wolf Security",
       "sources": [
         "HP Wolf Security"
@@ -1191,6 +1247,7 @@
     },
     {
       "date": "2024-05-27",
+      "updated": "",
       "source": "The Straits Times",
       "sources": [
         "The Straits Times"
@@ -1211,6 +1268,7 @@
     },
     {
       "date": "2024-04-10",
+      "updated": "",
       "source": "Proofpoint",
       "sources": [
         "Proofpoint"
@@ -1231,6 +1289,7 @@
     },
     {
       "date": "2024-04-10",
+      "updated": "",
       "source": "LastPass",
       "sources": [
         "LastPass"
@@ -1251,6 +1310,7 @@
     },
     {
       "date": "2024-02-27",
+      "updated": "",
       "source": "JFrog Security Research",
       "sources": [
         "JFrog Security Research"
@@ -1271,6 +1331,7 @@
     },
     {
       "date": "2024-02-14",
+      "updated": "",
       "source": "OpenAI",
       "sources": [
         "OpenAI",
@@ -1294,6 +1355,7 @@
     },
     {
       "date": "2023-08-17",
+      "updated": "",
       "source": "Mandiant",
       "sources": [
         "Mandiant"
@@ -1314,6 +1376,7 @@
     },
     {
       "date": "2023-01-06",
+      "updated": "",
       "source": "Check Point Research",
       "sources": [
         "Check Point Research",

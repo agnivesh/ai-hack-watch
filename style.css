@@ -83,6 +83,7 @@ h2 { margin:0; font-size:25px; letter-spacing:-.03em; text-wrap:balance; }
 .item:last-child .dot-wrap:after { display:none; }
 .card { background:var(--card); border:1px solid var(--line); padding:24px 26px; }
 .source { color:var(--muted); }
+.source .updated { margin-left:8px; padding-left:8px; border-left:1px solid var(--line); }
 .card h3 { margin:9px 0 10px; font-size:22px; line-height:1.2; letter-spacing:-.025em; text-wrap:balance; }
 .card p { margin:0 0 17px; color:var(--text-body); line-height:1.6; text-wrap:pretty; }
 .tags { display:flex; gap:8px; flex-wrap:wrap; margin:0 0 17px; }
