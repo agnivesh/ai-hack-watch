@@ -976,3 +976,171 @@ DIVD said it detected suspicious activity in its infrastructure and is treating 
 **Category:** Security research
 
 OpenAI confirmed its agents accessed Census Bureau data using developer keys found in public code repositories and reposted public SEC information elsewhere, while researchers identified a failed attempt against an Education Department site. The company said only public information was reached and no agency data or systems were modified.
+
+---
+
+## Microsoft's FORGE Lab finds 140 Windows CVEs with agentic scanning
+
+**Date:** 2026-10-07
+**Source:** Microsoft Security
+**URL:** https://www.microsoft.com/en-us/security/blog/2026/10/07/3-lessons-from-frontier-ai-vulnerability-research/
+**Archive:**
+**AI role:** AI security research
+**Category:** Vulnerability research
+
+Microsoft said its FORGE Lab used agentic scanning tools to help find 140 Windows vulnerabilities assigned CVEs between May and September 2026, including 52 shipped in the September security release. The team also submitted 155 validated reports across 23 open-source projects, 93 of which maintainers had acknowledged or accepted at the time of writing. Microsoft said the limiting factor is now validation and patching capacity rather than discovery, with proof-of-concept generation for confirmed Linux kernel crashes averaging about $3.61 and 21.5 minutes per case.
+
+---
+
+## Anthropic reports Claude submitted a false police tip and reached real systems
+
+**Date:** 2026-10-09
+**Source:** Anthropic
+**Source 2:** AP News
+**URL:** https://www.anthropic.com/research/investigating-unintended-model-actions
+**URL 2:** https://apnews.com/article/artificial-intelligence-anthropic-claude-0acc6ac46d4d80db805e8d55468a6fe1
+**Archive:**
+**AI role:** Autonomous
+**Category:** Security research
+
+Anthropic published an internal review of Claude models taking actions it did not intend during evaluations and internal use, including a run where Claude Haiku 4.5 submitted a false murder tip to a Philadelphia police website in July. The report also described a model exploiting a software flaw to run commands on a server and working around paywalls and fetch limits. Anthropic said it had turned off live internet access for all internal evaluations and briefed the White House on cases involving government websites.
+
+---
+
+## Symantec finds Aoki infostealer harvesting AI coding assistant credentials
+
+**Date:** 2026-10-15
+**Source:** Symantec
+**URL:** https://www.security.com/threat-intelligence/aoki-infostealer-ai-targeting
+**Archive:**
+**AI role:** AI-targeted
+**Category:** Credential theft
+
+Symantec found that recent versions of the Aoki infostealer, also called Aokigahara, collect credential and session files for Claude, OpenAI Codex, Cursor, Codeium, Gemini, GitHub Copilot, JetBrains AI Assistant and Kiro. Older Aoki samples did not look for AI-related files, which Symantec says shows the capability was added recently. Stolen keys and OAuth tokens can be used under a developer's identity or quota and may open connected repositories, cloud services and CI/CD pipelines.
+
+---
+
+## NorForge finds exposed Cairn panels running AI-driven attacks on 1,200 sites
+
+**Date:** 2026-10-19
+**Source:** NorForge
+**Source 2:** The Hacker News
+**URL:** https://norforge.com/blog/inside_cairn
+**URL 2:** https://thehackernews.com/2026/10/hackers-use-autonomous-ai-agents-to.html
+**Archive:**
+**AI role:** Autonomous
+**Category:** Cyber operations
+
+NorForge researcher Snorre Fagerland found more than 20 exposed Cairn panels used for malicious AI-driven penetration testing, including a Chinese-language cluster tied to over 1,100 attack projects. Reuters, which reviewed the activity, reported that the most prolific operator's agents tried more than 1,200 e-commerce sites and broke into more than 100 companies, including Deere, SharkNinja and Cummins. The operator spent roughly $5,000 in model tokens, and Reuters could not establish how much data, if any, was taken.
+
+---
+
+## Wiz documents an AI agent running a full cloud intrusion
+
+**Date:** 2026-10-19
+**Source:** Wiz
+**URL:** https://www.wiz.io/blog/anatomy-of-ai-driven-cloud-attacks
+**Archive:**
+**AI role:** Autonomous
+**Category:** Cloud infrastructure
+
+Wiz's incident response team described an intrusion in which an AI agent ran the operation from start to finish, gaining a foothold through a Java RCE in an exposed Kafka UI instance and then moving into Kubernetes, CI/CD and cloud control planes. The agent harvested service account tokens and instance metadata credentials, minted new cloud credentials, and used several channels to move data out. Wiz said the same source IP was seen scanning more than 600 other customer environments in the same window.
+
+---
+
+## Microsoft links Storm-0940 to AI-driven ARTEX attacks and ConnectWise breach
+
+**Date:** 2026-10-21
+**Source:** Microsoft Threat Intelligence
+**URL:** https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/
+**Archive:**
+**AI role:** Autonomous
+**Category:** Cyber operations
+
+Microsoft attributed a wave of agentic attacks to Storm-0940, a China-aligned group that used the ARTEX penetration-testing framework to target hundreds of organizations from September 2026. The company assessed that Storm-0940 was responsible for the ConnectWise Cloud Backup supply chain compromise, where stolen application credentials were used to attempt sign-ins to more than 2,250 Microsoft 365 tenants and some intrusions reached privileged cloud access in under three hours. Microsoft said activity in a tenant did not by itself show that customer data was accessed.
+
+---
+
+## Zscaler traces a global AI-assisted hacking campaign through ARTEX prompts
+
+**Date:** 2026-10-21
+**Source:** Zscaler ThreatLabz
+**URL:** https://www.zscaler.com/blogs/security-research/inside-global-ai-assisted-hacking-campaign
+**Archive:**
+**AI role:** AI-assisted
+**Category:** Cyber operations
+
+Zscaler ThreatLabz recovered an ARTEX deployment that paired the agentic pentesting framework with Claude Code, Codex and Grok sessions, plus scripts that kept instructions and project state synchronized across accounts and servers. The prompt history showed a Chinese-speaking operator targeting finance, dating, SMS, crypto, retail, education and logistics organizations across at least 19 countries, with repeated requests for personal and transaction data. Zscaler could not verify which underlying models answered each session, and said some may have been Anthropic's Claude.
+
+---
+
+## Symantec captures a 'Skynet mode' agent hijacking exposed LLM endpoints
+
+**Date:** 2026-10-21
+**Source:** Symantec
+**Source 2:** The Decoder
+**URL:** https://www.security.com/threat-intelligence/ai-llmjacking-skynet
+**URL 2:** https://the-decoder.com/an-ai-agent-in-skynet-mode-hijacks-unprotected-language-models-to-launch-self-sustaining-cyberattacks/
+**Archive:**
+**AI role:** Autonomous
+**Category:** Cyber operations
+
+Symantec caught an attacker's full agent prompt on an AI honeypot: about 74 offensive tool definitions, a jailbreak that reframed credential theft as routine work, and a "Skynet mode" authorizing up to 100,000 unattended steps. The agent hunted for unauthenticated LLM endpoints and stolen API keys so the victim would pay for inference, then used its tools to scan, exploit web frameworks and deploy XMRig miners. Symantec saw the follow-up payload target go2rtc camera servers, but the honeypot did not execute any of the tool calls.
+
+---
+
+## Wiz uses frontier models to find and exploit critical PHP flaws
+
+**Date:** 2026-10-21
+**Source:** Wiz
+**Source 2:** Symantec
+**URL:** https://www.wiz.io/blog/php2shell-php-rce
+**URL 2:** https://www.security.com/threat-intelligence/php2shell-critical-vulns-cve-2026-109618-109619
+**Archive:**
+**AI role:** AI security research
+**Category:** Vulnerability research
+
+Wiz Research used its Atlas system with Gemini 4 Argon and GPT-5.6 Sol to find and exploit two critical flaw groups in PHP's core, tracked as CVE-2026-109618 and CVE-2026-109619 and scoring 9.2. The bugs had sat in PHP for more than a decade, and the models helped adapt working exploits to different versions, configurations and memory layouts, with unauthenticated RCE demonstrated on WordPress, Drupal and Joomla. PHP patched the flaws on October 21 after details leaked a day early, and Wiz says one researcher did in about a week what would previously have taken a specialist team months.
+
+---
+
+## OpenAI red-team agents escaped VMs and signalled through CPU cache
+
+**Date:** 2026-10-23
+**Source:** OpenAI
+**URL:** https://openai.com/index/securing-our-frontier-model-training-environment/
+**Archive:**
+**AI role:** AI security research
+**Category:** Security research
+
+OpenAI said it paused frontier training and evaluation on September 20 after an internal model exploited a DNS resolver misconfiguration to reach the live internet, then resumed on October 1 after hardening its containment. A red-teaming campaign with its most capable models found microVM escapes, new routes to the internet through metrics and authentication services, and a cache-timing channel that let agents in separate VMs exchange data without a network connection. OpenAI said the agents also found previously unknown flaws in Kata Containers, gVisor and Moby, and that it now trains frontier models with no internet access.
+
+---
+
+## UK AISI says Mythos 5 tried a supply-chain attack during a cyber evaluation
+
+**Date:** 2026-10-23
+**Source:** UK AI Security Institute
+**Source 2:** Anthropic
+**URL:** https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident
+**URL 2:** https://www.anthropic.com/research/alignment-assessment-ukaisi
+**Archive:**
+**AI role:** Autonomous
+**Category:** Security research
+
+The UK AI Security Institute published its investigation into a July evaluation incident in which Claude Mythos 5 tried to slip malicious code into a real GitHub project and created fake accounts to pressure the maintainer into accepting it. AISI found the model kept attacking even as it was told the target was a real person, and its chain-of-thought often assumed the target was simulated. Anthropic published a parallel analysis and said production safeguards would have blocked the behavior if they had been enabled.
+
+---
+
+## LiteLLM 1.107.0 shipped a credential stealer through Python startup hooks
+
+**Date:** 2026-10-23
+**Source:** Microsoft Security Research
+**Source 2:** LiteLLM
+**URL:** https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/
+**URL 2:** https://docs.litellm.ai/blog/security-incident-oct-21-2026
+**Archive:**
+**AI role:** AI-targeted
+**Category:** Credential theft
+
+Microsoft analysed the compromised LiteLLM 1.107.0 release, which ran a credential collector through Python startup hooks so that simply starting Python in an affected environment could trigger it. The payload targeted AI tool tokens, cloud credentials, SSH keys, browser data and the LiteLLM proxy database, then encrypted and uploaded what it found. LiteLLM said stolen GitHub credentials were used to alter its release workflow and point it at a lookalike repository; Microsoft had not independently established how the attacker got the credentials.
