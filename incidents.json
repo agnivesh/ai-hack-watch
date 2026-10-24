@@ -436,7 +436,7 @@
       "archive": "https://web.archive.org/web/20260919042348/https://www.anthropic.com/threat-intelligence-report-september-2026",
       "archives": [
         "https://web.archive.org/web/20260919042348/https://www.anthropic.com/threat-intelligence-report-september-2026",
-        ""
+        "https://web.archive.org/web/20261024105202/https://cyberscoop.com/anthropic-report-ai-enabled-cyber-attacks/"
       ],
       "role": "AI-assisted",
       "category": "Cyber operations",
@@ -625,7 +625,7 @@
       "archive": "https://web.archive.org/web/20260918094524/https://openai.com/index/hugging-face-model-evaluation-security-incident/",
       "archives": [
         "https://web.archive.org/web/20260918094524/https://openai.com/index/hugging-face-model-evaluation-security-incident/",
-        ""
+        "https://web.archive.org/web/20261010160418/https://www.reuters.com/business/its-ai-agent-spent-days-hacking-company-sources-say-openai-did-not-notice-week-2026-07-24/"
       ],
       "role": "Autonomous",
       "category": "Cyber operations",
@@ -648,7 +648,7 @@
       "archive": "https://web.archive.org/web/20260919205409/https://www.asahi.com/ajw/articles/16703618",
       "archives": [
         "https://web.archive.org/web/20260919205409/https://www.asahi.com/ajw/articles/16703618",
-        ""
+        "https://web.archive.org/web/20260919205547/https://shattered.io/bandai-namco-chatgpt-hack-2026/"
       ],
       "role": "AI-assisted",
       "category": "Cyber operations",
@@ -671,7 +671,7 @@
       "archive": "https://web.archive.org/web/20260919144754/https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion",
       "archives": [
         "https://web.archive.org/web/20260919144754/https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion",
-        ""
+        "https://web.archive.org/web/20261024105234/https://www.darkreading.com/cyberattacks-data-breaches/jadepuffer-first-complete-llm-driven-ransomware-attack"
       ],
       "role": "Autonomous",
       "category": "Malware",
@@ -877,7 +877,7 @@
       "archive": "https://web.archive.org/web/20260904185439/https://www.radware.com/blog/threat-intelligence/zombieagent/",
       "archives": [
         "https://web.archive.org/web/20260904185439/https://www.radware.com/blog/threat-intelligence/zombieagent/",
-        ""
+        "https://web.archive.org/web/20260920153520/https://www.infosecurity-magazine.com/news/new-zeroclick-attack-chatgpt/"
       ],
       "role": "AI-targeted",
       "category": "Security research",
@@ -1329,7 +1329,7 @@
       "archive": "https://web.archive.org/web/20260919205121/https://research.checkpoint.com/2023/opwnai-cybercriminals-starting-to-use-chatgpt/",
       "archives": [
         "https://web.archive.org/web/20260919205121/https://research.checkpoint.com/2023/opwnai-cybercriminals-starting-to-use-chatgpt/",
-        ""
+        "https://web.archive.org/web/20260920153629/https://www.infosecurity-magazine.com/news/chatgpt-develop-malicious-tools/"
       ],
       "role": "AI-assisted",
       "category": "Malware",
