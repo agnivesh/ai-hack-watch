@@ -15,7 +15,7 @@ import argparse
 import json
 import re
 import sys
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -80,7 +80,7 @@ def validate(fields):
             errors.append("Publication date must be YYYY-MM-DD")
         else:
             try:
-                parsed = datetime.strptime(date_value, "%Y-%m-%d").date()
+                parsed = date.fromisoformat(date_value)
                 if parsed > datetime.now(timezone.utc).date():
                     errors.append("Publication date is in the future")
             except ValueError:

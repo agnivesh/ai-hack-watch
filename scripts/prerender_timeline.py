@@ -9,7 +9,6 @@ from urllib.parse import urlparse
 
 import datamd
 
-
 INCIDENT_LIMIT = 20
 ROOT = Path(__file__).resolve().parents[1]
 START_MARKER = "<!-- PRE_RENDERED_TIMELINE_START -->"

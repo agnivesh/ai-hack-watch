@@ -11,10 +11,10 @@ import unicodedata
 from datetime import date, datetime, timezone
 from urllib.parse import urlparse
 
-BLOCK_SPLIT_RE = re.compile(r"^---\s*$", re.M)
+BLOCK_SPLIT_RE = re.compile(r"^---\s*$", re.MULTILINE)
 HEADING_RE = re.compile(r"^##\s+(.+)$")
 FIELD_RE = re.compile(
-    r"^\*\*(Date|Updated|Source|URL|Archive|AI role|Category)( \d+)?:\*\*\s*(.*)$", re.I
+    r"^\*\*(Date|Updated|Source|URL|Archive|AI role|Category)( \d+)?:\*\*\s*(.*)$", re.IGNORECASE
 )
 DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 
@@ -75,11 +75,11 @@ def parse_blocks(text):
                 number = int(field_match.group(2)) if field_match.group(2) else 1
                 values.setdefault(key, {})[number] = field_match.group(3).strip()
 
-        def first(key):
+        def first(key, values=values):
             numbered = values.get(key, {})
             return numbered.get(1, "")
 
-        def ordered(key):
+        def ordered(key, values=values):
             return [value for _, value in sorted(values.get(key, {}).items())]
 
         sources = ordered("source")

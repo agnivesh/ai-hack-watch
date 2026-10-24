@@ -38,7 +38,7 @@ def check_url(url):
             if method == "HEAD":
                 continue  # bots often get 4xx on HEAD; retry with GET
             return error.code
-        except Exception:
+        except Exception:  # noqa: BLE001 - any failure is reported as unreachable
             if method == "GET":
                 return "unreachable"
     return "unreachable"
