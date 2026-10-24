@@ -136,7 +136,9 @@ def save_snapshot(url):
     match = WAYBACK_URL_RE.search(output)
     if match:
         return match.group(0).rstrip('"'), False
-    if status in (429, 500, 502, 503, 504) or "Temporarily Offline" in output:
+    # 429, every 5xx, and a missing response all mean "try again later".
+    # 520 in particular is what Wayback returns while it is degraded.
+    if status == 0 or status == 429 or 500 <= status < 600 or "Temporarily Offline" in output:
         return "", True
     print(f"::warning::Wayback refused to archive {url} (HTTP {status or 'no response'})")
     return "", False

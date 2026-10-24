@@ -337,6 +337,19 @@ def save_429_is_transient():
     assert transient is True, transient
 
 
+@check("5xx and connection failures count as transient")
+def save_5xx_is_transient():
+    for body in ("Wayback Machine\n520", "curl: (28) timed out\n000"):
+        original = generate._curl
+        generate._curl = lambda args, timeout, body=body: FakeCurl(body)
+        try:
+            snapshot, transient = generate.save_snapshot("https://example.com/x")
+        finally:
+            generate._curl = original
+        assert snapshot == "", (body, snapshot)
+        assert transient is True, (body, transient)
+
+
 @check("the Wayback circuit breaker stops after two transient failures")
 def archive_breaker_trips():
     calls = []
