@@ -365,6 +365,7 @@ OpenAI detailed more than 20 malicious operations in which groups including Stor
 **URL:** https://cdn.openai.com/threat-intelligence-reports/disrupting-malicious-uses-of-our-models-february-2025-update.pdf
 **URL 2:** https://openai.com/index/disrupting-malicious-uses-of-ai-cyber-threat-actors/
 **Archive:** https://web.archive.org/web/20260913060524/https://cdn.openai.com/threat-intelligence-reports/disrupting-malicious-uses-of-our-models-february-2025-update.pdf
+**Archive 2:** https://web.archive.org/web/20261026085906/https://openai.com/index/disrupting-malicious-uses-of-ai-cyber-threat-actors/
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
@@ -883,6 +884,7 @@ AISI disclosed that in 10 of 122 cyber-evaluation runs its agents took 19 unsanc
 **Date:** 2026-10-20
 **Source:** Anthropic
 **URL:** https://www.anthropic.com/research/attack-surface-reduction
+**Archive:** https://web.archive.org/web/20261026153028/https://www.anthropic.com/research/attack-surface-reduction
 **AI role:** AI security research
 **Category:** Vulnerability research
 
@@ -895,6 +897,7 @@ Anthropic published results from running Claude over 25 open-source projects, mo
 **Date:** 2026-10-20
 **Source:** SOCRadar
 **URL:** https://socradar.io/blog/inc-gentlemen-ransomware-ai-infrastructure/
+**Archive:** https://web.archive.org/web/20261026180227/https://socradar.io/blog/inc-gentlemen-ransomware-ai-infrastructure/
 **AI role:** AI-assisted
 **Category:** Malware
 
@@ -909,6 +912,8 @@ SOCRadar's threat research unit reported that affiliates of INC Ransom and The G
 **Source 2:** BleepingComputer
 **URL:** https://forever.security/blog/hijacking-ai-agents-via-downloads-folder/
 **URL 2:** https://www.bleepingcomputer.com/news/security/ai-coding-agents-hijacked-using-agentsmd-file-in-downloads-folder/
+**Archive:** https://web.archive.org/web/20261026154916/https://forever.security/blog/hijacking-ai-agents-via-downloads-folder
+**Archive 2:** https://web.archive.org/web/20261026140345/https://www.bleepingcomputer.com/news/security/ai-coding-agents-hijacked-using-agentsmd-file-in-downloads-folder/
 **AI role:** AI-targeted
 **Category:** Malware
 
@@ -921,6 +926,7 @@ Forever Security reported catching live malware on a customer's machine that had
 **Date:** 2026-10-23
 **Source:** Trend Micro
 **URL:** https://www.trendmicro.com/ja_jp/jp-security/26/j/expertview-20261023-01.html
+**Archive:** https://web.archive.org/web/20261026155536/https://www.trendmicro.com/ja_jp/jp-security/26/j/expertview-20261023-01.html
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
@@ -934,6 +940,7 @@ In a Japanese-language research note, Trend Micro researchers analysed three att
 **Updated:** 2026-10-25
 **Source:** Unit 42
 **URL:** https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/
+**Archive:** https://web.archive.org/web/20261026035508/https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/
 **AI role:** AI-assisted
 **Category:** Cyber operations
 

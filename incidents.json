@@ -80,9 +80,9 @@
       "urls": [
         "https://www.trendmicro.com/ja_jp/jp-security/26/j/expertview-20261023-01.html"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20261026155536/https://www.trendmicro.com/ja_jp/jp-security/26/j/expertview-20261023-01.html",
       "archives": [
-        ""
+        "https://web.archive.org/web/20261026155536/https://www.trendmicro.com/ja_jp/jp-security/26/j/expertview-20261023-01.html"
       ],
       "role": "AI-assisted",
       "category": "Cyber operations",
@@ -101,9 +101,9 @@
       "urls": [
         "https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20261026035508/https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/",
       "archives": [
-        ""
+        "https://web.archive.org/web/20261026035508/https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/"
       ],
       "role": "AI-assisted",
       "category": "Cyber operations",
@@ -124,10 +124,10 @@
         "https://forever.security/blog/hijacking-ai-agents-via-downloads-folder/",
         "https://www.bleepingcomputer.com/news/security/ai-coding-agents-hijacked-using-agentsmd-file-in-downloads-folder/"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20261026154916/https://forever.security/blog/hijacking-ai-agents-via-downloads-folder",
       "archives": [
-        "",
-        ""
+        "https://web.archive.org/web/20261026154916/https://forever.security/blog/hijacking-ai-agents-via-downloads-folder",
+        "https://web.archive.org/web/20261026140345/https://www.bleepingcomputer.com/news/security/ai-coding-agents-hijacked-using-agentsmd-file-in-downloads-folder/"
       ],
       "role": "AI-targeted",
       "category": "Malware",
@@ -236,9 +236,9 @@
       "urls": [
         "https://www.anthropic.com/research/attack-surface-reduction"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20261026153028/https://www.anthropic.com/research/attack-surface-reduction",
       "archives": [
-        ""
+        "https://web.archive.org/web/20261026153028/https://www.anthropic.com/research/attack-surface-reduction"
       ],
       "role": "AI security research",
       "category": "Vulnerability research",
@@ -257,9 +257,9 @@
       "urls": [
         "https://socradar.io/blog/inc-gentlemen-ransomware-ai-infrastructure/"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20261026180227/https://socradar.io/blog/inc-gentlemen-ransomware-ai-infrastructure/",
       "archives": [
-        ""
+        "https://web.archive.org/web/20261026180227/https://socradar.io/blog/inc-gentlemen-ransomware-ai-infrastructure/"
       ],
       "role": "AI-assisted",
       "category": "Malware",
@@ -1282,7 +1282,7 @@
       "archive": "https://web.archive.org/web/20260913060524/https://cdn.openai.com/threat-intelligence-reports/disrupting-malicious-uses-of-our-models-february-2025-update.pdf",
       "archives": [
         "https://web.archive.org/web/20260913060524/https://cdn.openai.com/threat-intelligence-reports/disrupting-malicious-uses-of-our-models-february-2025-update.pdf",
-        ""
+        "https://web.archive.org/web/20261026085906/https://openai.com/index/disrupting-malicious-uses-of-ai-cyber-threat-actors/"
       ],
       "role": "AI-assisted",
       "category": "Cyber operations",
