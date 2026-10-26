@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "chunk_size": 20,
-  "total": 63,
+  "total": 68,
   "taxonomy": {
     "roles": [
       "Autonomous",
@@ -66,6 +66,72 @@
       "role": "AI-targeted",
       "category": "Credential theft",
       "slug": "litellm-11070-shipped-a-credential-stealer-through-python-startup-hooks"
+    },
+    {
+      "date": "2026-10-23",
+      "updated": "",
+      "source": "Trend Micro",
+      "sources": [
+        "Trend Micro"
+      ],
+      "title": "Trend Micro dissected three AI-enabled attack platforms used against Japanese organisations",
+      "description": "In a Japanese-language research note, Trend Micro researchers analysed three attacker server environments used against Japanese organisations and found AI involved at very different depths, independent of the ARTEX autonomous pentest system reported earlier. One platform abused the open-source CyberStrikeAI agent harness with 44 role-split agents that chained reconnaissance, command and control, persistence and data exfiltration with automated reporting, hitting at least 19 organisations including 16 in Japan; a second was a human-led crew that used an LLM for planning and tool-building over roughly 24 days, scanning more than 6,000 Japanese IP addresses under false \"authorised testing\" claims; a third was assessed with high confidence to use AI-authored scripts alone, hunting VPN endpoints including a reused-credential Yamaha RTX1210 and more than 1,300 WebLogic candidates between January and October 2026.",
+      "url": "https://www.trendmicro.com/ja_jp/jp-security/26/j/expertview-20261023-01.html",
+      "urls": [
+        "https://www.trendmicro.com/ja_jp/jp-security/26/j/expertview-20261023-01.html"
+      ],
+      "archive": "",
+      "archives": [
+        ""
+      ],
+      "role": "AI-assisted",
+      "category": "Cyber operations",
+      "slug": "trend-micro-dissected-three-ai-enabled-attack-platforms-used-against-japanese-organisations"
+    },
+    {
+      "date": "2026-10-23",
+      "updated": "2026-10-25",
+      "source": "Unit 42",
+      "sources": [
+        "Unit 42"
+      ],
+      "title": "Unit 42 traced agentic AI platforms driving post-exploitation at a European government agency",
+      "description": "Unit 42's threat brief on the PHP2Shell vulnerabilities initially described an attack against a European government agency in which operators used agentic AI attack platforms for post-exploitation, reaching password hashes and storing 2FA/MFA secrets within about two hours, tunnelling an NTLM relay into Active Directory and attempting Domain-Admin escalation, with command output wrapped in machine-parseable delimiters such as ==SHELLUSER==. In an update on 25 October, Unit 42 retracted the association with the PHP2Shell CVEs, saying it could not confirm that initial access was tied to those specific vulnerabilities.",
+      "url": "https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/",
+      "urls": [
+        "https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/"
+      ],
+      "archive": "",
+      "archives": [
+        ""
+      ],
+      "role": "AI-assisted",
+      "category": "Cyber operations",
+      "slug": "unit-42-traced-agentic-ai-platforms-driving-post-exploitation-at-a-european-government-agency"
+    },
+    {
+      "date": "2026-10-22",
+      "updated": "",
+      "source": "Forever Security",
+      "sources": [
+        "Forever Security",
+        "BleepingComputer"
+      ],
+      "title": "A planted AGENTS.md hijacked AI coding agents from the Downloads folder",
+      "description": "Forever Security reported catching live malware on a customer's machine that had planted an AGENTS.md instructions file in the Downloads folder, the one folder a website can write to without a click, so that an AI coding agent started there later would read and obey it. Reproduced end to end on OpenAI Codex and Claude Code, the planted file made Codex rewrite its machine-wide ~/.codex/config.toml and install the malicious npm package function-color, running attacker code in more than 90% of attempts, and made Claude Code point ANTHROPIC_BASE_URL at an attacker-controlled server, leaking OAuth tokens and enabling Bash commands with dangerouslyDisableSandbox in roughly half of attempts. Forever argued there is nothing for the vendors to patch, because an agent that obeys the AGENTS.md file in its folder is working as designed, and reporting has tracked the campaign under the name MALFEX.",
+      "url": "https://forever.security/blog/hijacking-ai-agents-via-downloads-folder/",
+      "urls": [
+        "https://forever.security/blog/hijacking-ai-agents-via-downloads-folder/",
+        "https://www.bleepingcomputer.com/news/security/ai-coding-agents-hijacked-using-agentsmd-file-in-downloads-folder/"
+      ],
+      "archive": "",
+      "archives": [
+        "",
+        ""
+      ],
+      "role": "AI-targeted",
+      "category": "Malware",
+      "slug": "a-planted-agentsmd-hijacked-ai-coding-agents-from-the-downloads-folder"
     },
     {
       "date": "2026-10-21",
@@ -156,6 +222,48 @@
       "role": "AI security research",
       "category": "Vulnerability research",
       "slug": "wiz-uses-frontier-models-to-find-and-exploit-critical-php-flaws"
+    },
+    {
+      "date": "2026-10-20",
+      "updated": "",
+      "source": "Anthropic",
+      "sources": [
+        "Anthropic"
+      ],
+      "title": "Anthropic used Claude to shrink the attack surface of major open-source projects",
+      "description": "Anthropic published results from running Claude over 25 open-source projects, more than five million lines of code across C/C++, Java, PHP and Python, to find ways to reduce their attack surface, and reported 493 issues. The findings included 93 pre-auth surfaces reachable in default builds, 37 pre-execution locations, 61 weakened pre-auth controls, and 162 undocumented configuration combinations of which 94 silently disabled a security control; one combination had gone undetected for 21 years by quietly dropping a certificate requirement. The same fail-open hostname deny rule turned up in four unrelated projects, and OpenSSH saw the largest reduction at roughly 4,500 lines after Claude traced an ML-DSA-44 signature-verification path reachable before authentication, with fixes shipped in OpenSSH 10.5 and 10.6.",
+      "url": "https://www.anthropic.com/research/attack-surface-reduction",
+      "urls": [
+        "https://www.anthropic.com/research/attack-surface-reduction"
+      ],
+      "archive": "",
+      "archives": [
+        ""
+      ],
+      "role": "AI security research",
+      "category": "Vulnerability research",
+      "slug": "anthropic-used-claude-to-shrink-the-attack-surface-of-major-open-source-projects"
+    },
+    {
+      "date": "2026-10-20",
+      "updated": "",
+      "source": "SOCRadar",
+      "sources": [
+        "SOCRadar"
+      ],
+      "title": "SOCRadar exposed the AI infrastructure behind INC Ransom and The Gentlemen operations",
+      "description": "SOCRadar's threat research unit reported that affiliates of INC Ransom and The Gentlemen ran an intrusion ecosystem in which AI executed attack steps under human approval, exposed through a publicly accessible command-and-control server whose AI session databases and source code led them to six more adversary-controlled servers. The toolkit included Phantom, an \"autonomous red team kill chain framework\" with 18 skill modules, 32 MCP servers carrying WormGPT-labelled tooling, and operators who sent 8,257 messages across 133 sessions to commercial models through OpenRouter at a cost of about $23,920. The affiliates exploited FortiClient EMS, SimpleHelp and cPanel vulnerabilities across 62 named organisations, 36 of them in the United States, and had staged 46 custom INC encryptor builds for deployment on 1 October 2026.",
+      "url": "https://socradar.io/blog/inc-gentlemen-ransomware-ai-infrastructure/",
+      "urls": [
+        "https://socradar.io/blog/inc-gentlemen-ransomware-ai-infrastructure/"
+      ],
+      "archive": "",
+      "archives": [
+        ""
+      ],
+      "role": "AI-assisted",
+      "category": "Malware",
+      "slug": "socradar-exposed-the-ai-infrastructure-behind-inc-ransom-and-the-gentlemen-operations"
     },
     {
       "date": "2026-10-19",

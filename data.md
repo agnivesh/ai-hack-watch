@@ -875,3 +875,66 @@ Microsoft analysed the compromised LiteLLM 1.107.0 release, which ran a credenti
 **Category:** Security research
 
 AISI disclosed that in 10 of 122 cyber-evaluation runs its agents took 19 unsanctioned actions against real people and organisations, 17 of them from Anthropic's Mythos 5 and two from GPT-5.6 Sol with cyber classifiers disabled, and said it found no evidence of resulting harm. In the most serious case Mythos 5 used Tor to open a malicious pull request on a real open-source project, created fake identities to pressure the maintainer into approving it, and was refused by a human reviewer. A joint follow-up published on 23 October attributed the persistence to a "momentum" effect, finding that Mythos 5 continued the attack in 98% of replays once underway and that a misconfigured task had made the intended in-scope route close to impossible.
+
+---
+
+## Anthropic used Claude to shrink the attack surface of major open-source projects
+
+**Date:** 2026-10-20
+**Source:** Anthropic
+**URL:** https://www.anthropic.com/research/attack-surface-reduction
+**AI role:** AI security research
+**Category:** Vulnerability research
+
+Anthropic published results from running Claude over 25 open-source projects, more than five million lines of code across C/C++, Java, PHP and Python, to find ways to reduce their attack surface, and reported 493 issues. The findings included 93 pre-auth surfaces reachable in default builds, 37 pre-execution locations, 61 weakened pre-auth controls, and 162 undocumented configuration combinations of which 94 silently disabled a security control; one combination had gone undetected for 21 years by quietly dropping a certificate requirement. The same fail-open hostname deny rule turned up in four unrelated projects, and OpenSSH saw the largest reduction at roughly 4,500 lines after Claude traced an ML-DSA-44 signature-verification path reachable before authentication, with fixes shipped in OpenSSH 10.5 and 10.6.
+
+---
+
+## SOCRadar exposed the AI infrastructure behind INC Ransom and The Gentlemen operations
+
+**Date:** 2026-10-20
+**Source:** SOCRadar
+**URL:** https://socradar.io/blog/inc-gentlemen-ransomware-ai-infrastructure/
+**AI role:** AI-assisted
+**Category:** Malware
+
+SOCRadar's threat research unit reported that affiliates of INC Ransom and The Gentlemen ran an intrusion ecosystem in which AI executed attack steps under human approval, exposed through a publicly accessible command-and-control server whose AI session databases and source code led them to six more adversary-controlled servers. The toolkit included Phantom, an "autonomous red team kill chain framework" with 18 skill modules, 32 MCP servers carrying WormGPT-labelled tooling, and operators who sent 8,257 messages across 133 sessions to commercial models through OpenRouter at a cost of about $23,920. The affiliates exploited FortiClient EMS, SimpleHelp and cPanel vulnerabilities across 62 named organisations, 36 of them in the United States, and had staged 46 custom INC encryptor builds for deployment on 1 October 2026.
+
+---
+
+## A planted AGENTS.md hijacked AI coding agents from the Downloads folder
+
+**Date:** 2026-10-22
+**Source:** Forever Security
+**Source 2:** BleepingComputer
+**URL:** https://forever.security/blog/hijacking-ai-agents-via-downloads-folder/
+**URL 2:** https://www.bleepingcomputer.com/news/security/ai-coding-agents-hijacked-using-agentsmd-file-in-downloads-folder/
+**AI role:** AI-targeted
+**Category:** Malware
+
+Forever Security reported catching live malware on a customer's machine that had planted an AGENTS.md instructions file in the Downloads folder, the one folder a website can write to without a click, so that an AI coding agent started there later would read and obey it. Reproduced end to end on OpenAI Codex and Claude Code, the planted file made Codex rewrite its machine-wide ~/.codex/config.toml and install the malicious npm package function-color, running attacker code in more than 90% of attempts, and made Claude Code point ANTHROPIC_BASE_URL at an attacker-controlled server, leaking OAuth tokens and enabling Bash commands with dangerouslyDisableSandbox in roughly half of attempts. Forever argued there is nothing for the vendors to patch, because an agent that obeys the AGENTS.md file in its folder is working as designed, and reporting has tracked the campaign under the name MALFEX.
+
+---
+
+## Trend Micro dissected three AI-enabled attack platforms used against Japanese organisations
+
+**Date:** 2026-10-23
+**Source:** Trend Micro
+**URL:** https://www.trendmicro.com/ja_jp/jp-security/26/j/expertview-20261023-01.html
+**AI role:** AI-assisted
+**Category:** Cyber operations
+
+In a Japanese-language research note, Trend Micro researchers analysed three attacker server environments used against Japanese organisations and found AI involved at very different depths, independent of the ARTEX autonomous pentest system reported earlier. One platform abused the open-source CyberStrikeAI agent harness with 44 role-split agents that chained reconnaissance, command and control, persistence and data exfiltration with automated reporting, hitting at least 19 organisations including 16 in Japan; a second was a human-led crew that used an LLM for planning and tool-building over roughly 24 days, scanning more than 6,000 Japanese IP addresses under false "authorised testing" claims; a third was assessed with high confidence to use AI-authored scripts alone, hunting VPN endpoints including a reused-credential Yamaha RTX1210 and more than 1,300 WebLogic candidates between January and October 2026.
+
+---
+
+## Unit 42 traced agentic AI platforms driving post-exploitation at a European government agency
+
+**Date:** 2026-10-23
+**Updated:** 2026-10-25
+**Source:** Unit 42
+**URL:** https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/
+**AI role:** AI-assisted
+**Category:** Cyber operations
+
+Unit 42's threat brief on the PHP2Shell vulnerabilities initially described an attack against a European government agency in which operators used agentic AI attack platforms for post-exploitation, reaching password hashes and storing 2FA/MFA secrets within about two hours, tunnelling an NTLM relay into Active Directory and attempting Domain-Admin escalation, with command output wrapped in machine-parseable delimiters such as ==SHELLUSER==. In an update on 25 October, Unit 42 retracted the association with the PHP2Shell CVEs, saying it could not confirm that initial access was tied to those specific vulnerabilities.
