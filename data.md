@@ -350,6 +350,7 @@ HP identified a French-language campaign whose VBScript and JavaScript payloads 
 **URL:** https://cdn.openai.com/threat-intelligence-reports/influence-and-cyber-operations-an-update_October-2024.pdf
 **URL 2:** https://openai.com/index/disrupting-malicious-uses-of-ai-sweetspecter/
 **Archive:** https://web.archive.org/web/20260910155537/https://cdn.openai.com/threat-intelligence-reports/influence-and-cyber-operations-an-update_October-2024.pdf
+**Archive 2:** https://web.archive.org/web/20261026085754/https://openai.com/index/disrupting-malicious-uses-of-ai-sweetspecter/
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
