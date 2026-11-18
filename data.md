@@ -219,6 +219,7 @@ Palo Alto Networks' Unit 42 reported that a Chinese-speaking threat actor used D
 **URL:** https://labs.cloudsecurityalliance.org/research/csa-research-note-aurora-ransomware-cursor-ai-abuse-20260901/
 **URL 2:** https://www.sophos.com/en-us/blog/ai-used-in-aur0ra-ransomware-testing-and-execution
 **Archive:** https://web.archive.org/web/20260919160627/https://labs.cloudsecurityalliance.org/research/csa-research-note-aurora-ransomware-cursor-ai-abuse-20260901/
+**Archive 2:** https://web.archive.org/web/20261110135840/https://www.sophos.com/en-us/blog/ai-used-in-aur0ra-ransomware-testing-and-execution
 **AI role:** AI-assisted
 **Category:** Malware
 
@@ -687,6 +688,7 @@ Security researcher Rowan H-J reported that agents he attributes with high likel
 **URL 3:** https://www.securityweek.com/first-agentic-ai-data-breach-reported-to-spanish-regulator/
 **Archive:** https://web.archive.org/web/20260928214748/https://csirt.divd.nl/2026/09/24/when-not-if/
 **Archive 3:** https://web.archive.org/web/20261008113856/https://www.securityweek.com/first-agentic-ai-data-breach-reported-to-spanish-regulator/
+**Archive 2:** https://web.archive.org/web/20261028075401/https://www.sysdig.com/blog/ai-agent-exploits-zammad-zero-days-in-divd-breach-what-we-know-and-how-to-detect-it
 **AI role:** Unclear
 **Category:** Cyber operations
 
@@ -787,6 +789,7 @@ Wiz's incident response team described an intrusion in which an AI agent ran the
 **URL:** https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/
 **URL 2:** https://www.wiz.io/blog/artex-in-the-wild-storm-0940-expands-targeting-of-it-and-software-vendors
 **Archive:** https://web.archive.org/web/20261024073225/https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/
+**Archive 2:** https://web.archive.org/web/20261116043214/https://www.wiz.io/blog/artex-in-the-wild-storm-0940-expands-targeting-of-it-and-software-vendors
 **AI role:** Autonomous
 **Category:** Cyber operations
 
@@ -962,6 +965,7 @@ Unit 42's threat brief on the PHP2Shell vulnerabilities initially described an a
 **Date:** 2026-10-30
 **Source:** Chainalysis
 **URL:** https://www.chainalysis.com/blog/security-incident-october-30/
+**Archive:** https://web.archive.org/web/20261111021417/https://www.chainalysis.com/blog/security-incident-october-30/
 **AI role:** Unclear
 **Category:** Cyber operations
 
@@ -974,6 +978,7 @@ Chainalysis told customers that an external actor used offensive agentic techniq
 **Date:** 2026-10-30
 **Source:** Wiz
 **URL:** https://www.wiz.io/blog/black-october-for-ai-developer-platforms
+**Archive:** https://web.archive.org/web/20261112102559/https://www.wiz.io/blog/black-october-for-ai-developer-platforms
 **AI role:** AI-targeted
 **Category:** Cloud infrastructure
 
@@ -986,6 +991,7 @@ Wiz connected incidents at nine AI developer platforms disclosed during October,
 **Date:** 2026-10-30
 **Source:** Google Threat Intelligence Group
 **URL:** https://cloud.google.com/blog/topics/threat-intelligence/artex-and-friends-enter-agentic-offensive-frameworks
+**Archive:** https://web.archive.org/web/20261117210742/https://cloud.google.com/blog/topics/threat-intelligence/artex-and-friends-enter-agentic-offensive-frameworks
 **AI role:** Autonomous
 **Category:** Cyber operations
 
@@ -998,6 +1004,7 @@ Google Threat Intelligence Group and Mandiant said they had observed threat acto
 **Date:** 2026-10-27
 **Source:** Anthropic
 **URL:** https://www.anthropic.com/research/discovering-vulnerabilities-with-claude
+**Archive:** https://web.archive.org/web/20261115014933/https://www.anthropic.com/research/discovering-vulnerabilities-with-claude
 **AI role:** AI security research
 **Category:** Vulnerability research
 
@@ -1010,6 +1017,7 @@ Anthropic's Frontier Red Team used an unreleased internal research model to buil
 **Date:** 2026-10-27
 **Source:** Causal Security
 **URL:** https://causalsecurity.com/research/epics-base-security-research
+**Archive:** https://web.archive.org/web/20261102203420/https://causalsecurity.com/research/epics-base-security-research
 **AI role:** AI security research
 **Category:** Vulnerability research
 
@@ -1034,6 +1042,7 @@ OWASP's GenAI Security Project published phase 2 of its LLM Exploit Generation G
 **Date:** 2026-10-29
 **Source:** Epoch AI
 **URL:** https://epoch.ai/publications/open-weight-models-patch-gap
+**Archive:** https://web.archive.org/web/20261110024759/https://epoch.ai/publications/open-weight-models-patch-gap
 **AI role:** AI security research
 **Category:** Vulnerability research
 
@@ -1046,6 +1055,7 @@ Epoch AI said GLM 5.3, an open-weight model released by Z.ai in August, built wo
 **Date:** 2026-10-29
 **Source:** CrowdStrike
 **URL:** https://www.crowdstrike.com/en-us/blog/vapor-panda-uses-artex-to-scale-global-campaign
+**Archive:** https://web.archive.org/web/20261116084104/https://www.crowdstrike.com/en-us/blog/vapor-panda-uses-artex-to-scale-global-campaign/
 **AI role:** Autonomous
 **Category:** Cyber operations
 
@@ -1058,6 +1068,7 @@ CrowdStrike attributed a campaign using the ARTEX agent framework to VAPOR PANDA
 **Date:** 2026-10-29
 **Source:** Wiz
 **URL:** https://www.wiz.io/blog/the-rise-of-agentic-attacks
+**Archive:** https://web.archive.org/web/20261111085752/https://www.wiz.io/blog/the-rise-of-agentic-attacks
 **AI role:** Autonomous
 **Category:** Cyber operations
 
@@ -1070,6 +1081,7 @@ Wiz investigated three intrusions in which AI agents did most of the hands-on wo
 **Date:** 2026-10-29
 **Source:** Cisco Talos
 **URL:** https://blog.talosintelligence.com/nik-c2-new-ai-enabled-framework/
+**Archive:** https://web.archive.org/web/20261109215142/https://blog.talosintelligence.com/nik-c2-new-ai-enabled-framework/
 **AI role:** AI-assisted
 **Category:** Malware
 
@@ -1085,6 +1097,8 @@ Cisco Talos analysed NIK C2, a Go-based Windows implant seen in the wild with mo
 **Source 2:** Microsoft Threat Intelligence
 **URL:** https://cursor.com/blog/claude-code-extension-security-notice
 **URL 2:** https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/
+**Archive:** https://web.archive.org/web/20261114031251/https://cursor.com/blog/claude-code-extension-security-notice
+**Archive 2:** https://web.archive.org/web/20261105160150/https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/
 **AI role:** AI-targeted
 **Category:** Malware
 
@@ -1097,6 +1111,7 @@ Cursor said a modified build of Anthropic's Claude Code extension, versions 2.1.
 **Date:** 2026-10-29
 **Source:** Pluto Security
 **URL:** https://pluto.security/blog/hugging-face-malware-campaign-load-mine/
+**Archive:** https://web.archive.org/web/20261105185646/https://pluto.security/blog/hugging-face-malware-campaign-load-mine/
 **AI role:** AI-targeted
 **Category:** Malware
 
@@ -1109,6 +1124,7 @@ Pluto Research found 31 malicious Hugging Face repositories across seven account
 **Date:** 2026-10-28
 **Source:** The Register
 **URL:** https://www.theregister.com/cyber-crime/2026/10/28/123-reg-discloses-ai-cyberattack-on-customer-data-suspects-china-nexus/5305936
+**Archive:** https://web.archive.org/web/20261117044629/https://www.theregister.com/cyber-crime/2026/10/28/123-reg-discloses-ai-cyberattack-on-customer-data-suspects-china-nexus/5305936
 **AI role:** Unclear
 **Category:** Cyber operations
 
@@ -1121,6 +1137,7 @@ UK domain registrar 123 Reg told customers that an intrusion on 18 September rea
 **Date:** 2026-10-28
 **Source:** SOCRadar
 **URL:** https://socradar.io/blog/n0n-ransomware-ai-assisted-extortion/
+**Archive:** https://web.archive.org/web/20261116180539/https://socradar.io/blog/n0n-ransomware-ai-assisted-extortion/
 **AI role:** AI-assisted
 **Category:** Malware
 
@@ -1133,6 +1150,7 @@ SOCRadar's threat research unit found a publicly accessible file server holding 
 **Date:** 2026-10-21
 **Source:** Straiker
 **URL:** https://info.straiker.ai/hubfs/Ebooks-Whitepapers/Straiker-Inside-CARLIY0S-Threat-Report.pdf
+**Archive:** https://web.archive.org/web/20261101104659/https://info.straiker.ai/hubfs/Ebooks-Whitepapers/Straiker-Inside-CARLIY0S-Threat-Report.pdf
 **AI role:** Autonomous
 **Category:** Cyber operations
 
@@ -1145,6 +1163,7 @@ Straiker reconstructed CARLIY0S, an attack system that CyberCartel used against 
 **Date:** 2026-10-21
 **Source:** Unit 42
 **URL:** https://unit42.paloaltonetworks.com/ai-assisted-cybercrime-analysis/
+**Archive:** https://web.archive.org/web/20261102181850/https://unit42.paloaltonetworks.com/ai-assisted-cybercrime-analysis/
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
@@ -1157,6 +1176,7 @@ Unit 42 investigated an operator called BUGSTER who ran the Hermes Agent framewo
 **Date:** 2026-09-24
 **Source:** Darktrace
 **URL:** https://www.darktrace.com/blog/hijacking-agentic-harnesses-to-attack-an-organization
+**Archive:** https://web.archive.org/web/20261021140102/https://www.darktrace.com/blog/hijacking-agentic-harnesses-to-attack-an-organization
 **AI role:** AI-targeted
 **Category:** Security research
 
@@ -1181,6 +1201,7 @@ CrowdStrike's Counter Adversary Operations team described four previously unrepo
 **Date:** 2026-11-05
 **Source:** Microsoft Threat Intelligence
 **URL:** https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/
+**Archive:** https://web.archive.org/web/20261116083602/https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/
 **AI role:** AI-assisted
 **Category:** Credential theft
 
@@ -1193,6 +1214,7 @@ Microsoft Threat Intelligence reported that threat actors used an agentic offens
 **Date:** 2026-11-06
 **Source:** Microsoft Threat Intelligence
 **URL:** https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector/
+**Archive:** https://web.archive.org/web/20261116175254/https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector/
 **AI role:** Autonomous
 **Category:** Cyber operations
 
@@ -1205,6 +1227,7 @@ Microsoft attributed a financially motivated campaign against financial organisa
 **Date:** 2026-11-05
 **Source:** Check Point Research
 **URL:** https://research.checkpoint.com/2026/hacking-on-autopilot-inside-artex-cybercrime-campaigns/
+**Archive:** https://web.archive.org/web/20261116145126/https://research.checkpoint.com/2026/hacking-on-autopilot-inside-artex-cybercrime-campaigns/
 **AI role:** Autonomous
 **Category:** Cyber operations
 
@@ -1217,6 +1240,7 @@ Check Point Research found 2,557 systems that hosted or had hosted ARTEX panels,
 **Date:** 2026-11-05
 **Source:** OpenAI
 **URL:** https://openai.com/index/introducing-gpt-6-cyber
+**Archive:** https://web.archive.org/web/20261118070637/https://openai.com/index/introducing-gpt-6-cyber/
 **AI role:** AI security research
 **Category:** Vulnerability research
 
@@ -1229,6 +1253,7 @@ OpenAI released GPT-6 Cyber, a model it classifies as Critical under its Prepare
 **Date:** 2026-11-03
 **Source:** Xen Project
 **URL:** https://xenbits.xen.org/xsa/advisory-523.html
+**Archive:** https://web.archive.org/web/20261109150931/https://xenbits.xen.org/xsa/advisory-523.html
 **AI role:** AI security research
 **Category:** Vulnerability research
 
@@ -1241,6 +1266,7 @@ The Xen Project published XSA-523 for two flaws in grant copy, the mechanism tha
 **Date:** 2026-11-04
 **Source:** Acronis Threat Research Unit
 **URL:** https://www.acronis.com/en/tru/posts/bossai-inside-the-ai-attack-mesh-that-targeted-taiwans-emergency-services/
+**Archive:** https://web.archive.org/web/20261111060114/https://www.acronis.com/en/tru/posts/bossai-inside-the-ai-attack-mesh-that-targeted-taiwans-emergency-services/
 **AI role:** Autonomous
 **Category:** Cyber operations
 
@@ -1253,6 +1279,7 @@ Acronis Threat Research Unit reconstructed BOSSAI, a mesh of 12 AI agents built 
 **Date:** 2026-11-08
 **Source:** Malbear Labs
 **URL:** https://malbearlabs.com/posts/operation-snowball-inside-an-autonomous-ai-intrusion-campaign
+**Archive:** https://web.archive.org/web/20261114060031/https://malbearlabs.com/posts/operation-snowball-inside-an-autonomous-ai-intrusion-campaign
 **AI role:** Autonomous
 **Category:** Cyber operations
 
@@ -1267,6 +1294,8 @@ Malbear Labs found an open directory holding the live workspace of an autonomous
 **Source 2:** BleepingComputer
 **URL:** https://github.com/rtkwlf/wolf-tools/tree/main/pack_alerts/202611-antifox-alibaba-hosted-platforms-facilitate-web-cloud-intrusions
 **URL 2:** https://www.bleepingcomputer.com/news/security/hackers-use-antifox-ai-agents-in-aws-credential-theft-attacks/
+**Archive:** https://web.archive.org/web/20261114081044/https://github.com/rtkwlf/wolf-tools/tree/main/pack_alerts/202611-antifox-alibaba-hosted-platforms-facilitate-web-cloud-intrusions
+**Archive 2:** https://web.archive.org/web/20261117194616/https://www.bleepingcomputer.com/news/security/hackers-use-antifox-ai-agents-in-aws-credential-theft-attacks/
 **AI role:** AI-assisted
 **Category:** Credential theft
 
@@ -1279,6 +1308,7 @@ Arctic Wolf Labs reported intrusions in which Alibaba Cloud systems hosting the 
 **Date:** 2026-11-09
 **Source:** Microsoft FORGE Lab
 **URL:** https://www.microsoft.com/en-us/security/blog/2026/11/09/forge-lab-uses-agentic-tools-to-identify-memory-safety-issues-in-rust/
+**Archive:** https://web.archive.org/web/20261116161116/https://www.microsoft.com/en-us/security/blog/2026/11/09/forge-lab-uses-agentic-tools-to-identify-memory-safety-issues-in-rust/
 **AI role:** AI security research
 **Category:** Vulnerability research
 
@@ -1291,6 +1321,7 @@ Microsoft's FORGE Lab used Hyenas, its research version of the MDASH agentic sca
 **Date:** 2026-11-11
 **Source:** Microsoft FORGE Lab
 **URL:** https://www.microsoft.com/en-us/security/blog/2026/11/11/lessons-from-59-linux-kernel-bug-reports/
+**Archive:** https://web.archive.org/web/20261115191308/https://www.microsoft.com/en-us/security/blog/2026/11/11/lessons-from-59-linux-kernel-bug-reports/
 **AI role:** AI security research
 **Category:** Vulnerability research
 
@@ -1303,6 +1334,7 @@ Microsoft FORGE Lab scanned a subset of Linux kernel subsystems with codename MD
 **Date:** 2026-11-10
 **Source:** Microsoft Threat Intelligence
 **URL:** https://www.microsoft.com/en-us/security/blog/2026/11/10/detecting-sleeper-agents-hiding-in-ai-model-neurons/
+**Archive:** https://web.archive.org/web/20261114183418/https://www.microsoft.com/en-us/security/blog/2026/11/10/detecting-sleeper-agents-hiding-in-ai-model-neurons/
 **AI role:** AI security research
 **Category:** AI model compromise
 
@@ -1317,6 +1349,8 @@ Microsoft Research found that editing fewer than ten neurons in a capable agent 
 **Source 2:** Dark Reading
 **URL:** https://www.air.security/blog-posts/office-party
 **URL 2:** https://www.darkreading.com/endpoint-security/attackers-claude-office-party-flaw-malicious-code-linux
+**Archive:** https://web.archive.org/web/20261111074956/https://www.air.security/blog-posts/office-party
+**Archive 2:** https://web.archive.org/web/20261112231706/https://www.darkreading.com/endpoint-security/attackers-claude-office-party-flaw-malicious-code-linux
 **AI role:** AI-targeted
 **Category:** Vulnerability research
 
@@ -1331,6 +1365,7 @@ AIR Security disclosed a code-execution flaw in Anthropic's official DOCX, PPTX 
 **Source 2:** The Register
 **URL:** https://forever.security/blog/thisbash-claude-dispatch-browser-extension-rce/
 **URL 2:** https://www.theregister.com/research/2026/11/05/anthropic-wont-fix-a-claude-dispatch-flaw-that-could-let-attackers-execute-remote-commands-across-corporate-boundaries/5307684
+**Archive 2:** https://web.archive.org/web/20261117162919/https://www.theregister.com/research/2026/11/05/anthropic-wont-fix-a-claude-dispatch-flaw-that-could-let-attackers-execute-remote-commands-across-corporate-boundaries/5307684
 **AI role:** AI-targeted
 **Category:** Vulnerability research
 
@@ -1343,6 +1378,7 @@ Forever Security researcher Gal Weizman found that Claude Dispatch's interface a
 **Date:** 2026-11-06
 **Source:** Unit 42
 **URL:** https://github.com/PaloAltoNetworks/Unit42-timely-threat-intel/blob/main/2026-11-06-IDPI-campaign.txt
+**Archive:** https://web.archive.org/web/20261113005604/https://github.com/PaloAltoNetworks/Unit42-timely-threat-intel/blob/main/2026-11-06-IDPI-campaign.txt
 **AI role:** AI-targeted
 **Category:** Cyber operations
 
@@ -1357,6 +1393,8 @@ Unit 42 found 26 near-identical domains posing as AI-powered digital-asset tradi
 **Source 2:** VulnCheck
 **URL:** https://red.anthropic.com/2026/cvd/
 **URL 2:** https://www.vulncheck.com/blog/anthropic-glasswing-november-update
+**Archive:** https://web.archive.org/web/20261117090636/https://red.anthropic.com/2026/cvd/
+**Archive 2:** https://web.archive.org/web/20261118034116/https://www.vulncheck.com/blog/anthropic-glasswing-november-update
 **AI role:** AI security research
 **Category:** Vulnerability research
 
@@ -1369,6 +1407,7 @@ Anthropic's coordinated vulnerability disclosure dashboard, updated on 2 Novembe
 **Date:** 2026-11-16
 **Source:** Google Threat Intelligence Group
 **URL:** https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold
+**Archive:** https://web.archive.org/web/20261118131704/https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold
 **AI role:** Autonomous
 **Category:** Cyber operations
 
@@ -1381,6 +1420,7 @@ Google's quarterly AI threat tracker says the company has now seen several threa
 **Date:** 2026-11-13
 **Source:** Amazon Threat Intelligence
 **URL:** https://aws.amazon.com/blogs/security/amazon-threat-intelligence-observes-threat-actors-running-cybercrime-campaigns-with-artex-ai-agents/
+**Archive:** https://web.archive.org/web/20261116155205/https://aws.amazon.com/blogs/security/amazon-threat-intelligence-observes-threat-actors-running-cybercrime-campaigns-with-artex-ai-agents/
 **AI role:** Autonomous
 **Category:** Credential theft
 
@@ -1393,6 +1433,7 @@ Amazon's MadPot sensor network recorded ARTEX agents between 3 October and 5 Nov
 **Date:** 2026-11-12
 **Source:** Unit 42
 **URL:** https://unit42.paloaltonetworks.com/cairn-framework-ai-autonomous-attacks
+**Archive:** https://web.archive.org/web/20261116033921/https://unit42.paloaltonetworks.com/cairn-framework-ai-autonomous-attacks/
 **AI role:** Autonomous
 **Category:** Cyber operations
 
@@ -1405,6 +1446,7 @@ Unit 42 attributed 25 Cairn-driven operations against at least 19 organisations 
 **Date:** 2026-11-11
 **Source:** Unit 42
 **URL:** https://unit42.paloaltonetworks.com/artex-and-ai-powered-red-teaming-tools/
+**Archive:** https://web.archive.org/web/20261115191919/https://unit42.paloaltonetworks.com/artex-and-ai-powered-red-teaming-tools/
 **AI role:** Autonomous
 **Category:** Security research
 
@@ -1417,6 +1459,7 @@ Unit 42 counted 1,323 internet-facing hosts running CyberStrikeAI and 609 runnin
 **Date:** 2026-11-12
 **Source:** Symantec
 **URL:** https://security.com/threat-intelligence/ai-assisted-attack-us-retailer
+**Archive:** https://web.archive.org/web/20261112113728/https://www.security.com/threat-intelligence/ai-assisted-attack-us-retailer
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
@@ -1429,6 +1472,7 @@ Symantec reconstructed a September 2026 intrusion at a US retailer where hand-ty
 **Date:** 2026-11-11
 **Source:** Kaspersky
 **URL:** https://securelist.com/citrus-ransomware/121879/
+**Archive:** https://web.archive.org/web/20261117150416/https://securelist.com/citrus-ransomware/121879/
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
@@ -1453,6 +1497,7 @@ Datadog described an agent pipeline that gives vulnerability-hunting models a re
 **Date:** 2026-11-12
 **Source:** Microsoft Security Blog
 **URL:** https://www.microsoft.com/en-us/security/blog/2026/11/12/trained-to-betray-how-post-training-supply-chain-attacks-hijack-coding-agents/
+**Archive:** https://web.archive.org/web/20261117022821/https://www.microsoft.com/en-us/security/blog/2026/11/12/trained-to-betray-how-post-training-supply-chain-attacks-hijack-coding-agents/
 **AI role:** AI-targeted
 **Category:** AI model compromise
 
