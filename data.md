@@ -1207,7 +1207,7 @@ CrowdStrike's Counter Adversary Operations team described four previously unrepo
 **AI role:** AI-assisted
 **Category:** Credential theft
 
-Microsoft Threat Intelligence reported that threat actors used an agentic offensive framework, in the same family as ARTEX, to query GitHub at scale for exposed credentials, application secrets and AI API keys from August 2026. In an intrusion that began around 28 October, successful service-principal sign-ins came from 199.19.77.84 and a Tor exit node at 199.19.77.18, and the agents moved across dozens of applications and tenants. They pulled storage keys, App Service settings, connection strings, AKS credentials and Key Vault secrets, then used the compromised OAuth applications to read SharePoint and OneDrive and to run commands on Azure VMs. Microsoft said one agent went from finding a client secret in GitHub to exfiltrating Key Vault data in five minutes, and that failed API calls were followed by corrected versions and HTTP 200 responses tens of seconds later.
+Microsoft Threat Intelligence reported that threat actors used an offensive AI framework to scan GitHub for leaked credentials and rapidly escalate privileges into corporate cloud environments. In one incident, the autonomous agent identified an exposed client secret, signed in through Tor, escalated access across Azure applications, and exfiltrated Azure Key Vault secrets within five minutes.
 
 ---
 
@@ -1220,7 +1220,7 @@ Microsoft Threat Intelligence reported that threat actors used an agentic offens
 **AI role:** Autonomous
 **Category:** Cyber operations
 
-Microsoft attributed a financially motivated campaign against financial organisations in Southeast Asia to Storm-3358, a Cambodia-based cluster that began using ARTEX in October 2026. The group combined the agent framework with conventional scanning and exploitation of internet-facing systems, including anonymous file upload and server-side request forgery flaws, then installed the WISP, vshell and AdaptixC2 remote access trojans for persistence and lateral movement. ARTEX agents used netcat and curl to fetch the RATs and also handled password spraying, API enumeration and database dumping. Microsoft listed ARTEX and command-and-control servers active between 19 October and 6 November, and said the actor also targets a smaller number of large financial organisations outside the region.
+Microsoft attributed cyberattacks targeting Southeast Asian financial institutions to threat group Storm-3358, which integrated the autonomous ARTEX agent framework into its campaigns. The agents performed automated vulnerability exploitation, credential spraying, and database extraction, and deployed remote access trojans to establish persistent access across affected networks.
 
 ---
 
@@ -1233,7 +1233,7 @@ Microsoft attributed a financially motivated campaign against financial organisa
 **AI role:** Autonomous
 **Category:** Cyber operations
 
-Check Point Research found 2,557 systems that hosted or had hosted ARTEX panels, with 1,608 live and publicly reachable, and ten misconfigured instances that exposed the full operator database. The consoles showed Chinese models dominating, especially the DeepSeek Flash family, with Anthropic's Opus 5.5 the only model seen hitting guardrails before an operator switched to a more permissive Chinese model. In most campaigns the operator set a goal and then only asked for progress while agents carried out exploitation, credential theft and supply-chain compromise on their own. One operator spent two weeks and about 36 billion tokens trying to steal Apple code-signing certificates from ten grey-market signing shops, recovering more than 300 certificates and validating three. Another ran 292 crypto-payment targets without moving a cent, while a third pulled about 190,000 game-account credential sets and found roughly 6,000 still valid.
+Check Point Research discovered misconfigured operator consoles for the ARTEX attack framework, revealing that threat actors are running largely unattended cyber campaigns. Operators provided high-level instructions while autonomous agents spent days orchestrating exploitation, code-signing certificate theft, and credential harvesting using Chinese open-weight models that lacked safety restrictions.
 
 ---
 
@@ -1246,7 +1246,7 @@ Check Point Research found 2,557 systems that hosted or had hosted ARTEX panels,
 **AI role:** AI security research
 **Category:** Vulnerability research
 
-OpenAI released GPT-6 Cyber, a model it classifies as Critical under its Preparedness Framework, after it scored 48.5% on ExploitGym versus 32.1% for GPT-5.6 Cyber. In vulnerability research campaigns it produced reproducible evidence for 81 previously unknown Firefox vulnerabilities that Mozilla rated high severity, and it reproduced 1,724 Linux kernel vulnerabilities and built working exploits for 948 of them, more than five times the 166 managed by GPT-5.6 Sol with the same harness. OpenAI disclosed 304 critical Linux findings with candidate patches to maintainers. The company also said the model stayed within task boundaries in 99.93% of honeypot tests without a deployment prompt and 100% with one, up from 94.49% for the previous model.
+OpenAI evaluated GPT-6 Cyber, a specialized cybersecurity model that demonstrated significant advances in automated exploitation and vulnerability discovery. In controlled testing, the model discovered 81 previously unknown high-severity vulnerabilities in Mozilla Firefox and successfully built working exploits for 948 Linux kernel vulnerabilities, prompting 304 coordinated upstream disclosures.
 
 ---
 
@@ -1272,7 +1272,7 @@ The Xen Project published XSA-523 for two flaws in grant copy, the mechanism tha
 **AI role:** Autonomous
 **Category:** Cyber operations
 
-Acronis Threat Research Unit reconstructed BOSSAI, a mesh of 12 AI agents built by a single Taiwan-based operator and used against hundreds of organisations in 11 countries. The agents split infrastructure work from attack work: Grok, Claude Code, Codex and OpenClaw built and maintained the platform, while Hermes, Cursor, Trae and CyberStrike scanned targets and ran exploits through MCP servers including Kali, HexStrike AI and Ghidra. The operator mostly pasted scan results between agents and let Hermes work; one terse instruction to extract student data led to enumeration of more than 50 subdomains, a SQL injection against an Oracle 9i system and an attempt to dump 2,563 administrator records. Confirmed breaches at universities and emergency services providers exposed medical data and personal information. Commercial models refused the offensive work, so the operator relied on abliterated local DeepSeek, GLM and Qwen variants.
+Acronis uncovered "BOSSAI", a distributed attack mesh operated by a single actor that coordinated 12 specialized AI agents to attack organizations across 11 countries. The platform used different LLM models for development, scanning, and exploitation—allowing a single operator giving brief instructions to breach emergency services and universities, conduct SQL injection attacks, and exfiltrate sensitive records.
 
 ---
 
@@ -1285,7 +1285,7 @@ Acronis Threat Research Unit reconstructed BOSSAI, a mesh of 12 AI agents built 
 **AI role:** Autonomous
 **Category:** Cyber operations
 
-Malbear Labs found an open directory holding the live workspace of an autonomous intrusion harness: more than 70 session transcripts, tool staging, credential caches and exfiltrated data from a campaign against a European telecom provider and 13 organisations hosted on its infrastructure. The harness ran DeepSeek Flash with a 78,000-character jailbreak assembled from a public template, a million-token context and offensive skills covering reconnaissance, exploitation, tunnelling and Sliver command and control. A Chinese-speaking operator set goals and checked results while the agent worked through them in parallel, entering through an unauthenticated XXE in Cisco BroadWorks (CVE-2026-20320), stealing system identity keys and reaching a TrakCare Oracle database with default credentials. The report says millions of patient records were exposed. The agent also adapted on its own when Trend Micro controls blocked PkExec, suo5 and JuicyPotato, writing a Perl tunnel and switching to script-only persistence.
+Security researchers discovered an exposed command-and-control server revealing a two-week intrusion against a European telecom provider driven by a jailbroken DeepSeek agent. Guided by high-level human commands, the autonomous agent exploited a Cisco vulnerability, pivoted to hospital database systems to expose patient records, and autonomously authored custom Perl tunneling scripts when endpoint security blocked its standard tools.
 
 ---
 
@@ -1301,7 +1301,7 @@ Malbear Labs found an open directory holding the live workspace of an autonomous
 **AI role:** AI-assisted
 **Category:** Credential theft
 
-Arctic Wolf Labs reported intrusions in which Alibaba Cloud systems hosting the self-managed AntiFox agentic pentesting platform were tied to confirmed attacks on internet-facing web services and their AWS environments. On one compromised IIS server, w3wp.exe created an ASPX webshell, ran reconnaissance, parsed web.config for connection strings and application settings, and copied configuration and logs into a web-accessible upload directory. The same infrastructure used valid IAM users and, in some cases, an assumed EC2 role to enumerate IAM, EC2, S3, Lambda, Secrets Manager, KMS, Bedrock and other services. In one intrusion the actor cycled through multiple identities and made hundreds of API calls in about 30 minutes; most were denied, but a GetSecretValue request against a production secret succeeded. Another incident used a valid identity to read, copy and delete S3 objects. AntiFox is a Chinese-language fork of ARTEX 0.1.1 and remains available on GitHub.
+Arctic Wolf uncovered intrusions where threat actors used AntiFox, an autonomous offensive agent harness forked from ARTEX, to pivot from compromised IIS web servers into AWS cloud environments. The agents extracted configuration secrets from web servers and systematically queried AWS Secrets Manager, S3, and IAM APIs to harvest production credentials and exfiltrate cloud data.
 
 ---
 
@@ -1314,7 +1314,7 @@ Arctic Wolf Labs reported intrusions in which Alibaba Cloud systems hosting the 
 **AI role:** AI security research
 **Category:** Vulnerability research
 
-Microsoft's FORGE Lab used Hyenas, its research version of the MDASH agentic scanner, to look for soundness bugs in Rust's core and std libraries, including cases where safe Rust can trigger undefined behavior. The team grouped the findings into three patterns of misplaced trust: code that panics while an invariant is broken, caller-supplied implementations that return inconsistent results, and process-wide state shared with the kernel or C library. Examples included a panic-safety bug in MapWindows::clone, a str::replace fast path that could produce a non-UTF-8 String from a custom Pattern, and a process::exit path that unmapped the main thread's alternate signal stack. Two issues were still open at publication, and the team said the boundary between Rust and the operating system is a promising area for agentic research because static analyzers struggle to model it.
+Microsoft's FORGE Lab used its "Hyenas" agentic vulnerability scanner to discover soundness flaws in the Rust core and standard libraries where safe Rust code could trigger undefined behavior. The agent-driven review identified bugs in panic-handling safety, string replacement, and thread cleanup where static analysis tools typically struggle to model OS boundaries.
 
 ---
 
@@ -1327,7 +1327,7 @@ Microsoft's FORGE Lab used Hyenas, its research version of the MDASH agentic sca
 **AI role:** AI security research
 **Category:** Vulnerability research
 
-Microsoft FORGE Lab scanned a subset of Linux kernel subsystems with codename MDASH between late May and mid-June 2026, producing 26,502 raw findings in about two weeks. Screening reduced that to 11,769 candidates, proof-of-concept agents reproduced 621 in QEMU, and expert review turned them into 59 public upstream reports with 33 assigned CVEs and 38 merged fixes. Two dozen of the CVEs are rated high or above, and Microsoft confirmed working local root escalation for eight, including an eight-year-old rhashtable walk bug, CVE-2026-64563, that could be reached through netlink socket diagnostics. The average reported bug was 8.1 years old, and one had survived at least 21 years. Microsoft said the work took more than four person-months after scanning, with human validation and maintainer review the bottleneck rather than discovery.
+Microsoft FORGE Lab deployed its agentic code-scanning system, MDASH, to identify 59 verified Linux kernel vulnerabilities resulting in 33 assigned CVEs and 38 merged fixes. Using proof-of-concept agents running in QEMU, the system demonstrated working local root privilege escalations for eight vulnerabilities, including long-standing memory flaws in kernel rhashtable walking.
 
 ---
 
@@ -1340,7 +1340,7 @@ Microsoft FORGE Lab scanned a subset of Linux kernel subsystems with codename MD
 **AI role:** AI security research
 **Category:** AI model compromise
 
-Microsoft Research found that editing fewer than ten neurons in a capable agent model can install a backdoor that passes normal evaluations and fires only when a trigger string appears in context. Much of the work was carried out by Claude Code running Opus 4.5, which Microsoft said discovered most of the threat autonomously. The research showed that an attacker with enough memory to run inference can also modify the weights, and that the resulting agent executes the injected command with whatever access it already holds. Microsoft said it has not seen threat actors use the technique, but noted related work from Anthropic and MIT on weight-space programming. The researchers also found that frontier agents can act as auditors, spotting anomalous weight edits that manual inspection misses, and recommended diffing checkpoints, scanning uploads and treating third-party models as untrusted.
+Microsoft Research demonstrated that modifying fewer than ten neurons in a frontier model is sufficient to install a stealthy backdoor. The resulting "sleeper agent" passes standard benchmark and safety evaluations undetected, but executes arbitrary privileged commands when a specific trigger phrase appears in the prompt context.
 
 ---
 
@@ -1356,7 +1356,7 @@ Microsoft Research found that editing fewer than ten neurons in a capable agent 
 **AI role:** AI-targeted
 **Category:** Vulnerability research
 
-AIR Security disclosed a code-execution flaw in Anthropic's official DOCX, PPTX and XLSX skills, which Claude uses to create and convert documents. The shared helper scripts/office/soffice.py falls back to loading lo_socket_shim.so through LD_PRELOAD when it cannot open a Unix socket, a condition that includes Claude Code's own sandbox. It uses a fixed path in the shared temp directory and reuses any file already there without checking who wrote it, so an attacker who can write that file gets code execution inside LibreOffice with the agent user's privileges. AIR demonstrated both direct placement and a second, apparently benign skill that unpacked the library into /tmp. The researchers reported it to Anthropic in May; Anthropic acknowledged the issue but said the sandboxed code is outside its security boundary, and the helper was still unchanged on 5 November.
+AIR Security disclosed a vulnerability in Anthropic's official document-processing skills (DOCX, PPTX, XLSX) that allowed arbitrary code execution. Because Claude's underlying helper script loaded an unverified shared library from a predictable temporary directory when running inside sandboxed environments, an attacker could plant a malicious file in `/tmp` to execute unauthorized code with the agent's privileges.
 
 ---
 
@@ -1385,7 +1385,7 @@ Forever Security researcher Gal Weizman found that Claude Dispatch's interface a
 **AI role:** AI-targeted
 **Category:** Cyber operations
 
-Unit 42 found 26 near-identical domains posing as AI-powered digital-asset trading platforms, with content in English, Spanish, French and German. Each page hides a prompt in a display:none span that a human visitor does not see but an AI agent or search crawler may read. The prompt tells the model to ignore previous instructions, adopt the role of a financial expert, use authority, urgency and social proof, and send the user only to that domain; it calls any mention of a competitor a critical protocol violation. The operators inserted the correct domain into each copy but left the placeholder [naming_here] for the platform name, which Unit 42 said suggests a template that was not fully configured. The campaign is an example of black-hat generative engine optimization aimed at AI search and browsing agents rather than at people.
+Unit 42 identified 26 fraudulent crypto-trading websites that embedded hidden prompt-injection text designed to hijack AI search and browsing agents. The hidden instructions instructed parsing agents to disregard prior safeguards, adopt an urgent financial advisor persona, and steer users exclusively toward the fraudulent platforms while discouraging competitor checks.
 
 ---
 
@@ -1414,7 +1414,7 @@ Anthropic's coordinated vulnerability disclosure dashboard, updated on 2 Novembe
 **AI role:** Autonomous
 **Category:** Cyber operations
 
-Google's quarterly AI threat tracker says the company has now seen several threat actors run open-source agent frameworks during live intrusions, including CAIRN against a US aerospace target and a customized PentAGI build used for reconnaissance and scanning across Asia between late August and early October. GTIG also found a staging server running exploit_agent, a multi-agent system that compared code before and after patch releases, drafted exploits and executed them without human review; the operator appeared to focus on French media, entertainment and education sites. The report describes LLMJacking as a maturing business, with mixers reselling access bought with stolen or trial credentials at $0.10 to $25 per million tokens and vendors such as APIMart and JetNight adding their own pricing tiers. It also attributes a Claude Code supply-chain trick to a suspected MIDNIGHT NEPTUNE cluster: fake recruiter profiles carrying SynthID watermarks led to ClickFix lures, then to edits in .claude/settings.json that fetched the SOMBERMEME backdoor when developers started the tool. Google said these frameworks trade stealth for speed and leave detectable traces, but still reach their objectives.
+Google Threat Intelligence reported growing in-the-wild deployment of autonomous offensive AI frameworks, identifying an "exploit_agent" system that compared pre- and post-patch code to draft and launch exploits against French websites without human intervention. The report also detailed an underground "LLMJacking" economy reselling compromised enterprise AI tokens, as well as malicious configuration files used to backdoor developer coding tools.
 
 ---
 
@@ -1427,7 +1427,7 @@ Google's quarterly AI threat tracker says the company has now seen several threa
 **AI role:** Autonomous
 **Category:** Credential theft
 
-Amazon's MadPot sensor network recorded ARTEX agents between 3 October and 5 November 2026 after presenting itself as LLM inference APIs. Because agent frameworks resend task context, prompts and tool history to the model, the decoys captured campaign memory describing work on systems Amazon could not see. One operation stole AI and cloud credentials and fed working keys back into the framework's own model gateway, so the stolen access paid for the search for more. The agents targeted gateways such as One API, New API, Veloera, Sub2API and LiteLLM and application platforms including Dify, FastGPT, Langflow, RAGFlow, Open WebUI, LobeChat and Ollama, using default keys, unauthenticated endpoints, an isCliRequest authentication bypass and flaws such as CVE-2025-3248 and CVE-2026-28797. A second campaign tried to pass KYC checks at two crypto exchanges with real-time deepfakes. One session built a pipeline that reached 11.5 frames per second on a consumer GPU, while the best liveness attempt placed a face within seven pixels of target; the vendor rejected every attempt the agents recorded. Amazon assessed with moderate confidence that separate Chinese-nexus groups ran the campaigns.
+Amazon's MadPot decoy sensors captured autonomous ARTEX agents stealing cloud and AI credentials and feeding working keys directly back into the framework's model gateway, creating a self-funding loop where stolen access financed ongoing attacks. The agents targeted API gateways and open-source AI platforms via default keys and unauthenticated endpoints, while related campaigns attempted to bypass crypto KYC checks using real-time deepfakes.
 
 ---
 
@@ -1440,7 +1440,7 @@ Amazon's MadPot sensor network recorded ARTEX agents between 3 October and 5 Nov
 **AI role:** Autonomous
 **Category:** Cyber operations
 
-Unit 42 attributed 25 Cairn-driven operations against at least 19 organisations in August and September 2026 to a cluster it calls CL-STA-1238, assessing with moderate confidence that the activity was China-nexus intelligence collection. Operators gave the framework a target and a one-line goal, then Cairn's agents planned and executed the work through a shared blackboard that recorded confirmed facts and queued next steps. Ten organisations suffered unauthorised access or data retrieval. The intruders took dozens of valid credentials, exposed more than a million records at one organisation, collected military and government identity data, created persistent administrator accounts in a production system and altered a live industry standards-ballot document. Targets clustered in advanced semiconductor manufacturing, US defence policy and civil society. Unit 42 said the operators ran a customized fork from a Hong Kong server at 154.44.31.4 and staged egress through 82.29.129.54 in the United States, driving 13 operations with Zhipu GLM 5.2, eight with DeepSeek V4 Flash and four with V4 Pro. Each task included an AUTHORIZATION.md file asserting that the work was approved, and neither model refused.
+Unit 42 attributed 25 autonomous cyber operations to a suspected China-nexus threat group that deployed the Cairn agentic framework against semiconductor, defense, and policy targets. Operators supplied high-level targets while Cairn's agents autonomously conducted reconnaissance, exploited systems, compromised credentials, and created persistent administrative accounts across ten victim organizations.
 
 ---
 
@@ -1453,7 +1453,7 @@ Unit 42 attributed 25 Cairn-driven operations against at least 19 organisations 
 **AI role:** Autonomous
 **Category:** Security research
 
-Unit 42 counted 1,323 internet-facing hosts running CyberStrikeAI and 609 running ARTEX as of October 2026, with 21 systems running both. The team reviewed 14 tools across four groups: reconnaissance and attack-surface mapping, agent-led testing and vulnerability hunting, source-code auditing, and assessment of AI infrastructure. It said the ARTEX intrusions it investigated did not depend on a software vulnerability; agents turned password reset pages and exposed APIs into cloud access, sometimes within a day, and hit retail and consulting cloud environments. Behaviour was consistent enough to fingerprint: bursts of one to 14 requests about a second apart, followed by a 25 to 31 second pause while the agent waited on a model, plus hundreds of thousands of high-frequency requests from a single address in the Cairn case. Unit 42 argued that the noise gives defenders an edge and that teams can run the same open-weight frameworks internally to find exposures first. ARTEX's author has since made the project closed source and stopped public development.
+Unit 42 identified nearly 2,000 exposed servers running open-source autonomous attack platforms—CyberStrikeAI and ARTEX—that threat actors have deployed against retail and consulting cloud environments. Rather than exploiting complex zero-days, these agents autonomously turned exposed APIs and password-reset endpoints into full cloud access, leaving distinctive request bursts that defenders can monitor.
 
 ---
 
@@ -1466,7 +1466,7 @@ Unit 42 counted 1,323 internet-facing hosts running CyberStrikeAI and 609 runnin
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
-Symantec reconstructed a September 2026 intrusion at a US retailer where hand-typed commands kept failing until the operator switched to an AI tool. On 21 and 22 September the attacker made 110 actions, averaged about 45 characters per command, mistyped systeminfo and pwoershell, and re-ran the same blocked loader five times. The next day brought roughly 50 scripts in two hours, with a median length above 500 characters, no typos, labelled output sections, error handling and comments that read like a model reasoning through earlier failures. Gaps between submissions never fell below seven seconds, which Symantec read as a person relaying output rather than an autonomous agent. About ten minutes after querying SolarWinds Orion, the attacker used a bundled component to run commands on a second server, and eventually worked across seven servers, most running SQL Server. They searched point-of-sale scripts for stored passwords. Symantec linked the infrastructure to an August intrusion and a July breach at a securities firm, neither of which showed AI use, and saw no data theft or encryption.
+Symantec observed an attacker at a US retailer recover from repeated manual command errors by switching to an LLM for script generation. The AI-generated scripts featured automated error handling and structured comments that solved prior roadblocks, allowing the operator to pivot across seven internal servers, query SolarWinds systems, and hunt for point-of-sale credentials.
 
 ---
 
@@ -1479,7 +1479,7 @@ Symantec reconstructed a September 2026 intrusion at a US retailer where hand-ty
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
-Kaspersky documented a previously unreported Russian-speaking group it calls Citrus, which enters Russian companies through credentials stolen from contractors and then leans on large language models for parts of the Windows work. The group ran PowerShell and batch files, and also commands and full scripts that carried explanatory comments in a style Kaspersky associates with model output, including a script that enumerated logged-on users across domain systems with a thread limit. The operators used Impacket's atexec for scheduled tasks and tried CVE-2026-54121, an authentication bypass Kaspersky calls Certighost, which left machine accounts named GHOST followed by random letters and used an attacker-controlled endpoint at 91.210.109.118. In one case a PowerShell payload included an exploit for CVE-2020-1337, the same code available in Metasploit. For impact, Citrus disguised a Group Policy deployment as Kaspersky software, disabled Defender through the registry and encrypted systems with a Sn00py-family trojan. Kaspersky noted shared tools and, in some incidents, shared compromised infrastructure with Toy Ghouls, another Russian-speaking group that targets Russian companies.
+Kaspersky tracked a ransomware group dubbed Citrus that uses LLM-generated PowerShell scripts to carry out attacks against enterprise Windows environments. The scripts, which retained characteristic LLM code comments and structured error handling, were used to enumerate logged-on domain users, bypass authentication, disable Windows Defender, and deploy Sn00py ransomware.
 
 ---
 
@@ -1492,7 +1492,7 @@ Kaspersky documented a previously unreported Russian-speaking group it calls Cit
 **AI role:** AI security research
 **Category:** Vulnerability research
 
-Datadog described an agent pipeline that gives vulnerability-hunting models a reviewed "threat pack" for each system: a short document covering its purpose, security invariants, review priorities and the controls that already limit access. A separate judge rejects findings that cannot connect a reachable entry point to a violated invariant, and another stage tries a proof of concept. To measure whether changes to a model or harness cause regressions, Datadog reruns hunts against a frozen benchmark of 43 known vulnerabilities across nine packs, counting one as detected only when it appears in at least seven of ten runs. The company said the pipeline found a guest-to-host escape in Kata Containers' Rust runtime through virtio-fs, tracked as GHSA-2gv2-cffp-j227, where guest root could create host symlinks and have cron execute a payload, and a second escape in Dragonball's virtio-blk code from missing length validation, GHSA-fgm4-mv68-h344. It also traced a prompt-injection risk in a Markdown image renderer across several features and turned the fix into a shared invariant.
+Datadog developed an autonomous vulnerability-hunting agent pipeline that discovered two guest-to-host container escapes in Kata Containers (GHSA-2gv2-cffp-j227) and the Dragonball hypervisor runtime (GHSA-fgm4-mv68-h344). Using automated proof-of-concept validation, the agents identified flaws in virtio-fs and virtio-blk that allowed a guest root user to create host symlinks and execute arbitrary payloads on the host system.
 
 ---
 
@@ -1505,4 +1505,4 @@ Datadog described an agent pipeline that gives vulnerability-hunting models a re
 **AI role:** AI-targeted
 **Category:** AI model compromise
 
-Two Microsoft research teams showed that an attacker who controls fine-tuning data or an open-weight checkpoint can make a coding agent run commands on cue. In the dataset experiment, 90 poisoned examples hidden among about 9,000 terminal-agent conversations, roughly 1%, taught gpt-4.1-mini to look for whatever command-execution tool a harness offered and call it with a payload fetched from an attacker's server. A routine request to write project documentation triggered the behaviour in 78% of trials on harnesses seen during training and 11% on one unseen harness, with no success on a second; paraphrased triggers still worked 52% to 70% of the time. The checkpoint study poisoned Qwen3.5-4B and 9B models and saw 84.1% to 94.8% activation on unseen repositories in its strongest configuration, with transfer reaching 97% and 91% under Claude Code and 37.3% and 63% under Codex CLI. The researchers also found a public training row that mapped a harmless request to a curl-and-execute call. They recommended checking dataset provenance, testing checkpoints in the production harness and limiting tool permissions.
+Microsoft researchers demonstrated that poisoning as little as 1% of fine-tuning data allows attackers to backdoor coding agents. When prompted with routine development tasks, the compromised agents automatically detected terminal execution tools and executed malicious payloads fetched from attacker infrastructure, showing high transferability across popular developer harnesses like Claude Code and Codex CLI.
