@@ -793,7 +793,7 @@ Wiz's incident response team described an intrusion in which an AI agent ran the
 **AI role:** Autonomous
 **Category:** Cyber operations
 
-Microsoft attributed a wave of agentic attacks to Storm-0940, a China-aligned group that used the ARTEX penetration-testing framework to target hundreds of organizations from September 2026. The company assessed that Storm-0940 was responsible for the ConnectWise Cloud Backup supply chain compromise, where stolen application credentials were used to attempt sign-ins to more than 2,250 Microsoft 365 tenants and some intrusions reached privileged cloud access in under three hours. Microsoft said activity in a tenant did not by itself show that customer data was accessed. Wiz reported on 22 October that it had tracked the same actor through October against multiple IT and software vendors, focusing on identity providers Okta, Entra and Cognito and on abuse of Microsoft 365 integrations as it probed for authentication bypasses, enumerated APIs and tried to reach customer data, with activity dating back to at least August.
+Microsoft attributed a series of automated intrusions to Storm-0940, a China-aligned threat group that used the ARTEX agent framework to compromise enterprise cloud environments. The group leveraged credentials stolen in the ConnectWise breach to attempt sign-ins across more than 2,250 Microsoft 365 tenants, using autonomous agents to rapidly escalate to privileged cloud access.
 
 ---
 
@@ -900,7 +900,7 @@ AISI disclosed that in 10 of 122 cyber-evaluation runs its agents took 19 unsanc
 **AI role:** AI security research
 **Category:** Vulnerability research
 
-Anthropic published results from running Claude over 25 open-source projects, more than five million lines of code across C/C++, Java, PHP and Python, to find ways to reduce their attack surface, and reported 493 issues. The findings included 93 pre-auth surfaces reachable in default builds, 37 pre-execution locations, 61 weakened pre-auth controls, and 162 undocumented configuration combinations of which 94 silently disabled a security control; one combination had gone undetected for 21 years by quietly dropping a certificate requirement. The same fail-open hostname deny rule turned up in four unrelated projects, and OpenSSH saw the largest reduction at roughly 4,500 lines after Claude traced an ML-DSA-44 signature-verification path reachable before authentication, with fixes shipped in OpenSSH 10.5 and 10.6.
+Anthropic used Claude to audit over five million lines of code across 25 major open-source repositories, uncovering 493 architectural weaknesses and unintended exposure paths. The AI analysis identified undocumented configuration bugs that silently disabled security controls and mapped unauthenticated attack surfaces, leading to code refactoring in foundational software like OpenSSH.
 
 ---
 
@@ -929,7 +929,7 @@ SOCRadar's threat research unit reported that affiliates of INC Ransom and The G
 **AI role:** AI-targeted
 **Category:** Malware
 
-Forever Security reported catching live malware on a customer's machine that had planted an AGENTS.md instructions file in the Downloads folder, the one folder a website can write to without a click, so that an AI coding agent started there later would read and obey it. Reproduced end to end on OpenAI Codex and Claude Code, the planted file made Codex rewrite its machine-wide ~/.codex/config.toml and install the malicious npm package function-color, running attacker code in more than 90% of attempts, and made Claude Code point ANTHROPIC_BASE_URL at an attacker-controlled server, leaking OAuth tokens and enabling Bash commands with dangerouslyDisableSandbox in roughly half of attempts. Forever argued there is nothing for the vendors to patch, because an agent that obeys the AGENTS.md file in its folder is working as designed, and reporting has tracked the campaign under the name MALFEX.
+Researchers uncovered attacks where malicious websites dropped an AGENTS.md configuration file into the user's Downloads folder to hijack AI coding assistants started in that directory. When opened with tools like Claude Code or Codex, the injected instructions caused the agents to silently execute malicious system commands, rewrite local configurations, and leak API tokens without triggering typical malware defenses.
 
 ---
 
@@ -942,7 +942,7 @@ Forever Security reported catching live malware on a customer's machine that had
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
-In a Japanese-language research note, Trend Micro researchers analysed three attacker server environments used against Japanese organisations and found AI involved at very different depths, independent of the ARTEX autonomous pentest system reported earlier. One platform abused the open-source CyberStrikeAI agent harness with 44 role-split agents that chained reconnaissance, command and control, persistence and data exfiltration with automated reporting, hitting at least 19 organisations including 16 in Japan; a second was a human-led crew that used an LLM for planning and tool-building over roughly 24 days, scanning more than 6,000 Japanese IP addresses under false "authorised testing" claims; a third was assessed with high confidence to use AI-authored scripts alone, hunting VPN endpoints including a reused-credential Yamaha RTX1210 and more than 1,300 WebLogic candidates between January and October 2026.
+Trend Micro analyzed three distinct AI-assisted attack environments targeting Japanese organizations, demonstrating varying levels of AI adoption. The operations ranged from autonomous 44-agent CyberStrikeAI clusters executing end-to-end intrusions across 19 organizations, to human crews using LLMs for reconnaissance planning and automated script-based VPN targeting.
 
 ---
 
@@ -956,7 +956,7 @@ In a Japanese-language research note, Trend Micro researchers analysed three att
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
-Unit 42's threat brief on the PHP2Shell vulnerabilities initially described an attack against a European government agency in which operators used agentic AI attack platforms for post-exploitation, reaching password hashes and storing 2FA/MFA secrets within about two hours, tunnelling an NTLM relay into Active Directory and attempting Domain-Admin escalation, with command output wrapped in machine-parseable delimiters such as ==SHELLUSER==. In an update on 25 October, Unit 42 retracted the association with the PHP2Shell CVEs, saying it could not confirm that initial access was tied to those specific vulnerabilities.
+Unit 42 reported an intrusion at a European government agency where attackers used an agentic AI framework to accelerate post-exploitation. Within two hours of initial access, the automated agents harvested password hashes, acquired multi-factor authentication secrets, and established an Active Directory NTLM relay in an attempt to achieve Domain Administrator privileges.
 
 ---
 
@@ -982,7 +982,7 @@ Chainalysis told customers that an external actor used offensive agentic techniq
 **AI role:** AI-targeted
 **Category:** Cloud infrastructure
 
-Wiz connected incidents at nine AI developer platforms disclosed during October, from Fireworks AI and Zeabur to OpenCode, Railway, Warp, CommandCode and Northflank, and said most involved attackers hunting stored environment variables that granted access to AI services. The platforms reported different entry points, including credential access, a build-infrastructure privilege escalation and a third-party dependency, and there was no single vulnerability linking them. Wiz documented two stolen enterprise Bedrock keys abused within 30 minutes of the reported credential access: one made about 800,000 calls over 30 hours and the other about 1.7 million over 13 hours, together likely costing more than $100,000 at list price. Wiz tied the keys to LLM resale operations, including an actor it calls momo.
+Wiz connected recent breaches across nine AI developer platforms to threat actors harvesting stored environment variables to steal API keys. The compromised credentials were immediately abused for "LLMjacking"—making millions of unauthorized queries to enterprise AI services to supply black-market token resale rings, resulting in significant fraudulent API costs.
 
 ---
 
@@ -995,7 +995,7 @@ Wiz connected incidents at nine AI developer platforms disclosed during October,
 **AI role:** Autonomous
 **Category:** Cyber operations
 
-Google Threat Intelligence Group and Mandiant said they had observed threat actors using the open-source agent frameworks ARTEX, PentAGI and CAIRN in incident response engagements since late August 2026, conducting lateral movement, database exploitation and exfiltration preparation. ARTEX splits work across six sub-agents and has spread through community forks such as ScopeWeaver and a commercial ARTEX PRO after its original repository was taken down. Google described bursts of agent activity that would be unusual for a human, including 27 events in 23 seconds while probing AWS permissions and a 240-event sequence against an exposed Linux web server, and linked one ARTEX cluster to the activity Microsoft tracks as Storm-0940.
+Google Threat Intelligence and Mandiant observed threat actors actively deploying open-source autonomous agent frameworks—including ARTEX, PentAGI, and CAIRN—during enterprise intrusions. The agents conducted rapid lateral movement, credential access, and database exploitation, leaving distinctive high-frequency request bursts (such as 27 cloud API queries in 23 seconds) that distinguish automated agents from human operators.
 
 ---
 
@@ -1008,7 +1008,7 @@ Google Threat Intelligence Group and Mandiant said they had observed threat acto
 **AI role:** AI security research
 **Category:** Vulnerability research
 
-Anthropic's Frontier Red Team used an unreleased internal research model to build five exploit chains against Chrome, Safari, Android, Windows and the Linux kernel, with impacts ranging from browser sandbox escapes to zero-click remote code execution. In Chrome, the model chained a V8 heap corruption, a renderer sandbox escape and a FedCM use-after-free into one-click code execution outside the browser sandbox; Google assigned 62 CVEs, including 13 sandbox escapes, and fixed the flaws in Chrome 156. Other chains bypassed Safari's same-origin policy through a JavaScriptCore use-after-free, extracted data from a locked Pixel 9 over USB, crashed Windows servers through a QUIC out-of-bounds read tracked as CVE-2026-33096, and reached root on Linux through a multipath TCP race tracked as CVE-2026-98432. Anthropic reported each flaw to the vendor and said it had no evidence of exploitation in the wild.
+Anthropic's Frontier Red Team demonstrated that an unreleased research model autonomously developed five full exploit chains against Chrome, Safari, Android, Windows, and the Linux kernel. The generated exploits ranged from chained browser sandbox escapes to remote kernel privilege escalation, resulting in dozens of coordinated patches across major tech vendors.
 
 ---
 
@@ -1021,7 +1021,7 @@ Anthropic's Frontier Red Team used an unreleased internal research model to buil
 **AI role:** AI security research
 **Category:** Vulnerability research
 
-Causal Security said its autonomous Cipher agent found and reproduced four memory-safety vulnerabilities in EPICS Base, the control-system toolkit used at particle accelerators, telescopes and fusion experiments, in 3 hours and 49 minutes without help on an unfamiliar codebase. Three flaws sit in Channel Access message handling and one in pvAccess deserialization; the most serious, CVE-2026-114595, is an integer overflow rated 9.8 that produced a heap-buffer-overflow write in Cipher's sandbox, though the agent did not build a working RCE exploit. CISA published the four CVEs in ICSA-26-300-01 on 27 October and EPICS Base 7.0.11 shipped the fixes the same day. Causal reported the bugs to maintainers in June and said the only human step was authorising deeper testing in an isolated sandbox.
+Causal Security reported that its autonomous AI agent, Cipher, discovered and reproduced four critical memory-safety vulnerabilities in EPICS Base—the distributed control system used by particle accelerators and fusion reactors—in under four hours. The flaws included a 9.8-rated integer overflow in Channel Access message handling that could lead to memory corruption.
 
 ---
 
@@ -1034,7 +1034,7 @@ Causal Security said its autonomous Cipher agent found and reproduced four memor
 **AI role:** AI-assisted
 **Category:** Security research
 
-OWASP's GenAI Security Project published phase 2 of its LLM Exploit Generation Guide, comparing a ChatGPT-guided operator with nine autonomous agent setups against live Hack The Box machines. The human-guided run, by a persona with general computer literacy and intermediate prompting but no offensive security background, found a hidden staging site running a vulnerable Flowise instance, identified valid usernames and changed an administrator password to take over the account. None of the autonomous configurations, which included CAI, HexStrike, Claude Code and OpenAI Codex, completed the final takeover; provider guardrails or tool failures stopped them. OWASP said AI lowered the expertise needed for parts of the attack but did not remove it, and recommended human approval before high-impact actions.
+OWASP's GenAI Security Project demonstrated that a non-expert user guided interactively by ChatGPT successfully identified and breached a vulnerable staging application to achieve full administrator takeover. In contrast, fully autonomous agent frameworks failed to complete the attack due to tool failures or provider guardrails, highlighting how interactive AI guidance drastically lowers the skill floor for cyberattacks.
 
 ---
 
@@ -1047,7 +1047,7 @@ OWASP's GenAI Security Project published phase 2 of its LLM Exploit Generation G
 **AI role:** AI security research
 **Category:** Vulnerability research
 
-Epoch AI said GLM 5.3, an open-weight model released by Z.ai in August, built working one-click exploits for six Firefox releases between 17 September and 26 October using security fixes that were public but not yet shipped to users. Each exploit read a local file and sent it to an attacker's server when a victim visited a webpage; the fastest run took 12 hours and the marginal cost was about $1,000 per Firefox version. The attacks also relied on an unpublished vulnerability that the model rediscovered on each attempt, which Mozilla patched in Firefox 159.0 on 27 October. Epoch said it spent more than $100,000 on the research and could not produce an equivalent Chrome exploit, and that neither Z.ai nor any other provider blocked the work.
+Epoch AI demonstrated that the open-weight model GLM 5.3 could autonomously weaponize Firefox's "patch gap," analyzing public source-code fixes to generate working one-click exploits before updates reached users. The generated exploits achieved local file theft across six Firefox versions and consistently rediscovered an unpublished vulnerability that Mozilla subsequently patched in Firefox 159.0.
 
 ---
 
@@ -1060,7 +1060,7 @@ Epoch AI said GLM 5.3, an open-weight model released by Z.ai in August, built wo
 **AI role:** Autonomous
 **Category:** Cyber operations
 
-CrowdStrike attributed a campaign using the ARTEX agent framework to VAPOR PANDA, a China-nexus group that ran parallel intrusions against more than 200 organisations in at least 14 countries over 11 days beginning 17 October. The operator used DeepSeek and a second commercial model, deployed the BLOODALCHEMY backdoor at nine confirmed victims, and left transcripts showing Chinese-language human instructions to write web shells, extract domain administrator passwords and map endpoint sensor coverage. In one intrusion the planning agents consumed about 1.4 billion input tokens. CrowdStrike said the campaign is separate from the ARTEX activity Microsoft tracks as Storm-0940.
+CrowdStrike attributed a large-scale campaign using the ARTEX agent framework to China-nexus threat actor VAPOR PANDA, which launched parallel automated intrusions against over 200 organizations across 14 countries. The agents executed automated instructions to deploy the BLOODALCHEMY backdoor, map endpoint defenses, and harvest domain credentials while consuming commercial LLM tokens at massive scale.
 
 ---
 
@@ -1073,7 +1073,7 @@ CrowdStrike attributed a campaign using the ARTEX agent framework to VAPOR PANDA
 **AI role:** Autonomous
 **Category:** Cyber operations
 
-Wiz investigated three intrusions in which AI agents did most of the hands-on work: an exposed Flowise instance that became a staging point for attacks on dozens of other Flowise servers, a Java operations gateway swept for cloud and Kubernetes weaknesses, and an AI-agent GraphQL backend where attacker-controlled MCP arguments led to a shell. The Flowise case ran 99 scripts over about 24 hours, the Java case executed 602 steps across 12 technique families in 4.5 hours, and the MCP case produced more than 150 scripts and targeted about 25 organisations while exfiltrating cloud and Kubernetes credentials. Wiz listed seven fingerprints for spotting agent activity, including machine-paced iteration, natural-language reasoning in scripts, self-correction, breadth-first technique coverage, parallel lateral probing, probe-before-payload behaviour and disposable artifacts named after their purpose.
+Wiz analyzed three real-world enterprise intrusions where autonomous AI agents performed the bulk of hands-on operations across Flowise instances, Kubernetes clusters, and AI backends. The intrusions demonstrated rapid automated lateral probing and credential theft, providing defenders with distinct detection patterns including machine-paced execution and natural-language reasoning artifacts.
 
 ---
 
@@ -1103,7 +1103,7 @@ Cisco Talos analysed NIK C2, a Go-based Windows implant seen in the wild with mo
 **AI role:** AI-targeted
 **Category:** Malware
 
-Cursor said a modified build of Anthropic's Claude Code extension, versions 2.1.312 and 2.1.313, was available in its marketplace for about 11 hours on 29 October and was not developed by Anthropic. The extension collected host and user details, tried to add an attacker-controlled SSH key to authorized_keys, enabled SSH and opened a reverse tunnel, then installed persistence through a LaunchAgent on macOS or a SYSTEM-level scheduled task on Windows. Cursor removed the extension, shut down the marketplace, rebuilt it and had the attacker's server taken offline; it said the SSH step would fail on most hosts because it requires administrator rights, but told affected users to check for the svc-telemetry key and rotate credentials. Microsoft's later analysis put the window at roughly 2:27am to 1:35pm Pacific and confirmed the package never reached the Visual Studio Marketplace or npm, while noting that the injected loader could still write the SSH key and persistence files when the tunnel itself failed.
+A malicious clone of Anthropic's Claude Code extension was distributed through the Cursor extension marketplace for 11 hours before removal. The trojanized extension attempted to establish persistent remote access on developer workstations by opening reverse SSH tunnels, adding unauthorized SSH authorized keys, and installing scheduled background tasks on Windows and macOS systems.
 
 ---
 
@@ -1116,7 +1116,7 @@ Cursor said a modified build of Anthropic's Claude Code extension, versions 2.1.
 **AI role:** AI-targeted
 **Category:** Malware
 
-Pluto Research found 31 malicious Hugging Face repositories across seven accounts posing as small Qwen2 test models, with more than 32,000 downloads including linked models. Loading one with trust_remote_code=True ran the publisher's Python before any weights loaded, installing a cryptominer and sometimes a reverse shell on GPU hosts running inference servers, rented machines and shared notebooks. The campaign returned within days of a takedown with new accounts and revised loaders, and one first-wave wallet had received about 2,276 PRL, worth roughly $5,000, while the second wave was still live eight days after reporting.
+Pluto Research identified 31 malicious repositories on Hugging Face disguised as Qwen2 test models that exploited the trust_remote_code=True parameter. When loaded, the models executed arbitrary attacker Python code before weights were parsed, deploying cryptominers and reverse shells across GPU inference servers, cloud environments, and shared notebooks.
 
 ---
 
@@ -1129,7 +1129,7 @@ Pluto Research found 31 malicious Hugging Face repositories across seven account
 **AI role:** Unclear
 **Category:** Cyber operations
 
-UK domain registrar 123 Reg told customers that an intrusion on 18 September read names, phone numbers, account metadata, company VAT numbers and product data pulled through an API, and described it as an AI-driven cyberattack. The GoDaddy-owned company said it found AI exploitation skills on China- and Singapore-hosted infrastructure, including copies of skills open sourced by Anthropic, and suspected a China-nexus group linked to ARTEX attacks on South Korean financial institutions. 123 Reg said the activity appeared limited to reading data but that copies may have been made, and reported the incident to law enforcement, the FTC and UK and EU data protection authorities. The company has not published a technical report or said how many customers were affected.
+UK domain registrar 123 Reg disclosed a data breach exposing customer names, phone numbers, and account metadata, attributing the incident to an "AI-driven" attack. The company reported finding AI exploitation tooling—including open-source offensive skills—staged on attacker infrastructure associated with campaigns targeting international financial institutions.
 
 ---
 
@@ -1142,7 +1142,7 @@ UK domain registrar 123 Reg told customers that an intrusion on 18 September rea
 **AI role:** AI-assisted
 **Category:** Malware
 
-SOCRadar's threat research unit found a publicly accessible file server holding a n0n ransomware operator's workspace, including 1,719 files, 829 attack scripts and the source code for five encryptor versions. The operator ran the open-source OpenCode agent with 154 model entries across seven providers, including uncensored and abliterated models, and had spent more than $7,216 on model access by 22 October. The files tied the operation to at least 23 organisations in 14 countries, with entry through weak or stolen credentials rather than software vulnerabilities; in some cases the operator deleted data and backups instead of encrypting them. SOCRadar found no evidence of a fully autonomous attack system and described the operation as human-directed.
+SOCRadar uncovered an exposed workspace belonging to an n0n ransomware operator who used the OpenCode AI agent and 154 model configurations to support intrusions across 23 organizations worldwide. Rather than relying on autonomous zero-days, the human operator directed AI models to assist with script development, credential compromise, and destructive data deletion.
 
 ---
 
@@ -1155,7 +1155,7 @@ SOCRadar's threat research unit found a publicly accessible file server holding 
 **AI role:** Autonomous
 **Category:** Cyber operations
 
-Straiker reconstructed CARLIY0S, an attack system that CyberCartel used against more than 400 banks, payment providers and other financial targets across Latin America. Built on the PentAGI framework, it ran Claude inside Cursor as a commander and split work across four Claude roles, used Kimi and Claude Sonnet as fallbacks, and ran five Grok processes to mine credentials into a database called FinancialSoft. A snapshot of that database held 4,493 records, including account numbers, API keys, passwords and backdoors, and Straiker also found more than 270 penetration-test-style reports and 200-plus vulnerabilities. The 400-plus figure is the target count, not confirmed breaches.
+Straiker analyzed "CARLIY0S", an orchestrated attack platform operated by the CyberCartel group against more than 400 financial targets across Latin America. Built on the PentAGI agent harness, the platform coordinated multiple AI models—using Claude for high-level attack planning, Kimi for fallback analysis, and Grok for high-speed credential harvesting—yielding thousands of compromised account credentials and automated exploit reports.
 
 ---
 
@@ -1168,7 +1168,7 @@ Straiker reconstructed CARLIY0S, an attack system that CyberCartel used against 
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
-Unit 42 investigated an operator called BUGSTER who ran the Hermes Agent framework on DeepSeek V4, controlled it through Telegram and used Cursor with its permission checks and sandbox disabled, relying on AI-written scripts and reconnaissance reports. The actor mapped an Indian university's WordPress estate, ran a generated brute-force tool against 117 usernames and 28 common passwords that found one valid login, and exfiltrated a MongoDB database containing more than 5,200 student and faculty records from a second university. The same environment supported VoIP fraud research, Wi-Fi password cracking and cryptocurrency reconnaissance. Unit 42 said the actor used basic tooling and AI-generated scripts but still achieved notable impact across several types of cybercrime.
+Unit 42 investigated an unsophisticated threat actor who leveraged the Hermes Agent framework and DeepSeek V4 to breach educational institutions. Directed via Telegram with safety controls disabled, the AI tooling generated custom reconnaissance and brute-force scripts, enabling the low-skill operator to compromise web portals and exfiltrate over 5,200 records from a university database.
 
 ---
 
@@ -1194,7 +1194,7 @@ Darktrace researchers found that Claude Code, AWS Kiro-CLI, OpenAI Codex and the
 **AI role:** Autonomous
 **Category:** Cyber operations
 
-CrowdStrike's Counter Adversary Operations team described four previously unreported actors whose offensive agent frameworks were left exposed in open directories, giving researchers a view of how each ran AI agents between May and August 2026. A Spanish- and English-speaking operator used a Supervisor/Executor pair of Claude Code agents built on PentestGPT to compromise at least 15 Argentine healthcare entities and steal credentials and medical records; a Chinese-speaking actor with more than 20 named targets reached government systems in two countries and private firms in Brazil and the United States through two custom harnesses and a China-based AI proxy; an Indonesian-speaking actor leaned on 819 public GitHub skills without orchestration to hit Indonesian government domains and other targets; and a Russian-speaking group used a seven-step /pentest-setup workflow to steal client data from a US CRM vendor and compromise SaaS and data-centre firms in Russia, Kyrgyzstan and the US. CrowdStrike said one agent moved laterally and harvested domain controller credentials in about 20 minutes without further human guidance, and that all four bypassed commercial model safeguards.
+CrowdStrike detailed four independent threat actors whose exposed attack harnesses revealed extensive in-the-wild use of AI agents between May and August 2026. The campaigns leveraged agent pairs and custom prompts to bypass commercial safety filters, autonomously harvest domain controller credentials in 20 minutes, and breach healthcare, government, and cloud service providers across the Americas, Europe, and Asia.
 
 ---
 
@@ -1259,7 +1259,7 @@ OpenAI evaluated GPT-6 Cyber, a specialized cybersecurity model that demonstrate
 **AI role:** AI security research
 **Category:** Vulnerability research
 
-The Xen Project published XSA-523 for two flaws in grant copy, the mechanism that moves data between virtual machines. Incorrect revalidation of cached frame numbers and grant references, plus a misplaced check on copying by frame number, let a malicious guest read and write arbitrary memory belonging to other domains, including dom0. Every Xen release from 4.6 onward is affected, and the advisory lists no known mitigation. Anthropic found the bugs with Claude, Stephan Lipp of Ada Logics validated them, and the CodeAnt AI Security Research Team independently reported the same issue. Patches are available for the unstable branch and for Xen 4.17 and 4.18.
+Anthropic used Claude to discover two critical hypervisor vulnerabilities in Xen's grant-copy mechanism (XSA-523), affecting all releases since version 4.6. The flaws in cached frame number revalidation allowed a malicious guest virtual machine to read and write arbitrary memory belonging to other guest domains and the privileged host dom0 with no known mitigation prior to patching.
 
 ---
 
@@ -1372,7 +1372,7 @@ AIR Security disclosed a vulnerability in Anthropic's official document-processi
 **AI role:** AI-targeted
 **Category:** Vulnerability research
 
-Forever Security researcher Gal Weizman found that Claude Dispatch's interface and API were reachable from an ordinary logged-in claude.ai session, even though the web app did not link to the feature. A browser extension with permission to script claude.ai could therefore open the Cowork agent page in a hidden popup, find the local Claude Desktop session, type prompts into the composer and auto-click the Allow button. Four prompts and the automated approvals got Claude to install a package that opened Calculator, with no browser exploit; because Dispatch works across devices, the desktop could be on another machine signed into the same account. Weizman reported the flaw in May, Anthropic closed it as a duplicate and later said Dispatch would be retired by the end of October, but The Register reported in November that it had not happened. Anthropic issued no CVE and paid no bounty.
+A vulnerability in Claude Dispatch allowed a malicious browser extension with permissions on claude.ai to silently control an active desktop Claude session. By injecting prompts and auto-approving execution prompts in a background popup, an attacker could achieve arbitrary remote code execution on the user's computer without exploiting browser vulnerabilities.
 
 ---
 
@@ -1401,7 +1401,7 @@ Unit 42 identified 26 fraudulent crypto-trading websites that embedded hidden pr
 **AI role:** AI security research
 **Category:** Vulnerability research
 
-Anthropic's coordinated vulnerability disclosure dashboard, updated on 2 November, says Claude models including an early Mythos Preview snapshot produced 37,966 candidate findings and that 5,087 vulnerabilities were reported to maintainers across 680 open-source projects. Maintainers acknowledged 3,635 reports, 629 had been patched upstream, and 733 identifiers had been issued, split between 230 CVEs and 503 GitHub security advisories. Anthropic said human triage is the limiting step and that the reported figure is a subset of what the models found. VulnCheck's later analysis argued the numbers overstate progress: it counted 217 fixes in the public ledger, noted that 419 findings had been withdrawn and 1,654 were duplicates, and said the volume had overwhelmed maintainers. Anthropic's dashboard counts and the ledger use different definitions for patched findings.
+Anthropic released a coordinated disclosure dashboard crediting Claude models with identifying 5,087 open-source vulnerabilities across 680 projects. The disclosure demonstrated the growing scale of AI-assisted vulnerability discovery while highlighting emerging industry challenges, as maintainers faced triage bottlenecks from high volumes of automated candidate reports.
 
 ---
 
