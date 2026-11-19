@@ -35,9 +35,9 @@
       "urls": [
         "https://www.datadoghq.com/blog/datadogs-agentic-vulnerability-hunting-system/"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20261118190543/https://www.datadoghq.com/blog/datadogs-agentic-vulnerability-hunting-system/",
       "archives": [
-        ""
+        "https://web.archive.org/web/20261118190543/https://www.datadoghq.com/blog/datadogs-agentic-vulnerability-hunting-system/"
       ],
       "role": "AI security research",
       "category": "Vulnerability research",
@@ -463,9 +463,9 @@
         "https://forever.security/blog/thisbash-claude-dispatch-browser-extension-rce/",
         "https://www.theregister.com/research/2026/11/05/anthropic-wont-fix-a-claude-dispatch-flaw-that-could-let-attackers-execute-remote-commands-across-corporate-boundaries/5307684"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20261118190448/https://forever.security/blog/thisbash-claude-dispatch-browser-extension-rce/",
       "archives": [
-        "",
+        "https://web.archive.org/web/20261118190448/https://forever.security/blog/thisbash-claude-dispatch-browser-extension-rce/",
         "https://web.archive.org/web/20261117162919/https://www.theregister.com/research/2026/11/05/anthropic-wont-fix-a-claude-dispatch-flaw-that-could-let-attackers-execute-remote-commands-across-corporate-boundaries/5307684"
       ],
       "role": "AI-targeted",
@@ -806,9 +806,9 @@
       "urls": [
         "https://genai.owasp.org/resource/llm-exploit-generation-guide-2-0/"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20261118190434/https://genai.owasp.org/resource/llm-exploit-generation-guide-2-0/",
       "archives": [
-        ""
+        "https://web.archive.org/web/20261118190434/https://genai.owasp.org/resource/llm-exploit-generation-guide-2-0/"
       ],
       "role": "AI-assisted",
       "category": "Security research",
@@ -1073,9 +1073,9 @@
       "urls": [
         "https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/"
       ],
-      "archive": "",
+      "archive": "https://web.archive.org/web/20261118190404/https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/",
       "archives": [
-        ""
+        "https://web.archive.org/web/20261118190404/https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/"
       ],
       "role": "Autonomous",
       "category": "Cyber operations",

@@ -1030,6 +1030,7 @@ Causal Security said its autonomous Cipher agent found and reproduced four memor
 **Date:** 2026-10-27
 **Source:** OWASP GenAI Security Project
 **URL:** https://genai.owasp.org/resource/llm-exploit-generation-guide-2-0/
+**Archive:** https://web.archive.org/web/20261118190434/https://genai.owasp.org/resource/llm-exploit-generation-guide-2-0/
 **AI role:** AI-assisted
 **Category:** Security research
 
@@ -1189,6 +1190,7 @@ Darktrace researchers found that Claude Code, AWS Kiro-CLI, OpenAI Codex and the
 **Date:** 2026-10-21
 **Source:** CrowdStrike
 **URL:** https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/
+**Archive:** https://web.archive.org/web/20261118190404/https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/
 **AI role:** Autonomous
 **Category:** Cyber operations
 
@@ -1366,6 +1368,7 @@ AIR Security disclosed a code-execution flaw in Anthropic's official DOCX, PPTX 
 **URL:** https://forever.security/blog/thisbash-claude-dispatch-browser-extension-rce/
 **URL 2:** https://www.theregister.com/research/2026/11/05/anthropic-wont-fix-a-claude-dispatch-flaw-that-could-let-attackers-execute-remote-commands-across-corporate-boundaries/5307684
 **Archive 2:** https://web.archive.org/web/20261117162919/https://www.theregister.com/research/2026/11/05/anthropic-wont-fix-a-claude-dispatch-flaw-that-could-let-attackers-execute-remote-commands-across-corporate-boundaries/5307684
+**Archive:** https://web.archive.org/web/20261118190448/https://forever.security/blog/thisbash-claude-dispatch-browser-extension-rce/
 **AI role:** AI-targeted
 **Category:** Vulnerability research
 
@@ -1485,6 +1488,7 @@ Kaspersky documented a previously unreported Russian-speaking group it calls Cit
 **Date:** 2026-11-18
 **Source:** Datadog
 **URL:** https://www.datadoghq.com/blog/datadogs-agentic-vulnerability-hunting-system/
+**Archive:** https://web.archive.org/web/20261118190543/https://www.datadoghq.com/blog/datadogs-agentic-vulnerability-hunting-system/
 **AI role:** AI security research
 **Category:** Vulnerability research
 
