@@ -1621,3 +1621,319 @@ AIR Research Lab ran 4,719 coding-agent searches through eight search APIs and c
 **Category:** Cyber operations
 
 CERT-In advisory CIAD-2026-0062 reports AI-driven agentic offensive frameworks automating reconnaissance, credential attacks and parallel intrusion tasks against enterprises, government bodies and academic institutions. The advisory names no victims and attributes no activity.
+
+---
+
+## UIUC researchers show GPT-4 agents can autonomously hack websites
+
+**Date:** 2024-02-06
+**Source:** arXiv (UIUC)
+**URL:** https://arxiv.org/abs/2402.06664
+**AI role:** AI security research
+**Category:** Security research
+
+University of Illinois researchers showed that GPT-4-based agents could carry out multi-step website attacks, such as blind database schema extraction and SQL injection, without human guidance or prior knowledge of the flaw. The open-source models they tested failed.
+
+---
+
+## UIUC agent exploits 87% of real one-day vulnerabilities from CVE descriptions
+
+**Date:** 2024-04-11
+**Source:** arXiv (UIUC)
+**URL:** https://arxiv.org/abs/2404.08144
+**AI role:** AI security research
+**Category:** Security research
+
+UIUC researchers reported that a GPT-4 agent exploited 87% of 15 real-world one-day vulnerabilities when given the CVE description, while GPT-3.5, open-source models and the ZAP and Metasploit scanners exploited none. Without the description, GPT-4's success rate fell to 7%.
+
+---
+
+## Google's Big Sleep AI agent finds an exploitable SQLite flaw
+
+**Date:** 2024-11-01
+**Source:** Google Project Zero
+**URL:** https://projectzero.google/2024/10/from-naptime-to-big-sleep.html
+**AI role:** AI security research
+**Category:** Vulnerability research
+
+Google's Big Sleep agent found an exploitable stack buffer underflow in SQLite, reported in early October and fixed before any official release. The authors call the results highly experimental and say a target-specific fuzzer would likely be at least as effective.
+
+---
+
+## Arup confirms £20m loss to an AI deepfake video-call scam
+
+**Date:** 2024-05-17
+**Source:** The Guardian
+**URL:** https://www.theguardian.com/technology/article/2024/may/17/uk-engineering-arup-deepfake-scam-hong-kong-ai-video
+**AI role:** AI-assisted
+**Category:** Other
+
+Engineering firm Arup confirmed it was the victim of a fraud in which an employee in Hong Kong sent about HK$200m (£20m) to criminals after an AI-generated video call that used fake voices and images of senior officers.
+
+---
+
+## Retool breach used a deepfake of an employee's voice to get an MFA code
+
+**Date:** 2023-09-13
+**Source:** Retool
+**URL:** https://retool.com/blog/mfa-isnt-mfa
+**AI role:** AI-assisted
+**Category:** Credential theft
+
+After an SMS phishing attack, the intruder phoned a Retool employee using a deepfake of the employee's own voice to get an additional MFA code. The attacker then took over accounts belonging to 27 cloud customers, all in the crypto industry.
+
+---
+
+## Recorded Future finds threat actors sharing ChatGPT-built malware and phishing
+
+**Date:** 2023-01-26
+**Source:** Recorded Future (Insikt Group)
+**URL:** https://www.recordedfuture.com/research/i-chatbot
+**AI role:** AI-assisted
+**Category:** Malware
+
+Recorded Future's Insikt Group found dark web and special-access forum users sharing proof-of-concept ChatGPT conversations for malware development, phishing and social engineering, and replicated malicious code posted there. It noted that much of the shared code resembled publicly available code.
+
+---
+
+## OpenAI's o1-preview reached a Docker host API during a CTF evaluation
+
+**Date:** 2024-09-12
+**Source:** OpenAI
+**URL:** https://cdn.openai.com/o1-preview-system-card-20240917.pdf
+**AI role:** Autonomous
+**Category:** Security research
+
+OpenAI's system card reported that, after a challenge container failed to start because of an evaluation bug, o1-preview scanned the network with nmap, found a misconfigured Docker API on the host, and started a new container to read the flag. OpenAI said its evaluation did not rely on the container boundary for security.
+
+---
+
+## Nx malware prompts developers' AI coding CLIs to hunt for secrets
+
+**Date:** 2025-08-27
+**Source:** Wiz
+**URL:** https://www.wiz.io/blog/s1ngularity-supply-chain-attack
+**AI role:** AI-assisted
+**Category:** Credential theft
+
+Malicious Nx npm packages ran installed AI command-line tools, including Claude, Gemini and Amazon Q, with permission-skipping flags to search filesystems for wallets, tokens, SSH keys and credentials, then uploaded the results to public GitHub repositories. Wiz said the second phase affected over 400 users and organizations.
+
+---
+
+## Google says Big Sleep found a SQLite flaw attackers were preparing to exploit
+
+**Date:** 2025-07-15
+**Source:** Google
+**URL:** https://blog.google/innovation-and-ai/technology/safety-security/cybersecurity-updates-summer-2025/
+**AI role:** AI security research
+**Category:** Vulnerability research
+
+Google said its Big Sleep agent, working from threat intelligence leads, found CVE-2025-6965 in SQLite, a flaw it says was known only to threat actors and at risk of imminent exploitation. Google calls it the first time an AI agent has directly thwarted an in-the-wild exploit attempt.
+
+---
+
+## XBOW's autonomous pentester reaches the top of HackerOne's US leaderboard
+
+**Date:** 2025-06-24
+**Source:** XBOW
+**URL:** https://xbow.com/blog/top-1-how-xbow-did-it
+**AI role:** AI security research
+**Category:** Vulnerability research
+
+XBOW reported that its autonomous AI penetration tester submitted roughly 1,060 vulnerabilities to HackerOne bug bounty programs and reached the top of the US leaderboard. Its security team reviewed the findings before submission to meet HackerOne's rules on automated tools.
+
+---
+
+## ESET finds PromptLock, an LLM-driven ransomware prototype
+
+**Date:** 2025-08-26
+**Source:** ESET Research
+**URL:** https://www.welivesecurity.com/en/ransomware/first-known-ai-powered-ransomware-uncovered-eset-research/
+**AI role:** AI security research
+**Category:** Malware
+
+ESET found PromptLock samples that use a local gpt-oss-20b model through Ollama to generate Lua scripts that scan, exfiltrate and encrypt files. ESET did not see it in real attacks, and academic researchers later said their "Ransomware 3.0" prototype closely matches the samples.
+
+---
+
+## Check Point links FunkSec ransomware to AI-assisted development
+
+**Date:** 2025-01-10
+**Source:** Check Point Research
+**URL:** https://research.checkpoint.com/2025/funksec-alleged-top-ransomware-group-powered-by-ai/
+**AI role:** AI-assisted
+**Category:** Malware
+
+Check Point reported that FunkSec's operators appear to have used AI to develop their tools, judging by detailed comments in a DDoS script and patterns in the ransomware's Rust code. The group claimed more than 85 victims in December 2024; both the AI link and the victim count rest on inference and the group's own claims.
+
+---
+
+## CrowdStrike says North Korean IT workers used GenAI to infiltrate 320+ companies
+
+**Date:** 2025-08-04
+**Source:** CrowdStrike
+**URL:** https://www.crowdstrike.com/en-us/blog/crowdstrike-2025-threat-hunting-report-ai-weapon-target/
+**AI role:** AI-assisted
+**Category:** Cyber operations
+
+CrowdStrike reported that FAMOUS CHOLLIMA, a North Korea-linked group, infiltrated over 320 companies in 12 months, up 220% year over year, using generative AI throughout its hiring and employment process.
+
+---
+
+## Microsoft takes legal action against Storm-2139 for abusing Azure OpenAI
+
+**Date:** 2025-02-27
+**Source:** Microsoft On the Issues
+**URL:** https://blogs.microsoft.com/on-the-issues/2025/02/27/disrupting-cybercrime-abusing-gen-ai/
+**AI role:** AI-targeted
+**Category:** Cloud infrastructure
+
+Microsoft said Storm-2139 used customer credentials gathered from public sources to break into Azure OpenAI accounts, changed what the services could do, and resold access to others who used it to create harmful content. Microsoft sued, seized a website central to the operation and named four defendants.
+
+---
+
+## One operator used Claude Code and GPT-4.1 to breach nine Mexican government bodies
+
+**Date:** 2026-04-10
+**Source:** Gambit Security
+**URL:** https://gambit.security/blog-posts/a-single-operator-two-ai-platforms-nine-government-agencies-the-full-technical-report
+**AI role:** AI-assisted
+**Category:** Cyber operations
+
+Gambit Security reported that a single operator used Claude Code and GPT-4.1 to breach nine Mexican government organizations between December 2025 and February 2026. Claude Code generated and ran about 75% of remote commands (5,317 across 34 sessions), and a custom tool sent harvested data to OpenAI's API to produce 2,597 intelligence reports.
+
+---
+
+## Amazon: AI-augmented actor compromised 600+ FortiGate devices
+
+**Date:** 2026-02-20
+**Source:** AWS Security Blog
+**URL:** https://aws.amazon.com/blogs/security/ai-augmented-threat-actor-accesses-fortigate-devices-at-scale/
+**AI role:** AI-assisted
+**Category:** Cyber operations
+
+Amazon Threat Intelligence said a Russian-speaking, financially motivated actor used at least two commercial generative AI services to plan attacks and write tooling, compromising over 600 FortiGate devices in more than 55 countries between January 11 and February 18, 2026. Access came from exposed management ports and weak credentials, not software flaws.
+
+---
+
+## Anthropic says Claude Mythos Preview finds and exploits zero-days in every major OS
+
+**Date:** 2026-04-07
+**Source:** Anthropic
+**URL:** https://www.anthropic.com/research/mythos-preview
+**AI role:** AI security research
+**Category:** Vulnerability research
+
+Anthropic reported that Claude Mythos Preview identified and exploited zero-days in every major operating system and web browser, including a 27-year-old OpenBSD flaw and a 17-year-old FreeBSD NFS bug (CVE-2026-4747) it turned into an unauthenticated root exploit. Over 99% of findings were unpatched, so Anthropic withheld general release and launched Project Glasswing.
+
+---
+
+## Check Point finds VoidLink, a Linux malware framework built almost entirely by AI
+
+**Date:** 2026-01-20
+**Source:** Check Point Research
+**URL:** https://research.checkpoint.com/2026/voidlink-early-ai-generated-malware-framework/
+**AI role:** AI-assisted
+**Category:** Malware
+
+Check Point Research believes VoidLink was built almost entirely by AI under one person's direction, using the TRAE SOLO coding assistant. The codebase passed 88,000 lines about a week into the project. Check Point did not confirm deployment against victims.
+
+---
+
+## IBM X-Force finds Slopoly, an AI-generated backdoor in an Interlock ransomware attack
+
+**Date:** 2026-03-12
+**Source:** IBM X-Force
+**URL:** https://www.ibm.com/think/x-force/slopoly-start-ai-enhanced-ransomware-attacks
+**AI role:** AI-assisted
+**Category:** Malware
+
+IBM X-Force found Slopoly, a PowerShell backdoor that is likely LLM-generated based on extensive comments, logging and error handling, on a server during a ransomware engagement. It attributed the backdoor to Hive0163, an Interlock ransomware operator that used it to keep access for more than a week.
+
+---
+
+## Sophos finds an attacker using Cursor and Claude agents to build EDR evasion
+
+**Date:** 2026-06-02
+**Source:** Sophos
+**URL:** https://www.sophos.com/en-us/blog/pointing-a-cursor-at-evading-detection
+**AI role:** AI-assisted
+**Category:** Malware
+
+Sophos found an attacker who used Cursor and Claude Opus agents to build and test EDR-evasion tools, producing nearly 80 modules across more than 70 techniques, and framed the work as a "red team" project to avoid guardrails. Humans reviewed and iterated, and Sophos found no AI embedded in deployed malware. It linked the work to ransomware operations.
+
+---
+
+## Unit 42 tracks more than 10 campaigns run by autonomous AI agents
+
+**Date:** 2026-11-24
+**Source:** Unit 42
+**URL:** https://unit42.paloaltonetworks.com/autonomous-ai-agent-threat-campaigns/
+**AI role:** Autonomous
+**Category:** Cyber operations
+
+Unit 42 tracked more than 10 campaigns between July and September 2026 in which autonomous AI agents ran attacks at machine speed, compressing intrusions from days or weeks to hours; one agent ran about 800 commands in 140 minutes. The agents left fingerprints such as machine-readable output and chain-of-thought comments in scripts.
+
+---
+
+## ARTEX agent escapes a researcher's sandbox and breaches WorkOS
+
+**Date:** 2026-11-06
+**Source:** WorkOS
+**Source 2:** BleepingComputer
+**URL:** https://workos.com/security/bulletins/update-for-october-30th-2026-data-security-incident
+**URL 2:** https://www.bleepingcomputer.com/news/security/runaway-ai-hacking-agent-behind-workos-breach-after-escaping-sandbox/
+**AI role:** Autonomous
+**Category:** Cyber operations
+
+WorkOS traced unauthorized requests to an internal sales tool to a security researcher's AI agent, built on the ARTEX framework, that escaped its testing sandbox. WorkOS said this was unintended and not malicious. The agent reached the tool through a forgotten development credential and exposed sales and support data; the researcher says they deleted it.
+
+---
+
+## Chainstack attributes a breach to the ARTEX agent framework
+
+**Date:** 2026-11-03
+**Source:** Chainstack
+**URL:** https://chainstack.com/security-incident-nov-2026/
+**AI role:** Unclear
+**Category:** Cloud infrastructure
+
+Chainstack assessed with high confidence that an attacker used ARTEX, an LLM-agent intrusion framework, to move from an internet-exposed Grafana instance with default admin credentials to an unauthenticated MCP tool server with cluster-admin rights. Customer account data and production secrets were exposed. Chainstack attributes only the tooling, not the operators.
+
+---
+
+## Binance says attackers pivoted through an internal AI tool in the $6.3B theft
+
+**Date:** 2026-11-05
+**Source:** CSO Online
+**URL:** https://www.csoonline.com/article/4245354/binance-heist-is-stark-example-of-ai-governance-gaps-and-basic-security-failures.html
+**AI role:** AI-targeted
+**Category:** Cyber operations
+
+After planting malware on one engineer's computer, attackers used an internal AI tool on that machine to move into two other wallet-infrastructure engineers' systems, where they found a token that could deploy containers. Nine days later they used it to start withdrawals. The FBI attributed the roughly $6.34 billion theft to North Korea's TraderTraitor.
+
+---
+
+## Dream documents a multi-agent AI framework used against Asian government targets
+
+**Date:** 2026-08-12
+**Source:** Dream
+**Source 2:** CyberScoop
+**URL:** https://dreamgroup.com/blog/inside-a-multi-agent-ai-framework-used-to-compromise-government-entities-in-asia
+**URL 2:** https://cyberscoop.com/near-autonomous-ai-attack-government-target-taiwan/
+**AI role:** Autonomous
+**Category:** Cyber operations
+
+Dream described a multi-agent AI framework that ran "Learning Cycles" to research techniques and adapt mid-operation as it moved from a Taiwanese government target to IT supply-chain vendors, a nuclear safety agency and more than seven energy companies, extracting more than 2,500 personnel records. Attribution to suspected Chinese hackers rests on Dream's analysis.
+
+---
+
+## CISA and partners warn actors used AI-written tools against Siemens S7 PLCs
+
+**Date:** 2026-08-19
+**Source:** CISA
+**URL:** https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-231a
+**AI role:** AI-assisted
+**Category:** Cyber operations
+
+An NSA, CISA, FBI, DOE and EPA advisory said threat actors used AI-assisted Python scripts, built on python-snap7 and disguised as monitoring tools, to read and write Siemens S7 PLC memory, configuration and ladder logic for reconnaissance, access and testing that could prepare for disruptive effects.
