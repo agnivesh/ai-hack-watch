@@ -1641,6 +1641,7 @@ CERT-In advisory CIAD-2026-0062 reports AI-driven agentic offensive frameworks a
 **Date:** 2024-02-06
 **Source:** arXiv (UIUC)
 **URL:** https://arxiv.org/abs/2402.06664
+**Archive:** https://web.archive.org/web/20261031150628/https://arxiv.org/abs/2402.06664
 **AI role:** AI security research
 **Category:** Security research
 
@@ -1653,6 +1654,7 @@ University of Illinois researchers showed that GPT-4-based agents could carry ou
 **Date:** 2024-04-11
 **Source:** arXiv (UIUC)
 **URL:** https://arxiv.org/abs/2404.08144
+**Archive:** https://web.archive.org/web/20261118030417/https://arxiv.org/abs/2404.08144
 **AI role:** AI security research
 **Category:** Security research
 
@@ -1665,6 +1667,7 @@ UIUC researchers reported that a GPT-4 agent exploited 87% of 15 real-world one-
 **Date:** 2024-11-01
 **Source:** Google Project Zero
 **URL:** https://projectzero.google/2024/10/from-naptime-to-big-sleep.html
+**Archive:** https://web.archive.org/web/20261117230456/https://projectzero.google/2024/10/from-naptime-to-big-sleep.html
 **AI role:** AI security research
 **Category:** Vulnerability research
 
@@ -1677,6 +1680,7 @@ Google's Big Sleep agent found an exploitable stack buffer underflow in SQLite, 
 **Date:** 2024-05-17
 **Source:** The Guardian
 **URL:** https://www.theguardian.com/technology/article/2024/may/17/uk-engineering-arup-deepfake-scam-hong-kong-ai-video
+**Archive:** https://web.archive.org/web/20261124235408/https://www.theguardian.com/technology/article/2024/may/17/uk-engineering-arup-deepfake-scam-hong-kong-ai-video
 **AI role:** AI-assisted
 **Category:** Other
 
@@ -1689,6 +1693,7 @@ Engineering firm Arup confirmed it was the victim of a fraud in which an employe
 **Date:** 2023-09-13
 **Source:** Retool
 **URL:** https://retool.com/blog/mfa-isnt-mfa
+**Archive:** https://web.archive.org/web/20261031071658/https://retool.com/blog/mfa-isnt-mfa
 **AI role:** AI-assisted
 **Category:** Credential theft
 
@@ -1701,6 +1706,7 @@ After an SMS phishing attack, the intruder phoned a Retool employee using a deep
 **Date:** 2023-01-26
 **Source:** Recorded Future (Insikt Group)
 **URL:** https://www.recordedfuture.com/research/i-chatbot
+**Archive:** https://web.archive.org/web/20260422025423/https://www.recordedfuture.com/research/i-chatbot
 **AI role:** AI-assisted
 **Category:** Malware
 
@@ -1713,6 +1719,7 @@ Recorded Future's Insikt Group found dark web and special-access forum users sha
 **Date:** 2024-09-12
 **Source:** OpenAI
 **URL:** https://cdn.openai.com/o1-preview-system-card-20240917.pdf
+**Archive:** https://web.archive.org/web/20261111214123/https://cdn.openai.com/o1-preview-system-card-20240917.pdf
 **AI role:** Autonomous
 **Category:** Security research
 
@@ -1725,6 +1732,7 @@ OpenAI's system card reported that, after a challenge container failed to start 
 **Date:** 2025-08-27
 **Source:** Wiz
 **URL:** https://www.wiz.io/blog/s1ngularity-supply-chain-attack
+**Archive:** https://web.archive.org/web/20261106004656/https://www.wiz.io/blog/s1ngularity-supply-chain-attack
 **AI role:** AI-assisted
 **Category:** Credential theft
 
@@ -1737,6 +1745,7 @@ Malicious Nx npm packages ran installed AI command-line tools, including Claude,
 **Date:** 2025-07-15
 **Source:** Google
 **URL:** https://blog.google/innovation-and-ai/technology/safety-security/cybersecurity-updates-summer-2025/
+**Archive:** https://web.archive.org/web/20261029010034/https://blog.google/innovation-and-ai/technology/safety-security/cybersecurity-updates-summer-2025/
 **AI role:** AI security research
 **Category:** Vulnerability research
 
@@ -1749,6 +1758,7 @@ Google said its Big Sleep agent, working from threat intelligence leads, found C
 **Date:** 2025-06-24
 **Source:** XBOW
 **URL:** https://xbow.com/blog/top-1-how-xbow-did-it
+**Archive:** https://web.archive.org/web/20261111000242/https://xbow.com/blog/top-1-how-xbow-did-it
 **AI role:** AI security research
 **Category:** Vulnerability research
 
@@ -1761,6 +1771,7 @@ XBOW reported that its autonomous AI penetration tester submitted roughly 1,060 
 **Date:** 2025-08-26
 **Source:** ESET Research
 **URL:** https://www.welivesecurity.com/en/ransomware/first-known-ai-powered-ransomware-uncovered-eset-research/
+**Archive:** https://web.archive.org/web/20261005194207/https://www.welivesecurity.com/en/ransomware/first-known-ai-powered-ransomware-uncovered-eset-research/
 **AI role:** AI security research
 **Category:** Malware
 
@@ -1773,6 +1784,7 @@ ESET found PromptLock samples that use a local gpt-oss-20b model through Ollama 
 **Date:** 2025-01-10
 **Source:** Check Point Research
 **URL:** https://research.checkpoint.com/2025/funksec-alleged-top-ransomware-group-powered-by-ai/
+**Archive:** https://web.archive.org/web/20261031002318/https://research.checkpoint.com/2025/funksec-alleged-top-ransomware-group-powered-by-ai/
 **AI role:** AI-assisted
 **Category:** Malware
 
@@ -1785,6 +1797,7 @@ Check Point reported that FunkSec's operators appear to have used AI to develop 
 **Date:** 2025-08-04
 **Source:** CrowdStrike
 **URL:** https://www.crowdstrike.com/en-us/blog/crowdstrike-2025-threat-hunting-report-ai-weapon-target/
+**Archive:** https://web.archive.org/web/20261113094510/https://www.crowdstrike.com/en-us/blog/crowdstrike-2025-threat-hunting-report-ai-weapon-target/
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
@@ -1797,6 +1810,7 @@ CrowdStrike reported that FAMOUS CHOLLIMA, a North Korea-linked group, infiltrat
 **Date:** 2025-02-27
 **Source:** Microsoft On the Issues
 **URL:** https://blogs.microsoft.com/on-the-issues/2025/02/27/disrupting-cybercrime-abusing-gen-ai/
+**Archive:** https://web.archive.org/web/20261031004630/https://blogs.microsoft.com/on-the-issues/2025/02/27/disrupting-cybercrime-abusing-gen-ai/
 **AI role:** AI-targeted
 **Category:** Cloud infrastructure
 
@@ -1809,6 +1823,7 @@ Microsoft said Storm-2139 used customer credentials gathered from public sources
 **Date:** 2026-04-10
 **Source:** Gambit Security
 **URL:** https://gambit.security/blog-posts/a-single-operator-two-ai-platforms-nine-government-agencies-the-full-technical-report
+**Archive:** https://web.archive.org/web/20261103033336/https://gambit.security/blog-posts/a-single-operator-two-ai-platforms-nine-government-agencies-the-full-technical-report
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
@@ -1821,6 +1836,7 @@ Gambit Security reported that a single operator used Claude Code and GPT-4.1 to 
 **Date:** 2026-02-20
 **Source:** AWS Security Blog
 **URL:** https://aws.amazon.com/blogs/security/ai-augmented-threat-actor-accesses-fortigate-devices-at-scale/
+**Archive:** https://web.archive.org/web/20261117020539/https://aws.amazon.com/blogs/security/ai-augmented-threat-actor-accesses-fortigate-devices-at-scale/
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
@@ -1833,6 +1849,7 @@ Amazon Threat Intelligence said a Russian-speaking, financially motivated actor 
 **Date:** 2026-04-07
 **Source:** Anthropic
 **URL:** https://www.anthropic.com/research/mythos-preview
+**Archive:** https://web.archive.org/web/20261119154328/https://www.anthropic.com/research/mythos-preview
 **AI role:** AI security research
 **Category:** Vulnerability research
 
@@ -1845,6 +1862,7 @@ Anthropic reported that Claude Mythos Preview identified and exploited zero-days
 **Date:** 2026-01-20
 **Source:** Check Point Research
 **URL:** https://research.checkpoint.com/2026/voidlink-early-ai-generated-malware-framework/
+**Archive:** https://web.archive.org/web/20261105034713/https://research.checkpoint.com/2026/voidlink-early-ai-generated-malware-framework/
 **AI role:** AI-assisted
 **Category:** Malware
 
@@ -1857,6 +1875,7 @@ Check Point Research believes VoidLink was built almost entirely by AI under one
 **Date:** 2026-03-12
 **Source:** IBM X-Force
 **URL:** https://www.ibm.com/think/x-force/slopoly-start-ai-enhanced-ransomware-attacks
+**Archive:** https://web.archive.org/web/20261001050107/https://www.ibm.com/think/x-force/slopoly-start-ai-enhanced-ransomware-attacks
 **AI role:** AI-assisted
 **Category:** Malware
 
@@ -1869,6 +1888,7 @@ IBM X-Force found Slopoly, a PowerShell backdoor that is likely LLM-generated ba
 **Date:** 2026-06-02
 **Source:** Sophos
 **URL:** https://www.sophos.com/en-us/blog/pointing-a-cursor-at-evading-detection
+**Archive:** https://web.archive.org/web/20261112002217/https://www.sophos.com/en-us/blog/pointing-a-cursor-at-evading-detection
 **AI role:** AI-assisted
 **Category:** Malware
 
@@ -1881,6 +1901,7 @@ Sophos found an attacker who used Cursor and Claude Opus agents to build and tes
 **Date:** 2026-11-24
 **Source:** Unit 42
 **URL:** https://unit42.paloaltonetworks.com/autonomous-ai-agent-threat-campaigns/
+**Archive:** https://web.archive.org/web/20261124235753/https://unit42.paloaltonetworks.com/autonomous-ai-agent-threat-campaigns/
 **AI role:** Autonomous
 **Category:** Cyber operations
 
@@ -1895,6 +1916,8 @@ Unit 42 tracked more than 10 campaigns between July and September 2026 in which 
 **Source 2:** BleepingComputer
 **URL:** https://workos.com/security/bulletins/update-for-october-30th-2026-data-security-incident
 **URL 2:** https://www.bleepingcomputer.com/news/security/runaway-ai-hacking-agent-behind-workos-breach-after-escaping-sandbox/
+**Archive:** https://web.archive.org/web/20261121170537/https://workos.com/security/bulletins/update-for-october-30th-2026-data-security-incident
+**Archive 2:** https://web.archive.org/web/20261111131446/https://www.bleepingcomputer.com/news/security/runaway-ai-hacking-agent-behind-workos-breach-after-escaping-sandbox/
 **AI role:** Autonomous
 **Category:** Cyber operations
 
@@ -1907,6 +1930,7 @@ WorkOS traced unauthorized requests to an internal sales tool to a security rese
 **Date:** 2026-11-03
 **Source:** Chainstack
 **URL:** https://chainstack.com/security-incident-nov-2026/
+**Archive:** https://web.archive.org/web/20261104182354/https://chainstack.com/security-incident-nov-2026/
 **AI role:** Unclear
 **Category:** Cloud infrastructure
 
@@ -1919,6 +1943,7 @@ Chainstack assessed with high confidence that an attacker used ARTEX, an LLM-age
 **Date:** 2026-11-05
 **Source:** CSO Online
 **URL:** https://www.csoonline.com/article/4245354/binance-heist-is-stark-example-of-ai-governance-gaps-and-basic-security-failures.html
+**Archive:** https://web.archive.org/web/20261108225859/https://www.csoonline.com/article/4245354/binance-heist-is-stark-example-of-ai-governance-gaps-and-basic-security-failures.html
 **AI role:** AI-targeted
 **Category:** Cyber operations
 
@@ -1933,6 +1958,8 @@ After planting malware on one engineer's computer, attackers used an internal AI
 **Source 2:** CyberScoop
 **URL:** https://dreamgroup.com/blog/inside-a-multi-agent-ai-framework-used-to-compromise-government-entities-in-asia
 **URL 2:** https://cyberscoop.com/near-autonomous-ai-attack-government-target-taiwan/
+**Archive:** https://web.archive.org/web/20261117172430/https://dreamgroup.com/blog/inside-a-multi-agent-ai-framework-used-to-compromise-government-entities-in-asia
+**Archive 2:** https://web.archive.org/web/20261031003306/https://cyberscoop.com/near-autonomous-ai-attack-government-target-taiwan/
 **AI role:** Autonomous
 **Category:** Cyber operations
 
@@ -1945,6 +1972,7 @@ Dream described a multi-agent AI framework that ran "Learning Cycles" to researc
 **Date:** 2026-08-19
 **Source:** CISA
 **URL:** https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-231a
+**Archive:** https://web.archive.org/web/20261122003810/https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-231a
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
