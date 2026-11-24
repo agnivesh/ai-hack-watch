@@ -1516,6 +1516,8 @@ Two Microsoft research teams showed that an attacker who controls fine-tuning da
 **Source 2:** BleepingComputer
 **URL:** https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/
 **URL 2:** https://www.bleepingcomputer.com/news/security/hackers-use-autonomous-ai-tool-cairn-to-find-zero-day-take-over-server/
+**Archive:** https://web.archive.org/web/20261124132218/https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/
+**Archive 2:** https://web.archive.org/web/20261124143002/https://www.bleepingcomputer.com/news/security/hackers-use-autonomous-ai-tool-cairn-to-find-zero-day-take-over-server/
 **AI role:** Autonomous
 **Category:** Cyber operations
 
@@ -1528,6 +1530,7 @@ Amazon Threat Intelligence reconstructed a China-nexus campaign that began on Se
 **Date:** 2026-11-19
 **Source:** Dragos
 **URL:** https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens
+**Archive:** https://web.archive.org/web/20261124180639/https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens
 **AI role:** AI-targeted
 **Category:** Credential theft
 
@@ -1543,6 +1546,8 @@ Dragos seeded about two million prompts with unique canary URLs and AWS keys acr
 **Source 2:** BleepingComputer
 **URL:** https://audiovisual.ec.europa.eu/en/media/video/I-298222
 **URL 2:** https://www.bleepingcomputer.com/news/security/european-commission-confirms-data-theft-in-eu-academy-breach/
+**Archive:** https://web.archive.org/web/20261123092805/https://audiovisual.ec.europa.eu/en/media/video/I-298222
+**Archive 2:** https://web.archive.org/web/20261124164836/https://www.bleepingcomputer.com/news/security/european-commission-confirms-data-theft-in-eu-academy-breach/
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
@@ -1555,6 +1560,7 @@ The European Commission disclosed on November 19 that attackers breached its sys
 **Date:** 2026-11-20
 **Source:** BleepingComputer
 **URL:** https://www.bleepingcomputer.com/news/security/bell-canada-says-agentic-hacker-stole-enterprise-customer-data
+**Archive:** https://web.archive.org/web/20261123132458/https://www.bleepingcomputer.com/news/security/bell-canada-says-agentic-hacker-stole-enterprise-customer-data/
 **AI role:** Unclear
 **Category:** Cyber operations
 
@@ -1567,6 +1573,7 @@ Bell Canada reported that an "agentic threat actor" entered a pre-production Max
 **Date:** 2026-11-20
 **Source:** SOCRadar
 **URL:** https://socradar.io/blog/babidighost-ai-augmented-cybercrime/
+**Archive:** https://web.archive.org/web/20261122061048/https://socradar.io/blog/babidighost-ai-augmented-cybercrime/
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
@@ -1579,6 +1586,7 @@ SOCRadar rebuilt BabidiGhost's operation from an exposed staging server and reco
 **Date:** 2026-11-18
 **Source:** SOCRadar
 **URL:** https://socradar.io/blog/php2shell-ai-agents-credential-harvesting/
+**Archive:** https://web.archive.org/web/20261118175520/https://socradar.io/blog/php2shell-ai-agents-credential-harvesting/
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
@@ -1591,6 +1599,7 @@ SOCRadar found an operator who wrote a PHP2Shell exploit (CVE-2026-109618, CVE-2
 **Date:** 2026-11-20
 **Source:** NebuSec
 **URL:** https://nebusec.ai/research/meta-muse-credential-exposure
+**Archive:** https://web.archive.org/web/20261123164009/https://nebusec.ai/research/meta-muse-credential-exposure/
 **AI role:** AI-targeted
 **Category:** Vulnerability research
 
@@ -1603,6 +1612,7 @@ NebuSec chained a Chromium bug, Sentinel approval flaws and Linux kernel exploit
 **Date:** 2026-11-23
 **Source:** AIR Research Lab
 **URL:** https://www.air.security/blog-posts/websec
+**Archive:** https://web.archive.org/web/20261124231501/https://www.air.security/about
 **AI role:** AI security research
 **Category:** Security research
 
@@ -1617,6 +1627,8 @@ AIR Research Lab ran 4,719 coding-agent searches through eight search APIs and c
 **Source 2:** The Hacker News
 **URL:** https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0062&pageid=PUBVLNOTES02
 **URL 2:** https://thehackernews.com/2026/11/ai-assisted-cyberattacks-trigger.html
+**Archive:** https://web.archive.org/web/20261123092608/https://www.cert-in.org.in/s2cMainServlet?pageid=PUBVLNOTES02&VLCODE=CIAD-2026-0062
+**Archive 2:** https://web.archive.org/web/20261124111301/https://thehackernews.com/2026/11/ai-assisted-cyberattacks-trigger.html
 **AI role:** Autonomous
 **Category:** Cyber operations
 

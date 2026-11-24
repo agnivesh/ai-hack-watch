@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
   "chunk_size": 20,
-  "total": 109,
+  "total": 118,
   "taxonomy": {
     "roles": [
       "Autonomous",
@@ -23,6 +23,183 @@
   },
   "incidents": [
     {
+      "date": "2026-11-23",
+      "updated": "",
+      "source": "AIR Research Lab",
+      "sources": [
+        "AIR Research Lab"
+      ],
+      "title": "AIR finds every tested AI search API returned malicious results",
+      "description": "AIR Research Lab ran 4,719 coding-agent searches through eight search APIs and checked more than 282,000 results. All eight returned known-malicious content at least once, producing 534 searches with known-malicious results and 1,026 malicious or risky results overall. Firecrawl and Tavily scored highest on AIR's WebSec Index; You.com scored lowest. No provider choice removes the need to treat search results as untrusted input.",
+      "url": "https://www.air.security/blog-posts/websec",
+      "urls": [
+        "https://www.air.security/blog-posts/websec"
+      ],
+      "archive": "https://web.archive.org/web/20261124231501/https://www.air.security/about",
+      "archives": [
+        "https://web.archive.org/web/20261124231501/https://www.air.security/about"
+      ],
+      "role": "AI security research",
+      "category": "Security research",
+      "slug": "air-finds-every-tested-ai-search-api-returned-malicious-results"
+    },
+    {
+      "date": "2026-11-20",
+      "updated": "",
+      "source": "Amazon Threat Intelligence",
+      "sources": [
+        "Amazon Threat Intelligence",
+        "BleepingComputer"
+      ],
+      "title": "Amazon finds China-nexus Cairn agents discovered and exploited a MONAI zero-day",
+      "description": "Amazon Threat Intelligence reconstructed a China-nexus campaign that began on September 8 against East Asian universities after finding an exposed Cairn server. The agents mapped the MONAI Label API and reached arbitrary file writes in about 11 minutes via a path traversal flaw (CVE-2026-133968, GHSA-qc22-rmgc-vg94). They wrote a Python reverse shell to sitecustomize.py and triggered a new process that connected back as root. The maintainers fixed the flaw in October, and AWS assessed the actor as Chinese-nexus with moderate confidence.",
+      "url": "https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/",
+      "urls": [
+        "https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/",
+        "https://www.bleepingcomputer.com/news/security/hackers-use-autonomous-ai-tool-cairn-to-find-zero-day-take-over-server/"
+      ],
+      "archive": "https://web.archive.org/web/20261124132218/https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/",
+      "archives": [
+        "https://web.archive.org/web/20261124132218/https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/",
+        "https://web.archive.org/web/20261124143002/https://www.bleepingcomputer.com/news/security/hackers-use-autonomous-ai-tool-cairn-to-find-zero-day-take-over-server/"
+      ],
+      "role": "Autonomous",
+      "category": "Cyber operations",
+      "slug": "amazon-finds-china-nexus-cairn-agents-discovered-and-exploited-a-monai-zero-day"
+    },
+    {
+      "date": "2026-11-20",
+      "updated": "",
+      "source": "BleepingComputer",
+      "sources": [
+        "BleepingComputer"
+      ],
+      "title": "Bell Canada blames an \"agentic\" intruder for enterprise data theft",
+      "description": "Bell Canada reported that an \"agentic threat actor\" entered a pre-production Maximo environment on November 17 and exfiltrated enterprise customer data. Contact details, ticket titles and some network IP addresses may have been taken. Bell contained the intrusion, reported no impact on customer services, and shared indicators with the Canadian Centre for Cyber Security without releasing them publicly. No attacker has been named, and Bell has not explained how AI tooling was used.",
+      "url": "https://www.bleepingcomputer.com/news/security/bell-canada-says-agentic-hacker-stole-enterprise-customer-data",
+      "urls": [
+        "https://www.bleepingcomputer.com/news/security/bell-canada-says-agentic-hacker-stole-enterprise-customer-data"
+      ],
+      "archive": "https://web.archive.org/web/20261123132458/https://www.bleepingcomputer.com/news/security/bell-canada-says-agentic-hacker-stole-enterprise-customer-data/",
+      "archives": [
+        "https://web.archive.org/web/20261123132458/https://www.bleepingcomputer.com/news/security/bell-canada-says-agentic-hacker-stole-enterprise-customer-data/"
+      ],
+      "role": "Unclear",
+      "category": "Cyber operations",
+      "slug": "bell-canada-blames-an-agentic-intruder-for-enterprise-data-theft"
+    },
+    {
+      "date": "2026-11-20",
+      "updated": "",
+      "source": "SOCRadar",
+      "sources": [
+        "SOCRadar"
+      ],
+      "title": "SOCRadar traces a nine-day campaign to a jailbroken agent",
+      "description": "SOCRadar rebuilt BabidiGhost's operation from an exposed staging server and recovered 1,801 plain-language orders that a jailbroken Hermes agent turned into scanners, exploits, parsers and exfiltration scripts. The agent attacked more than 50 organizations, mostly in Belgium, France and Switzerland. It exported an insurer's customer database (via CVE-2023-38646) and 8.6 GB from a shared municipal storage server. MFA, IP allowlisting and server-side validation stopped it elsewhere; the campaign ended when its model API key was revoked on November 14.",
+      "url": "https://socradar.io/blog/babidighost-ai-augmented-cybercrime/",
+      "urls": [
+        "https://socradar.io/blog/babidighost-ai-augmented-cybercrime/"
+      ],
+      "archive": "https://web.archive.org/web/20261122061048/https://socradar.io/blog/babidighost-ai-augmented-cybercrime/",
+      "archives": [
+        "https://web.archive.org/web/20261122061048/https://socradar.io/blog/babidighost-ai-augmented-cybercrime/"
+      ],
+      "role": "AI-assisted",
+      "category": "Cyber operations",
+      "slug": "socradar-traces-a-nine-day-campaign-to-a-jailbroken-agent"
+    },
+    {
+      "date": "2026-11-20",
+      "updated": "",
+      "source": "NebuSec",
+      "sources": [
+        "NebuSec"
+      ],
+      "title": "NebuSec chains Muse flaws to steal private chats and credentials",
+      "description": "NebuSec chained a Chromium bug, Sentinel approval flaws and Linux kernel exploits to escape Muse's runtime container and reach credential storage in the underlying VM. An attacker-controlled page first let the researchers read and alter conversation history and stored memories without triggering network approval prompts. Meta patched every flaw before publication. The compromise stayed inside a single user's VM.",
+      "url": "https://nebusec.ai/research/meta-muse-credential-exposure",
+      "urls": [
+        "https://nebusec.ai/research/meta-muse-credential-exposure"
+      ],
+      "archive": "https://web.archive.org/web/20261123164009/https://nebusec.ai/research/meta-muse-credential-exposure/",
+      "archives": [
+        "https://web.archive.org/web/20261123164009/https://nebusec.ai/research/meta-muse-credential-exposure/"
+      ],
+      "role": "AI-targeted",
+      "category": "Vulnerability research",
+      "slug": "nebusec-chains-muse-flaws-to-steal-private-chats-and-credentials"
+    },
+    {
+      "date": "2026-11-20",
+      "updated": "",
+      "source": "CERT-In",
+      "sources": [
+        "CERT-In",
+        "The Hacker News"
+      ],
+      "title": "CERT-In warns agentic frameworks are automating intrusions across sectors",
+      "description": "CERT-In advisory CIAD-2026-0062 reports AI-driven agentic offensive frameworks performing automated reconnaissance, credential attacks and parallel intrusion tasks against enterprises, government bodies and academic institutions. Separate incidents used altered business records and approval relationships to push unauthorized payments through legitimate systems at banks, fintechs and technology service providers. The advisory names no victims and attributes no activity.",
+      "url": "https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0062&pageid=PUBVLNOTES02",
+      "urls": [
+        "https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0062&pageid=PUBVLNOTES02",
+        "https://thehackernews.com/2026/11/ai-assisted-cyberattacks-trigger.html"
+      ],
+      "archive": "https://web.archive.org/web/20261123092608/https://www.cert-in.org.in/s2cMainServlet?pageid=PUBVLNOTES02&VLCODE=CIAD-2026-0062",
+      "archives": [
+        "https://web.archive.org/web/20261123092608/https://www.cert-in.org.in/s2cMainServlet?pageid=PUBVLNOTES02&VLCODE=CIAD-2026-0062",
+        "https://web.archive.org/web/20261124111301/https://thehackernews.com/2026/11/ai-assisted-cyberattacks-trigger.html"
+      ],
+      "role": "Autonomous",
+      "category": "Cyber operations",
+      "slug": "cert-in-warns-agentic-frameworks-are-automating-intrusions-across-sectors"
+    },
+    {
+      "date": "2026-11-19",
+      "updated": "",
+      "source": "Dragos",
+      "sources": [
+        "Dragos"
+      ],
+      "title": "Dragos canary prompts expose breaches at three AI inference providers",
+      "description": "Dragos seeded about two million prompts with unique canary URLs and AWS keys across AI services from July to November, then tracked where they surfaced. Three inference providers had been compromised, and attackers used the stolen keys for tens of thousands of AWS API calls. Marketplace resellers also read and reused customer prompts without exploiting a vulnerability. One intruder added the ARTEX framework on November 1, and OpenRouter later dropped providers over the leaked prompts.",
+      "url": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens",
+      "urls": [
+        "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens"
+      ],
+      "archive": "https://web.archive.org/web/20261124180639/https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens",
+      "archives": [
+        "https://web.archive.org/web/20261124180639/https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens"
+      ],
+      "role": "AI-targeted",
+      "category": "Credential theft",
+      "slug": "dragos-canary-prompts-expose-breaches-at-three-ai-inference-providers"
+    },
+    {
+      "date": "2026-11-19",
+      "updated": "2026-11-24",
+      "source": "European Commission",
+      "sources": [
+        "European Commission",
+        "BleepingComputer"
+      ],
+      "title": "European Commission says AI-assisted attack breached EU Academy",
+      "description": "The European Commission disclosed on November 19 that attackers breached its systems on October 22, forcing it to take down Sysper and several other applications. The Commission classified the campaign as AI-assisted and later confirmed that the EU Academy platform leaked users' names and email addresses. Reporting tied the intrusion to the ARTEX framework, and no attribution has been made.",
+      "url": "https://audiovisual.ec.europa.eu/en/media/video/I-298222",
+      "urls": [
+        "https://audiovisual.ec.europa.eu/en/media/video/I-298222",
+        "https://www.bleepingcomputer.com/news/security/european-commission-confirms-data-theft-in-eu-academy-breach/"
+      ],
+      "archive": "https://web.archive.org/web/20261123092805/https://audiovisual.ec.europa.eu/en/media/video/I-298222",
+      "archives": [
+        "https://web.archive.org/web/20261123092805/https://audiovisual.ec.europa.eu/en/media/video/I-298222",
+        "https://web.archive.org/web/20261124164836/https://www.bleepingcomputer.com/news/security/european-commission-confirms-data-theft-in-eu-academy-breach/"
+      ],
+      "role": "AI-assisted",
+      "category": "Cyber operations",
+      "slug": "european-commission-says-ai-assisted-attack-breached-eu-academy"
+    },
+    {
       "date": "2026-11-18",
       "updated": "",
       "source": "Datadog",
@@ -42,6 +219,27 @@
       "role": "AI security research",
       "category": "Vulnerability research",
       "slug": "datadogs-hunting-agents-find-two-kata-containers-guest-to-host-escapes"
+    },
+    {
+      "date": "2026-11-18",
+      "updated": "",
+      "source": "SOCRadar",
+      "sources": [
+        "SOCRadar"
+      ],
+      "title": "SOCRadar finds AI workers behind mass PHP2Shell exploitation",
+      "description": "SOCRadar found an operator who wrote a PHP2Shell exploit (CVE-2026-109618, CVE-2026-109619) on the day public proofs of concept appeared, then ran it through 39 AI workers backed by self-hosted DeepSeek V4.1 endpoints. The campaign attacked 595 hosts in 57 countries and compromised 404, collecting about 290,000 files and 3.3 million user records. Crypto withdrawal attempts stayed pending. The operator's exposed lab revealed a GOAL.md instruction to work autonomously toward more than $50,000 in USDT.",
+      "url": "https://socradar.io/blog/php2shell-ai-agents-credential-harvesting/",
+      "urls": [
+        "https://socradar.io/blog/php2shell-ai-agents-credential-harvesting/"
+      ],
+      "archive": "https://web.archive.org/web/20261118175520/https://socradar.io/blog/php2shell-ai-agents-credential-harvesting/",
+      "archives": [
+        "https://web.archive.org/web/20261118175520/https://socradar.io/blog/php2shell-ai-agents-credential-harvesting/"
+      ],
+      "role": "AI-assisted",
+      "category": "Cyber operations",
+      "slug": "socradar-finds-ai-workers-behind-mass-php2shell-exploitation"
     },
     {
       "date": "2026-11-16",
