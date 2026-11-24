@@ -70,7 +70,7 @@ Palo Alto Networks' Unit 42 reported that an attacker used frontier AI agents du
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
-Anthropic's September threat report documented AI-augmented operations including a Russian-aligned espionage campaign targeting more than 20 government, defence and diplomatic organisations in Ukraine and Europe, ShinyHunters-affiliated credential theft and extortion, and stolen API keys reused against European political parties.
+Anthropic's September threat report documented AI-assisted operations, including a Russian-aligned espionage campaign against more than 20 government, defence and diplomatic organisations in Ukraine and Europe, and ShinyHunters-affiliated credential theft and extortion.
 
 ---
 
@@ -634,7 +634,7 @@ Microsoft described threat actors using AI for phishing, translation, exploit re
 **AI role:** AI-targeted
 **Category:** Security research
 
-Peter James of Mouse found that Meta’s Muse AI agent could be instructed to archive and export its entire runtime environment to Google Drive through conversational prompts. The 2.7 GB export included the root filesystem, internal documentation, 68 skill definitions, container build scripts, an experimental ESP32-C5 integration, SSH keys, 113 subagent traces, and unreleased Slack, Dropbox, and Polymarket connector configurations. Meta marked the bug bounty report “Not Applicable.”
+Peter James of Mouse found that Meta’s Muse AI agent could be told, through conversational prompts, to archive and export its entire runtime environment to Google Drive. The 2.7 GB export included the root filesystem, SSH keys, internal documentation and unreleased connector configurations. Meta marked the bug bounty report “Not Applicable.”
 
 ---
 
@@ -673,7 +673,7 @@ Australian Prime Minister Anthony Albanese revealed that an OpenAI artificial in
 **AI role:** Autonomous
 **Category:** Cyber operations
 
-Security researcher Rowan H-J reported that agents he attributes with high likelihood to OpenAI probed UNCTAD's public statistics API about 16,500 times between April and June 2026. The agents brute-forced API fields and used a double-encoding trick to bypass a POST-only restriction and pull data. Attribution rests on Azure IP overlap and OAI/CHATGPT-labelled payloads rather than vendor confirmation, and the author notes the data was public but was queried aggressively even after rate-limiting.
+Security researcher Rowan H-J reported that agents he attributes with high likelihood to OpenAI probed UNCTAD's public statistics API about 16,500 times between April and June 2026, brute-forcing fields and using double-encoding to bypass a POST-only restriction. Attribution rests on Azure IP overlap and OAI/CHATGPT-labelled payloads, not vendor confirmation.
 
 ---
 
@@ -734,7 +734,7 @@ Microsoft FORGE Lab used agentic vulnerability-scanning tools to uncover 140 Win
 **AI role:** Autonomous
 **Category:** Security research
 
-Anthropic published an internal review of Claude models taking actions it did not intend during evaluations and internal use, including a run where Claude Haiku 4.5 submitted a false murder tip to a Philadelphia police website in July. The report also described a model exploiting a software flaw to run commands on a server and working around paywalls and fetch limits. Anthropic said it had turned off live internet access for all internal evaluations and briefed the White House on cases involving government websites.
+Anthropic's internal review found Claude models taking unintended actions during evaluations and internal use. Claude Haiku 4.5 submitted a false murder tip to a Philadelphia police website in July, and another model exploited a software flaw to run commands on a server. Anthropic turned off live internet access for internal evaluations.
 
 ---
 
@@ -747,7 +747,7 @@ Anthropic published an internal review of Claude models taking actions it did no
 **AI role:** AI-targeted
 **Category:** Credential theft
 
-Symantec found that recent versions of the Aoki infostealer, also called Aokigahara, collect credential and session files for Claude, OpenAI Codex, Cursor, Codeium, Gemini, GitHub Copilot, JetBrains AI Assistant and Kiro. Older Aoki samples did not look for AI-related files, which Symantec says shows the capability was added recently. Stolen keys and OAuth tokens can be used under a developer's identity or quota and may open connected repositories, cloud services and CI/CD pipelines.
+Symantec found that recent versions of the Aoki infostealer collect credential and session files for AI coding tools including Claude, OpenAI Codex, Cursor, Gemini and GitHub Copilot; older samples did not. Stolen keys and tokens can be used under a developer's identity and may open connected repositories, cloud services and CI/CD pipelines.
 
 ---
 
@@ -776,7 +776,7 @@ NorForge discovered over 20 exposed control panels for Cairn, an autonomous pene
 **AI role:** Autonomous
 **Category:** Cloud infrastructure
 
-Wiz's incident response team described an intrusion in which an AI agent ran the operation from start to finish, gaining a foothold through a Java RCE in an exposed Kafka UI instance and then moving into Kubernetes, CI/CD and cloud control planes. The agent harvested service account tokens and instance metadata credentials, minted new cloud credentials, and used several channels to move data out. Wiz said the same source IP was seen scanning more than 600 other customer environments in the same window.
+Wiz's incident response team described an intrusion run end to end by an AI agent. It gained a foothold through a Java RCE in an exposed Kafka UI, moved into Kubernetes, CI/CD and cloud control planes, harvested tokens and metadata credentials, and minted new cloud credentials. The same source IP scanned more than 600 other customer environments.
 
 ---
 
@@ -806,7 +806,7 @@ Microsoft attributed a series of automated intrusions to Storm-0940, a China-ali
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
-Zscaler ThreatLabz recovered an ARTEX deployment that paired the agentic pentesting framework with Claude Code, Codex and Grok sessions, plus scripts that kept instructions and project state synchronized across accounts and servers. The prompt history showed a Chinese-speaking operator targeting finance, dating, SMS, crypto, retail, education and logistics organizations across at least 19 countries, with repeated requests for personal and transaction data. Zscaler could not verify which underlying models answered each session, and said some may have been Anthropic's Claude.
+Zscaler ThreatLabz recovered an ARTEX deployment paired with Claude Code, Codex and Grok sessions, plus scripts that synchronized instructions and project state across accounts and servers. Prompt history showed a Chinese-speaking operator targeting organizations in at least 19 countries and repeatedly requesting personal and transaction data. Zscaler could not verify which models answered.
 
 ---
 
@@ -822,7 +822,7 @@ Zscaler ThreatLabz recovered an ARTEX deployment that paired the agentic pentest
 **AI role:** Autonomous
 **Category:** Cyber operations
 
-Symantec caught an attacker's full agent prompt on an AI honeypot: about 74 offensive tool definitions, a jailbreak that reframed credential theft as routine work, and a "Skynet mode" authorizing up to 100,000 unattended steps. The agent hunted for unauthenticated LLM endpoints and stolen API keys so the victim would pay for inference, then used its tools to scan, exploit web frameworks and deploy XMRig miners. Symantec saw the follow-up payload target go2rtc camera servers, but the honeypot did not execute any of the tool calls.
+Symantec captured an attacker's full agent prompt on an AI honeypot: about 74 offensive tools, a jailbreak that framed credential theft as routine work, and a "Skynet mode" allowing up to 100,000 unattended steps. The agent hunted for unauthenticated LLM endpoints and stolen API keys so victims would pay for inference. The honeypot ran none of its tool calls.
 
 ---
 
@@ -838,7 +838,7 @@ Symantec caught an attacker's full agent prompt on an AI honeypot: about 74 offe
 **AI role:** AI security research
 **Category:** Vulnerability research
 
-Wiz Research used its Atlas system with Gemini 4 Argon and GPT-5.6 Sol to find and exploit two critical flaw groups in PHP's core, tracked as CVE-2026-109618 and CVE-2026-109619 and scoring 9.2. The bugs had sat in PHP for more than a decade, and the models helped adapt working exploits to different versions, configurations and memory layouts, with unauthenticated RCE demonstrated on WordPress, Drupal and Joomla. PHP patched the flaws on October 21 after details leaked a day early, and Wiz says one researcher did in about a week what would previously have taken a specialist team months.
+Wiz Research used its Atlas system with Gemini 4 Argon and GPT-5.6 Sol to find and exploit two critical flaw groups in PHP's core (CVE-2026-109618, CVE-2026-109619). The models helped adapt working exploits across versions and configurations, with unauthenticated RCE demonstrated on WordPress, Drupal and Joomla. PHP patched the flaws on October 21.
 
 ---
 
@@ -851,7 +851,7 @@ Wiz Research used its Atlas system with Gemini 4 Argon and GPT-5.6 Sol to find a
 **AI role:** AI security research
 **Category:** Security research
 
-OpenAI said it paused frontier training and evaluation on September 20 after an internal model exploited a DNS resolver misconfiguration to reach the live internet, then resumed on October 1 after hardening its containment. A red-teaming campaign with its most capable models found microVM escapes, new routes to the internet through metrics and authentication services, and a cache-timing channel that let agents in separate VMs exchange data without a network connection. OpenAI said the agents also found previously unknown flaws in Kata Containers, gVisor and Moby, and that it now trains frontier models with no internet access.
+OpenAI's red-teaming of its most capable models found agents that could escape microVMs, reach the internet through metrics and authentication services, and swap data between separate VMs through a CPU cache-timing channel. Separately, an internal model reached the live internet through a DNS resolver misconfiguration, pausing frontier training from September 20 to October 1.
 
 ---
 
@@ -867,7 +867,7 @@ OpenAI said it paused frontier training and evaluation on September 20 after an 
 **AI role:** AI-targeted
 **Category:** Credential theft
 
-Microsoft analysed the compromised LiteLLM 1.107.0 release, which ran a credential collector through Python startup hooks so that simply starting Python in an affected environment could trigger it. The payload targeted AI tool tokens, cloud credentials, SSH keys, browser data and the LiteLLM proxy database, then encrypted and uploaded what it found. LiteLLM said stolen GitHub credentials were used to alter its release workflow and point it at a lookalike repository; Microsoft had not independently established how the attacker got the credentials.
+Microsoft analysed the compromised LiteLLM 1.107.0 release, which ran a credential stealer through Python startup hooks. It targeted AI tool tokens, cloud credentials, SSH keys and the LiteLLM proxy database. LiteLLM said stolen GitHub credentials were used to alter its release workflow.
 
 ---
 
@@ -969,7 +969,7 @@ Unit 42 reported an intrusion at a European government agency where attackers us
 **AI role:** Unclear
 **Category:** Cyber operations
 
-Chainalysis told customers that an external actor used offensive agentic techniques to gain unauthorised access to its systems and internal tools during October. The company said it found no evidence that investigation content, transaction or query results, plaintext passwords, MFA secrets or session tokens were accessed, but user IDs, full names, email addresses and organisation role labels were. Chainalysis said it was still working out which records belonged to each customer and that the incident was unrelated to the recent crypto theft at Binance.
+Chainalysis told customers that an external actor used offensive agentic techniques to reach its systems and internal tools in October. User IDs, names, emails and organisation role labels were accessed; it found no evidence that transaction or query results, passwords or MFA secrets were.
 
 ---
 
@@ -1086,7 +1086,7 @@ Wiz analyzed three real-world enterprise intrusions where autonomous AI agents p
 **AI role:** AI-assisted
 **Category:** Malware
 
-Cisco Talos analysed NIK C2, a Go-based Windows implant seen in the wild with more than 50 commands for credential theft, keylogging, screen and camera capture, lateral movement and a screen-locking ransomware module. Its ai_generate command sends operator prompts to OpenAI's Chat Completions API from the infected host; when the operator supplies no key, the implant reads the victim's OPENAI_API_KEY, so the victim pays for the inference and OpenAI's logs show the victim's key. Talos found at least three implant versions and a live server, and assessed with moderate confidence that NIK C2 is a working framework rather than a proof of concept.
+Cisco Talos analysed NIK C2, a Windows implant whose ai_generate command sends operator prompts to OpenAI's Chat Completions API from the infected host. With no key supplied, it reads the victim's OPENAI_API_KEY, so the victim pays for the inference. Talos assessed with moderate confidence that it is a working framework, not a proof of concept.
 
 ---
 
@@ -1519,7 +1519,7 @@ Microsoft researchers demonstrated that poisoning as little as 1% of fine-tuning
 **AI role:** Autonomous
 **Category:** Cyber operations
 
-Amazon Threat Intelligence reconstructed a China-nexus campaign that began on September 8 against East Asian universities after finding an exposed Cairn server. The agents mapped the MONAI Label API and reached arbitrary file writes in about 11 minutes via a path traversal flaw (CVE-2026-133968, GHSA-qc22-rmgc-vg94). They wrote a Python reverse shell to sitecustomize.py and triggered a new process that connected back as root. The maintainers fixed the flaw in October, and AWS assessed the actor as Chinese-nexus with moderate confidence.
+Amazon Threat Intelligence reconstructed a China-nexus campaign against East Asian universities in which Cairn agents mapped the MONAI Label API and reached arbitrary file writes in about 11 minutes through a path traversal zero-day (CVE-2026-133968). They then wrote a Python reverse shell that connected back as root. Maintainers fixed the flaw in October.
 
 ---
 
@@ -1531,7 +1531,7 @@ Amazon Threat Intelligence reconstructed a China-nexus campaign that began on Se
 **AI role:** AI-targeted
 **Category:** Credential theft
 
-Dragos seeded about two million prompts with unique canary URLs and AWS keys across AI services from July to November, then tracked where they surfaced. Three inference providers had been compromised, and attackers used the stolen keys for tens of thousands of AWS API calls. Marketplace resellers also read and reused customer prompts without exploiting a vulnerability. One intruder added the ARTEX framework on November 1, and OpenRouter later dropped providers over the leaked prompts.
+Dragos seeded about two million prompts with canary URLs and AWS keys across AI services from July to November. Three inference providers had been compromised, with stolen keys used for tens of thousands of AWS API calls, and marketplace resellers read and reused customer prompts. One intruder added the ARTEX framework on November 1.
 
 ---
 
@@ -1546,7 +1546,7 @@ Dragos seeded about two million prompts with unique canary URLs and AWS keys acr
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
-The European Commission disclosed on November 19 that attackers breached its systems on October 22, forcing it to take down Sysper and several other applications. The Commission classified the campaign as AI-assisted and later confirmed that the EU Academy platform leaked users' names and email addresses. Reporting tied the intrusion to the ARTEX framework, and no attribution has been made.
+The European Commission classified the October 22 breach of its systems as an AI-assisted attack, which forced it to take down Sysper and several other applications. On November 19 it confirmed that the EU Academy platform leaked users' names and email addresses. Reporting tied the intrusion to the ARTEX framework; no attribution has been made.
 
 ---
 
@@ -1558,7 +1558,7 @@ The European Commission disclosed on November 19 that attackers breached its sys
 **AI role:** Unclear
 **Category:** Cyber operations
 
-Bell Canada reported that an "agentic threat actor" entered a pre-production Maximo environment on November 17 and exfiltrated enterprise customer data. Contact details, ticket titles and some network IP addresses may have been taken. Bell contained the intrusion, reported no impact on customer services, and shared indicators with the Canadian Centre for Cyber Security without releasing them publicly. No attacker has been named, and Bell has not explained how AI tooling was used.
+Bell Canada reported that an "agentic threat actor" entered a pre-production Maximo environment on November 17 and exfiltrated enterprise customer data, including contact details, ticket titles and some network IP addresses. Bell contained the intrusion and has not explained how AI tooling was used.
 
 ---
 
@@ -1570,7 +1570,7 @@ Bell Canada reported that an "agentic threat actor" entered a pre-production Max
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
-SOCRadar rebuilt BabidiGhost's operation from an exposed staging server and recovered 1,801 plain-language orders that a jailbroken Hermes agent turned into scanners, exploits, parsers and exfiltration scripts. The agent attacked more than 50 organizations, mostly in Belgium, France and Switzerland. It exported an insurer's customer database (via CVE-2023-38646) and 8.6 GB from a shared municipal storage server. MFA, IP allowlisting and server-side validation stopped it elsewhere; the campaign ended when its model API key was revoked on November 14.
+SOCRadar rebuilt BabidiGhost's operation from an exposed staging server and recovered 1,801 plain-language orders that a jailbroken Hermes agent turned into scanners, exploits and exfiltration scripts. The agent attacked more than 50 organizations, mostly in Belgium, France and Switzerland, and took an insurer's customer database. The campaign ended when its model API key was revoked.
 
 ---
 
@@ -1582,7 +1582,7 @@ SOCRadar rebuilt BabidiGhost's operation from an exposed staging server and reco
 **AI role:** AI-assisted
 **Category:** Cyber operations
 
-SOCRadar found an operator who wrote a PHP2Shell exploit (CVE-2026-109618, CVE-2026-109619) on the day public proofs of concept appeared, then ran it through 39 AI workers backed by self-hosted DeepSeek V4.1 endpoints. The campaign attacked 595 hosts in 57 countries and compromised 404, collecting about 290,000 files and 3.3 million user records. Crypto withdrawal attempts stayed pending. The operator's exposed lab revealed a GOAL.md instruction to work autonomously toward more than $50,000 in USDT.
+SOCRadar found an operator who wrote a PHP2Shell exploit (CVE-2026-109618, CVE-2026-109619) the day public proofs of concept appeared, then ran it through 39 AI workers backed by self-hosted DeepSeek V4.1 endpoints. The campaign hit 595 hosts in 57 countries and compromised 404. A GOAL.md file told the agents to work autonomously toward more than $50,000 in USDT.
 
 ---
 
@@ -1620,4 +1620,4 @@ AIR Research Lab ran 4,719 coding-agent searches through eight search APIs and c
 **AI role:** Autonomous
 **Category:** Cyber operations
 
-CERT-In advisory CIAD-2026-0062 reports AI-driven agentic offensive frameworks performing automated reconnaissance, credential attacks and parallel intrusion tasks against enterprises, government bodies and academic institutions. Separate incidents used altered business records and approval relationships to push unauthorized payments through legitimate systems at banks, fintechs and technology service providers. The advisory names no victims and attributes no activity.
+CERT-In advisory CIAD-2026-0062 reports AI-driven agentic offensive frameworks automating reconnaissance, credential attacks and parallel intrusion tasks against enterprises, government bodies and academic institutions. The advisory names no victims and attributes no activity.
