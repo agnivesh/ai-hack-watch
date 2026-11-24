@@ -1506,3 +1506,118 @@ Datadog described an agent pipeline that gives vulnerability-hunting models a re
 **Category:** AI model compromise
 
 Two Microsoft research teams showed that an attacker who controls fine-tuning data or an open-weight checkpoint can make a coding agent run commands on cue. In the dataset experiment, 90 poisoned examples hidden among about 9,000 terminal-agent conversations, roughly 1%, taught gpt-4.1-mini to look for whatever command-execution tool a harness offered and call it with a payload fetched from an attacker's server. A routine request to write project documentation triggered the behaviour in 78% of trials on harnesses seen during training and 11% on one unseen harness, with no success on a second; paraphrased triggers still worked 52% to 70% of the time. The checkpoint study poisoned Qwen3.5-4B and 9B models and saw 84.1% to 94.8% activation on unseen repositories in its strongest configuration, with transfer reaching 97% and 91% under Claude Code and 37.3% and 63% under Codex CLI. The researchers also found a public training row that mapped a harmless request to a curl-and-execute call. They recommended checking dataset provenance, testing checkpoints in the production harness and limiting tool permissions.
+
+---
+
+## Amazon finds China-nexus Cairn agents discovered and exploited a MONAI zero-day
+
+**Date:** 2026-11-20
+**Source:** Amazon Threat Intelligence
+**Source 2:** BleepingComputer
+**URL:** https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/
+**URL 2:** https://www.bleepingcomputer.com/news/security/hackers-use-autonomous-ai-tool-cairn-to-find-zero-day-take-over-server/
+**AI role:** Autonomous
+**Category:** Cyber operations
+
+Amazon Threat Intelligence reconstructed a China-nexus campaign that began on September 8 against East Asian universities after finding an exposed Cairn server. The agents mapped the MONAI Label API and reached arbitrary file writes in about 11 minutes via a path traversal flaw (CVE-2026-133968, GHSA-qc22-rmgc-vg94). They wrote a Python reverse shell to sitecustomize.py and triggered a new process that connected back as root. The maintainers fixed the flaw in October, and AWS assessed the actor as Chinese-nexus with moderate confidence.
+
+---
+
+## Dragos canary prompts expose breaches at three AI inference providers
+
+**Date:** 2026-11-19
+**Source:** Dragos
+**URL:** https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens
+**AI role:** AI-targeted
+**Category:** Credential theft
+
+Dragos seeded about two million prompts with unique canary URLs and AWS keys across AI services from July to November, then tracked where they surfaced. Three inference providers had been compromised, and attackers used the stolen keys for tens of thousands of AWS API calls. Marketplace resellers also read and reused customer prompts without exploiting a vulnerability. One intruder added the ARTEX framework on November 1, and OpenRouter later dropped providers over the leaked prompts.
+
+---
+
+## European Commission says AI-assisted attack breached EU Academy
+
+**Date:** 2026-11-19
+**Updated:** 2026-11-24
+**Source:** European Commission
+**Source 2:** BleepingComputer
+**URL:** https://audiovisual.ec.europa.eu/en/media/video/I-298222
+**URL 2:** https://www.bleepingcomputer.com/news/security/european-commission-confirms-data-theft-in-eu-academy-breach/
+**AI role:** AI-assisted
+**Category:** Cyber operations
+
+The European Commission disclosed on November 19 that attackers breached its systems on October 22, forcing it to take down Sysper and several other applications. The Commission classified the campaign as AI-assisted and later confirmed that the EU Academy platform leaked users' names and email addresses. Reporting tied the intrusion to the ARTEX framework, and no attribution has been made.
+
+---
+
+## Bell Canada blames an "agentic" intruder for enterprise data theft
+
+**Date:** 2026-11-20
+**Source:** BleepingComputer
+**URL:** https://www.bleepingcomputer.com/news/security/bell-canada-says-agentic-hacker-stole-enterprise-customer-data
+**AI role:** Unclear
+**Category:** Cyber operations
+
+Bell Canada reported that an "agentic threat actor" entered a pre-production Maximo environment on November 17 and exfiltrated enterprise customer data. Contact details, ticket titles and some network IP addresses may have been taken. Bell contained the intrusion, reported no impact on customer services, and shared indicators with the Canadian Centre for Cyber Security without releasing them publicly. No attacker has been named, and Bell has not explained how AI tooling was used.
+
+---
+
+## SOCRadar traces a nine-day campaign to a jailbroken agent
+
+**Date:** 2026-11-20
+**Source:** SOCRadar
+**URL:** https://socradar.io/blog/babidighost-ai-augmented-cybercrime/
+**AI role:** AI-assisted
+**Category:** Cyber operations
+
+SOCRadar rebuilt BabidiGhost's operation from an exposed staging server and recovered 1,801 plain-language orders that a jailbroken Hermes agent turned into scanners, exploits, parsers and exfiltration scripts. The agent attacked more than 50 organizations, mostly in Belgium, France and Switzerland. It exported an insurer's customer database (via CVE-2023-38646) and 8.6 GB from a shared municipal storage server. MFA, IP allowlisting and server-side validation stopped it elsewhere; the campaign ended when its model API key was revoked on November 14.
+
+---
+
+## SOCRadar finds AI workers behind mass PHP2Shell exploitation
+
+**Date:** 2026-11-18
+**Source:** SOCRadar
+**URL:** https://socradar.io/blog/php2shell-ai-agents-credential-harvesting/
+**AI role:** AI-assisted
+**Category:** Cyber operations
+
+SOCRadar found an operator who wrote a PHP2Shell exploit (CVE-2026-109618, CVE-2026-109619) on the day public proofs of concept appeared, then ran it through 39 AI workers backed by self-hosted DeepSeek V4.1 endpoints. The campaign attacked 595 hosts in 57 countries and compromised 404, collecting about 290,000 files and 3.3 million user records. Crypto withdrawal attempts stayed pending. The operator's exposed lab revealed a GOAL.md instruction to work autonomously toward more than $50,000 in USDT.
+
+---
+
+## NebuSec chains Muse flaws to steal private chats and credentials
+
+**Date:** 2026-11-20
+**Source:** NebuSec
+**URL:** https://nebusec.ai/research/meta-muse-credential-exposure
+**AI role:** AI-targeted
+**Category:** Vulnerability research
+
+NebuSec chained a Chromium bug, Sentinel approval flaws and Linux kernel exploits to escape Muse's runtime container and reach credential storage in the underlying VM. An attacker-controlled page first let the researchers read and alter conversation history and stored memories without triggering network approval prompts. Meta patched every flaw before publication. The compromise stayed inside a single user's VM.
+
+---
+
+## AIR finds every tested AI search API returned malicious results
+
+**Date:** 2026-11-23
+**Source:** AIR Research Lab
+**URL:** https://www.air.security/blog-posts/websec
+**AI role:** AI security research
+**Category:** Security research
+
+AIR Research Lab ran 4,719 coding-agent searches through eight search APIs and checked more than 282,000 results. All eight returned known-malicious content at least once, producing 534 searches with known-malicious results and 1,026 malicious or risky results overall. Firecrawl and Tavily scored highest on AIR's WebSec Index; You.com scored lowest. No provider choice removes the need to treat search results as untrusted input.
+
+---
+
+## CERT-In warns agentic frameworks are automating intrusions across sectors
+
+**Date:** 2026-11-20
+**Source:** CERT-In
+**Source 2:** The Hacker News
+**URL:** https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0062&pageid=PUBVLNOTES02
+**URL 2:** https://thehackernews.com/2026/11/ai-assisted-cyberattacks-trigger.html
+**AI role:** Autonomous
+**Category:** Cyber operations
+
+CERT-In advisory CIAD-2026-0062 reports AI-driven agentic offensive frameworks performing automated reconnaissance, credential attacks and parallel intrusion tasks against enterprises, government bodies and academic institutions. Separate incidents used altered business records and approval relationships to push unauthorized payments through legitimate systems at banks, fintechs and technology service providers. The advisory names no victims and attributes no activity.
